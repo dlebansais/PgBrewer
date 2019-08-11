@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Alcoholx4x4Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Alcoholx4Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -64,6 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Alcoholx4x4Control.xaml.cs">
+      <DependentUpon>Alcoholx4x4Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alcoholx4x4Line.cs" />
+    <Compile Include="Alcoholx4x4.cs" />
     <Compile Include="Alcoholx4.cs" />
     <Compile Include="Alcoholx4Control.xaml.cs">
       <DependentUpon>Alcoholx4Control.xaml</DependentUpon>

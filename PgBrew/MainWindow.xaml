@@ -6,12 +6,17 @@
         WindowStartupLocation="CenterOwner"
         ResizeMode="CanResize"
         SizeToContent="WidthAndHeight"
+        MinWidth="1000"
+        MinHeight="500"
         Closing="OnClosing">
     <TabControl>
         <TabItem Header="Beer">
             <TabControl>
                 <TabItem Header="Basic Lager">
                     <local:Alcoholx4Control DataContext="{Binding BasicLager}"/>
+                </TabItem>
+                <TabItem Header="Pale Ale">
+                    <local:Alcoholx4x4Control DataContext="{Binding PaleAle}"/>
                 </TabItem>
             </TabControl>
         </TabItem>

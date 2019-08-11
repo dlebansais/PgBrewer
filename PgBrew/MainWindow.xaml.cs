@@ -13,6 +13,8 @@
         {
             InitializeComponent();
             DataContext = this;
+
+            IsChanged = false;
         }
 
         public static bool IsChanged { get; set; }
@@ -24,6 +26,22 @@
                 "Grapes",
                 "Orange",
                 "Strawberry",
+            });
+
+        public Alcoholx4x4 PaleAle { get; private set; } = new Alcoholx4x4("Pale Ale",
+            new List<string>()
+            {
+                "Red Apple",
+                "Grapes",
+                "Orange",
+                "Strawberry",
+            },
+            new List<string>()
+            {
+                "Parasol Mushroom Flakes",
+                "Mycena Mushroom Flakes",
+                "Boletus Mushroom Flakes",
+                "Field Mushroom Flakes",
             });
 
         private void OnClosing(object sender, CancelEventArgs e)
@@ -52,6 +70,7 @@
         private void SaveAll()
         {
             BasicLager.Save();
+            PaleAle.Save();
         }
     }
 }

@@ -3,28 +3,31 @@
     using System.Collections.Generic;
     using System.Diagnostics;
 
-    public class Alcoholx4
+    public class Alcoholx4x4
     {
-        public Alcoholx4(string name, List<string> componentList1)
+        public Alcoholx4x4(string name, List<string> componentList1, List<string> componentList2)
         {
             Name = name;
             ComponentList1 = componentList1;
+            ComponentList2 = componentList2;
             EffectList = DataArchive.ReadEffectList(name);
 
-            List<int> Indexes = DataArchive.GetIndexList(Name, ComponentList1.Count);
+            List<int> Indexes = DataArchive.GetIndexList(Name, ComponentList1.Count * ComponentList2.Count);
             int EffectIndex = 0;
 
             for (int ComponentIndex1 = 0; ComponentIndex1 < ComponentList1.Count; ComponentIndex1++)
-            {
-                Lines.Add(new Alcoholx4Line(this, ComponentIndex1, Indexes[EffectIndex++]));
-            }
+                for (int ComponentIndex2 = 0; ComponentIndex2 < ComponentList2.Count; ComponentIndex2++)
+                {
+                    Lines.Add(new Alcoholx4x4Line(this, ComponentIndex1, ComponentIndex2, Indexes[EffectIndex++]));
+                }
         }
 
         public string Name { get; }
         public List<string> ComponentList1 { get; }
+        public List<string> ComponentList2 { get; }
         public List<string> EffectList { get; } = new List<string>();
 
-        public List<Alcoholx4Line> Lines { get; } = new List<Alcoholx4Line>();
+        public List<Alcoholx4x4Line> Lines { get; } = new List<Alcoholx4x4Line>();
 
         public void Save()
         {
