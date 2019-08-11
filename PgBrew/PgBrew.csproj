@@ -56,11 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Alcoholx4x4Control.xaml">
+    <Page Include="Beer x4x4x2\Alcoholx4x4x2Control.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Alcoholx4Control.xaml">
+    <Page Include="Beer x4x4\Alcoholx4x4Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beer x4\Alcoholx4Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,16 +72,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Alcoholx4x4Control.xaml.cs">
+    <Compile Include="Beer x4x4x2\Alcoholx4x4x2.cs" />
+    <Compile Include="Beer x4x4x2\Alcoholx4x4x2Control.xaml.cs">
+      <DependentUpon>Alcoholx4x4x2Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beer x4x4x2\Alcoholx4x4x2Line.cs" />
+    <Compile Include="Beer x4x4\Alcoholx4x4Control.xaml.cs">
       <DependentUpon>Alcoholx4x4Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Alcoholx4x4Line.cs" />
-    <Compile Include="Alcoholx4x4.cs" />
-    <Compile Include="Alcoholx4.cs" />
-    <Compile Include="Alcoholx4Control.xaml.cs">
+    <Compile Include="Beer x4x4\Alcoholx4x4Line.cs" />
+    <Compile Include="Beer x4x4\Alcoholx4x4.cs" />
+    <Compile Include="Beer x4\Alcoholx4.cs" />
+    <Compile Include="Beer x4\Alcoholx4Control.xaml.cs">
       <DependentUpon>Alcoholx4Control.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Alcoholx4Line.cs" />
+    <Compile Include="Beer x4\Alcoholx4Line.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

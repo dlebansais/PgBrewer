@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="PgBrew.Alcoholx4x4x2Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PgBrew">
+    <UserControl.Resources>
+        <DataTemplate x:Key="Line">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" MinWidth="100"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" MinWidth="150"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" MinWidth="150"/>
+                <Button DockPanel.Dock="Right" Click="OnDelete" Content="X" MinWidth="16"/>
+                <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}"/>
+            </DockPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Line}"/>
+    </ScrollViewer>
+</UserControl>

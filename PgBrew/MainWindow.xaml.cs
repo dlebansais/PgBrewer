@@ -44,6 +44,27 @@
                 "Field Mushroom Flakes",
             });
 
+        public Alcoholx4x4x2 Marzen { get; private set; } = new Alcoholx4x4x2("Marzen",
+            new List<string>()
+            {
+                "Red Apple",
+                "Grapes",
+                "Orange",
+                "Strawberry",
+            },
+            new List<string>()
+            {
+                "Parasol Mushroom Flakes",
+                "Mycena Mushroom Flakes",
+                "Boletus Mushroom Flakes",
+                "Field Mushroom Flakes",
+            },
+            new List<string>()
+            {
+                "Oregano",
+                "Mandrake Root",
+            });
+
         private void OnClosing(object sender, CancelEventArgs e)
         {
             if (IsChanged)
@@ -71,6 +92,7 @@
         {
             BasicLager.Save();
             PaleAle.Save();
+            Marzen.Save();
         }
     }
 }

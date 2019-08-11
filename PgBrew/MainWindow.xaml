@@ -18,6 +18,9 @@
                 <TabItem Header="Pale Ale">
                     <local:Alcoholx4x4Control DataContext="{Binding PaleAle}"/>
                 </TabItem>
+                <TabItem Header="Marzen">
+                    <local:Alcoholx4x4x2Control DataContext="{Binding Marzen}"/>
+                </TabItem>
             </TabControl>
         </TabItem>
         <TabItem Header="Hard Liquor">
