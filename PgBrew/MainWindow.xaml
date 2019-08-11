@@ -1,0 +1,24 @@
+﻿<Window x:Class="PgBrew.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PgBrew"
+        Title="Project: Gorgon - Brewing"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize"
+        SizeToContent="WidthAndHeight">
+    <TabControl>
+        <TabItem Header="Beer">
+            <TabControl>
+                <TabItem Header="Basic Lager">
+                    <local:Alcoholx4Control DataContext="{Binding BasicLager}"/>
+                </TabItem>
+            </TabControl>
+        </TabItem>
+        <TabItem Header="Hard Liquor">
+            <TabItem Header="Potato Vodka">
+            </TabItem>
+        </TabItem>
+        <TabItem Header="Settings">
+        </TabItem>
+    </TabControl>
+</Window>
