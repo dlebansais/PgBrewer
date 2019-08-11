@@ -92,6 +92,34 @@
                 "Peppercorns",
             });
 
+        public Alcoholx4x3x4x3 OrcishBock { get; private set; } = new Alcoholx4x3x4x3("Orcish Bock",
+            new List<string>()
+            {
+                "Beet",
+                "Squash",
+                "Broccoli",
+                "Carrot",
+            },
+            new List<string>()
+            {
+                "Guava",
+                "Banana",
+                "Lemon",
+            },
+            new List<string>()
+            {
+                "Field Mushroom Flakes",
+                "Blusher Mushroom Flakes",
+                "Milk Cap Mushroom Powder",
+                "Blood Mushroom Powder",
+            },
+            new List<string>()
+            {
+                "Oregano",
+                "Mandrake Root",
+                "Peppercorns",
+            });
+
         private void OnClosing(object sender, CancelEventArgs e)
         {
             if (IsChanged)
