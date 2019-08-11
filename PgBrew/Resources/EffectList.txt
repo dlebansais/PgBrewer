@@ -1,4 +1,4 @@
-﻿Basic Lager;1
-Basic Lager;2
-Basic Lager;3
-Basic Lager;4
+﻿Basic Lager;Attack miss, Sprint
+Basic Lager;Jump
+Basic Lager;Dance
+Basic Lager;Dance

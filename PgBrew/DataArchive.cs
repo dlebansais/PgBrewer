@@ -1,14 +1,22 @@
 ﻿namespace PgBrew
 {
+    using Microsoft.Win32;
     using System.Collections.Generic;
     using System.IO;
     using System.Reflection;
+    using System.Security.AccessControl;
     using System.Text;
 
     public class DataArchive
     {
         static DataArchive()
         {
+        }
+
+        public static List<string> ReadEffectList(string name)
+        {
+            List<string> Result = new List<string>();
+
             try
             {
                 Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
@@ -18,7 +26,7 @@
                 {
                     using (StreamReader Reader = new StreamReader(ResourceStream, Encoding.UTF8))
                     {
-                        for (;;)
+                        for (; ; )
                         {
                             string Line = Reader.ReadLine();
                             if (Line == null)
@@ -27,15 +35,11 @@
                             string[] LineSplit = Line.Split(';');
                             if (LineSplit.Length == 2)
                             {
-                                string Id = LineSplit[0];
+                                string Name = LineSplit[0];
                                 string Text = LineSplit[1];
 
-                                switch (Id)
-                                {
-                                    case "Basic Lager":
-                                        BasicLagerTable.Add(Text);
-                                        break;
-                                }
+                                if (Name == name)
+                                    Result.Add(Text);
                             }
                         }
                     }
@@ -44,8 +48,74 @@
             catch
             {
             }
+
+            return Result;
         }
 
-        public static List<string> BasicLagerTable { get; } = new List<string>();
+        public static List<int> GetIndexList(string valueName, int minLength)
+        {
+            List<int> Result = new List<int>();
+
+            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrew");
+            string ValueAsString = Key.GetValue(valueName) as string;
+            Key.Close();
+
+            if (ValueAsString != null)
+            {
+                string[] Split = ValueAsString.Split(',');
+                foreach (string Item in Split)
+                {
+                    if (int.TryParse(Item, out int Value))
+                        Result.Add(Value);
+                    else
+                        Result.Add(-1);
+                }
+            }
+
+            for (int i = Result.Count; i < minLength; i++)
+                Result.Add(-1);
+
+            return Result;
+        }
+
+        public static void SetIndexList(string valueName, List<int> valueList)
+        {
+            string ValueAsString = string.Empty;
+
+            foreach (int Value in valueList)
+            {
+                if (ValueAsString.Length > 0)
+                    ValueAsString += ",";
+
+                ValueAsString += Value.ToString();
+            }
+
+            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrew");
+            Key.SetValue(valueName, ValueAsString);
+            Key.Close();
+        }
+
+        public static RegistryKey OpenKey(RegistryKey hive, params string[] path)
+        {
+            RegistryKey Key = null;
+            string KeyPath = string.Empty;
+
+            for (int i = 0; i < path.Length; i++)
+            {
+                string Name = path[i];
+
+                if (KeyPath.Length > 0)
+                    KeyPath += '\\';
+
+                KeyPath += Name;
+
+                if (Key != null)
+                    Key.Close();
+
+                Key = hive.CreateSubKey(KeyPath);
+            }
+
+            return Key;
+        }
     }
 }

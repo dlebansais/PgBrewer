@@ -5,8 +5,9 @@
     <UserControl.Resources>
         <DataTemplate x:Key="Line">
             <DockPanel>
-                <TextBlock Text="{Binding Component1}"/>
-                <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{x:Static local:Alcoholx4.EffectList}"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}"/>
+                <Button DockPanel.Dock="Right" Click="OnDelete" Content="X" MinWidth="16"/>
+                <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}"/>
             </DockPanel>
         </DataTemplate>
     </UserControl.Resources>

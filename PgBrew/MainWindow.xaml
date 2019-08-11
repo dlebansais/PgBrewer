@@ -5,7 +5,8 @@
         Title="Project: Gorgon - Brewing"
         WindowStartupLocation="CenterOwner"
         ResizeMode="CanResize"
-        SizeToContent="WidthAndHeight">
+        SizeToContent="WidthAndHeight"
+        Closing="OnClosing">
     <TabControl>
         <TabItem Header="Beer">
             <TabControl>

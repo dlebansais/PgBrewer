@@ -1,5 +1,7 @@
 ﻿namespace PgBrew
 {
+    using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Windows;
 
     /// <summary>
@@ -13,6 +15,43 @@
             DataContext = this;
         }
 
-        public Alcoholx4 BasicLager { get; private set; } = new Alcoholx4();
+        public static bool IsChanged { get; set; }
+
+        public Alcoholx4 BasicLager { get; private set; } = new Alcoholx4("Basic Lager", 
+            new List<string>()
+            {
+                "Red Apple",
+                "Grapes",
+                "Orange",
+                "Strawberry",
+            });
+
+        private void OnClosing(object sender, CancelEventArgs e)
+        {
+            if (IsChanged)
+            {
+                MessageBoxResult Answer = MessageBox.Show("Save changes before exit?", "Closing", MessageBoxButton.YesNoCancel);
+
+                switch (Answer)
+                {
+                    case MessageBoxResult.Yes:
+                        SaveAll();
+                        break;
+
+                    case MessageBoxResult.No:
+                        break;
+
+                    default:
+                    case MessageBoxResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+        }
+
+        private void SaveAll()
+        {
+            BasicLager.Save();
+        }
     }
 }

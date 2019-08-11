@@ -5,36 +5,37 @@
 
     public class Alcoholx4
     {
-        static Alcoholx4()
+        public Alcoholx4(string name, List<string> componentList1)
         {
-            List<string> BasicLagerTable = DataArchive.BasicLagerTable;
-
-            foreach (string Effect in BasicLagerTable)
-                EffectList.Add(Effect);
+            Name = name;
+            ComponentList1 = componentList1;
+            EffectList = DataArchive.ReadEffectList(name);
 
             Debug.Assert(ComponentList1.Count == EffectList.Count);
-        }
 
-        public static List<string> ComponentList1 = new List<string>()
-        {
-            "Red Apple",
-            "Grapes",
-            "Orange",
-            "Strawberry",
-        };
-
-        public static List<string> EffectList { get; } = new List<string>();
-
-        public Alcoholx4()
-        {
+            List<int> Indexes = DataArchive.GetIndexList(Name, EffectList.Count);
             int EffectIndex = 0;
 
             for (int ComponentIndex1 = 0; ComponentIndex1 < ComponentList1.Count; ComponentIndex1++)
             {
-                Lines.Add(new Alcoholx4Line(this, ComponentIndex1, EffectIndex++));
+                Lines.Add(new Alcoholx4Line(this, ComponentIndex1, Indexes[EffectIndex++]));
             }
         }
 
+        public string Name { get; }
+        public List<string> ComponentList1 { get; }
+        public List<string> EffectList { get; } = new List<string>();
+
         public List<Alcoholx4Line> Lines { get; } = new List<Alcoholx4Line>();
+
+        public void Save()
+        {
+            List<int> Indexes = new List<int>();
+
+            for (int i = 0; i < Lines.Count; i++)
+                Indexes.Add(Lines[i].EffectIndex);
+
+            DataArchive.SetIndexList(Name, Indexes);
+        }
     }
 }
