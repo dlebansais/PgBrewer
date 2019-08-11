@@ -9,6 +9,15 @@
         MinWidth="1000"
         MinHeight="500"
         Closing="OnClosing">
+    <Window.Resources>
+        <DataTemplate x:Key="AssociationLine">
+            <DockPanel>
+                <TextBlock Text="{Binding Component.Name}" TextAlignment="Right" MinWidth="200"/>
+                <TextBlock>:</TextBlock>
+                <ComboBox ItemsSource="{Binding ChoiceList}" SelectedIndex="{Binding AssociationIndex}"/>
+            </DockPanel>
+        </DataTemplate>
+    </Window.Resources>
     <TabControl>
         <TabItem Header="Beer">
             <TabControl>
@@ -34,6 +43,7 @@
             </TabItem>
         </TabItem>
         <TabItem Header="Settings">
+            <ItemsControl ItemsSource="{Binding AssociationList}" ItemTemplate="{StaticResource AssociationLine}"/>
         </TabItem>
     </TabControl>
 </Window>

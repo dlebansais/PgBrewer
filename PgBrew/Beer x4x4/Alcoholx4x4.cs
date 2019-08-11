@@ -5,7 +5,7 @@
 
     public class Alcoholx4x4
     {
-        public Alcoholx4x4(string name, List<string> componentList1, List<string> componentList2)
+        public Alcoholx4x4(string name, List<Component> componentList1, List<Component> componentList2)
         {
             Debug.Assert(componentList1.Count == 4);
             Debug.Assert(componentList2.Count == 4);
@@ -26,8 +26,8 @@
         }
 
         public string Name { get; }
-        public List<string> ComponentList1 { get; }
-        public List<string> ComponentList2 { get; }
+        public List<Component> ComponentList1 { get; }
+        public List<Component> ComponentList2 { get; }
         public List<string> EffectList { get; } = new List<string>();
 
         public List<Alcoholx4x4Line> Lines { get; } = new List<Alcoholx4x4Line>();

@@ -1,37 +1,43 @@
 ﻿namespace PgBrew
 {
+    using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Diagnostics;
     using System.Runtime.CompilerServices;
 
-    public class Alcoholx4Line : INotifyPropertyChanged
+    public class ComponentAssociation : INotifyPropertyChanged
     {
-        public Alcoholx4Line(Alcoholx4 owner, int index1, int effectIndex)
+        public ComponentAssociation(Component component, List<Component> choices)
         {
-            Owner = owner;
-            Index1 = index1;
-            _EffectIndex = effectIndex;
+            Component = component;
+
+            ChoiceList = new List<string>();
+            foreach (Component Choice in choices)
+                ChoiceList.Add(Choice.Name);
+
+            Debug.Assert(ChoiceList.Count == 0 || ChoiceList.Count >= 2);
+
+            _AssociationIndex = -1;
         }
 
-        public Alcoholx4 Owner { get; }
-        public int Index1 { get; }
-        public int EffectIndex
+        public Component Component { get; }
+        public List<string> ChoiceList { get; }
+
+        public int AssociationIndex
         {
-            get { return _EffectIndex; }
+            get { return _AssociationIndex; }
             set
             {
-                if (_EffectIndex != value)
+                if (_AssociationIndex != value)
                 {
-                    _EffectIndex = value;
+                    _AssociationIndex = value;
                     MainWindow.IsChanged = true;
 
                     NotifyThisPropertyChanged();
                 }
             }
         }
-        private int _EffectIndex;
-
-        public string Component1 { get { return Owner.ComponentList1[Index1].Name; } }
-        public string Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
+        private int _AssociationIndex;
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

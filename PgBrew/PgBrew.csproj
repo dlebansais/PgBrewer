@@ -109,6 +109,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Component.cs" />
+    <Compile Include="ComponentAssociation.cs" />
     <Compile Include="DataArchive.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

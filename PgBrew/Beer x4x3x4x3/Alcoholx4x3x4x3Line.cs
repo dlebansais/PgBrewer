@@ -36,10 +36,10 @@
         }
         private int _EffectIndex;
 
-        public string Component1 { get { return Owner.ComponentList1[Index1]; } }
-        public string Component2 { get { return Owner.ComponentList2[Index2]; } }
-        public string Component3 { get { return Owner.ComponentList3[Index3]; } }
-        public string Component4 { get { return Owner.ComponentList3[Index4]; } }
+        public string Component1 { get { return Owner.ComponentList1[Index1].Name; } }
+        public string Component2 { get { return Owner.ComponentList2[Index2].Name; } }
+        public string Component3 { get { return Owner.ComponentList3[Index3].Name; } }
+        public string Component4 { get { return Owner.ComponentList3[Index4].Name; } }
         public string Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
 
         #region Implementation of INotifyPropertyChanged
