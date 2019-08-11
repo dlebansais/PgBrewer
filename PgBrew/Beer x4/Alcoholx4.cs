@@ -7,6 +7,8 @@
     {
         public Alcoholx4(string name, List<string> componentList1)
         {
+            Debug.Assert(componentList1.Count == 4);
+
             Name = name;
             ComponentList1 = componentList1;
             EffectList = DataArchive.ReadEffectList(name);

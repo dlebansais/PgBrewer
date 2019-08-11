@@ -7,6 +7,9 @@
     {
         public Alcoholx4x4(string name, List<string> componentList1, List<string> componentList2)
         {
+            Debug.Assert(componentList1.Count == 4);
+            Debug.Assert(componentList2.Count == 4);
+
             Name = name;
             ComponentList1 = componentList1;
             ComponentList2 = componentList2;

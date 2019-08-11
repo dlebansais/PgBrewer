@@ -65,6 +65,33 @@
                 "Mandrake Root",
             });
 
+        public Alcoholx3x3x4x3 GoblinAle { get; private set; } = new Alcoholx3x3x4x3("Goblin Ale",
+            new List<string>()
+            {
+                "Red Apple",
+                "Grapes",
+                "Orange",
+            },
+            new List<string>()
+            {
+                "Guava",
+                "Banana",
+                "Lemon",
+            },
+            new List<string>()
+            {
+                "Parasol Mushroom Flakes",
+                "Mycena Mushroom Flakes",
+                "Boletus Mushroom Flakes",
+                "Field Mushroom Flakes",
+            },
+            new List<string>()
+            {
+                "Oregano",
+                "Mandrake Root",
+                "Peppercorns",
+            });
+
         private void OnClosing(object sender, CancelEventArgs e)
         {
             if (IsChanged)
