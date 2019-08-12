@@ -80,6 +80,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Alcohol.cs" />
+    <Compile Include="AlcoholLine.cs" />
+    <Compile Include="AlcoholLineCollection.cs" />
     <Compile Include="Beer x4x3x4x3\Alcoholx4x3x4x3.cs" />
     <Compile Include="Beer x4x3x4x3\Alcoholx4x3x4x3Control.xaml.cs">
       <DependentUpon>Alcoholx4x3x4x3Control.xaml</DependentUpon>

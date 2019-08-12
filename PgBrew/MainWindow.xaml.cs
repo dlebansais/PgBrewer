@@ -10,6 +10,7 @@
     public partial class MainWindow : Window
     {
         private static readonly string AssociationSettingName = "Associations";
+        private static readonly string GuiSettingName = "GUI";
 
         public MainWindow()
         {
@@ -17,6 +18,7 @@
             DataContext = this;
 
             LoadAssociations();
+            LoadGUI();
             IsChanged = false;
         }
 
@@ -25,6 +27,26 @@
             List<int> AssociationIndexes = DataArchive.GetIndexList(AssociationSettingName, AssociationList.Count);
             for (int i = 0; i < AssociationList.Count; i++)
                 AssociationList[i].AssociationIndex = AssociationIndexes[i];
+        }
+
+        private void LoadGUI()
+        {
+            List<int> Coordinates = DataArchive.GetIndexList(GuiSettingName, 4);
+
+            if (Coordinates[0] >= 0)
+                Left = Coordinates[0];
+
+            if (Coordinates[1] >= 0)
+                Top = Coordinates[1];
+
+            if (Coordinates[2] >= 0)
+                Width = Coordinates[2];
+
+            if (Coordinates[3] >= 0)
+                Height = Coordinates[3];
+
+            if (Coordinates[2] >= 0 && Coordinates[3] >= 0)
+                SizeToContent = SizeToContent.Manual;
         }
 
         public static bool IsChanged { get; set; }
@@ -183,6 +205,9 @@
                         break;
                 }
             }
+
+            if (!e.Cancel)
+                SaveGUI();
         }
 
         private void SaveAll()
@@ -194,6 +219,7 @@
             OrcishBock.Save();
 
             SaveAssociations();
+            SaveGUI();
         }
 
         private void SaveAssociations()
@@ -203,6 +229,20 @@
                 IndexList.Add(AssociationList[i].AssociationIndex);
 
             DataArchive.SetIndexList(AssociationSettingName, IndexList);
+        }
+
+        private void SaveGUI()
+        {
+            if (WindowState != WindowState.Normal)
+                return;
+
+            List<int> Coordinates = new List<int>();
+            Coordinates.Add((int)Left);
+            Coordinates.Add((int)Top);
+            Coordinates.Add((int)ActualWidth);
+            Coordinates.Add((int)ActualHeight);
+
+            DataArchive.SetIndexList(GuiSettingName, Coordinates);
         }
     }
 }
