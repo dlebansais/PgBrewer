@@ -114,6 +114,8 @@
     </Compile>
     <Compile Include="Component.cs" />
     <Compile Include="ComponentAssociation.cs" />
+    <Compile Include="ComponentAssociationCollection.cs" />
+    <Compile Include="Converters\BooleanToObjectConverter.cs" />
     <Compile Include="DataArchive.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

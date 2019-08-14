@@ -2,14 +2,16 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Runtime.CompilerServices;
     using System.Windows;
+    using System.Windows.Controls;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private static readonly string AssociationSettingName = "Associations";
+        private static readonly string AssociationSettingName = "Association";
         private static readonly string GuiSettingName = "GUI";
 
         public MainWindow()
@@ -19,14 +21,32 @@
 
             LoadAssociations();
             LoadGUI();
-            IsChanged = false;
+            _IsChanged = false;
         }
 
         private void LoadAssociations()
         {
-            List<int> AssociationIndexes = DataArchive.GetIndexList(AssociationSettingName, AssociationList.Count);
-            for (int i = 0; i < AssociationList.Count; i++)
-                AssociationList[i].AssociationIndex = AssociationIndexes[i];
+            LoadAssociations(AssociationFruit1);
+            LoadAssociations(AssociationFruit2);
+            LoadAssociations(AssociationVeggie1);
+            LoadAssociations(AssociationVeggie2Beer);
+            LoadAssociations(AssociationVeggie2Liquor);
+            LoadAssociations(AssociationMushroom3);
+            LoadAssociations(AssociationParts1);
+            LoadAssociations(AssociationParts2);
+            LoadAssociations(AssociationFlavor1Beer);
+            LoadAssociations(AssociationFlavor1Liquor);
+            LoadAssociations(AssociationFlavor2Beer);
+            LoadAssociations(AssociationFlavor2Liquor);
+        }
+
+        private void LoadAssociations(ComponentAssociationCollection associationList)
+        {
+            List<int> AssociationIndexes = DataArchive.GetIndexList($"{AssociationSettingName}{associationList.Name}", associationList.Count);
+            for (int i = 0; i < associationList.Count; i++)
+                associationList[i].AssociationIndex = AssociationIndexes[i];
+
+            AssociationTable.Add(associationList);
         }
 
         private void LoadGUI()
@@ -49,7 +69,19 @@
                 SizeToContent = SizeToContent.Manual;
         }
 
-        public static bool IsChanged { get; set; }
+        public bool IsChanged
+        {
+            get { return _IsChanged; }
+            private set
+            {
+                if (_IsChanged != value)
+                {
+                    _IsChanged = value;
+                    NotifyThisPropertyChanged();
+                }
+            }
+        }
+        private bool _IsChanged;
 
         public static Component RedApple { get; } = new Component("Red Apple");
         public static Component Grapes { get; } = new Component("Grapes");
@@ -59,7 +91,7 @@
         public static Component Lemon { get; } = new Component("Lemon");
         public static Component Pear { get; } = new Component("Pear");
         public static Component Peach { get; } = new Component("Peach");
-        public static Component GreenApple { get; } = new Component("GreenApple");
+        public static Component GreenApple { get; } = new Component("Green Apple");
 
         public static Component ParasolMushroomFlakes { get; } = new Component("Parasol Mushroom Flakes");
         public static Component MycenaMushroomFlakes { get; } = new Component("Mycena Mushroom Flakes");
@@ -112,249 +144,163 @@
         public static Component Molasses { get; } = new Component("Molasses");
         public static Component Corn { get; } = new Component("Corn");
 
-        public Alcoholx4 BasicLager { get; private set; } = new Alcoholx4("Basic Lager", 
-            new List<Component>()
-            {
-                RedApple,
-                Grapes,
-                Orange,
-                Strawberry,
-            });
-
-        public Alcoholx4x4 PaleAle { get; private set; } = new Alcoholx4x4("Pale Ale",
-            new List<Component>()
-            {
-                RedApple,
-                Grapes,
-                Orange,
-                Strawberry,
-            },
-            new List<Component>()
-            {
-                ParasolMushroomFlakes,
-                MycenaMushroomFlakes,
-                BoletusMushroomFlakes,
-                FieldMushroomFlakes,
-            });
-
-        public Alcoholx4x4x2 Marzen { get; private set; } = new Alcoholx4x4x2("Marzen",
-            new List<Component>()
-            {
-                RedApple,
-                Grapes,
-                Orange,
-                Strawberry,
-            },
-            new List<Component>()
-            {
-                ParasolMushroomFlakes,
-                MycenaMushroomFlakes,
-                BoletusMushroomFlakes,
-                FieldMushroomFlakes,
-            },
-            new List<Component>()
-            {
-                Oregano,
-                MandrakeRoot,
-            });
-
-        public Alcoholx3x3x4x3 GoblinAle { get; private set; } = new Alcoholx3x3x4x3("Goblin Ale",
-            new List<Component>()
-            {
-                RedApple,
-                Grapes,
-                Orange,
-            },
-            new List<Component>()
-            {
-                Guava,
-                Banana,
-                Lemon,
-            },
-            new List<Component>()
-            {
-                ParasolMushroomFlakes,
-                MycenaMushroomFlakes,
-                BoletusMushroomFlakes,
-                FieldMushroomFlakes,
-            },
-            new List<Component>()
-            {
-                Oregano,
-                MandrakeRoot,
-                Peppercorns,
-            });
-
-        public Alcoholx4x3x4x3 OrcishBock { get; private set; } = new Alcoholx4x3x4x3("Orcish Bock",
-            new List<Component>()
-            {
-                Beet,
-                Squash,
-                Broccoli,
-                Carrot,
-            },
-            new List<Component>()
-            {
-                Guava,
-                Banana,
-                Lemon,
-            },
-            new List<Component>()
-            {
-                FieldMushroomFlakes,
-                BlusherMushroomFlakes,
-                MilkCapMushroomPowder,
-                BloodMushroomPowder,
-            },
-            new List<Component>()
-            {
-                Oregano,
-                MandrakeRoot,
-                Peppercorns,
-            });
-
-        public Alcoholx4x3x4x3 BrownAle { get; private set; } = new Alcoholx4x3x4x3("Brown Ale",
-            new List<Component>()
-            {
-                GreenPepper,
-                RedPepper,
-                Molasses,
-                Corn,
-            },
-            new List<Component>()
-            {
-                Guava,
-                Banana,
-                Lemon,
-            },
-            new List<Component>()
-            {
-                FieldMushroomFlakes,
-                BlusherMushroomFlakes,
-                MilkCapMushroomPowder,
-                BloodMushroomPowder,
-            },
-            new List<Component>()
-            {
-                Cinnamon,
-                MuntokPeppercorns,
-                Seaweed,
-            });
-
-        public Alcoholx4x3x4x3 HegemonyLager { get; private set; } = new Alcoholx4x3x4x3("Hegemony Lager",
-            new List<Component>()
-            {
-                GreenPepper,
-                RedPepper,
-                Molasses,
-                Corn,
-            },
-            new List<Component>()
-            {
-                Pear,
-                Peach,
-                GreenApple,
-            },
-            new List<Component>()
-            {
-                FieldMushroomFlakes,
-                BlusherMushroomFlakes,
-                MilkCapMushroomPowder,
-                BloodMushroomPowder,
-            },
-            new List<Component>()
-            {
-                Cinnamon,
-                MuntokPeppercorns,
-                Seaweed,
-            });
-
-        public Alcoholx4x3x4x3 DwarvenStout { get; private set; } = new Alcoholx4x3x4x3("Dwarven Stout",
-            new List<Component>()
-            {
-                GreenPepper,
-                RedPepper,
-                Molasses,
-                Corn,
-            },
-            new List<Component>()
-            {
-                Pear,
-                Peach,
-                GreenApple,
-            },
-            new List<Component>()
-            {
-                CoralMushroomPowder,
-                GroxmaxPowder,
-                PorciniMushroomFlakes,
-                BlackFootMorelFlakes,
-            },
-            new List<Component>()
-            {
-                Mint,
-                Honey,
-                JuniperBerries,
-            });
-
-        private static List<Component> FruitTier1 = new List<Component>() { RedApple, Grapes, Orange };
+        private static List<Component> FruitTier1Three = new List<Component>() { RedApple, Grapes, Orange };
+        private static List<Component> FruitTier1Four = new List<Component>() { RedApple, Grapes, Orange, Strawberry };
         private static List<Component> FruitTier2 = new List<Component>() { Guava, Banana, Lemon };
         private static List<Component> FruitTier3 = new List<Component>() { Pear, Peach, GreenApple };
         private static List<Component> VeggieTier1 = new List<Component>() { ParasolMushroomFlakes, MycenaMushroomFlakes, BoletusMushroomFlakes, FieldMushroomFlakes };
-        private static List<Component> VeggieTier2 = new List<Component>() { Beet, Squash,Broccoli, Carrot };
+        private static List<Component> VeggieTier2 = new List<Component>() { Beet, Squash, Broccoli, Carrot };
         private static List<Component> VeggieTier3Beer = new List<Component>() { GreenPepper, RedPepper, Molasses, Corn };
-        private static List<Component> VeggieTier3Liquor = new List<Component>() { FieldMushroomFlakes, BlusherMushroomFlakes, MilkCapMushroomPowder, BloodMushroomPowder };
-        private static List<Component> VeggieTier4 = new List<Component>() { CoralMushroomPowder, GroxmaxPowder, PorciniMushroomFlakes, BlackFootMorelFlakes };
+        private static List<Component> MushroomTier3 = new List<Component>() { FieldMushroomFlakes, BlusherMushroomFlakes, MilkCapMushroomPowder, BloodMushroomPowder };
+        private static List<Component> MushroomTier4 = new List<Component>() { CoralMushroomPowder, GroxmaxPowder, PorciniMushroomFlakes, BlackFootMorelFlakes };
         private static List<Component> PartsTier1 = new List<Component>() { BoarTusk, CatEyeball, SnailSinew, RatTail, BasicFishScale };
         private static List<Component> PartsTier2 = new List<Component>() { WolfTeeth, PantherTail, DeinonychusClaw, RabbitsFoot, BearGallbladder };
         private static List<Component> PartsTier3 = new List<Component>() { CockatriceBeak, WormTooth, Ectoplasm, PowderedMammal, BarghestFlesh };
-        private static List<Component> FlavorTier1 = new List<Component>() { Oregano, MandrakeRoot, Peppercorns, Grass };
-        private static List<Component> FlavorTier2 = new List<Component>() { Cinnamon, MuntokPeppercorns, Seaweed, MyconianJelly };
-        private static List<Component> FlavorTier3 = new List<Component>() { Mint, Honey, JuniperBerries, Almonds };
+        private static List<Component> FlavorTier1Two = new List<Component>() { Oregano, MandrakeRoot };
+        private static List<Component> FlavorTier1Three = new List<Component>() { Oregano, MandrakeRoot, Peppercorns };
+        private static List<Component> FlavorTier1Four = new List<Component>() { Oregano, MandrakeRoot, Peppercorns, Grass };
+        private static List<Component> FlavorTier2Three = new List<Component>() { Cinnamon, MuntokPeppercorns, Seaweed };
+        private static List<Component> FlavorTier2Four = new List<Component>() { Cinnamon, MuntokPeppercorns, Seaweed, MyconianJelly };
+        private static List<Component> FlavorTier3Three = new List<Component>() { Mint, Honey, JuniperBerries };
+        private static List<Component> FlavorTier3Four = new List<Component>() { Mint, Honey, JuniperBerries, Almonds };
 
-        public List<ComponentAssociation> AssociationList { get; } = new List<ComponentAssociation>()
+        public Alcoholx4 BasicLager { get; private set; } = new Alcoholx4("Basic Lager",
+            FruitTier1Four);
+
+        public Alcoholx4x4 PaleAle { get; private set; } = new Alcoholx4x4("Pale Ale",
+            FruitTier1Four,
+            VeggieTier1);
+
+        public Alcoholx4x4x2 Marzen { get; private set; } = new Alcoholx4x4x2("Marzen",
+            FruitTier1Four,
+            VeggieTier1,
+            FlavorTier1Two);
+
+        public Alcoholx3x3x4x3 GoblinAle { get; private set; } = new Alcoholx3x3x4x3("Goblin Ale",
+            FruitTier1Three,
+            FruitTier2,
+            VeggieTier1,
+            FlavorTier1Three);
+
+        public Alcoholx4x3x4x3 OrcishBock { get; private set; } = new Alcoholx4x3x4x3("Orcish Bock",
+            VeggieTier2,
+            FruitTier2,
+            MushroomTier3,
+            FlavorTier1Three);
+
+        public Alcoholx4x3x4x3 BrownAle { get; private set; } = new Alcoholx4x3x4x3("Brown Ale",
+            VeggieTier3Beer,
+            FruitTier2,
+            MushroomTier3,
+            FlavorTier2Three);
+
+        public Alcoholx4x3x4x3 HegemonyLager { get; private set; } = new Alcoholx4x3x4x3("Hegemony Lager",
+            VeggieTier3Beer,
+            FruitTier3,
+            MushroomTier3,
+            FlavorTier2Three);
+
+        public Alcoholx4x3x4x3 DwarvenStout { get; private set; } = new Alcoholx4x3x4x3("Dwarven Stout",
+            VeggieTier3Beer,
+            FruitTier3,
+            MushroomTier4,
+            FlavorTier3Three);
+
+        public ComponentAssociationCollection AssociationFruit1 { get; } = new ComponentAssociationCollection("Fruit1", new List<ComponentAssociation>()
         {
             new ComponentAssociation(RedApple, FruitTier2),
             new ComponentAssociation(Grapes, FruitTier2),
             new ComponentAssociation(Orange, FruitTier2),
+        });
+
+        public ComponentAssociationCollection AssociationFruit2 { get; } = new ComponentAssociationCollection("Fruit2", new List<ComponentAssociation>()
+        {
             new ComponentAssociation(Guava, FruitTier3),
             new ComponentAssociation(Banana, FruitTier3),
             new ComponentAssociation(Lemon, FruitTier3),
+        });
+
+        public ComponentAssociationCollection AssociationVeggie1 { get; } = new ComponentAssociationCollection("Veggie1", new List<ComponentAssociation>()
+        {
             new ComponentAssociation(ParasolMushroomFlakes, VeggieTier2),
             new ComponentAssociation(MycenaMushroomFlakes, VeggieTier2),
             new ComponentAssociation(BoletusMushroomFlakes, VeggieTier2),
             new ComponentAssociation(FieldMushroomFlakes, VeggieTier2),
+        });
+
+        public ComponentAssociationCollection AssociationVeggie2Beer { get; } = new ComponentAssociationCollection("Veggie2Beer", new List<ComponentAssociation>()
+        {
             new ComponentAssociation(Beet, VeggieTier3Beer),
             new ComponentAssociation(Squash, VeggieTier3Beer),
             new ComponentAssociation(Broccoli, VeggieTier3Beer),
             new ComponentAssociation(Carrot, VeggieTier3Beer),
-            new ComponentAssociation(Beet, VeggieTier3Liquor),
-            new ComponentAssociation(Squash, VeggieTier3Liquor),
-            new ComponentAssociation(Broccoli, VeggieTier3Liquor),
-            new ComponentAssociation(Carrot, VeggieTier3Liquor),
-            new ComponentAssociation(FieldMushroomFlakes, VeggieTier4),
-            new ComponentAssociation(BlusherMushroomFlakes, VeggieTier4),
-            new ComponentAssociation(MilkCapMushroomPowder, VeggieTier4),
-            new ComponentAssociation(BloodMushroomPowder, VeggieTier4),
+        });
+
+        public ComponentAssociationCollection AssociationVeggie2Liquor { get; } = new ComponentAssociationCollection("Veggie2Liquor", new List<ComponentAssociation>()
+        {
+            new ComponentAssociation(Beet, MushroomTier3),
+            new ComponentAssociation(Squash, MushroomTier3),
+            new ComponentAssociation(Broccoli, MushroomTier3),
+            new ComponentAssociation(Carrot, MushroomTier3),
+        });
+
+        public ComponentAssociationCollection AssociationMushroom3 { get; } = new ComponentAssociationCollection("Mushroom3", new List<ComponentAssociation>()
+        {
+            new ComponentAssociation(FieldMushroomFlakes, MushroomTier4),
+            new ComponentAssociation(BlusherMushroomFlakes, MushroomTier4),
+            new ComponentAssociation(MilkCapMushroomPowder, MushroomTier4),
+            new ComponentAssociation(BloodMushroomPowder, MushroomTier4),
+        });
+
+        public ComponentAssociationCollection AssociationParts1 { get; } = new ComponentAssociationCollection("Parts1", new List<ComponentAssociation>()
+        {
             new ComponentAssociation(BoarTusk, PartsTier2),
             new ComponentAssociation(CatEyeball, PartsTier2),
             new ComponentAssociation(SnailSinew, PartsTier2),
             new ComponentAssociation(RatTail, PartsTier2),
             new ComponentAssociation(BasicFishScale, PartsTier2),
+        });
+
+        public ComponentAssociationCollection AssociationParts2 { get; } = new ComponentAssociationCollection("Parts2", new List<ComponentAssociation>()
+        {
             new ComponentAssociation(WolfTeeth, PartsTier3),
             new ComponentAssociation(PantherTail, PartsTier3),
             new ComponentAssociation(DeinonychusClaw, PartsTier3),
             new ComponentAssociation(RabbitsFoot, PartsTier3),
             new ComponentAssociation(BearGallbladder, PartsTier3),
-            new ComponentAssociation(Oregano, FlavorTier2),
-            new ComponentAssociation(MandrakeRoot, FlavorTier2),
-            new ComponentAssociation(Peppercorns, FlavorTier2),
-            new ComponentAssociation(Grass, FlavorTier2),
-            new ComponentAssociation(Cinnamon, FlavorTier3),
-            new ComponentAssociation(MuntokPeppercorns, FlavorTier3),
-            new ComponentAssociation(Seaweed, FlavorTier3),
-            new ComponentAssociation(MyconianJelly, FlavorTier3),
-        };
+        });
+
+        public ComponentAssociationCollection AssociationFlavor1Beer { get; } = new ComponentAssociationCollection("Flavor1Beer", new List<ComponentAssociation>()
+        {
+            new ComponentAssociation(Oregano, FlavorTier2Three),
+            new ComponentAssociation(MandrakeRoot, FlavorTier2Three),
+            new ComponentAssociation(Peppercorns, FlavorTier2Three),
+        });
+
+        public ComponentAssociationCollection AssociationFlavor1Liquor { get; } = new ComponentAssociationCollection("Flavor1Liquor", new List<ComponentAssociation>()
+        {
+            new ComponentAssociation(Oregano, FlavorTier2Four),
+            new ComponentAssociation(MandrakeRoot, FlavorTier2Four),
+            new ComponentAssociation(Peppercorns, FlavorTier2Four),
+            new ComponentAssociation(Grass, FlavorTier2Four),
+        });
+
+        public ComponentAssociationCollection AssociationFlavor2Beer { get; } = new ComponentAssociationCollection("Flavor2Beer", new List<ComponentAssociation>()
+        {
+            new ComponentAssociation(Cinnamon, FlavorTier3Three),
+            new ComponentAssociation(MuntokPeppercorns, FlavorTier3Three),
+            new ComponentAssociation(Seaweed, FlavorTier3Three),
+        });
+
+        public ComponentAssociationCollection AssociationFlavor2Liquor { get; } = new ComponentAssociationCollection("Flavor2Liquor", new List<ComponentAssociation>()
+        {
+            new ComponentAssociation(Cinnamon, FlavorTier3Four),
+            new ComponentAssociation(MuntokPeppercorns, FlavorTier3Four),
+            new ComponentAssociation(Seaweed, FlavorTier3Four),
+            new ComponentAssociation(MyconianJelly, FlavorTier3Four),
+        });
+
+        public List<ComponentAssociationCollection> AssociationTable { get; } = new List<ComponentAssociationCollection>();
 
         private void OnClosing(object sender, CancelEventArgs e)
         {
@@ -399,11 +345,14 @@
 
         private void SaveAssociations()
         {
-            List<int> IndexList = new List<int>();
-            for (int i = 0; i < AssociationList.Count; i++)
-                IndexList.Add(AssociationList[i].AssociationIndex);
+            foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+            {
+                List<int> IndexList = new List<int>();
+                for (int i = 0; i < AssociationList.Count; i++)
+                    IndexList.Add(AssociationList[i].AssociationIndex);
 
-            DataArchive.SetIndexList(AssociationSettingName, IndexList);
+                DataArchive.SetIndexList($"{AssociationSettingName}{AssociationList.Name}", IndexList);
+            }
         }
 
         private void SaveGUI()
@@ -420,6 +369,12 @@
             DataArchive.SetIndexList(GuiSettingName, Coordinates);
         }
 
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            SaveAll();
+            IsChanged = false;
+        }
+
         public void Recalculate()
         {
             Recalculate(OrcishBock, BrownAle);
@@ -429,7 +384,97 @@
 
         public void Recalculate(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next)
         {
+            foreach (Alcoholx4x3x4x3Line Line in previous.Lines)
+                if (Line.EffectIndex >= 0)
+                {
+                    Component PreviousComponent1 = previous.ComponentList1[Line.Index1];
+                    Component PreviousComponent2 = previous.ComponentList2[Line.Index2];
+                    Component PreviousComponent3 = previous.ComponentList3[Line.Index3];
+                    Component PreviousComponent4 = previous.ComponentList4[Line.Index4];
 
+                    int NextIndex1 = -1;
+                    int NextIndex2 = -1;
+                    int NextIndex3 = -1;
+                    int NextIndex4 = -1;
+
+                    foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+                        foreach (ComponentAssociation Association in AssociationList)
+                        {
+                            if (Association.Component == PreviousComponent1 && Association.ChoiceList == next.ComponentList1 && Association.AssociationIndex >= 0)
+                                NextIndex1 = Association.AssociationIndex;
+                            if (Association.Component == PreviousComponent2 && Association.ChoiceList == next.ComponentList2 && Association.AssociationIndex >= 0)
+                                NextIndex2 = Association.AssociationIndex;
+                            if (Association.Component == PreviousComponent3 && Association.ChoiceList == next.ComponentList3 && Association.AssociationIndex >= 0)
+                                NextIndex3 = Association.AssociationIndex;
+                            if (Association.Component == PreviousComponent4 && Association.ChoiceList == next.ComponentList4 && Association.AssociationIndex >= 0)
+                                NextIndex4 = Association.AssociationIndex;
+                        }
+
+                    if (NextIndex1 >= 0 && NextIndex2 >= 0 && NextIndex3 >= 0 && NextIndex4 >= 0)
+                    {
+                        int NextLineIndex = (NextIndex1 * 3 * 4 * 3) + (NextIndex2 * 4 * 3) + (NextIndex3 * 3) + NextIndex4;
+                        next.Lines[NextLineIndex].CalculatedIndex = Line.EffectIndex;
+                    }
+                }
+
+            foreach (Alcoholx4x3x4x3Line Line in next.Lines)
+                if (Line.EffectIndex >= 0)
+                {
+                    int NextIndex1 = Line.Index1;
+                    int NextIndex2 = Line.Index2;
+                    int NextIndex3 = Line.Index3;
+                    int NextIndex4 = Line.Index4;
+
+                    int PreviousIndex1 = -1;
+                    int PreviousIndex2 = -1;
+                    int PreviousIndex3 = -1;
+                    int PreviousIndex4 = -1;
+
+                    foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+                        foreach (ComponentAssociation Association in AssociationList)
+                        {
+                            if (Association.ChoiceList == next.ComponentList1 && Association.AssociationIndex == NextIndex1)
+                                PreviousIndex1 = previous.ComponentList1.IndexOf(Association.Component);
+                            if (Association.ChoiceList == next.ComponentList2 && Association.AssociationIndex == NextIndex2)
+                                PreviousIndex2 = previous.ComponentList2.IndexOf(Association.Component);
+                            if (Association.ChoiceList == next.ComponentList3 && Association.AssociationIndex == NextIndex3)
+                                PreviousIndex3 = previous.ComponentList3.IndexOf(Association.Component);
+                            if (Association.ChoiceList == next.ComponentList4 && Association.AssociationIndex == NextIndex4)
+                                PreviousIndex4 = previous.ComponentList4.IndexOf(Association.Component);
+                        }
+
+                    if (PreviousIndex1 >= 0 && PreviousIndex2 >= 0 && PreviousIndex3 >= 0 && PreviousIndex4 >= 0)
+                    {
+                        int PreviousLineIndex = (PreviousIndex1 * 3 * 4 * 3) + (PreviousIndex2 * 4 * 3) + (PreviousIndex3 * 3) + PreviousIndex4;
+                        previous.Lines[PreviousLineIndex].CalculatedIndex = Line.EffectIndex;
+                    }
+                }
+        }
+
+        public static void SetChanged()
+        {
+            MainWindow Window = App.Current.MainWindow as MainWindow;
+            Window.IsChanged = true;
+        }
+
+        #region Implementation of INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string PropertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+        }
+
+        public void NotifyThisPropertyChanged([CallerMemberName] string PropertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+        }
+        #endregion
+
+        private void OnDelete(object sender, RoutedEventArgs e)
+        {
+            ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
+            Association.AssociationIndex = -1;
         }
     }
 }

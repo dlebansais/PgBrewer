@@ -7,13 +7,10 @@
 
     public class ComponentAssociation : INotifyPropertyChanged
     {
-        public ComponentAssociation(Component component, List<Component> choices)
+        public ComponentAssociation(Component component, List<Component> choiceList)
         {
             Component = component;
-
-            ChoiceList = new List<string>();
-            foreach (Component Choice in choices)
-                ChoiceList.Add(Choice.Name);
+            ChoiceList = choiceList;
 
             Debug.Assert(ChoiceList.Count == 0 || ChoiceList.Count >= 2);
 
@@ -21,7 +18,7 @@
         }
 
         public Component Component { get; }
-        public List<string> ChoiceList { get; }
+        public List<Component> ChoiceList { get; }
 
         public int AssociationIndex
         {
@@ -31,7 +28,7 @@
                 if (_AssociationIndex != value)
                 {
                     _AssociationIndex = value;
-                    MainWindow.IsChanged = true;
+                    MainWindow.SetChanged();
 
                     NotifyThisPropertyChanged();
                 }

@@ -21,7 +21,7 @@
                 if (_EffectIndex != value)
                 {
                     _EffectIndex = value;
-                    MainWindow.IsChanged = true;
+                    MainWindow.SetChanged();
 
                     NotifyThisPropertyChanged();
                 }

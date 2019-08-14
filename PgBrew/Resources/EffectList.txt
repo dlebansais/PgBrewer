@@ -364,4 +364,129 @@ Brown Ale;Sprint Speed Boost -1.5, taunt from attack damage +30 %
 Brown Ale;Taunt from Attack damage -10.5 %
 Brown Ale;Taunt from Attack damage +20 %
 Brown Ale;Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
-
+Hegemony Lager;(?) Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
+Hegemony Lager;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
+Hegemony Lager;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
+Hegemony Lager;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
+Hegemony Lager;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Hegemony Lager;(?) Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Hegemony Lager;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
+Hegemony Lager;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
+Hegemony Lager;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
+Hegemony Lager;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
+Hegemony Lager;(?) Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
+Hegemony Lager;(?) Dig Deep Power Restoration +67
+Hegemony Lager;(?) Dwarves gain +20 Max Bodyheat
+Hegemony Lager;(?) Dwarves gain +20 max hydratation
+Hegemony Lager;(?) Dwarves gain +20 Max Metabolism
+Hegemony Lager;(?) Dwarves gain +23 Max Power
+Hegemony Lager;(?) Dwarves gain +42 Max Health
+Hegemony Lager;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
+Hegemony Lager;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Hegemony Lager;(?) Elves gain +20 Max Bodyheat
+Hegemony Lager;(?) Elves gain +20 max hydratation
+Hegemony Lager;(?) Elves gain +20 Max Metabolism
+Hegemony Lager;(?) Elves gain +23 Max Power
+Hegemony Lager;(?) Elves gain +42 Max Health
+Hegemony Lager;(?) Fairies gain +20 Max Bodyheat
+Hegemony Lager;(?) Fairies gain +20 max hydratation
+Hegemony Lager;(?) Fairies gain +20 Max Metabolism
+Hegemony Lager;(?) Fairies gain +23 Max Power
+Hegemony Lager;(?) Fairies gain +42 Max Health
+Hegemony Lager;(?) Fast-flying cost (Per second) -0.5, Fast-flying Speed +1.5
+Hegemony Lager;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
+Hegemony Lager;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Hegemony Lager;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
+Hegemony Lager;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Hegemony Lager;(?) Humans gain +20 Max Bodyheat
+Hegemony Lager;(?) Humans gain +20 max hydratation
+Hegemony Lager;(?) Humans gain +20 Max Metabolism
+Hegemony Lager;(?) Humans gain +23 Max Power
+Hegemony Lager;(?) Humans gain +42 Max Health
+Hegemony Lager;(?) Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
+Hegemony Lager;(?) Max Armor +48
+Hegemony Lager;(?) Max Health +33
+Hegemony Lager;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7
+Hegemony Lager;(?) Max Power +20
+Hegemony Lager;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
+Hegemony Lager;(?) Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Hegemony Lager;(?) Orcs gain +20 Max Bodyheat
+Hegemony Lager;(?) Orcs gain +20 max hydratation
+Hegemony Lager;(?) Orcs gain +20 Max Metabolism
+Hegemony Lager;(?) Orcs gain +23 Max Power
+Hegemony Lager;(?) Orcs gain +42 Max Health
+Hegemony Lager;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Hegemony Lager;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
+Hegemony Lager;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Hegemony Lager;(?) Rakshasa gain +20 Max Bodyheat
+Hegemony Lager;(?) Rakshasa gain +20 max hydratation
+Hegemony Lager;(?) Rakshasa gain +20 Max Metabolism
+Hegemony Lager;(?) Rakshasa gain +23 Max Power
+Hegemony Lager;(?) Rakshasa gain +42 Max Health
+Hegemony Lager;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
+Hegemony Lager;(?) Taunt from Attack damage -10.5 %
+Hegemony Lager;(?) Taunt from Attack damage +20 %
+Hegemony Lager;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
+Dwarven Stout;(?) Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
+Dwarven Stout;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
+Dwarven Stout;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
+Dwarven Stout;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
+Dwarven Stout;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Dwarven Stout;(?) Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Dwarven Stout;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
+Dwarven Stout;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
+Dwarven Stout;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
+Dwarven Stout;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
+Dwarven Stout;(?) Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
+Dwarven Stout;(?) Dig Deep Power Restoration +67
+Dwarven Stout;(?) Dwarves gain +20 Max Bodyheat
+Dwarven Stout;(?) Dwarves gain +20 max hydratation
+Dwarven Stout;(?) Dwarves gain +20 Max Metabolism
+Dwarven Stout;(?) Dwarves gain +23 Max Power
+Dwarven Stout;(?) Dwarves gain +42 Max Health
+Dwarven Stout;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
+Dwarven Stout;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Dwarven Stout;(?) Elves gain +20 Max Bodyheat
+Dwarven Stout;Elves gain +28 max hydratation
+Dwarven Stout;(?) Elves gain +20 Max Metabolism
+Dwarven Stout;(?) Elves gain +23 Max Power
+Dwarven Stout;(?) Elves gain +42 Max Health
+Dwarven Stout;(?) Fairies gain +20 Max Bodyheat
+Dwarven Stout;(?) Fairies gain +20 max hydratation
+Dwarven Stout;(?) Fairies gain +20 Max Metabolism
+Dwarven Stout;(?) Fairies gain +23 Max Power
+Dwarven Stout;(?) Fairies gain +42 Max Health
+Dwarven Stout;Fast-flying cost (Per second) -0.7, Fast-flying Speed +2.1
+Dwarven Stout;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
+Dwarven Stout;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Dwarven Stout;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
+Dwarven Stout;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Dwarven Stout;(?) Humans gain +20 Max Bodyheat
+Dwarven Stout;(?) Humans gain +20 max hydratation
+Dwarven Stout;(?) Humans gain +20 Max Metabolism
+Dwarven Stout;(?) Humans gain +23 Max Power
+Dwarven Stout;(?) Humans gain +42 Max Health
+Dwarven Stout;(?) Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
+Dwarven Stout;(?) Max Armor +48
+Dwarven Stout;(?) Max Health +33
+Dwarven Stout;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7
+Dwarven Stout;(?) Max Power +20
+Dwarven Stout;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
+Dwarven Stout;(?) Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Dwarven Stout;(?) Orcs gain +20 Max Bodyheat
+Dwarven Stout;(?) Orcs gain +20 max hydratation
+Dwarven Stout;(?) Orcs gain +20 Max Metabolism
+Dwarven Stout;(?) Orcs gain +23 Max Power
+Dwarven Stout;(?) Orcs gain +42 Max Health
+Dwarven Stout;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Dwarven Stout;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
+Dwarven Stout;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Dwarven Stout;(?) Rakshasa gain +20 Max Bodyheat
+Dwarven Stout;(?) Rakshasa gain +20 max hydratation
+Dwarven Stout;(?) Rakshasa gain +20 Max Metabolism
+Dwarven Stout;(?) Rakshasa gain +23 Max Power
+Dwarven Stout;(?) Rakshasa gain +42 Max Health
+Dwarven Stout;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
+Dwarven Stout;(?) Taunt from Attack damage -10.5 %
+Dwarven Stout;(?) Taunt from Attack damage +20 %
+Dwarven Stout;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%

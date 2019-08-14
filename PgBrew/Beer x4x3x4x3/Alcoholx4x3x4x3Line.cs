@@ -21,6 +21,6 @@
         public string Component1 { get { return ((Alcoholx4x3x4x3)Owner).ComponentList1[Index1].Name; } }
         public string Component2 { get { return ((Alcoholx4x3x4x3)Owner).ComponentList2[Index2].Name; } }
         public string Component3 { get { return ((Alcoholx4x3x4x3)Owner).ComponentList3[Index3].Name; } }
-        public string Component4 { get { return ((Alcoholx4x3x4x3)Owner).ComponentList3[Index4].Name; } }
+        public string Component4 { get { return ((Alcoholx4x3x4x3)Owner).ComponentList4[Index4].Name; } }
     }
 }
