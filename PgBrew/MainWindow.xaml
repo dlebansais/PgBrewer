@@ -34,6 +34,15 @@
                 <TabItem Header="Orcish Bock">
                     <local:Alcoholx4x3x4x3Control DataContext="{Binding OrcishBock}"/>
                 </TabItem>
+                <TabItem Header="Brown Ale">
+                    <local:Alcoholx4x3x4x3Control DataContext="{Binding BrownAle}"/>
+                </TabItem>
+                <TabItem Header="Hegemony Lager">
+                    <local:Alcoholx4x3x4x3Control DataContext="{Binding HegemonyLager}"/>
+                </TabItem>
+                <TabItem Header="Dwarven Stout">
+                    <local:Alcoholx4x3x4x3Control DataContext="{Binding DwarvenStout}"/>
+                </TabItem>
             </TabControl>
         </TabItem>
         <TabItem Header="Hard Liquor">

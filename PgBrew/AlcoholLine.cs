@@ -12,6 +12,7 @@
         }
 
         public Alcohol Owner { get; }
+
         public int EffectIndex
         {
             get { return _EffectIndex; }
@@ -29,6 +30,18 @@
         private int _EffectIndex;
 
         public string Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
+
+        public int CalculatedIndex { get; set; }
+        public string CalculatedEffect
+        {
+            get
+            {
+                if (EffectIndex >= 0)
+                    return null;
+
+                return CalculatedIndex >= 0 && CalculatedIndex < Owner.EffectList.Count ? Owner.EffectList[CalculatedIndex] : null;
+            }
+        }
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

@@ -1,4 +1,367 @@
-﻿Basic Lager;Attack miss, Sprint
-Basic Lager;Jump
-Basic Lager;Dance
-Basic Lager;Dance
+﻿Basic Lager;Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0
+Basic Lager;Jump Power +0.1
+Basic Lager;Dance Appreciation Boost +1
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Pale Ale;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Marzen;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Goblin Ale;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Orcish Bock;
+Brown Ale;Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
+Brown Ale;Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
+Brown Ale;Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
+Brown Ale;Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
+Brown Ale;Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Brown Ale;Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Brown Ale;Chance to ignore Knockbacks +8%, Jump Power +1.2
+Brown Ale;Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
+Brown Ale;Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
+Brown Ale;Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
+Brown Ale;Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
+Brown Ale;Dig Deep Power Restoration +67
+Brown Ale;Dwarves gain +20 Max Bodyheat
+Brown Ale;Dwarves gain +20 max hydratation
+Brown Ale;Dwarves gain +20 Max Metabolism
+Brown Ale;Dwarves gain +23 Max Power
+Brown Ale;Dwarves gain +42 Max Health
+Brown Ale;Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
+Brown Ale;Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Brown Ale;Elves gain +20 Max Bodyheat
+Brown Ale;Elves gain +20 max hydratation
+Brown Ale;Elves gain +20 Max Metabolism
+Brown Ale;Elves gain +23 Max Power
+Brown Ale;Elves gain +42 Max Health
+Brown Ale;Fairies gain +20 Max Bodyheat
+Brown Ale;Fairies gain +20 max hydratation
+Brown Ale;Fairies gain +20 Max Metabolism
+Brown Ale;Fairies gain +23 Max Power
+Brown Ale;Fairies gain +42 Max Health
+Brown Ale;Fast-flying cost (Per second) -0.5, Fast-flying Speed +1.5
+Brown Ale;First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
+Brown Ale;Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Brown Ale;Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
+Brown Ale;Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Brown Ale;Humans gain +20 Max Bodyheat
+Brown Ale;Humans gain +20 max hydratation
+Brown Ale;Humans gain +20 Max Metabolism
+Brown Ale;Humans gain +23 Max Power
+Brown Ale;Humans gain +42 Max Health
+Brown Ale;Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
+Brown Ale;Max Armor +48
+Brown Ale;Max Health +33
+Brown Ale;Max Peaceableness +6, Max Community +7, Max Cleanliness +7
+Brown Ale;Max Power +20
+Brown Ale;Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
+Brown Ale;Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Brown Ale;Orcs gain +20 Max Bodyheat
+Brown Ale;Orcs gain +20 max hydratation
+Brown Ale;Orcs gain +20 Max Metabolism
+Brown Ale;Orcs gain +23 Max Power
+Brown Ale;Orcs gain +42 Max Health
+Brown Ale;Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Brown Ale;Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
+Brown Ale;Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Brown Ale;Rakshasa gain +20 Max Bodyheat
+Brown Ale;Rakshasa gain +20 max hydratation
+Brown Ale;Rakshasa gain +20 Max Metabolism
+Brown Ale;Rakshasa gain +23 Max Power
+Brown Ale;Rakshasa gain +42 Max Health
+Brown Ale;Sprint Speed Boost -1.5, taunt from attack damage +30 %
+Brown Ale;Taunt from Attack damage -10.5 %
+Brown Ale;Taunt from Attack damage +20 %
+Brown Ale;Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
+
