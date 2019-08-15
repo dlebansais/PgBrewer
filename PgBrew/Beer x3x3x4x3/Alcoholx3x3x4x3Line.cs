@@ -2,7 +2,7 @@
 {
     using System.ComponentModel;
 
-    public class Alcoholx3x3x4x3Line : AlcoholLine, INotifyPropertyChanged
+    public class Alcoholx3x3x4x3Line : AlcoholLine, IFourComponentsAlcoholLine, INotifyPropertyChanged
     {
         public Alcoholx3x3x4x3Line(Alcohol owner, int effectIndex, int index1, int index2, int index3, int index4)
             : base(owner, effectIndex)

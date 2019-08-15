@@ -15,7 +15,7 @@
         <DataTemplate x:Key="LineTemplate">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="160"/>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="160"/>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" VerticalAlignment="Center" MinWidth="120"/>
                 <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>

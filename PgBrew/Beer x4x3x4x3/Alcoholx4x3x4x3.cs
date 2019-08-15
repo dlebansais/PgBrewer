@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
 
-    public class Alcoholx4x3x4x3 : Alcohol
+    public class Alcoholx4x3x4x3 : Alcohol, IFourComponentsAlcohol
     {
         public Alcoholx4x3x4x3(string name, List<Component> componentList1, List<Component> componentList2, List<Component> componentList3, List<Component> componentList4)
             : base(name)

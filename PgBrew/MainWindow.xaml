@@ -145,12 +145,33 @@
                 <TabItem.Header>
                     <DockPanel>
                         <Image DockPanel.Dock="Top" Source="{Binding IconLiquor}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
-                        <TextBlock FontSize="24" HorizontalAlignment="Center">Hard Liquors</TextBlock>
+                        <TextBlock FontSize="24" HorizontalAlignment="Center">Liquors</TextBlock>
                     </DockPanel>
                 </TabItem.Header>
                 <TabControl Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue">
                     <TabItem Header="Potato Vodka" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx3x4x5x4Control DataContext="{Binding PotatoVodka}"/>
+                    </TabItem>
+                    <TabItem Header="Applejack" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Applejack}"/>
+                    </TabItem>
+                    <TabItem Header="Beet Vodka" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding BeetVodka}"/>
+                    </TabItem>
+                    <TabItem Header="Pale Rum" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding PaleRum}"/>
+                    </TabItem>
+                    <TabItem Header="Whisky" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Whisky}"/>
+                    </TabItem>
+                    <TabItem Header="Tequila" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Tequila}"/>
+                    </TabItem>
+                    <TabItem Header="Dry Gin" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding DryGin}"/>
+                    </TabItem>
+                    <TabItem Header="Bourbon" Style="{StaticResource TabItemLevel2}">
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Bourbon}"/>
                     </TabItem>
                 </TabControl>
             </TabItem>

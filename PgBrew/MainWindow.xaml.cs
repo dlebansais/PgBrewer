@@ -273,7 +273,49 @@
             VeggieTier1,
             PartsTier1,
             FlavorTier1Four);
-        
+
+        public Alcoholx3x4x5x4 Applejack { get; private set; } = new Alcoholx3x4x5x4("Applejack",
+            FruitTier1Three,
+            VeggieTier2,
+            PartsTier1,
+            FlavorTier1Four);
+
+        public Alcoholx3x4x5x4 BeetVodka { get; private set; } = new Alcoholx3x4x5x4("Beet Vodka",
+            FruitTier2,
+            VeggieTier1,
+            PartsTier1,
+            FlavorTier1Four);
+
+        public Alcoholx3x4x5x4 PaleRum { get; private set; } = new Alcoholx3x4x5x4("Pale Rum",
+            FruitTier2,
+            MushroomTier3,
+            PartsTier1,
+            FlavorTier1Four);
+
+        public Alcoholx3x4x5x4 Whisky { get; private set; } = new Alcoholx3x4x5x4("Whisky",
+            FruitTier2,
+            MushroomTier3,
+            PartsTier2,
+            FlavorTier1Four);
+
+        public Alcoholx3x4x5x4 Tequila { get; private set; } = new Alcoholx3x4x5x4("Tequila",
+            FruitTier2,
+            MushroomTier3,
+            PartsTier2,
+            FlavorTier2Four);
+
+        public Alcoholx3x4x5x4 DryGin { get; private set; } = new Alcoholx3x4x5x4("Dry Gin",
+            FruitTier3,
+            MushroomTier4,
+            PartsTier2,
+            FlavorTier2Four);
+
+        public Alcoholx3x4x5x4 Bourbon { get; private set; } = new Alcoholx3x4x5x4("Bourbon",
+            FruitTier3,
+            MushroomTier4,
+            PartsTier3,
+            FlavorTier3Four);
+
         public ComponentAssociationCollection AssociationFruit1 { get; } = new ComponentAssociationCollection("Fruit1", new List<ComponentAssociation>()
         {
             new ComponentAssociation(RedApple, FruitTier2),
@@ -415,6 +457,13 @@
             HegemonyLager.Save();
             DwarvenStout.Save();
             PotatoVodka.Save();
+            Applejack.Save();
+            BeetVodka.Save();
+            PaleRum.Save();
+            Whisky.Save();
+            Tequila.Save();
+            DryGin.Save();
+            Bourbon.Save();
 
             SaveAssociations();
             SaveGUI();
@@ -498,6 +547,13 @@
             HegemonyLager.Export(writer, isCalculatedIncluded);
             DwarvenStout.Export(writer, isCalculatedIncluded);
             PotatoVodka.Export(writer, isCalculatedIncluded);
+            Applejack.Export(writer, isCalculatedIncluded);
+            BeetVodka.Export(writer, isCalculatedIncluded);
+            PaleRum.Export(writer, isCalculatedIncluded);
+            Whisky.Export(writer, isCalculatedIncluded);
+            Tequila.Export(writer, isCalculatedIncluded);
+            DryGin.Export(writer, isCalculatedIncluded);
+            Bourbon.Export(writer, isCalculatedIncluded);
         }
 
         private void ExportAssociations(StreamWriter writer)
@@ -532,11 +588,32 @@
             HegemonyLager.ClearCalculateIndexes();
             DwarvenStout.ClearCalculateIndexes();
             PotatoVodka.ClearCalculateIndexes();
+            Applejack.ClearCalculateIndexes();
+            BeetVodka.ClearCalculateIndexes();
+            PaleRum.ClearCalculateIndexes();
+            Whisky.ClearCalculateIndexes();
+            Tequila.ClearCalculateIndexes();
+            DryGin.ClearCalculateIndexes();
+            Bourbon.ClearCalculateIndexes();
 
             RecalculateBottomToTop(OrcishBock, BrownAle, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
             RecalculateBottomToTop(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
             RecalculateBottomToTop(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
+            RecalculateBottomToTop(PotatoVodka, Applejack, null, AssociationVeggie1, null, null);
+            RecalculateBottomToTop(Applejack, BeetVodka, AssociationFruit1, null, null, null);
+            RecalculateBottomToTop(BeetVodka, PaleRum, null, null, null, null);
+            RecalculateBottomToTop(PaleRum, Whisky, null, null, AssociationParts1, null);
+            RecalculateBottomToTop(Whisky, Tequila, null, null, null, AssociationFlavor1Liquor);
+            RecalculateBottomToTop(Tequila, DryGin, AssociationFruit2, AssociationMushroom3, null, null);
+            RecalculateBottomToTop(DryGin, Bourbon, null, null, AssociationParts2, AssociationFlavor2Liquor);
 
+            RecalculateTopToBottom(Bourbon, DryGin, null, null, AssociationParts2, AssociationFlavor2Liquor);
+            RecalculateTopToBottom(DryGin, Tequila, AssociationFruit2, AssociationMushroom3, null, null);
+            RecalculateTopToBottom(Tequila, Whisky, null, null, null, AssociationFlavor1Liquor);
+            RecalculateTopToBottom(Whisky, PaleRum, null, null, AssociationParts1, null);
+            RecalculateTopToBottom(PaleRum, BeetVodka, null, null, null, null);
+            RecalculateTopToBottom(BeetVodka, Applejack, AssociationFruit1, null, null, null);
+            RecalculateTopToBottom(Applejack, PotatoVodka, null, AssociationVeggie1, null, null);
             RecalculateTopToBottom(DwarvenStout, HegemonyLager, null, null, AssociationMushroom3, AssociationFlavor2Beer);
             RecalculateTopToBottom(HegemonyLager, BrownAle, null, AssociationFruit2, null, null);
             RecalculateTopToBottom(BrownAle, OrcishBock, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
@@ -546,13 +623,20 @@
             HegemonyLager.RecalculateMismatchCount();
             DwarvenStout.RecalculateMismatchCount();
             PotatoVodka.RecalculateMismatchCount();
+            Applejack.RecalculateMismatchCount();
+            BeetVodka.RecalculateMismatchCount();
+            PaleRum.RecalculateMismatchCount();
+            Whisky.RecalculateMismatchCount();
+            Tequila.RecalculateMismatchCount();
+            DryGin.RecalculateMismatchCount();
+            Bourbon.RecalculateMismatchCount();
         }
 
-        public void RecalculateBottomToTop(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
+        public void RecalculateBottomToTop(IFourComponentsAlcohol previous, IFourComponentsAlcohol next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
             for (int PreviousLineIndex = 0; PreviousLineIndex < previous.Lines.Count; PreviousLineIndex++)
             {
-                Alcoholx4x3x4x3Line Line = previous.Lines[PreviousLineIndex] as Alcoholx4x3x4x3Line;
+                IFourComponentsAlcoholLine Line = previous.Lines[PreviousLineIndex] as IFourComponentsAlcoholLine;
                 int BestIndex = Line.BestIndex;
                 if (BestIndex >= 0)
                 {
@@ -570,11 +654,11 @@
             }
         }
 
-        public void RecalculateTopToBottom(Alcoholx4x3x4x3 next, Alcoholx4x3x4x3 previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
+        public void RecalculateTopToBottom(IFourComponentsAlcohol next, IFourComponentsAlcohol previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
             for (int NextLineIndex = 0; NextLineIndex < next.Lines.Count; NextLineIndex++)
             {
-                Alcoholx4x3x4x3Line Line = next.Lines[NextLineIndex] as Alcoholx4x3x4x3Line;
+                IFourComponentsAlcoholLine Line = next.Lines[NextLineIndex] as IFourComponentsAlcoholLine;
                 int BestIndex = Line.BestIndex;
                 if (BestIndex >= 0)
                 {

@@ -22,7 +22,7 @@ Marzen;
 Marzen;
 Marzen;
 Marzen;
-Marzen;
+Marzen;Fast-Flying Cost (Per Second) -0.2, Fast-Flying Speed +0.6;Flier's;
 Marzen;
 Marzen;
 Marzen;
