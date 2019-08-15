@@ -10,6 +10,11 @@
         Closing="OnClosing">
     <Window.Resources>
         <conv:BooleanToObjectConverter x:Key="convBooleanToObject"/>
+        <conv:NullToObjectConverter x:Key="convNullToObject"/>
+        <CompositeCollection x:Key="CollapsedVisible">
+            <Visibility>Collapsed</Visibility>
+            <Visibility>Visible</Visibility>
+        </CompositeCollection>
         <DataTemplate x:Key="ChoiceTemplate">
             <TextBlock Text="{Binding Name}"/>
         </DataTemplate>
@@ -21,42 +26,116 @@
                 <ComboBox ItemsSource="{Binding ChoiceList}" SelectedIndex="{Binding AssociationIndex}" ItemTemplate="{StaticResource ChoiceTemplate}"/>
             </DockPanel>
         </DataTemplate>
+        <Style TargetType="{x:Type TabItem}" x:Key="TabItemLevel1">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border Name="Border" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5" Width="160" Height="140" Margin="0,5,0,5">
+                                <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="LightBlue" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,1" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="DarkBlue" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
+                                <Setter Property="Foreground" Value="DarkGray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TabItem}" x:Key="TabItemLevel2">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border Name="Border" Margin="5,15,5,10" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5,5,5,5" Width="110" Height="24">
+                                <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="LightBlue" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                <Setter TargetName="Border" Property="CornerRadius" Value="5,5,0,0" />
+                                <Setter TargetName="Border" Property="Margin" Value="5,15,5,0" />
+                                <Setter TargetName="Border" Property="Height" Value="34" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="DarkBlue" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
+                                <Setter TargetName="Border" Property="CornerRadius" Value="5,5,5,5" />
+                                <Setter TargetName="Border" Property="Margin" Value="5,15,5,10" />
+                                <Setter TargetName="Border" Property="Height" Value="24" />
+                                <Setter Property="Foreground" Value="DarkGray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
-        <TabControl>
-            <TabItem Header="Beer">
-                <TabControl>
-                    <TabItem Header="Basic Lager">
+        <TabControl TabStripPlacement="Left" BorderThickness="0" BorderBrush="{x:Null}" Margin="10,10,10,10">
+            <TabItem Style="{StaticResource TabItemLevel1}">
+                <TabItem.Header>
+                    <DockPanel>
+                        <Image DockPanel.Dock="Top" Source="{Binding IconBeer}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
+                        <TextBlock FontSize="24" HorizontalAlignment="Center">Beers</TextBlock>
+                    </DockPanel>
+                </TabItem.Header>
+                <TabControl Margin="10,0,0,0">
+                    <TabItem Header="Basic Lager" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4Control DataContext="{Binding BasicLager}"/>
                     </TabItem>
-                    <TabItem Header="Pale Ale">
+                    <TabItem Header="Pale Ale" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4x4Control DataContext="{Binding PaleAle}"/>
                     </TabItem>
-                    <TabItem Header="Marzen">
+                    <TabItem Header="Marzen" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4x4x2Control DataContext="{Binding Marzen}"/>
                     </TabItem>
-                    <TabItem Header="Goblin Ale">
+                    <TabItem Header="Goblin Ale" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx3x3x4x3Control DataContext="{Binding GoblinAle}"/>
                     </TabItem>
-                    <TabItem Header="Orcish Bock">
+                    <TabItem Header="Orcish Bock" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4x3x4x3Control DataContext="{Binding OrcishBock}"/>
                     </TabItem>
-                    <TabItem Header="Brown Ale">
+                    <TabItem Header="Brown Ale" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4x3x4x3Control DataContext="{Binding BrownAle}"/>
                     </TabItem>
-                    <TabItem Header="Hegemony Lager">
+                    <TabItem Header="Hegemony Lager" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4x3x4x3Control DataContext="{Binding HegemonyLager}"/>
                     </TabItem>
-                    <TabItem Header="Dwarven Stout">
+                    <TabItem Header="Dwarven Stout" Style="{StaticResource TabItemLevel2}">
                         <local:Alcoholx4x3x4x3Control DataContext="{Binding DwarvenStout}"/>
                     </TabItem>
                 </TabControl>
             </TabItem>
-            <TabItem Header="Hard Liquor">
+            <TabItem Style="{StaticResource TabItemLevel1}">
+                <TabItem.Header>
+                    <DockPanel>
+                        <Image DockPanel.Dock="Top" Source="{Binding IconLiquor}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
+                        <TextBlock FontSize="24" HorizontalAlignment="Center">Hard Liquors</TextBlock>
+                    </DockPanel>
+                </TabItem.Header>
                 <TabItem Header="Potato Vodka">
                 </TabItem>
             </TabItem>
-            <TabItem Header="Settings">
+            <TabItem Style="{StaticResource TabItemLevel1}">
+                <TabItem.Header>
+                    <DockPanel>
+                        <Image DockPanel.Dock="Top" Source="{Binding IconSettings}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
+                        <TextBlock FontSize="24" HorizontalAlignment="Center">Settings</TextBlock>
+                    </DockPanel>
+                </TabItem.Header>
                 <ScrollViewer>
                     <DockPanel>
                         <GroupBox DockPanel.Dock="Top" Grid.Row="0" Grid.Column="0" Header="Miscellaneous">

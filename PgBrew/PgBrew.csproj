@@ -115,6 +115,7 @@
     <Compile Include="Component.cs" />
     <Compile Include="ComponentAssociation.cs" />
     <Compile Include="ComponentAssociationCollection.cs" />
+    <Compile Include="Converters\NullToObjectConverter.cs" />
     <Compile Include="Converters\BooleanToObjectConverter.cs" />
     <Compile Include="DataArchive.cs" />
     <Compile Include="Effect.cs" />

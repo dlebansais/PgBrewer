@@ -9,6 +9,8 @@
     using System.Text;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,6 +27,7 @@
 
             LoadAssociations();
             LoadGUI();
+            LoadIcons();
             _IsChanged = false;
 
             Loaded += OnLoaded;
@@ -79,6 +82,54 @@
             if (Coordinates[2] >= 0 && Coordinates[3] >= 0)
                 SizeToContent = SizeToContent.Manual;
         }
+
+        private void LoadIcons()
+        {
+            try
+            {
+                string UserRootFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string ApplicationFolder = Path.Combine(UserRootFolder, "PgJsonParse");
+                string VersionCacheFolder = Path.Combine(ApplicationFolder, "Versions");
+
+                if (!Directory.Exists(VersionCacheFolder))
+                    return;
+
+                string FinalFolder = null;
+                string SharedFolder = Path.Combine(ApplicationFolder, "Shared Icons");
+
+                if (Directory.Exists(SharedFolder))
+                    FinalFolder = SharedFolder;
+                else
+                {
+                    string[] VersionFolders = Directory.GetDirectories(VersionCacheFolder);
+                    int LastVersion = -1;
+
+                    foreach (string Folder in VersionFolders)
+                    {
+                        if (int.TryParse(Path.GetFileName(Folder), out int FolderVersion))
+                            if (LastVersion < FolderVersion)
+                                LastVersion = FolderVersion;
+                    }
+
+                    if (LastVersion > 0)
+                        FinalFolder = Path.Combine(VersionCacheFolder, LastVersion.ToString());
+                }
+
+                if (FinalFolder != null)
+                {
+                    IconBeer = new BitmapImage(new Uri(Path.Combine(FinalFolder, "icon_5744.png")));
+                    IconLiquor = new BitmapImage(new Uri(Path.Combine(FinalFolder, "icon_5746.png")));
+                    IconSettings = new BitmapImage(new Uri(Path.Combine(FinalFolder, "icon_5476.png")));
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        public ImageSource IconBeer { get; private set; }
+        public ImageSource IconLiquor { get; private set; }
+        public ImageSource IconSettings { get; private set; }
 
         public bool IsChanged
         {
