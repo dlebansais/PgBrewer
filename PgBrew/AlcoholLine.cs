@@ -3,7 +3,7 @@
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
-    public class AlcoholLine : INotifyPropertyChanged
+    public abstract class AlcoholLine : INotifyPropertyChanged
     {
         public AlcoholLine(Alcohol owner, int effectIndex)
         {
@@ -69,6 +69,8 @@
         {
             CalculatedIndex = -1;
         }
+
+        public abstract string GetExportedComponents();
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

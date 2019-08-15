@@ -23,6 +23,11 @@
         public string Component3 { get { return ((Alcoholx3x3x4x3)Owner).ComponentList3[Index3].Name; } }
         public string Component4 { get { return ((Alcoholx3x3x4x3)Owner).ComponentList4[Index4].Name; } }
 
+        public override string GetExportedComponents()
+        {
+            return $"{Component1};{Component2};{Component3};{Component4}";
+        }
+
         public override string ToString()
         {
             return $"{Component1}, {Component2}, {Component3}, {Component4}";

@@ -119,6 +119,9 @@
                 </ScrollViewer>
             </TabItem>
         </TabControl>
-        <Button IsEnabled="{Binding IsChanged}" Click="OnSave" HorizontalAlignment="Right" VerticalAlignment="Top">Save</Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button IsEnabled="{Binding IsChanged}" Click="OnSave">Save</Button>
+            <Button Click="OnExport" Margin="10,0,0,0">Export...</Button>
+        </StackPanel>
     </Grid>
 </Window>

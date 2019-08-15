@@ -14,6 +14,11 @@
 
         public string Component1 { get { return ((Alcoholx4)Owner).ComponentList1[Index1].Name; } }
 
+        public override string GetExportedComponents()
+        {
+            return $"{Component1};;;";
+        }
+
         public override string ToString()
         {
             return $"{Component1}";

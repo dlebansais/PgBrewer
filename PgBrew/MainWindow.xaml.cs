@@ -1,8 +1,12 @@
 ﻿namespace PgBrew
 {
+    using Microsoft.Win32;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.IO;
     using System.Runtime.CompilerServices;
+    using System.Text;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -492,6 +496,76 @@
         {
             ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
             Association.AssociationIndex = -1;
+        }
+
+        private void OnExport(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog Dlg = new SaveFileDialog();
+            Dlg.Filter = "CSV file (*.csv)|*.csv";
+            bool? Continue = Dlg.ShowDialog(this);
+
+            if (Continue.HasValue && Continue.Value)
+            {
+                MessageBoxResult Answer = MessageBox.Show("Include calculated recipes? If you answer 'No', only confirmed recipes will be exported.", "Export", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                bool IsCalculatedIncluded = Answer == MessageBoxResult.Yes;
+
+                OnExport(Dlg.FileName, IsCalculatedIncluded);
+            }
+        }
+
+        private void OnExport(string FileName, bool isCalculatedIncluded)
+        {
+            try
+            {
+                using (FileStream Stream = new FileStream(FileName, FileMode.Create, FileAccess.Write))
+                {
+                    using (StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8))
+                    {
+                        OnExport(Writer, isCalculatedIncluded);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void OnExport(StreamWriter writer, bool isCalculatedIncluded)
+        {
+            ExportAssociations(writer);
+
+            BasicLager.Export(writer, isCalculatedIncluded);
+            PaleAle.Export(writer, isCalculatedIncluded);
+            Marzen.Export(writer, isCalculatedIncluded);
+            GoblinAle.Export(writer, isCalculatedIncluded);
+            OrcishBock.Export(writer, isCalculatedIncluded);
+            BrownAle.Export(writer, isCalculatedIncluded);
+            HegemonyLager.Export(writer, isCalculatedIncluded);
+            DwarvenStout.Export(writer, isCalculatedIncluded);
+        }
+
+        private void ExportAssociations(StreamWriter writer)
+        {
+            writer.WriteLine("Associations");
+            writer.WriteLine();
+
+            foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+            {
+                writer.WriteLine(AssociationList.Name);
+
+                foreach (ComponentAssociation Association in AssociationList)
+                {
+                    if (Association.AssociationIndex >= 0)
+                        writer.WriteLine($"{Association.Component.Name};{Association.ChoiceList[Association.AssociationIndex]}");
+                    else
+                        writer.WriteLine($"{Association.Component.Name};");
+                }
+
+                writer.WriteLine();
+            }
+
+            writer.WriteLine();
         }
 
         #region Implementation of INotifyPropertyChanged

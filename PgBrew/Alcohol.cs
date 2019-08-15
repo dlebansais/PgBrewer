@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.IO;
     using System.Runtime.CompilerServices;
 
     public class Alcohol : INotifyPropertyChanged
@@ -55,6 +56,24 @@
                     NewCount++;
 
             MismatchCount = NewCount;
+        }
+
+        public void Export(StreamWriter writer, bool isCalculatedIncluded)
+        {
+            writer.WriteLine(Name);
+
+            foreach (AlcoholLine Line in Lines)
+            {
+                string ExportedComponents = Line.GetExportedComponents();
+                int Index = isCalculatedIncluded ? Line.BestIndex : Line.EffectIndex;
+
+                if (Index >= 0)
+                    writer.WriteLine($"{ExportedComponents};{EffectList[Index].Text}");
+                else
+                    writer.WriteLine($"{ExportedComponents};");
+            }
+
+            writer.WriteLine();
         }
 
         #region Implementation of INotifyPropertyChanged
