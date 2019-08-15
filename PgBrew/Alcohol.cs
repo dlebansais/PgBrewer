@@ -23,5 +23,16 @@
 
             DataArchive.SetIndexList(Name, Indexes);
         }
+
+        public void ClearCalculateIndexes()
+        {
+            foreach (AlcoholLine Line in Lines)
+                Line.ClearCalculateIndex();
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

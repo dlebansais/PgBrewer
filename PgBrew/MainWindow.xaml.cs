@@ -22,6 +22,13 @@
             LoadAssociations();
             LoadGUI();
             _IsChanged = false;
+
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Recalculate();
         }
 
         private void LoadAssociations()
@@ -377,38 +384,31 @@
 
         public void Recalculate()
         {
-            Recalculate(OrcishBock, BrownAle);
-            Recalculate(BrownAle, HegemonyLager);
-            Recalculate(HegemonyLager, DwarvenStout);
+            OrcishBock.ClearCalculateIndexes();
+            BrownAle.ClearCalculateIndexes();
+            HegemonyLager.ClearCalculateIndexes();
+            DwarvenStout.ClearCalculateIndexes();
+
+            RecalculateBottomToTop(OrcishBock, BrownAle, null, null, null, null);
+            RecalculateBottomToTop(BrownAle, HegemonyLager, null, null, null, null);
+            RecalculateBottomToTop(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
+
+            RecalculateTopToBottom(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
+            RecalculateTopToBottom(BrownAle, HegemonyLager, null, null, null, null);
+            RecalculateTopToBottom(OrcishBock, BrownAle, null, null, null, null);
         }
 
-        public void Recalculate(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next)
+        public void RecalculateBottomToTop(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
-            foreach (Alcoholx4x3x4x3Line Line in previous.Lines)
+            for (int PreviousLineIndex = 0; PreviousLineIndex < previous.Lines.Count; PreviousLineIndex++)
+            {
+                Alcoholx4x3x4x3Line Line = previous.Lines[PreviousLineIndex] as Alcoholx4x3x4x3Line;
                 if (Line.EffectIndex >= 0)
                 {
-                    Component PreviousComponent1 = previous.ComponentList1[Line.Index1];
-                    Component PreviousComponent2 = previous.ComponentList2[Line.Index2];
-                    Component PreviousComponent3 = previous.ComponentList3[Line.Index3];
-                    Component PreviousComponent4 = previous.ComponentList4[Line.Index4];
-
-                    int NextIndex1 = -1;
-                    int NextIndex2 = -1;
-                    int NextIndex3 = -1;
-                    int NextIndex4 = -1;
-
-                    foreach (ComponentAssociationCollection AssociationList in AssociationTable)
-                        foreach (ComponentAssociation Association in AssociationList)
-                        {
-                            if (Association.Component == PreviousComponent1 && Association.ChoiceList == next.ComponentList1 && Association.AssociationIndex >= 0)
-                                NextIndex1 = Association.AssociationIndex;
-                            if (Association.Component == PreviousComponent2 && Association.ChoiceList == next.ComponentList2 && Association.AssociationIndex >= 0)
-                                NextIndex2 = Association.AssociationIndex;
-                            if (Association.Component == PreviousComponent3 && Association.ChoiceList == next.ComponentList3 && Association.AssociationIndex >= 0)
-                                NextIndex3 = Association.AssociationIndex;
-                            if (Association.Component == PreviousComponent4 && Association.ChoiceList == next.ComponentList4 && Association.AssociationIndex >= 0)
-                                NextIndex4 = Association.AssociationIndex;
-                        }
+                    int NextIndex1 = GetPreviousToNextIndex(associationList1, Line.Index1);
+                    int NextIndex2 = GetPreviousToNextIndex(associationList2, Line.Index2);
+                    int NextIndex3 = GetPreviousToNextIndex(associationList3, Line.Index3);
+                    int NextIndex4 = GetPreviousToNextIndex(associationList4, Line.Index4);
 
                     if (NextIndex1 >= 0 && NextIndex2 >= 0 && NextIndex3 >= 0 && NextIndex4 >= 0)
                     {
@@ -416,32 +416,20 @@
                         next.Lines[NextLineIndex].CalculatedIndex = Line.EffectIndex;
                     }
                 }
+            }
+        }
 
-            foreach (Alcoholx4x3x4x3Line Line in next.Lines)
+        public void RecalculateTopToBottom(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
+        {
+            for (int NextLineIndex = 0; NextLineIndex < next.Lines.Count; NextLineIndex++)
+            {
+                Alcoholx4x3x4x3Line Line = next.Lines[NextLineIndex] as Alcoholx4x3x4x3Line;
                 if (Line.EffectIndex >= 0)
                 {
-                    int NextIndex1 = Line.Index1;
-                    int NextIndex2 = Line.Index2;
-                    int NextIndex3 = Line.Index3;
-                    int NextIndex4 = Line.Index4;
-
-                    int PreviousIndex1 = -1;
-                    int PreviousIndex2 = -1;
-                    int PreviousIndex3 = -1;
-                    int PreviousIndex4 = -1;
-
-                    foreach (ComponentAssociationCollection AssociationList in AssociationTable)
-                        foreach (ComponentAssociation Association in AssociationList)
-                        {
-                            if (Association.ChoiceList == next.ComponentList1 && Association.AssociationIndex == NextIndex1)
-                                PreviousIndex1 = previous.ComponentList1.IndexOf(Association.Component);
-                            if (Association.ChoiceList == next.ComponentList2 && Association.AssociationIndex == NextIndex2)
-                                PreviousIndex2 = previous.ComponentList2.IndexOf(Association.Component);
-                            if (Association.ChoiceList == next.ComponentList3 && Association.AssociationIndex == NextIndex3)
-                                PreviousIndex3 = previous.ComponentList3.IndexOf(Association.Component);
-                            if (Association.ChoiceList == next.ComponentList4 && Association.AssociationIndex == NextIndex4)
-                                PreviousIndex4 = previous.ComponentList4.IndexOf(Association.Component);
-                        }
+                    int PreviousIndex1 = GetNextToPreviousIndex(associationList1, Line.Index1);
+                    int PreviousIndex2 = GetNextToPreviousIndex(associationList2, Line.Index2);
+                    int PreviousIndex3 = GetNextToPreviousIndex(associationList3, Line.Index3);
+                    int PreviousIndex4 = GetNextToPreviousIndex(associationList4, Line.Index4);
 
                     if (PreviousIndex1 >= 0 && PreviousIndex2 >= 0 && PreviousIndex3 >= 0 && PreviousIndex4 >= 0)
                     {
@@ -449,6 +437,42 @@
                         previous.Lines[PreviousLineIndex].CalculatedIndex = Line.EffectIndex;
                     }
                 }
+            }
+        }
+
+        private int GetPreviousToNextIndex(ComponentAssociationCollection associationList, int previousIndex)
+        {
+            int NextIndex;
+
+            if (associationList == null)
+                NextIndex = previousIndex;
+            else if (associationList[previousIndex].AssociationIndex >= 0)
+                NextIndex = associationList[previousIndex].AssociationIndex;
+            else
+                NextIndex = -1;
+
+            return NextIndex;
+        }
+
+        private int GetNextToPreviousIndex(ComponentAssociationCollection associationList, int nextIndex)
+        {
+            int PreviousIndex;
+
+            if (associationList == null)
+                PreviousIndex = nextIndex;
+            else
+            {
+                PreviousIndex = -1;
+
+                for (int i = 0; i < associationList.Count; i++)
+                    if (associationList[i].AssociationIndex == nextIndex)
+                    {
+                        PreviousIndex = i;
+                        break;
+                    }
+            }
+
+            return PreviousIndex;
         }
 
         public static void SetChanged()

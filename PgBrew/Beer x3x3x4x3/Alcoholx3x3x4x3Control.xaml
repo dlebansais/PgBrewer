@@ -5,12 +5,12 @@
     <UserControl.Resources>
         <DataTemplate x:Key="Line">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" MinWidth="100"/>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" MinWidth="150"/>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" MinWidth="150"/>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" MinWidth="150"/>
-                <Button DockPanel.Dock="Right" Click="OnDelete" Content="X" MinWidth="16"/>
-                <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="150"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" VerticalAlignment="Center" MinWidth="150"/>
+                <Button DockPanel.Dock="Right" Click="OnDelete" Content="X" VerticalAlignment="Center" MinWidth="16"/>
+                <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" VerticalAlignment="Center"/>
             </DockPanel>
         </DataTemplate>
     </UserControl.Resources>

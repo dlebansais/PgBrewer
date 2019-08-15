@@ -49,5 +49,10 @@
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
         #endregion
+
+        public override string ToString()
+        {
+            return _AssociationIndex >= 0 ? $"{Component} -> {ChoiceList[_AssociationIndex]}" : $"{Component} -> Unknown";
+        }
     }
 }

@@ -9,6 +9,7 @@
         {
             Owner = owner;
             _EffectIndex = effectIndex;
+            _CalculatedIndex = -1;
         }
 
         public Alcohol Owner { get; }
@@ -24,6 +25,9 @@
                     MainWindow.SetChanged();
 
                     NotifyThisPropertyChanged();
+
+                    MainWindow Window = App.Current.MainWindow as MainWindow;
+                    Window.Recalculate();
                 }
             }
         }
@@ -31,7 +35,20 @@
 
         public string Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
 
-        public int CalculatedIndex { get; set; }
+        public int CalculatedIndex
+        {
+            get { return _CalculatedIndex; }
+            set
+            {
+                if (_CalculatedIndex != value)
+                {
+                    _CalculatedIndex = value;
+                    NotifyPropertyChanged(nameof(CalculatedEffect));
+                }
+            }
+        }
+        private int _CalculatedIndex;
+
         public string CalculatedEffect
         {
             get
@@ -39,8 +56,13 @@
                 if (EffectIndex >= 0)
                     return null;
 
-                return CalculatedIndex >= 0 && CalculatedIndex < Owner.EffectList.Count ? Owner.EffectList[CalculatedIndex] : null;
+                return _CalculatedIndex >= 0 && _CalculatedIndex < Owner.EffectList.Count ? Owner.EffectList[_CalculatedIndex] : null;
             }
+        }
+
+        public void ClearCalculateIndex()
+        {
+            CalculatedIndex = -1;
         }
 
         #region Implementation of INotifyPropertyChanged

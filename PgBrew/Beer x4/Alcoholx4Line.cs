@@ -13,5 +13,10 @@
         public int Index1 { get; }
 
         public string Component1 { get { return ((Alcoholx4)Owner).ComponentList1[Index1].Name; } }
+
+        public override string ToString()
+        {
+            return $"{Component1}";
+        }
     }
 }
