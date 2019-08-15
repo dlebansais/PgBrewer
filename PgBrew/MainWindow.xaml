@@ -150,7 +150,7 @@
                 </TabItem.Header>
                 <TabControl Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue">
                     <TabItem Header="Potato Vodka" Style="{StaticResource TabItemLevel2}">
-                        <Grid/>
+                        <local:Alcoholx3x4x5x4Control DataContext="{Binding PotatoVodka}"/>
                     </TabItem>
                 </TabControl>
             </TabItem>

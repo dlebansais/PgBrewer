@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Liquor x3x4x5x4\Alcoholx3x4x5x4Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Beer x4x3x4x3\Alcoholx4x3x4x3Control.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +87,11 @@
     <Compile Include="Alcohol.cs" />
     <Compile Include="AlcoholLine.cs" />
     <Compile Include="AlcoholLineCollection.cs" />
+    <Compile Include="Liquor x3x4x5x4\Alcoholx3x4x5x4.cs" />
+    <Compile Include="Liquor x3x4x5x4\Alcoholx3x4x5x4Control.xaml.cs">
+      <DependentUpon>Alcoholx3x4x5x4Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Liquor x3x4x5x4\Alcoholx3x4x5x4Line.cs" />
     <Compile Include="Beer x4x3x4x3\Alcoholx4x3x4x3.cs" />
     <Compile Include="Beer x4x3x4x3\Alcoholx4x3x4x3Control.xaml.cs">
       <DependentUpon>Alcoholx4x3x4x3Control.xaml</DependentUpon>

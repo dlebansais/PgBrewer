@@ -162,7 +162,7 @@ Orcish Bock;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power 
 Orcish Bock;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
 Orcish Bock;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
 Orcish Bock;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Orcish Bock;(?) Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Orcish Bock;(?) Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
 Orcish Bock;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
 Orcish Bock;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
 Orcish Bock;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
@@ -174,8 +174,8 @@ Orcish Bock;(?) Dwarves gain +20 Max Hydratation
 Orcish Bock;(?) Dwarves gain +20 Max Metabolism
 Orcish Bock;(?) Dwarves gain +23 Max Power
 Orcish Bock;(?) Dwarves gain +42 Max Health
-Orcish Bock;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
-Orcish Bock;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Orcish Bock;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP when Dirty
+Orcish Bock;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP when Dirty.
 Orcish Bock;(?) Elves gain +20 Max Bodyheat
 Orcish Bock;(?) Elves gain +20 Max Hydratation;;of Elfinity
 Orcish Bock;(?) Elves gain +20 Max Metabolism
@@ -189,8 +189,8 @@ Orcish Bock;(?) Fairies gain +42 Max Health
 Orcish Bock;(?) Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5
 Orcish Bock;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
 Orcish Bock;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
-Orcish Bock;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
-Orcish Bock;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Orcish Bock;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
+Orcish Bock;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Orcish Bock;(?) Humans gain +20 Max Bodyheat
 Orcish Bock;(?) Humans gain +20 Max Hydratation
 Orcish Bock;(?) Humans gain +20 Max Metabolism
@@ -209,8 +209,8 @@ Orcish Bock;(?) Orcs gain +20 Max Metabolism
 Orcish Bock;(?) Orcs gain +23 Max Power
 Orcish Bock;(?) Orcs gain +42 Max Health
 Orcish Bock;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
-Orcish Bock;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
-Orcish Bock;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Orcish Bock;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
+Orcish Bock;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Orcish Bock;(?) Rakshasa gain +20 Max Bodyheat
 Orcish Bock;(?) Rakshasa gain +20 Max Hydratation
 Orcish Bock;(?) Rakshasa gain +20 Max Metabolism
@@ -225,7 +225,7 @@ Brown Ale;Bard abilities power cost -6%, Battle Chemistry Abilities power cost -
 Brown Ale;Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
 Brown Ale;Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
 Brown Ale;Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Brown Ale;Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Brown Ale;Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
 Brown Ale;Chance to ignore Knockbacks +8%, Jump Power +1.2
 Brown Ale;Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
 Brown Ale;Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
@@ -237,8 +237,8 @@ Brown Ale;Dwarves gain +20 Max Hydratation
 Brown Ale;Dwarves gain +20 Max Metabolism
 Brown Ale;Dwarves gain +23 Max Power
 Brown Ale;Dwarves gain +42 Max Health
-Brown Ale;Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
-Brown Ale;Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Brown Ale;Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP when Dirty
+Brown Ale;Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP when Dirty.
 Brown Ale;Elves gain +20 Max Bodyheat
 Brown Ale;Elves gain +20 Max Hydratation;;of Elfinity
 Brown Ale;Elves gain +20 Max Metabolism
@@ -252,8 +252,8 @@ Brown Ale;Fairies gain +42 Max Health
 Brown Ale;Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5
 Brown Ale;First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
 Brown Ale;Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
-Brown Ale;Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
-Brown Ale;Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Brown Ale;Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
+Brown Ale;Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Brown Ale;Humans gain +20 Max Bodyheat
 Brown Ale;Humans gain +20 Max Hydratation
 Brown Ale;Humans gain +20 Max Metabolism
@@ -272,8 +272,8 @@ Brown Ale;Orcs gain +20 Max Metabolism
 Brown Ale;Orcs gain +23 Max Power
 Brown Ale;Orcs gain +42 Max Health
 Brown Ale;Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
-Brown Ale;Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
-Brown Ale;Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Brown Ale;Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
+Brown Ale;Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Brown Ale;Rakshasa gain +20 Max Bodyheat
 Brown Ale;Rakshasa gain +20 Max Hydratation
 Brown Ale;Rakshasa gain +20 Max Metabolism
@@ -288,7 +288,7 @@ Hegemony Lager;(?) Bard abilities power cost -6%, Battle Chemistry Abilities pow
 Hegemony Lager;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
 Hegemony Lager;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
 Hegemony Lager;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Hegemony Lager;(?) Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Hegemony Lager;(?) Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
 Hegemony Lager;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
 Hegemony Lager;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
 Hegemony Lager;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
@@ -300,8 +300,8 @@ Hegemony Lager;(?) Dwarves gain +20 Max Hydratation
 Hegemony Lager;(?) Dwarves gain +20 Max Metabolism
 Hegemony Lager;(?) Dwarves gain +23 Max Power
 Hegemony Lager;(?) Dwarves gain +42 Max Health
-Hegemony Lager;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
-Hegemony Lager;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Hegemony Lager;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP when Dirty
+Hegemony Lager;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP when Dirty.
 Hegemony Lager;(?) Elves gain +20 Max Bodyheat
 Hegemony Lager;(?) Elves gain +20 Max Hydratation;;of Elfinity
 Hegemony Lager;(?) Elves gain +20 Max Metabolism
@@ -315,8 +315,8 @@ Hegemony Lager;(?) Fairies gain +42 Max Health
 Hegemony Lager;(?) Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5
 Hegemony Lager;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
 Hegemony Lager;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
-Hegemony Lager;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
-Hegemony Lager;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Hegemony Lager;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
+Hegemony Lager;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Hegemony Lager;(?) Humans gain +20 Max Bodyheat
 Hegemony Lager;(?) Humans gain +20 Max Hydratation
 Hegemony Lager;(?) Humans gain +20 Max Metabolism
@@ -335,8 +335,8 @@ Hegemony Lager;(?) Orcs gain +20 Max Metabolism
 Hegemony Lager;(?) Orcs gain +23 Max Power
 Hegemony Lager;(?) Orcs gain +42 Max Health
 Hegemony Lager;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
-Hegemony Lager;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
-Hegemony Lager;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Hegemony Lager;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
+Hegemony Lager;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Hegemony Lager;(?) Rakshasa gain +20 Max Bodyheat
 Hegemony Lager;(?) Rakshasa gain +20 Max Hydratation
 Hegemony Lager;(?) Rakshasa gain +20 Max Metabolism
@@ -351,7 +351,7 @@ Dwarven Stout;(?) Bard abilities power cost -6%, Battle Chemistry Abilities powe
 Dwarven Stout;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
 Dwarven Stout;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
 Dwarven Stout;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Dwarven Stout;(?) Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Dwarven Stout;(?) Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
 Dwarven Stout;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
 Dwarven Stout;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
 Dwarven Stout;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
@@ -363,8 +363,8 @@ Dwarven Stout;Dwarves gain +28 Max Hydratation
 Dwarven Stout;(?) Dwarves gain +20 Max Metabolism
 Dwarven Stout;(?) Dwarves gain +23 Max Power
 Dwarven Stout;(?) Dwarves gain +42 Max Health
-Dwarven Stout;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
-Dwarven Stout;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Dwarven Stout;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP when Dirty
+Dwarven Stout;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP when Dirty.
 Dwarven Stout;(?) Elves gain +20 Max Bodyheat
 Dwarven Stout;Elves gain +28 Max Hydratation;;of Elfinity
 Dwarven Stout;(?) Elves gain +20 Max Metabolism
@@ -378,8 +378,8 @@ Dwarven Stout;(?) Fairies gain +42 Max Health
 Dwarven Stout;Fast-Flying Cost (Per Second) -0.7, Fast-Flying Speed +2.1;Flier's;
 Dwarven Stout;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
 Dwarven Stout;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
-Dwarven Stout;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
-Dwarven Stout;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Dwarven Stout;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
+Dwarven Stout;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Dwarven Stout;(?) Humans gain +20 Max Bodyheat
 Dwarven Stout;Humans gain +28 Max Hydratation
 Dwarven Stout;(?) Humans gain +20 Max Metabolism
@@ -398,8 +398,8 @@ Dwarven Stout;(?) Orcs gain +20 Max Metabolism
 Dwarven Stout;(?) Orcs gain +23 Max Power
 Dwarven Stout;(?) Orcs gain +42 Max Health
 Dwarven Stout;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
-Dwarven Stout;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
-Dwarven Stout;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Dwarven Stout;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
+Dwarven Stout;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Dwarven Stout;(?) Rakshasa gain +20 Max Bodyheat
 Dwarven Stout;Rakshasa gain +28 Max Hydratation
 Dwarven Stout;(?) Rakshasa gain +20 Max Metabolism
@@ -409,3 +409,110 @@ Dwarven Stout;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
 Dwarven Stout;(?) Taunt From Attack Damage -10.5%
 Dwarven Stout;(?) Taunt From Attack Damage +20%
 Dwarven Stout;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
+Potato Vodka;(?) Burst Attacks +10 Damage to Elite
+Potato Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Potato Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Potato Vodka;(?) Chance to Evade Melee Attacks +1%
+Potato Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Potato Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Potato Vodka;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Potato Vodka;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Potato Vodka;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Potato Vodka;(?) Damage to Aberration +1
+Potato Vodka;(?) Damage to Arthropods +1
+Potato Vodka;(?) Damage to Bears +1
+Potato Vodka;(?) Damage to Canines +1
+Potato Vodka;(?) Damage to Constructs +1
+Potato Vodka;(?) Damage to Corporeal Undeads +1
+Potato Vodka;(?) Damage to Crone-Kin +1
+Potato Vodka;(?) Damage to Demons +1
+Potato Vodka;(?) Damage to Dinosaurs +1
+Potato Vodka;(?) Damage to Elementals +1
+Potato Vodka;(?) Damage to Elves +1
+Potato Vodka;(?) Damage to Felines +1
+Potato Vodka;(?) Damage to Fey +1
+Potato Vodka;(?) Damage to Fish +1
+Potato Vodka;(?) Damage to Fungoids +1
+Potato Vodka;(?) Damage to Giants +1
+Potato Vodka;(?) Damage to Goblins +1
+Potato Vodka;(?) Damage to Humans +1
+Potato Vodka;(?) Damage to Incorporeal Undead +1
+Potato Vodka;(?) Damage to Non-Ruminants Rngulates +1
+Potato Vodka;(?) Damage to Orcs +1
+Potato Vodka;(?) Damage to Rakshasa +1
+Potato Vodka;(?) Damage to Rodents +1
+Potato Vodka;(?) Damage to Ruminants +1
+Potato Vodka;(?) Dance Appreciation +1
+Potato Vodka;(?) Dig Deep +10
+Potato Vodka;(?) Direct Acid Damage +1
+Potato Vodka;(?) Direct Crushing Damage +1
+Potato Vodka;(?) Direct Crushing mitigation +1
+Potato Vodka;(?) Direct Darkness Damage +1
+Potato Vodka;(?) Direct Demonic Damage +1
+Potato Vodka;(?) Direct Divine Damage +1
+Potato Vodka;(?) Direct Electricity Damage +1
+Potato Vodka;(?) Direct Fire Damage +1
+Potato Vodka;(?) Direct Nature Damage +1
+Potato Vodka;(?) Direct Piercing mitigation +1
+Potato Vodka;(?) Direct Poison Damage +1
+Potato Vodka;(?) Direct Psychic Damage +1
+Potato Vodka;(?) Direct Slashing Damage +1
+Potato Vodka;(?) Direct Slashing mitigation +1
+Potato Vodka;(?) Direct Sonic Damage +1
+Potato Vodka;(?) Direct Trauma Damage +1
+Potato Vodka;(?) Dwarves Gain +1 Max Bodyheat
+Potato Vodka;(?) Dwarves Gain +1 Max Hydratation
+Potato Vodka;(?) Dwarves Gain +1 Max Metabolism
+Potato Vodka;(?) Dwarves Gain +4 Max Power
+Potato Vodka;(?) Dwarves Gain +5 Max Health
+Potato Vodka;(?) Dwarves Gain +6 Max Health
+Potato Vodka;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Potato Vodka;(?) Elves Gain +1 Max Bodyheat
+Potato Vodka;(?) Elves Gain +1 Max Hydratation
+Potato Vodka;(?) Elves Gain +1 Max Metabolism
+Potato Vodka;(?) Elves Gain +4 Max Power
+Potato Vodka;(?) Elves Gain +5 Max Health
+Potato Vodka;(?) Elves Gain +6 Max Health
+Potato Vodka;(?) Fairies Gain +1 Max Bodyheat
+Potato Vodka;(?) Fairies Gain +1 Max Hydratation
+Potato Vodka;(?) Fairies Gain +1 Max Metabolism
+Potato Vodka;(?) Fairies Gain +4 Max Power
+Potato Vodka;(?) Fairies Gain +5 Max Health
+Potato Vodka;(?) Fairies Gain +6 Max Heatlh
+Potato Vodka;(?) Fast-Flying Speed +0.1
+Potato Vodka;(?) Healing of Your Major Healing Abilities +1
+Potato Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Potato Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Potato Vodka;(?) Humans Gain +1 Max Bodyheat
+Potato Vodka;(?) Humans Gain +1 Max Hydratation
+Potato Vodka;(?) Humans Gain +1 Max Metabolism
+Potato Vodka;(?) Humans Gain +4 Max Power
+Potato Vodka;(?) Humans Gain +5 Max Health
+Potato Vodka;(?) Humans Gain +6 Max Health
+Potato Vodka;(?) Jump Power +0.1
+Potato Vodka;(?) Max Cleanliness +1
+Potato Vodka;Max Armor +10
+Potato Vodka;(?) Max Health +8
+Potato Vodka;(?) Max Power +1
+Potato Vodka;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Potato Vodka;(?) Melee attacks do +6 Damage on Elite
+Potato Vodka;(?) Melee Evasion +1%
+Potato Vodka;(?) Orcs Gain +1 Max Bodyheat
+Potato Vodka;(?) Orcs Gain +1 Max Hydratation
+Potato Vodka;(?) Orcs Gain +1 Max Metabolism
+Potato Vodka;(?) Orcs Gain +4 Max Power
+Potato Vodka;(?) Orcs Gain +5 Max Health
+Potato Vodka;(?) Orcs Gain +6 Max Health
+Potato Vodka;(?) Projectile Attacks do +6 Damage to Elite
+Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Potato Vodka;(?) Rakshasa Gain +1 Max Bodyheat
+Potato Vodka;(?) Rakshasa Gain +1 Max Metabolism
+Potato Vodka;(?) Rakshasa Gain +4 Max Power
+Potato Vodka;(?) Rakshasa Gain +5 Max Health
+Potato Vodka;(?) Rakshasa Gain +6 Max Health
+Potato Vodka;(?) Slashing Mitigation +1
+Potato Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Potato Vodka;(?) take -1 damage from elite
+Potato Vodka;(?) Taunt from Attacks -1%
+Potato Vodka;(?) Taunt from Attacks +1%

@@ -268,6 +268,12 @@
             MushroomTier4,
             FlavorTier3Three);
 
+        public Alcoholx3x4x5x4 PotatoVodka { get; private set; } = new Alcoholx3x4x5x4("Potato Vodka",
+            FruitTier1Three,
+            VeggieTier1,
+            PartsTier1,
+            FlavorTier1Four);
+        
         public ComponentAssociationCollection AssociationFruit1 { get; } = new ComponentAssociationCollection("Fruit1", new List<ComponentAssociation>()
         {
             new ComponentAssociation(RedApple, FruitTier2),
@@ -408,6 +414,7 @@
             BrownAle.Save();
             HegemonyLager.Save();
             DwarvenStout.Save();
+            PotatoVodka.Save();
 
             SaveAssociations();
             SaveGUI();
@@ -490,6 +497,7 @@
             BrownAle.Export(writer, isCalculatedIncluded);
             HegemonyLager.Export(writer, isCalculatedIncluded);
             DwarvenStout.Export(writer, isCalculatedIncluded);
+            PotatoVodka.Export(writer, isCalculatedIncluded);
         }
 
         private void ExportAssociations(StreamWriter writer)
@@ -523,6 +531,7 @@
             BrownAle.ClearCalculateIndexes();
             HegemonyLager.ClearCalculateIndexes();
             DwarvenStout.ClearCalculateIndexes();
+            PotatoVodka.ClearCalculateIndexes();
 
             RecalculateBottomToTop(OrcishBock, BrownAle, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
             RecalculateBottomToTop(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
@@ -536,6 +545,7 @@
             BrownAle.RecalculateMismatchCount();
             HegemonyLager.RecalculateMismatchCount();
             DwarvenStout.RecalculateMismatchCount();
+            PotatoVodka.RecalculateMismatchCount();
         }
 
         public void RecalculateBottomToTop(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
