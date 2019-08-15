@@ -60,6 +60,8 @@
             }
         }
 
+        public int BestIndex { get { return _EffectIndex >= 0 ? _EffectIndex : _CalculatedIndex >= 0 ? _CalculatedIndex : -1; } }
+
         public void ClearCalculateIndex()
         {
             CalculatedIndex = -1;

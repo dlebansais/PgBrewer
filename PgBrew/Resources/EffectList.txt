@@ -157,150 +157,69 @@ Goblin Ale;
 Goblin Ale;
 Goblin Ale;
 Goblin Ale;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
-Orcish Bock;
+Orcish Bock;(?) Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
+Orcish Bock;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
+Orcish Bock;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
+Orcish Bock;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
+Orcish Bock;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Orcish Bock;(?) Chance to forage extra seeds +13%, Chance to forage extra  mushrooms +21%
+Orcish Bock;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
+Orcish Bock;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
+Orcish Bock;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
+Orcish Bock;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
+Orcish Bock;(?) Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
+Orcish Bock;(?) Dig Deep Power Restoration +67
+Orcish Bock;(?) Dwarves gain +20 Max Bodyheat
+Orcish Bock;(?) Dwarves gain +20 Max Hydratation
+Orcish Bock;(?) Dwarves gain +20 Max Metabolism
+Orcish Bock;(?) Dwarves gain +23 Max Power
+Orcish Bock;(?) Dwarves gain +42 Max Health
+Orcish Bock;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP  when Dirty
+Orcish Bock;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP  when Dirty.
+Orcish Bock;(?) Elves gain +20 Max Bodyheat
+Orcish Bock;(?) Elves gain +20 Max Hydratation;;of Elfinity
+Orcish Bock;(?) Elves gain +20 Max Metabolism
+Orcish Bock;(?) Elves gain +23 Max Power
+Orcish Bock;(?) Elves gain +42 Max Health
+Orcish Bock;(?) Fairies gain +20 Max Bodyheat
+Orcish Bock;(?) Fairies gain +20 Max Hydratation
+Orcish Bock;(?) Fairies gain +20 Max Metabolism
+Orcish Bock;(?) Fairies gain +23 Max Power
+Orcish Bock;(?) Fairies gain +42 Max Health
+Orcish Bock;(?) Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5
+Orcish Bock;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
+Orcish Bock;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Orcish Bock;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP  when Lonely
+Orcish Bock;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP  when Lonely
+Orcish Bock;(?) Humans gain +20 Max Bodyheat
+Orcish Bock;(?) Humans gain +20 Max Hydratation
+Orcish Bock;(?) Humans gain +20 Max Metabolism
+Orcish Bock;(?) Humans gain +23 Max Power
+Orcish Bock;(?) Humans gain +42 Max Health
+Orcish Bock;(?) Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
+Orcish Bock;(?) Max Armor +48
+Orcish Bock;(?) Max Health +33
+Orcish Bock;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7
+Orcish Bock;(?) Max Power +20
+Orcish Bock;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
+Orcish Bock;(?) Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Orcish Bock;(?) Orcs gain +20 Max Bodyheat
+Orcish Bock;(?) Orcs gain +20 Max Hydratation
+Orcish Bock;(?) Orcs gain +20 Max Metabolism
+Orcish Bock;(?) Orcs gain +23 Max Power
+Orcish Bock;(?) Orcs gain +42 Max Health
+Orcish Bock;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Orcish Bock;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP  when feeling Dead Inside
+Orcish Bock;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP  when feeling Dead Inside
+Orcish Bock;(?) Rakshasa gain +20 Max Bodyheat
+Orcish Bock;(?) Rakshasa gain +20 Max Hydratation
+Orcish Bock;(?) Rakshasa gain +20 Max Metabolism
+Orcish Bock;(?) Rakshasa gain +23 Max Power
+Orcish Bock;(?) Rakshasa gain +42 Max Health
+Orcish Bock;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
+Orcish Bock;(?) Taunt From Attack Damage -10.5%
+Orcish Bock;(?) Taunt From Attack Damage +20%
+Orcish Bock;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
 Brown Ale;Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
 Brown Ale;Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
 Brown Ale;Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2

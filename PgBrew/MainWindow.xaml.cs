@@ -403,7 +403,8 @@
             for (int PreviousLineIndex = 0; PreviousLineIndex < previous.Lines.Count; PreviousLineIndex++)
             {
                 Alcoholx4x3x4x3Line Line = previous.Lines[PreviousLineIndex] as Alcoholx4x3x4x3Line;
-                if (Line.EffectIndex >= 0)
+                int BestIndex = Line.BestIndex;
+                if (BestIndex >= 0)
                 {
                     int NextIndex1 = GetPreviousToNextIndex(associationList1, Line.Index1);
                     int NextIndex2 = GetPreviousToNextIndex(associationList2, Line.Index2);
@@ -413,7 +414,7 @@
                     if (NextIndex1 >= 0 && NextIndex2 >= 0 && NextIndex3 >= 0 && NextIndex4 >= 0)
                     {
                         int NextLineIndex = (NextIndex1 * 3 * 4 * 3) + (NextIndex2 * 4 * 3) + (NextIndex3 * 3) + NextIndex4;
-                        next.Lines[NextLineIndex].CalculatedIndex = Line.EffectIndex;
+                        next.Lines[NextLineIndex].CalculatedIndex = BestIndex;
                     }
                 }
             }
@@ -424,7 +425,8 @@
             for (int NextLineIndex = 0; NextLineIndex < next.Lines.Count; NextLineIndex++)
             {
                 Alcoholx4x3x4x3Line Line = next.Lines[NextLineIndex] as Alcoholx4x3x4x3Line;
-                if (Line.EffectIndex >= 0)
+                int BestIndex = Line.BestIndex;
+                if (BestIndex >= 0)
                 {
                     int PreviousIndex1 = GetNextToPreviousIndex(associationList1, Line.Index1);
                     int PreviousIndex2 = GetNextToPreviousIndex(associationList2, Line.Index2);
@@ -434,7 +436,7 @@
                     if (PreviousIndex1 >= 0 && PreviousIndex2 >= 0 && PreviousIndex3 >= 0 && PreviousIndex4 >= 0)
                     {
                         int PreviousLineIndex = (PreviousIndex1 * 3 * 4 * 3) + (PreviousIndex2 * 4 * 3) + (PreviousIndex3 * 3) + PreviousIndex4;
-                        previous.Lines[PreviousLineIndex].CalculatedIndex = Line.EffectIndex;
+                        previous.Lines[PreviousLineIndex].CalculatedIndex = BestIndex;
                     }
                 }
             }
