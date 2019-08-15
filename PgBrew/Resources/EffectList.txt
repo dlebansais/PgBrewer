@@ -17,38 +17,33 @@ Pale Ale;
 Pale Ale;
 Pale Ale;
 Pale Ale;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
+Marzen;Armor Patching Ability Power Cost -2%, Lycanthropy Ability Power Cost -3%, Druid Ability Power Cost -3%;;
+Marzen;Bard Ability Power Cost -2%, Battle Chemistry Ability Power Cost -3%, Archery Ability Power Cost -3%;;
+Marzen;Breath Recovered Out of Water +1, Max Underwater Held Breath +4, Sprint-Swimming Speed Boost +0;Swimmer's;
+Marzen;Chance for Your Attacks to Miss +33%, Chance to Evade Burst +20%, Sprint Boost (Out of Combat) +0;Partier's;
+Marzen;Chance to Chop Extra Perfect Wood +7%, Chance to Chop Extra Wood +15%;Lumberjack's;
+Marzen;Chance to Forage Extra Herbs/Seeds +7%, Chance to Forage Extra Mushrooms +15%;Forager's;
+Marzen;Chance to Ignore Knockbacks +2%, Jump Power +0.6;Partier's;
+Marzen;Chance to Miss with Projectiles +8.5%, Taunt from Attack Damage +17%;Taunter's;
+Marzen;Chance to Scrape Extra Fish Scale +7%, Chance to Catch Bonus Fish +15%;Fisherman's;
+Marzen;Crossbow Ability Power Cost -2%, Psychology Ability Power Cost -3%, Mentalism Ability Power Cost -3%;;
+Marzen;Dance Appreciation Extra-Effect Chance Boost +4%, Dance Appreciation boost +4;Partier's;
+Marzen;Dig Deep Power Restoration +31;;
 Marzen;Fast-Flying Cost (Per Second) -0.2, Fast-Flying Speed +0.6;Flier's;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
-Marzen;
+Marzen;First Aid Ability Power Cost -2%, Giant Bat Ability Power Cost -3%, Spider Ability Power Cost -3%;;
+Marzen;Healing of your Ultimate Protection Abilities +6, Healing of your Minor Healing Abilities +2, Healing of your Major Healing Abilities +4;;of Healing
+Marzen;Knife Ability Power Cost -2%, Staff Ability Power Cost -3%, Hammer Ability Power Cost -3%;;
+Marzen;Max Armor +24;;of Toughness
+Marzen;Max Health +17;;of Healthiness
+Marzen;Max Peaceableness +2, Max Community +3, Max Cleanliness +3;;of Placeholder Effects
+Marzen;Max Power +8;;of Power
+Marzen;Melee Accuracy Boost +2.5, Chance to Evade Melee +2.5%;;
+Marzen;Necromancy Ability Power Cost -2%, Ice Magic Ability Power Cost -3%, Fire Magic Ability Power Cost -3%;;of Magic
+Marzen;Pig Ability Power Cost -2%, Deer Ability Power Cost -3%, Cow Ability Power Cost -3%;;
+Marzen;Sprint Speed Boost -1.5, Taunt From Attack Damage +17%;Taunter's;
+Marzen;Taunt From Attack Damage +4.5%;;of Meekness
+Marzen;Taunt From Attack Damage +8%;Taunter's;
+Marzen;Unarmed Ability Power Cost -2%, Shield Ability Power Cost -3%, Sword Ability Power Cost -3%;;
 Goblin Ale;
 Goblin Ale;
 Goblin Ale;
@@ -460,35 +455,35 @@ Potato Vodka;(?) Direct Slashing Damage +1
 Potato Vodka;(?) Direct Slashing mitigation +1
 Potato Vodka;(?) Direct Sonic Damage +1
 Potato Vodka;(?) Direct Trauma Damage +1
-Potato Vodka;(?) Dwarves Gain +1 Max Bodyheat
-Potato Vodka;(?) Dwarves Gain +1 Max Hydratation
-Potato Vodka;(?) Dwarves Gain +1 Max Metabolism
-Potato Vodka;(?) Dwarves Gain +4 Max Power
-Potato Vodka;(?) Dwarves Gain +5 Max Health
-Potato Vodka;(?) Dwarves Gain +6 Max Health
+Potato Vodka;(?) Dwarves gain +1 Max Bodyheat
+Potato Vodka;(?) Dwarves gain +1 Max Hydratation
+Potato Vodka;(?) Dwarves gain +1 Max Metabolism
+Potato Vodka;(?) Dwarves gain +4 Max Power
+Potato Vodka;(?) Dwarves gain +5 Max Health
+Potato Vodka;(?) Dwarves gain +6 Max Health
 Potato Vodka;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
-Potato Vodka;(?) Elves Gain +1 Max Bodyheat
-Potato Vodka;(?) Elves Gain +1 Max Hydratation
-Potato Vodka;(?) Elves Gain +1 Max Metabolism
-Potato Vodka;(?) Elves Gain +4 Max Power
-Potato Vodka;(?) Elves Gain +5 Max Health
-Potato Vodka;(?) Elves Gain +6 Max Health
-Potato Vodka;(?) Fairies Gain +1 Max Bodyheat
-Potato Vodka;(?) Fairies Gain +1 Max Hydratation
-Potato Vodka;(?) Fairies Gain +1 Max Metabolism
-Potato Vodka;(?) Fairies Gain +4 Max Power
-Potato Vodka;(?) Fairies Gain +5 Max Health
-Potato Vodka;(?) Fairies Gain +6 Max Heatlh
+Potato Vodka;(?) Elves gain +1 Max Bodyheat
+Potato Vodka;(?) Elves gain +1 Max Hydratation
+Potato Vodka;(?) Elves gain +1 Max Metabolism
+Potato Vodka;(?) Elves gain +4 Max Power
+Potato Vodka;(?) Elves gain +5 Max Health
+Potato Vodka;(?) Elves gain +6 Max Health
+Potato Vodka;(?) Fairies gain +1 Max Bodyheat
+Potato Vodka;(?) Fairies gain +1 Max Hydratation
+Potato Vodka;(?) Fairies gain +1 Max Metabolism
+Potato Vodka;(?) Fairies gain +4 Max Power
+Potato Vodka;(?) Fairies gain +5 Max Health
+Potato Vodka;(?) Fairies gain +6 Max Heatlh
 Potato Vodka;(?) Fast-Flying Speed +0.1
 Potato Vodka;(?) Healing of Your Major Healing Abilities +1
 Potato Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
 Potato Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
-Potato Vodka;(?) Humans Gain +1 Max Bodyheat
-Potato Vodka;(?) Humans Gain +1 Max Hydratation
-Potato Vodka;(?) Humans Gain +1 Max Metabolism
-Potato Vodka;(?) Humans Gain +4 Max Power
-Potato Vodka;(?) Humans Gain +5 Max Health
-Potato Vodka;(?) Humans Gain +6 Max Health
+Potato Vodka;(?) Humans gain +1 Max Bodyheat
+Potato Vodka;(?) Humans gain +1 Max Hydratation
+Potato Vodka;(?) Humans gain +1 Max Metabolism
+Potato Vodka;(?) Humans gain +4 Max Power
+Potato Vodka;(?) Humans gain +5 Max Health
+Potato Vodka;(?) Humans gain +6 Max Health
 Potato Vodka;(?) Jump Power +0.1
 Potato Vodka;(?) Max Cleanliness +1
 Potato Vodka;Max Armor +10
@@ -497,22 +492,22 @@ Potato Vodka;(?) Max Power +1
 Potato Vodka;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
 Potato Vodka;(?) Melee attacks do +6 Damage on Elite
 Potato Vodka;(?) Melee Evasion +1%
-Potato Vodka;(?) Orcs Gain +1 Max Bodyheat
-Potato Vodka;(?) Orcs Gain +1 Max Hydratation
-Potato Vodka;(?) Orcs Gain +1 Max Metabolism
-Potato Vodka;(?) Orcs Gain +4 Max Power
-Potato Vodka;(?) Orcs Gain +5 Max Health
-Potato Vodka;(?) Orcs Gain +6 Max Health
+Potato Vodka;(?) Orcs gain +1 Max Bodyheat
+Potato Vodka;(?) Orcs gain +1 Max Hydratation
+Potato Vodka;(?) Orcs gain +1 Max Metabolism
+Potato Vodka;(?) Orcs gain +4 Max Power
+Potato Vodka;(?) Orcs gain +5 Max Health
+Potato Vodka;(?) Orcs gain +6 Max Health
 Potato Vodka;(?) Projectile Attacks do +6 Damage to Elite
 Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
-Potato Vodka;(?) Rakshasa Gain +1 Max Bodyheat
-Potato Vodka;(?) Rakshasa Gain +1 Max Metabolism
-Potato Vodka;(?) Rakshasa Gain +4 Max Power
-Potato Vodka;(?) Rakshasa Gain +5 Max Health
-Potato Vodka;(?) Rakshasa Gain +6 Max Health
+Potato Vodka;(?) Rakshasa gain +1 Max Bodyheat
+Potato Vodka;(?) Rakshasa gain +1 Max Metabolism
+Potato Vodka;(?) Rakshasa gain +4 Max Power
+Potato Vodka;(?) Rakshasa gain +5 Max Health
+Potato Vodka;(?) Rakshasa gain +6 Max Health
 Potato Vodka;(?) Slashing Mitigation +1
 Potato Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Potato Vodka;(?) take -1 damage from elite
-Potato Vodka;(?) Taunt from Attacks -1%
-Potato Vodka;(?) Taunt from Attacks +1%
+Potato Vodka;Taunt From Attack Damage -1%
+Potato Vodka;Taunt From Attack Damage +1%
