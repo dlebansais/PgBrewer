@@ -33,7 +33,7 @@
         }
         private int _EffectIndex;
 
-        public string Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
+        public Effect Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
 
         public int CalculatedIndex
         {
@@ -49,7 +49,7 @@
         }
         private int _CalculatedIndex;
 
-        public string CalculatedEffect
+        public Effect CalculatedEffect
         {
             get
             {

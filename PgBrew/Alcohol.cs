@@ -11,7 +11,7 @@
         }
 
         public string Name { get; }
-        public List<string> EffectList { get; } = new List<string>();
+        public List<Effect> EffectList { get; } = new List<Effect>();
         public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
 
         public void Save()

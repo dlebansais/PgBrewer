@@ -13,9 +13,9 @@
         {
         }
 
-        public static List<string> ReadEffectList(string name)
+        public static List<Effect> ReadEffectList(string name)
         {
-            List<string> Result = new List<string>();
+            List<Effect> Result = new List<Effect>();
 
             try
             {
@@ -33,13 +33,15 @@
                                 break;
 
                             string[] LineSplit = Line.Split(';');
-                            if (LineSplit.Length == 2)
+                            if (LineSplit.Length > 1)
                             {
                                 string Name = LineSplit[0];
                                 string Text = LineSplit[1];
+                                string Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
+                                string Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
 
                                 if (Name == name)
-                                    Result.Add(Text);
+                                    Result.Add(new Effect(Text, Prefix, Suffix));
                             }
                         }
                     }

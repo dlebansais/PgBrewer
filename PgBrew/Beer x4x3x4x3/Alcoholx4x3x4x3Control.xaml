@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:PgBrew">
     <UserControl.Resources>
-        <DataTemplate x:Key="Line">
+        <DataTemplate x:Key="EffectTemplate">
+            <TextBlock Text="{Binding Text}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="LineTemplate">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
@@ -11,13 +14,13 @@
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" VerticalAlignment="Center" MinWidth="150"/>
                 <Button DockPanel.Dock="Right" Click="OnDelete" Content="X" VerticalAlignment="Center" MinWidth="16"/>
                 <Grid VerticalAlignment="Center">
-                    <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" VerticalAlignment="Center"/>
-                    <TextBlock Text="{Binding CalculatedEffect}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    <ComboBox SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                    <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
                 </Grid>
             </DockPanel>
         </DataTemplate>
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Line}"/>
+        <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource LineTemplate}"/>
     </ScrollViewer>
 </UserControl>

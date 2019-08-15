@@ -389,13 +389,13 @@
             HegemonyLager.ClearCalculateIndexes();
             DwarvenStout.ClearCalculateIndexes();
 
-            RecalculateBottomToTop(OrcishBock, BrownAle, null, null, null, null);
-            RecalculateBottomToTop(BrownAle, HegemonyLager, null, null, null, null);
+            RecalculateBottomToTop(OrcishBock, BrownAle, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
+            RecalculateBottomToTop(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
             RecalculateBottomToTop(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
 
             RecalculateTopToBottom(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
-            RecalculateTopToBottom(BrownAle, HegemonyLager, null, null, null, null);
-            RecalculateTopToBottom(OrcishBock, BrownAle, null, null, null, null);
+            RecalculateTopToBottom(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
+            RecalculateTopToBottom(OrcishBock, BrownAle, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
         }
 
         public void RecalculateBottomToTop(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
