@@ -12,14 +12,14 @@
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
 
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        #region Constants
         private static readonly string AssociationSettingName = "Association";
         private static readonly string GuiSettingName = "GUI";
+        #endregion
 
+        #region Init
         public MainWindow()
         {
             InitializeComponent();
@@ -31,11 +31,6 @@
             _IsChanged = false;
 
             Loaded += OnLoaded;
-        }
-
-        private void OnLoaded(object sender, RoutedEventArgs e)
-        {
-            Recalculate();
         }
 
         private void LoadAssociations()
@@ -87,8 +82,6 @@
         {
             try
             {
-                Button b;
-
                 string UserRootFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 string ApplicationFolder = Path.Combine(UserRootFolder, "PgJsonParse");
                 string VersionCacheFolder = Path.Combine(ApplicationFolder, "Versions");
@@ -129,6 +122,13 @@
             }
         }
 
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Recalculate();
+        }
+        #endregion
+
+        #region Properties
         public ImageSource IconBeer { get; private set; }
         public ImageSource IconLiquor { get; private set; }
         public ImageSource IconSettings { get; private set; }
@@ -146,7 +146,9 @@
             }
         }
         private bool _IsChanged;
+        #endregion
 
+        #region Alcohols
         public static Component RedApple { get; } = new Component("Red Apple");
         public static Component Grapes { get; } = new Component("Grapes");
         public static Component Orange { get; } = new Component("Orange");
@@ -156,7 +158,6 @@
         public static Component Pear { get; } = new Component("Pear");
         public static Component Peach { get; } = new Component("Peach");
         public static Component GreenApple { get; } = new Component("Green Apple");
-
         public static Component ParasolMushroomFlakes { get; } = new Component("Parasol Mushroom Flakes");
         public static Component MycenaMushroomFlakes { get; } = new Component("Mycena Mushroom Flakes");
         public static Component BoletusMushroomFlakes { get; } = new Component("Boletus Mushroom Flakes");
@@ -172,7 +173,6 @@
         public static Component GroxmaxPowder { get; } = new Component("Groxmax Powder");
         public static Component PorciniMushroomFlakes { get; } = new Component("Porcini Mushroom Flakes");
         public static Component BlackFootMorelFlakes { get; } = new Component("Black Foot Morel Flakes");
-
         public static Component BoarTusk { get; } = new Component("Boar Tusk");
         public static Component CatEyeball { get; } = new Component("Cat Eyeball");
         public static Component SnailSinew { get; } = new Component("Snail Sinew");
@@ -188,7 +188,6 @@
         public static Component Ectoplasm { get; } = new Component("Ectoplasm");
         public static Component PowderedMammal { get; } = new Component("Powdered Mammal");
         public static Component BarghestFlesh { get; } = new Component("Barghest Flesh");
-
         public static Component Oregano { get; } = new Component("Oregano");
         public static Component MandrakeRoot { get; } = new Component("Mandrake Root");
         public static Component Peppercorns { get; } = new Component("Peppercorns");
@@ -201,7 +200,6 @@
         public static Component Honey { get; } = new Component("Honey");
         public static Component JuniperBerries { get; } = new Component("Juniper Berries");
         public static Component Almonds { get; } = new Component("Almonds");
-
         public static Component Strawberry { get; } = new Component("Strawberry");
         public static Component GreenPepper { get; } = new Component("Green Pepper");
         public static Component RedPepper { get; } = new Component("Red Pepper");
@@ -365,7 +363,9 @@
         });
 
         public List<ComponentAssociationCollection> AssociationTable { get; } = new List<ComponentAssociationCollection>();
+        #endregion
 
+        #region Events
         private void OnClosing(object sender, CancelEventArgs e)
         {
             if (IsChanged)
@@ -390,6 +390,12 @@
 
             if (!e.Cancel)
                 SaveGUI();
+        }
+
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            SaveAll();
+            IsChanged = false;
         }
 
         private void SaveAll()
@@ -433,12 +439,84 @@
             DataArchive.SetIndexList(GuiSettingName, Coordinates);
         }
 
-        private void OnSave(object sender, RoutedEventArgs e)
+        private void OnDelete(object sender, RoutedEventArgs e)
         {
-            SaveAll();
-            IsChanged = false;
+            ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
+            Association.AssociationIndex = -1;
         }
 
+        private void OnExport(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog Dlg = new SaveFileDialog();
+            Dlg.Filter = "CSV file (*.csv)|*.csv";
+            bool? Continue = Dlg.ShowDialog(this);
+
+            if (Continue.HasValue && Continue.Value)
+            {
+                MessageBoxResult Answer = MessageBox.Show("Include calculated recipes? If you answer 'No', only confirmed recipes will be exported.", "Export", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                bool IsCalculatedIncluded = Answer == MessageBoxResult.Yes;
+
+                OnExport(Dlg.FileName, IsCalculatedIncluded);
+            }
+        }
+
+        private void OnExport(string FileName, bool isCalculatedIncluded)
+        {
+            try
+            {
+                using (FileStream Stream = new FileStream(FileName, FileMode.Create, FileAccess.Write))
+                {
+                    using (StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8))
+                    {
+                        OnExport(Writer, isCalculatedIncluded);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void OnExport(StreamWriter writer, bool isCalculatedIncluded)
+        {
+            ExportAssociations(writer);
+
+            BasicLager.Export(writer, isCalculatedIncluded);
+            PaleAle.Export(writer, isCalculatedIncluded);
+            Marzen.Export(writer, isCalculatedIncluded);
+            GoblinAle.Export(writer, isCalculatedIncluded);
+            OrcishBock.Export(writer, isCalculatedIncluded);
+            BrownAle.Export(writer, isCalculatedIncluded);
+            HegemonyLager.Export(writer, isCalculatedIncluded);
+            DwarvenStout.Export(writer, isCalculatedIncluded);
+        }
+
+        private void ExportAssociations(StreamWriter writer)
+        {
+            writer.WriteLine("Associations");
+            writer.WriteLine();
+
+            foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+            {
+                writer.WriteLine(AssociationList.Name);
+
+                foreach (ComponentAssociation Association in AssociationList)
+                {
+                    if (Association.AssociationIndex >= 0)
+                        writer.WriteLine($"{Association.Component.Name};{Association.ChoiceList[Association.AssociationIndex]}");
+                    else
+                        writer.WriteLine($"{Association.Component.Name};");
+                }
+
+                writer.WriteLine();
+            }
+
+            writer.WriteLine();
+        }
+        #endregion
+
+        #region Client Interface
         public void Recalculate()
         {
             OrcishBock.ClearCalculateIndexes();
@@ -544,82 +622,7 @@
             MainWindow Window = App.Current.MainWindow as MainWindow;
             Window.IsChanged = true;
         }
-
-        private void OnDelete(object sender, RoutedEventArgs e)
-        {
-            ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
-            Association.AssociationIndex = -1;
-        }
-
-        private void OnExport(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog Dlg = new SaveFileDialog();
-            Dlg.Filter = "CSV file (*.csv)|*.csv";
-            bool? Continue = Dlg.ShowDialog(this);
-
-            if (Continue.HasValue && Continue.Value)
-            {
-                MessageBoxResult Answer = MessageBox.Show("Include calculated recipes? If you answer 'No', only confirmed recipes will be exported.", "Export", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                bool IsCalculatedIncluded = Answer == MessageBoxResult.Yes;
-
-                OnExport(Dlg.FileName, IsCalculatedIncluded);
-            }
-        }
-
-        private void OnExport(string FileName, bool isCalculatedIncluded)
-        {
-            try
-            {
-                using (FileStream Stream = new FileStream(FileName, FileMode.Create, FileAccess.Write))
-                {
-                    using (StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8))
-                    {
-                        OnExport(Writer, isCalculatedIncluded);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-
-        private void OnExport(StreamWriter writer, bool isCalculatedIncluded)
-        {
-            ExportAssociations(writer);
-
-            BasicLager.Export(writer, isCalculatedIncluded);
-            PaleAle.Export(writer, isCalculatedIncluded);
-            Marzen.Export(writer, isCalculatedIncluded);
-            GoblinAle.Export(writer, isCalculatedIncluded);
-            OrcishBock.Export(writer, isCalculatedIncluded);
-            BrownAle.Export(writer, isCalculatedIncluded);
-            HegemonyLager.Export(writer, isCalculatedIncluded);
-            DwarvenStout.Export(writer, isCalculatedIncluded);
-        }
-
-        private void ExportAssociations(StreamWriter writer)
-        {
-            writer.WriteLine("Associations");
-            writer.WriteLine();
-
-            foreach (ComponentAssociationCollection AssociationList in AssociationTable)
-            {
-                writer.WriteLine(AssociationList.Name);
-
-                foreach (ComponentAssociation Association in AssociationList)
-                {
-                    if (Association.AssociationIndex >= 0)
-                        writer.WriteLine($"{Association.Component.Name};{Association.ChoiceList[Association.AssociationIndex]}");
-                    else
-                        writer.WriteLine($"{Association.Component.Name};");
-                }
-
-                writer.WriteLine();
-            }
-
-            writer.WriteLine();
-        }
+        #endregion
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

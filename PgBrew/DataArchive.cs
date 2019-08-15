@@ -4,15 +4,10 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Reflection;
-    using System.Security.AccessControl;
     using System.Text;
 
     public class DataArchive
     {
-        static DataArchive()
-        {
-        }
-
         public static List<Effect> ReadEffectList(string name)
         {
             List<Effect> Result = new List<Effect>();

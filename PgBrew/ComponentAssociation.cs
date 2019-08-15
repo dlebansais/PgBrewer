@@ -7,6 +7,7 @@
 
     public class ComponentAssociation : INotifyPropertyChanged
     {
+        #region Init
         public ComponentAssociation(Component component, List<Component> choiceList)
         {
             Component = component;
@@ -16,7 +17,9 @@
 
             _AssociationIndex = -1;
         }
+        #endregion
 
+        #region Properties
         public Component Component { get; }
         public List<Component> ChoiceList { get; }
 
@@ -35,6 +38,7 @@
             }
         }
         private int _AssociationIndex;
+        #endregion
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -50,9 +54,11 @@
         }
         #endregion
 
+        #region Debugging
         public override string ToString()
         {
             return _AssociationIndex >= 0 ? $"{Component} -> {ChoiceList[_AssociationIndex]}" : $"{Component} -> Unknown";
         }
+        #endregion
     }
 }

@@ -7,12 +7,15 @@
 
     public class Alcohol : INotifyPropertyChanged
     {
+        #region Init
         public Alcohol(string name)
         {
             Name = name;
             EffectList = DataArchive.ReadEffectList(name);
         }
+        #endregion
 
+        #region Properties
         public string Name { get; }
         public List<Effect> EffectList { get; } = new List<Effect>();
         public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
@@ -30,7 +33,9 @@
             }
         }
         private int _MismatchCount;
+        #endregion
 
+        #region Client Interface
         public void Save()
         {
             List<int> Indexes = new List<int>();
@@ -75,6 +80,7 @@
 
             writer.WriteLine();
         }
+        #endregion
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -90,9 +96,11 @@
         }
         #endregion
 
+        #region Debugging
         public override string ToString()
         {
             return Name;
         }
+        #endregion
     }
 }

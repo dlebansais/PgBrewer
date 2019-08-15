@@ -5,13 +5,16 @@
 
     public abstract class AlcoholLine : INotifyPropertyChanged
     {
+        #region Init
         public AlcoholLine(Alcohol owner, int effectIndex)
         {
             Owner = owner;
             _EffectIndex = effectIndex;
             _CalculatedIndex = -1;
         }
+        #endregion
 
+        #region Properties
         public Alcohol Owner { get; }
 
         public int EffectIndex
@@ -64,13 +67,16 @@
         public int BestIndex { get { return _EffectIndex >= 0 ? _EffectIndex : _CalculatedIndex >= 0 ? _CalculatedIndex : -1; } }
 
         public bool IsMatching { get { return _EffectIndex < 0 || _CalculatedIndex < 0 || _EffectIndex == _CalculatedIndex; } }
+        #endregion
 
+        #region Client Interface
         public void ClearCalculateIndex()
         {
             CalculatedIndex = -1;
         }
 
         public abstract string GetExportedComponents();
+        #endregion
 
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
