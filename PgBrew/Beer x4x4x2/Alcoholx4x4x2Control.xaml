@@ -15,7 +15,7 @@
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="150"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="100"/>
                 <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                 <Button DockPanel.Dock="Right" Click="OnDelete" Content="X" VerticalAlignment="Center" MinWidth="16"/>
                 <Grid VerticalAlignment="Center">
@@ -27,7 +27,7 @@
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <TextBlock TextAlignment="Right" Width="394" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+            <TextBlock TextAlignment="Right" Width="344" Margin="0,0,5,0">Mismatch Count:</TextBlock>
             <TextBlock Text="{Binding MismatchCount}"/>
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
