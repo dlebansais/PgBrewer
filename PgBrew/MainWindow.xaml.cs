@@ -200,14 +200,14 @@
         public static Component Honey { get; } = new Component("Honey");
         public static Component JuniperBerries { get; } = new Component("Juniper Berries");
         public static Component Almonds { get; } = new Component("Almonds");
-        public static Component Strawberry { get; } = new Component("Strawberry");
+        public static Component LargeStrawberry { get; } = new Component("Large Strawberry");
         public static Component GreenPepper { get; } = new Component("Green Pepper");
         public static Component RedPepper { get; } = new Component("Red Pepper");
         public static Component Molasses { get; } = new Component("Molasses");
         public static Component Corn { get; } = new Component("Corn");
 
         private static List<Component> FruitTier1Three = new List<Component>() { RedApple, Grapes, Orange };
-        private static List<Component> FruitTier1Four = new List<Component>() { RedApple, Grapes, Orange, Strawberry };
+        private static List<Component> FruitTier1Four = new List<Component>() { RedApple, Grapes, Orange, LargeStrawberry };
         private static List<Component> FruitTier2 = new List<Component>() { Guava, Banana, Lemon };
         private static List<Component> FruitTier3 = new List<Component>() { Pear, Peach, GreenApple };
         private static List<Component> VeggieTier1 = new List<Component>() { ParasolMushroomFlakes, MycenaMushroomFlakes, BoletusMushroomFlakes, FieldMushroomFlakes };

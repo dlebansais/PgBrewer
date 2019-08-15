@@ -41,7 +41,7 @@ Marzen;Melee Accuracy Boost +2.5, Chance to Evade Melee +2.5%;;
 Marzen;Necromancy Ability Power Cost -2%, Ice Magic Ability Power Cost -3%, Fire Magic Ability Power Cost -3%;;of Magic
 Marzen;Pig Ability Power Cost -2%, Deer Ability Power Cost -3%, Cow Ability Power Cost -3%;;
 Marzen;Sprint Speed Boost -1.5, Taunt From Attack Damage +17%;Taunter's;
-Marzen;Taunt From Attack Damage +4.5%;;of Meekness
+Marzen;Taunt From Attack Damage -4.5%;;of Meekness
 Marzen;Taunt From Attack Damage +8%;Taunter's;
 Marzen;Unarmed Ability Power Cost -2%, Shield Ability Power Cost -3%, Sword Ability Power Cost -3%;;
 Goblin Ale;
