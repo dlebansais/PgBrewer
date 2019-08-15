@@ -87,6 +87,8 @@
         {
             try
             {
+                Button b;
+
                 string UserRootFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 string ApplicationFolder = Path.Combine(UserRootFolder, "PgJsonParse");
                 string VersionCacheFolder = Path.Combine(ApplicationFolder, "Versions");
