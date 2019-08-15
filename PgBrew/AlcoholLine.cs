@@ -44,6 +44,7 @@
                 {
                     _CalculatedIndex = value;
                     NotifyPropertyChanged(nameof(CalculatedEffect));
+                    NotifyPropertyChanged(nameof(IsMatching));
                 }
             }
         }
@@ -61,6 +62,8 @@
         }
 
         public int BestIndex { get { return _EffectIndex >= 0 ? _EffectIndex : _CalculatedIndex >= 0 ? _CalculatedIndex : -1; } }
+
+        public bool IsMatching { get { return _EffectIndex < 0 || _CalculatedIndex < 0 || _EffectIndex == _CalculatedIndex; } }
 
         public void ClearCalculateIndex()
         {

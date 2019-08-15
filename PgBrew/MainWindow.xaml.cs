@@ -393,9 +393,14 @@
             RecalculateBottomToTop(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
             RecalculateBottomToTop(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
 
-            RecalculateTopToBottom(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
-            RecalculateTopToBottom(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
-            RecalculateTopToBottom(OrcishBock, BrownAle, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
+            RecalculateTopToBottom(DwarvenStout, HegemonyLager, null, null, AssociationMushroom3, AssociationFlavor2Beer);
+            RecalculateTopToBottom(HegemonyLager, BrownAle, null, AssociationFruit2, null, null);
+            RecalculateTopToBottom(BrownAle, OrcishBock, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
+
+            OrcishBock.RecalculateMismatchCount();
+            BrownAle.RecalculateMismatchCount();
+            HegemonyLager.RecalculateMismatchCount();
+            DwarvenStout.RecalculateMismatchCount();
         }
 
         public void RecalculateBottomToTop(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
@@ -420,7 +425,7 @@
             }
         }
 
-        public void RecalculateTopToBottom(Alcoholx4x3x4x3 previous, Alcoholx4x3x4x3 next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
+        public void RecalculateTopToBottom(Alcoholx4x3x4x3 next, Alcoholx4x3x4x3 previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
             for (int NextLineIndex = 0; NextLineIndex < next.Lines.Count; NextLineIndex++)
             {
@@ -483,6 +488,12 @@
             Window.IsChanged = true;
         }
 
+        private void OnDelete(object sender, RoutedEventArgs e)
+        {
+            ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
+            Association.AssociationIndex = -1;
+        }
+
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -496,11 +507,5 @@
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
         #endregion
-
-        private void OnDelete(object sender, RoutedEventArgs e)
-        {
-            ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
-            Association.AssociationIndex = -1;
-        }
     }
 }

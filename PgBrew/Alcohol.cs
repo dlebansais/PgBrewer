@@ -1,8 +1,10 @@
 ﻿namespace PgBrew
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
 
-    public class Alcohol
+    public class Alcohol : INotifyPropertyChanged
     {
         public Alcohol(string name)
         {
@@ -13,6 +15,20 @@
         public string Name { get; }
         public List<Effect> EffectList { get; } = new List<Effect>();
         public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
+
+        public int MismatchCount
+        {
+            get { return _MismatchCount; }
+            set
+            {
+                if (_MismatchCount != value)
+                {
+                    _MismatchCount = value;
+                    NotifyThisPropertyChanged();
+                }
+            }
+        }
+        private int _MismatchCount;
 
         public void Save()
         {
@@ -29,6 +45,31 @@
             foreach (AlcoholLine Line in Lines)
                 Line.ClearCalculateIndex();
         }
+
+        public void RecalculateMismatchCount()
+        {
+            int NewCount = 0;
+
+            foreach (AlcoholLine Line in Lines)
+                if (!Line.IsMatching)
+                    NewCount++;
+
+            MismatchCount = NewCount;
+        }
+
+        #region Implementation of INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string PropertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+        }
+
+        public void NotifyThisPropertyChanged([CallerMemberName] string PropertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+        }
+        #endregion
 
         public override string ToString()
         {
