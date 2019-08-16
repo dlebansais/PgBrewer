@@ -486,7 +486,7 @@ Potato Vodka;(?) Humans gain +5 Max Health
 Potato Vodka;(?) Humans gain +6 Max Health
 Potato Vodka;(?) Jump Power +0.1
 Potato Vodka;(?) Max Cleanliness +1
-Potato Vodka;Max Armor +10
+Potato Vodka;Max Armor +10;;of Toughness
 Potato Vodka;(?) Max Health +8
 Potato Vodka;(?) Max Power +1
 Potato Vodka;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
@@ -509,5 +509,754 @@ Potato Vodka;(?) Rakshasa gain +6 Max Health
 Potato Vodka;(?) Slashing Mitigation +1
 Potato Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Potato Vodka;(?) take -1 damage from elite
-Potato Vodka;Taunt From Attack Damage -1%
-Potato Vodka;Taunt From Attack Damage +1%
+Potato Vodka;Taunt From Attack Damage -1%;;of Meekness
+Potato Vodka;Taunt From Attack Damage +1%;Taunter's;
+Applejack;(?) Burst Attacks +10 Damage to Elite
+Applejack;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Applejack;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Applejack;(?) Chance to Evade Melee Attacks +1%
+Applejack;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Applejack;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Applejack;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Applejack;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Applejack;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Applejack;(?) Damage to Aberration +1
+Applejack;(?) Damage to Arthropods +1
+Applejack;(?) Damage to Bears +1
+Applejack;(?) Damage to Canines +1
+Applejack;(?) Damage to Constructs +1
+Applejack;(?) Damage to Corporeal Undeads +1
+Applejack;(?) Damage to Crone-Kin +1
+Applejack;(?) Damage to Demons +1
+Applejack;(?) Damage to Dinosaurs +1
+Applejack;(?) Damage to Elementals +1
+Applejack;(?) Damage to Elves +1
+Applejack;(?) Damage to Felines +1
+Applejack;(?) Damage to Fey +1
+Applejack;(?) Damage to Fish +1
+Applejack;(?) Damage to Fungoids +1
+Applejack;(?) Damage to Giants +1
+Applejack;(?) Damage to Goblins +1
+Applejack;(?) Damage to Humans +1
+Applejack;(?) Damage to Incorporeal Undead +1
+Applejack;(?) Damage to Non-Ruminants Rngulates +1
+Applejack;(?) Damage to Orcs +1
+Applejack;(?) Damage to Rakshasa +1
+Applejack;(?) Damage to Rodents +1
+Applejack;(?) Damage to Ruminants +1
+Applejack;(?) Dance Appreciation +1
+Applejack;(?) Dig Deep +10
+Applejack;(?) Direct Acid Damage +1
+Applejack;(?) Direct Crushing Damage +1
+Applejack;(?) Direct Crushing mitigation +1
+Applejack;(?) Direct Darkness Damage +1
+Applejack;(?) Direct Demonic Damage +1
+Applejack;(?) Direct Divine Damage +1
+Applejack;(?) Direct Electricity Damage +1
+Applejack;(?) Direct Fire Damage +1
+Applejack;(?) Direct Nature Damage +1
+Applejack;(?) Direct Piercing mitigation +1
+Applejack;(?) Direct Poison Damage +1
+Applejack;(?) Direct Psychic Damage +1
+Applejack;(?) Direct Slashing Damage +1
+Applejack;(?) Direct Slashing mitigation +1
+Applejack;(?) Direct Sonic Damage +1
+Applejack;(?) Direct Trauma Damage +1
+Applejack;(?) Dwarves gain +1 Max Bodyheat
+Applejack;(?) Dwarves gain +1 Max Hydratation
+Applejack;(?) Dwarves gain +1 Max Metabolism
+Applejack;(?) Dwarves gain +4 Max Power
+Applejack;(?) Dwarves gain +5 Max Health
+Applejack;(?) Dwarves gain +6 Max Health
+Applejack;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Applejack;(?) Elves gain +1 Max Bodyheat
+Applejack;(?) Elves gain +1 Max Hydratation
+Applejack;(?) Elves gain +1 Max Metabolism
+Applejack;(?) Elves gain +4 Max Power
+Applejack;(?) Elves gain +5 Max Health
+Applejack;(?) Elves gain +6 Max Health
+Applejack;(?) Fairies gain +1 Max Bodyheat
+Applejack;(?) Fairies gain +1 Max Hydratation
+Applejack;(?) Fairies gain +1 Max Metabolism
+Applejack;(?) Fairies gain +4 Max Power
+Applejack;(?) Fairies gain +5 Max Health
+Applejack;(?) Fairies gain +6 Max Heatlh
+Applejack;(?) Fast-Flying Speed +0.1
+Applejack;(?) Healing of Your Major Healing Abilities +1
+Applejack;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Applejack;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Applejack;(?) Humans gain +1 Max Bodyheat
+Applejack;(?) Humans gain +1 Max Hydratation
+Applejack;(?) Humans gain +1 Max Metabolism
+Applejack;(?) Humans gain +4 Max Power
+Applejack;(?) Humans gain +5 Max Health
+Applejack;(?) Humans gain +6 Max Health
+Applejack;(?) Jump Power +0.1
+Applejack;(?) Max Cleanliness +1
+Applejack;(?) Max Armor +10;;of Toughness
+Applejack;(?) Max Health +8;;of Healthiness
+Applejack;(?) Max Power +1
+Applejack;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Applejack;(?) Melee attacks do +6 Damage on Elite
+Applejack;(?) Melee Evasion +1%
+Applejack;(?) Orcs gain +1 Max Bodyheat
+Applejack;(?) Orcs gain +1 Max Hydratation
+Applejack;(?) Orcs gain +1 Max Metabolism
+Applejack;(?) Orcs gain +4 Max Power
+Applejack;(?) Orcs gain +5 Max Health
+Applejack;(?) Orcs gain +6 Max Health
+Applejack;(?) Projectile Attacks do +6 Damage to Elite
+Applejack;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Applejack;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Applejack;(?) Rakshasa gain +1 Max Bodyheat
+Applejack;(?) Rakshasa gain +1 Max Metabolism
+Applejack;(?) Rakshasa gain +4 Max Power
+Applejack;(?) Rakshasa gain +5 Max Health
+Applejack;(?) Rakshasa gain +6 Max Health
+Applejack;(?) Slashing Mitigation +1
+Applejack;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Applejack;(?) take -1 damage from elite
+Applejack;(?) Taunt From Attack Damage -1%;;of Meekness
+Applejack;(?) Taunt From Attack Damage +1%;Taunter's;
+Beet Vodka;(?) Burst Attacks +10 Damage to Elite
+Beet Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Beet Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Beet Vodka;(?) Chance to Evade Melee Attacks +1%
+Beet Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Beet Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Beet Vodka;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Beet Vodka;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Beet Vodka;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Beet Vodka;(?) Damage to Aberration +1
+Beet Vodka;(?) Damage to Arthropods +1
+Beet Vodka;(?) Damage to Bears +1
+Beet Vodka;(?) Damage to Canines +1
+Beet Vodka;(?) Damage to Constructs +1
+Beet Vodka;(?) Damage to Corporeal Undeads +1
+Beet Vodka;(?) Damage to Crone-Kin +1
+Beet Vodka;(?) Damage to Demons +1
+Beet Vodka;(?) Damage to Dinosaurs +1
+Beet Vodka;(?) Damage to Elementals +1
+Beet Vodka;(?) Damage to Elves +1
+Beet Vodka;(?) Damage to Felines +1
+Beet Vodka;(?) Damage to Fey +1
+Beet Vodka;(?) Damage to Fish +1
+Beet Vodka;(?) Damage to Fungoids +1
+Beet Vodka;(?) Damage to Giants +1
+Beet Vodka;(?) Damage to Goblins +1
+Beet Vodka;(?) Damage to Humans +1
+Beet Vodka;(?) Damage to Incorporeal Undead +1
+Beet Vodka;(?) Damage to Non-Ruminants Rngulates +1
+Beet Vodka;(?) Damage to Orcs +1
+Beet Vodka;(?) Damage to Rakshasa +1
+Beet Vodka;(?) Damage to Rodents +1
+Beet Vodka;(?) Damage to Ruminants +1
+Beet Vodka;(?) Dance Appreciation +1
+Beet Vodka;(?) Dig Deep +10
+Beet Vodka;(?) Direct Acid Damage +1
+Beet Vodka;(?) Direct Crushing Damage +1
+Beet Vodka;(?) Direct Crushing mitigation +1
+Beet Vodka;(?) Direct Darkness Damage +1
+Beet Vodka;(?) Direct Demonic Damage +1
+Beet Vodka;(?) Direct Divine Damage +1
+Beet Vodka;(?) Direct Electricity Damage +1
+Beet Vodka;(?) Direct Fire Damage +1
+Beet Vodka;(?) Direct Nature Damage +1
+Beet Vodka;(?) Direct Piercing mitigation +1
+Beet Vodka;(?) Direct Poison Damage +1
+Beet Vodka;(?) Direct Psychic Damage +1
+Beet Vodka;(?) Direct Slashing Damage +1
+Beet Vodka;(?) Direct Slashing mitigation +1
+Beet Vodka;(?) Direct Sonic Damage +1
+Beet Vodka;(?) Direct Trauma Damage +1
+Beet Vodka;(?) Dwarves gain +1 Max Bodyheat
+Beet Vodka;(?) Dwarves gain +1 Max Hydratation
+Beet Vodka;(?) Dwarves gain +1 Max Metabolism
+Beet Vodka;(?) Dwarves gain +4 Max Power
+Beet Vodka;(?) Dwarves gain +5 Max Health
+Beet Vodka;(?) Dwarves gain +6 Max Health
+Beet Vodka;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Beet Vodka;(?) Elves gain +1 Max Bodyheat
+Beet Vodka;(?) Elves gain +1 Max Hydratation
+Beet Vodka;(?) Elves gain +1 Max Metabolism
+Beet Vodka;(?) Elves gain +4 Max Power
+Beet Vodka;(?) Elves gain +5 Max Health
+Beet Vodka;(?) Elves gain +6 Max Health
+Beet Vodka;(?) Fairies gain +1 Max Bodyheat
+Beet Vodka;(?) Fairies gain +1 Max Hydratation
+Beet Vodka;(?) Fairies gain +1 Max Metabolism
+Beet Vodka;(?) Fairies gain +4 Max Power
+Beet Vodka;(?) Fairies gain +5 Max Health
+Beet Vodka;(?) Fairies gain +6 Max Heatlh
+Beet Vodka;(?) Fast-Flying Speed +0.1
+Beet Vodka;(?) Healing of Your Major Healing Abilities +1
+Beet Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Beet Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Beet Vodka;(?) Humans gain +1 Max Bodyheat
+Beet Vodka;(?) Humans gain +1 Max Hydratation
+Beet Vodka;(?) Humans gain +1 Max Metabolism
+Beet Vodka;(?) Humans gain +4 Max Power
+Beet Vodka;(?) Humans gain +5 Max Health
+Beet Vodka;(?) Humans gain +6 Max Health
+Beet Vodka;(?) Jump Power +0.1
+Beet Vodka;(?) Max Cleanliness +1
+Beet Vodka;Max Armor +24;;of Toughness
+Beet Vodka;(?) Max Health +8;;of Healthiness
+Beet Vodka;(?) Max Power +1
+Beet Vodka;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Beet Vodka;(?) Melee attacks do +6 Damage on Elite
+Beet Vodka;(?) Melee Evasion +1%
+Beet Vodka;(?) Orcs gain +1 Max Bodyheat
+Beet Vodka;(?) Orcs gain +1 Max Hydratation
+Beet Vodka;(?) Orcs gain +1 Max Metabolism
+Beet Vodka;(?) Orcs gain +4 Max Power
+Beet Vodka;(?) Orcs gain +5 Max Health
+Beet Vodka;(?) Orcs gain +6 Max Health
+Beet Vodka;(?) Projectile Attacks do +6 Damage to Elite
+Beet Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Beet Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Beet Vodka;(?) Rakshasa gain +1 Max Bodyheat
+Beet Vodka;(?) Rakshasa gain +1 Max Metabolism
+Beet Vodka;(?) Rakshasa gain +4 Max Power
+Beet Vodka;(?) Rakshasa gain +5 Max Health
+Beet Vodka;(?) Rakshasa gain +6 Max Health
+Beet Vodka;(?) Slashing Mitigation +1
+Beet Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Beet Vodka;(?) take -1 damage from elite
+Beet Vodka;(?) Taunt From Attack Damage -1%;;of Meekness
+Beet Vodka;(?) Taunt From Attack Damage +1%;Taunter's;
+Pale Rum;(?) Burst Attacks +10 Damage to Elite
+Pale Rum;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Pale Rum;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Pale Rum;(?) Chance to Evade Melee Attacks +1%
+Pale Rum;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Pale Rum;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Pale Rum;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Pale Rum;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Pale Rum;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Pale Rum;(?) Damage to Aberration +1
+Pale Rum;(?) Damage to Arthropods +1
+Pale Rum;(?) Damage to Bears +1
+Pale Rum;(?) Damage to Canines +1
+Pale Rum;(?) Damage to Constructs +1
+Pale Rum;(?) Damage to Corporeal Undeads +1
+Pale Rum;(?) Damage to Crone-Kin +1
+Pale Rum;(?) Damage to Demons +1
+Pale Rum;(?) Damage to Dinosaurs +1
+Pale Rum;(?) Damage to Elementals +1
+Pale Rum;(?) Damage to Elves +1
+Pale Rum;(?) Damage to Felines +1
+Pale Rum;(?) Damage to Fey +1
+Pale Rum;(?) Damage to Fish +1
+Pale Rum;(?) Damage to Fungoids +1
+Pale Rum;(?) Damage to Giants +1
+Pale Rum;(?) Damage to Goblins +1
+Pale Rum;(?) Damage to Humans +1
+Pale Rum;(?) Damage to Incorporeal Undead +1
+Pale Rum;(?) Damage to Non-Ruminants Rngulates +1
+Pale Rum;(?) Damage to Orcs +1
+Pale Rum;(?) Damage to Rakshasa +1
+Pale Rum;(?) Damage to Rodents +1
+Pale Rum;(?) Damage to Ruminants +1
+Pale Rum;(?) Dance Appreciation +1
+Pale Rum;(?) Dig Deep +10
+Pale Rum;(?) Direct Acid Damage +1
+Pale Rum;(?) Direct Crushing Damage +1
+Pale Rum;(?) Direct Crushing mitigation +1
+Pale Rum;(?) Direct Darkness Damage +1
+Pale Rum;(?) Direct Demonic Damage +1
+Pale Rum;(?) Direct Divine Damage +1
+Pale Rum;(?) Direct Electricity Damage +1
+Pale Rum;(?) Direct Fire Damage +1
+Pale Rum;(?) Direct Nature Damage +1
+Pale Rum;(?) Direct Piercing mitigation +1
+Pale Rum;(?) Direct Poison Damage +1
+Pale Rum;(?) Direct Psychic Damage +1
+Pale Rum;(?) Direct Slashing Damage +1
+Pale Rum;(?) Direct Slashing mitigation +1
+Pale Rum;(?) Direct Sonic Damage +1
+Pale Rum;(?) Direct Trauma Damage +1
+Pale Rum;(?) Dwarves gain +1 Max Bodyheat
+Pale Rum;(?) Dwarves gain +1 Max Hydratation
+Pale Rum;(?) Dwarves gain +1 Max Metabolism
+Pale Rum;(?) Dwarves gain +4 Max Power
+Pale Rum;(?) Dwarves gain +5 Max Health
+Pale Rum;(?) Dwarves gain +6 Max Health
+Pale Rum;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Pale Rum;(?) Elves gain +1 Max Bodyheat
+Pale Rum;(?) Elves gain +1 Max Hydratation
+Pale Rum;(?) Elves gain +1 Max Metabolism
+Pale Rum;(?) Elves gain +4 Max Power
+Pale Rum;(?) Elves gain +5 Max Health
+Pale Rum;(?) Elves gain +6 Max Health
+Pale Rum;(?) Fairies gain +1 Max Bodyheat
+Pale Rum;(?) Fairies gain +1 Max Hydratation
+Pale Rum;(?) Fairies gain +1 Max Metabolism
+Pale Rum;(?) Fairies gain +4 Max Power
+Pale Rum;(?) Fairies gain +5 Max Health
+Pale Rum;(?) Fairies gain +6 Max Heatlh
+Pale Rum;(?) Fast-Flying Speed +0.1
+Pale Rum;(?) Healing of Your Major Healing Abilities +1
+Pale Rum;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Pale Rum;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Pale Rum;(?) Humans gain +1 Max Bodyheat
+Pale Rum;(?) Humans gain +1 Max Hydratation
+Pale Rum;(?) Humans gain +1 Max Metabolism
+Pale Rum;(?) Humans gain +4 Max Power
+Pale Rum;(?) Humans gain +5 Max Health
+Pale Rum;(?) Humans gain +6 Max Health
+Pale Rum;(?) Jump Power +0.1
+Pale Rum;(?) Max Cleanliness +1
+Pale Rum;Max Armor +32;;of Toughness
+Pale Rum;(?) Max Health +8;;of Healthiness
+Pale Rum;(?) Max Power +1
+Pale Rum;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Pale Rum;(?) Melee attacks do +6 Damage on Elite
+Pale Rum;(?) Melee Evasion +1%
+Pale Rum;(?) Orcs gain +1 Max Bodyheat
+Pale Rum;(?) Orcs gain +1 Max Hydratation
+Pale Rum;(?) Orcs gain +1 Max Metabolism
+Pale Rum;(?) Orcs gain +4 Max Power
+Pale Rum;(?) Orcs gain +5 Max Health
+Pale Rum;(?) Orcs gain +6 Max Health
+Pale Rum;(?) Projectile Attacks do +6 Damage to Elite
+Pale Rum;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Pale Rum;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Pale Rum;(?) Rakshasa gain +1 Max Bodyheat
+Pale Rum;(?) Rakshasa gain +1 Max Metabolism
+Pale Rum;(?) Rakshasa gain +4 Max Power
+Pale Rum;(?) Rakshasa gain +5 Max Health
+Pale Rum;(?) Rakshasa gain +6 Max Health
+Pale Rum;(?) Slashing Mitigation +1
+Pale Rum;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Pale Rum;(?) take -1 damage from elite
+Pale Rum;(?) Taunt From Attack Damage -1%;;of Meekness
+Pale Rum;(?) Taunt From Attack Damage +1%;Taunter's;
+Whisky;(?) Burst Attacks +10 Damage to Elite
+Whisky;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Whisky;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Whisky;(?) Chance to Evade Melee Attacks +1%
+Whisky;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Whisky;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Whisky;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Whisky;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Whisky;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Whisky;(?) Damage to Aberration +1
+Whisky;(?) Damage to Arthropods +1
+Whisky;(?) Damage to Bears +1
+Whisky;(?) Damage to Canines +1
+Whisky;(?) Damage to Constructs +1
+Whisky;(?) Damage to Corporeal Undeads +1
+Whisky;(?) Damage to Crone-Kin +1
+Whisky;(?) Damage to Demons +1
+Whisky;(?) Damage to Dinosaurs +1
+Whisky;(?) Damage to Elementals +1
+Whisky;(?) Damage to Elves +1
+Whisky;(?) Damage to Felines +1
+Whisky;(?) Damage to Fey +1
+Whisky;(?) Damage to Fish +1
+Whisky;(?) Damage to Fungoids +1
+Whisky;(?) Damage to Giants +1
+Whisky;(?) Damage to Goblins +1
+Whisky;(?) Damage to Humans +1
+Whisky;(?) Damage to Incorporeal Undead +1
+Whisky;(?) Damage to Non-Ruminants Rngulates +1
+Whisky;(?) Damage to Orcs +1
+Whisky;(?) Damage to Rakshasa +1
+Whisky;(?) Damage to Rodents +1
+Whisky;(?) Damage to Ruminants +1
+Whisky;(?) Dance Appreciation +1
+Whisky;(?) Dig Deep +10
+Whisky;(?) Direct Acid Damage +1
+Whisky;(?) Direct Crushing Damage +1
+Whisky;(?) Direct Crushing mitigation +1
+Whisky;(?) Direct Darkness Damage +1
+Whisky;(?) Direct Demonic Damage +1
+Whisky;(?) Direct Divine Damage +1
+Whisky;(?) Direct Electricity Damage +1
+Whisky;(?) Direct Fire Damage +1
+Whisky;(?) Direct Nature Damage +1
+Whisky;(?) Direct Piercing mitigation +1
+Whisky;(?) Direct Poison Damage +1
+Whisky;(?) Direct Psychic Damage +1
+Whisky;(?) Direct Slashing Damage +1
+Whisky;(?) Direct Slashing mitigation +1
+Whisky;(?) Direct Sonic Damage +1
+Whisky;(?) Direct Trauma Damage +1
+Whisky;(?) Dwarves gain +1 Max Bodyheat
+Whisky;(?) Dwarves gain +1 Max Hydratation
+Whisky;(?) Dwarves gain +1 Max Metabolism
+Whisky;(?) Dwarves gain +4 Max Power
+Whisky;(?) Dwarves gain +5 Max Health
+Whisky;(?) Dwarves gain +6 Max Health
+Whisky;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Whisky;(?) Elves gain +1 Max Bodyheat
+Whisky;(?) Elves gain +1 Max Hydratation
+Whisky;(?) Elves gain +1 Max Metabolism
+Whisky;(?) Elves gain +4 Max Power
+Whisky;(?) Elves gain +5 Max Health
+Whisky;(?) Elves gain +6 Max Health
+Whisky;(?) Fairies gain +1 Max Bodyheat
+Whisky;(?) Fairies gain +1 Max Hydratation
+Whisky;(?) Fairies gain +1 Max Metabolism
+Whisky;(?) Fairies gain +4 Max Power
+Whisky;(?) Fairies gain +5 Max Health
+Whisky;(?) Fairies gain +6 Max Heatlh
+Whisky;(?) Fast-Flying Speed +0.1
+Whisky;(?) Healing of Your Major Healing Abilities +1
+Whisky;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Whisky;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Whisky;(?) Humans gain +1 Max Bodyheat
+Whisky;(?) Humans gain +1 Max Hydratation
+Whisky;(?) Humans gain +1 Max Metabolism
+Whisky;(?) Humans gain +4 Max Power
+Whisky;(?) Humans gain +5 Max Health
+Whisky;(?) Humans gain +6 Max Health
+Whisky;(?) Jump Power +0.1
+Whisky;(?) Max Cleanliness +1
+Whisky;(?) Max Armor +10;;of Toughness
+Whisky;(?) Max Health +8;;of Healthiness
+Whisky;(?) Max Power +1
+Whisky;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Whisky;(?) Melee attacks do +6 Damage on Elite
+Whisky;(?) Melee Evasion +1%
+Whisky;(?) Orcs gain +1 Max Bodyheat
+Whisky;(?) Orcs gain +1 Max Hydratation
+Whisky;(?) Orcs gain +1 Max Metabolism
+Whisky;(?) Orcs gain +4 Max Power
+Whisky;(?) Orcs gain +5 Max Health
+Whisky;(?) Orcs gain +6 Max Health
+Whisky;(?) Projectile Attacks do +6 Damage to Elite
+Whisky;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Whisky;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Whisky;(?) Rakshasa gain +1 Max Bodyheat
+Whisky;(?) Rakshasa gain +1 Max Metabolism
+Whisky;(?) Rakshasa gain +4 Max Power
+Whisky;(?) Rakshasa gain +5 Max Health
+Whisky;(?) Rakshasa gain +6 Max Health
+Whisky;(?) Slashing Mitigation +1
+Whisky;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Whisky;(?) take -1 damage from elite
+Whisky;(?) Taunt From Attack Damage -1%;;of Meekness
+Whisky;(?) Taunt From Attack Damage +1%;Taunter's;
+Tequila;(?) Burst Attacks +10 Damage to Elite
+Tequila;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Tequila;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Tequila;(?) Chance to Evade Melee Attacks +1%
+Tequila;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Tequila;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Tequila;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Tequila;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Tequila;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Tequila;(?) Damage to Aberration +1
+Tequila;(?) Damage to Arthropods +1
+Tequila;(?) Damage to Bears +1
+Tequila;(?) Damage to Canines +1
+Tequila;(?) Damage to Constructs +1
+Tequila;(?) Damage to Corporeal Undeads +1
+Tequila;(?) Damage to Crone-Kin +1
+Tequila;(?) Damage to Demons +1
+Tequila;(?) Damage to Dinosaurs +1
+Tequila;(?) Damage to Elementals +1
+Tequila;(?) Damage to Elves +1
+Tequila;(?) Damage to Felines +1
+Tequila;(?) Damage to Fey +1
+Tequila;(?) Damage to Fish +1
+Tequila;(?) Damage to Fungoids +1
+Tequila;(?) Damage to Giants +1
+Tequila;(?) Damage to Goblins +1
+Tequila;(?) Damage to Humans +1
+Tequila;(?) Damage to Incorporeal Undead +1
+Tequila;(?) Damage to Non-Ruminants Rngulates +1
+Tequila;(?) Damage to Orcs +1
+Tequila;(?) Damage to Rakshasa +1
+Tequila;(?) Damage to Rodents +1
+Tequila;(?) Damage to Ruminants +1
+Tequila;(?) Dance Appreciation +1
+Tequila;(?) Dig Deep +10
+Tequila;(?) Direct Acid Damage +1
+Tequila;(?) Direct Crushing Damage +1
+Tequila;(?) Direct Crushing mitigation +1
+Tequila;(?) Direct Darkness Damage +1
+Tequila;(?) Direct Demonic Damage +1
+Tequila;(?) Direct Divine Damage +1
+Tequila;(?) Direct Electricity Damage +1
+Tequila;(?) Direct Fire Damage +1
+Tequila;(?) Direct Nature Damage +1
+Tequila;(?) Direct Piercing mitigation +1
+Tequila;(?) Direct Poison Damage +1
+Tequila;(?) Direct Psychic Damage +1
+Tequila;(?) Direct Slashing Damage +1
+Tequila;(?) Direct Slashing mitigation +1
+Tequila;(?) Direct Sonic Damage +1
+Tequila;(?) Direct Trauma Damage +1
+Tequila;(?) Dwarves gain +1 Max Bodyheat
+Tequila;(?) Dwarves gain +1 Max Hydratation
+Tequila;(?) Dwarves gain +1 Max Metabolism
+Tequila;(?) Dwarves gain +4 Max Power
+Tequila;(?) Dwarves gain +5 Max Health
+Tequila;(?) Dwarves gain +6 Max Health
+Tequila;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Tequila;(?) Elves gain +1 Max Bodyheat
+Tequila;(?) Elves gain +1 Max Hydratation
+Tequila;(?) Elves gain +1 Max Metabolism
+Tequila;(?) Elves gain +4 Max Power
+Tequila;(?) Elves gain +5 Max Health
+Tequila;(?) Elves gain +6 Max Health
+Tequila;(?) Fairies gain +1 Max Bodyheat
+Tequila;(?) Fairies gain +1 Max Hydratation
+Tequila;(?) Fairies gain +1 Max Metabolism
+Tequila;(?) Fairies gain +4 Max Power
+Tequila;(?) Fairies gain +5 Max Health
+Tequila;(?) Fairies gain +6 Max Heatlh
+Tequila;(?) Fast-Flying Speed +0.1
+Tequila;(?) Healing of Your Major Healing Abilities +1
+Tequila;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Tequila;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Tequila;(?) Humans gain +1 Max Bodyheat
+Tequila;(?) Humans gain +1 Max Hydratation
+Tequila;(?) Humans gain +1 Max Metabolism
+Tequila;(?) Humans gain +4 Max Power
+Tequila;(?) Humans gain +5 Max Health
+Tequila;(?) Humans gain +6 Max Health
+Tequila;(?) Jump Power +0.1
+Tequila;(?) Max Cleanliness +1
+Tequila;(?) Max Armor +10;;of Toughness
+Tequila;(?) Max Health +8;;of Healthiness
+Tequila;(?) Max Power +1
+Tequila;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Tequila;(?) Melee attacks do +6 Damage on Elite
+Tequila;(?) Melee Evasion +1%
+Tequila;(?) Orcs gain +1 Max Bodyheat
+Tequila;(?) Orcs gain +1 Max Hydratation
+Tequila;(?) Orcs gain +1 Max Metabolism
+Tequila;(?) Orcs gain +4 Max Power
+Tequila;(?) Orcs gain +5 Max Health
+Tequila;(?) Orcs gain +6 Max Health
+Tequila;(?) Projectile Attacks do +6 Damage to Elite
+Tequila;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Tequila;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Tequila;(?) Rakshasa gain +1 Max Bodyheat
+Tequila;(?) Rakshasa gain +1 Max Metabolism
+Tequila;(?) Rakshasa gain +4 Max Power
+Tequila;(?) Rakshasa gain +5 Max Health
+Tequila;(?) Rakshasa gain +6 Max Health
+Tequila;(?) Slashing Mitigation +1
+Tequila;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Tequila;(?) take -1 damage from elite
+Tequila;(?) Taunt From Attack Damage -1%;;of Meekness
+Tequila;(?) Taunt From Attack Damage +1%;Taunter's;
+Dry Gin;(?) Burst Attacks +10 Damage to Elite
+Dry Gin;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Dry Gin;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Dry Gin;(?) Chance to Evade Melee Attacks +1%
+Dry Gin;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Dry Gin;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Dry Gin;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Dry Gin;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Dry Gin;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Dry Gin;(?) Damage to Aberration +1
+Dry Gin;(?) Damage to Arthropods +1
+Dry Gin;(?) Damage to Bears +1
+Dry Gin;(?) Damage to Canines +1
+Dry Gin;(?) Damage to Constructs +1
+Dry Gin;(?) Damage to Corporeal Undeads +1
+Dry Gin;(?) Damage to Crone-Kin +1
+Dry Gin;(?) Damage to Demons +1
+Dry Gin;(?) Damage to Dinosaurs +1
+Dry Gin;(?) Damage to Elementals +1
+Dry Gin;(?) Damage to Elves +1
+Dry Gin;(?) Damage to Felines +1
+Dry Gin;(?) Damage to Fey +1
+Dry Gin;(?) Damage to Fish +1
+Dry Gin;(?) Damage to Fungoids +1
+Dry Gin;(?) Damage to Giants +1
+Dry Gin;(?) Damage to Goblins +1
+Dry Gin;(?) Damage to Humans +1
+Dry Gin;(?) Damage to Incorporeal Undead +1
+Dry Gin;(?) Damage to Non-Ruminants Rngulates +1
+Dry Gin;(?) Damage to Orcs +1
+Dry Gin;(?) Damage to Rakshasa +1
+Dry Gin;(?) Damage to Rodents +1
+Dry Gin;(?) Damage to Ruminants +1
+Dry Gin;(?) Dance Appreciation +1
+Dry Gin;(?) Dig Deep +10
+Dry Gin;(?) Direct Acid Damage +1
+Dry Gin;(?) Direct Crushing Damage +1
+Dry Gin;(?) Direct Crushing mitigation +1
+Dry Gin;(?) Direct Darkness Damage +1
+Dry Gin;(?) Direct Demonic Damage +1
+Dry Gin;(?) Direct Divine Damage +1
+Dry Gin;(?) Direct Electricity Damage +1
+Dry Gin;(?) Direct Fire Damage +1
+Dry Gin;(?) Direct Nature Damage +1
+Dry Gin;(?) Direct Piercing mitigation +1
+Dry Gin;(?) Direct Poison Damage +1
+Dry Gin;(?) Direct Psychic Damage +1
+Dry Gin;(?) Direct Slashing Damage +1
+Dry Gin;(?) Direct Slashing mitigation +1
+Dry Gin;(?) Direct Sonic Damage +1
+Dry Gin;(?) Direct Trauma Damage +1
+Dry Gin;(?) Dwarves gain +1 Max Bodyheat
+Dry Gin;(?) Dwarves gain +1 Max Hydratation
+Dry Gin;(?) Dwarves gain +1 Max Metabolism
+Dry Gin;(?) Dwarves gain +4 Max Power
+Dry Gin;(?) Dwarves gain +5 Max Health
+Dry Gin;(?) Dwarves gain +6 Max Health
+Dry Gin;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Dry Gin;(?) Elves gain +1 Max Bodyheat
+Dry Gin;(?) Elves gain +1 Max Hydratation
+Dry Gin;(?) Elves gain +1 Max Metabolism
+Dry Gin;(?) Elves gain +4 Max Power
+Dry Gin;(?) Elves gain +5 Max Health
+Dry Gin;(?) Elves gain +6 Max Health
+Dry Gin;(?) Fairies gain +1 Max Bodyheat
+Dry Gin;(?) Fairies gain +1 Max Hydratation
+Dry Gin;(?) Fairies gain +1 Max Metabolism
+Dry Gin;(?) Fairies gain +4 Max Power
+Dry Gin;(?) Fairies gain +5 Max Health
+Dry Gin;(?) Fairies gain +6 Max Heatlh
+Dry Gin;(?) Fast-Flying Speed +0.1
+Dry Gin;(?) Healing of Your Major Healing Abilities +1
+Dry Gin;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Dry Gin;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Dry Gin;(?) Humans gain +1 Max Bodyheat
+Dry Gin;(?) Humans gain +1 Max Hydratation
+Dry Gin;(?) Humans gain +1 Max Metabolism
+Dry Gin;(?) Humans gain +4 Max Power
+Dry Gin;(?) Humans gain +5 Max Health
+Dry Gin;(?) Humans gain +6 Max Health
+Dry Gin;(?) Jump Power +0.1
+Dry Gin;(?) Max Cleanliness +1
+Dry Gin;(?) Max Armor +10;;of Toughness
+Dry Gin;(?) Max Health +8;;of Healthiness
+Dry Gin;(?) Max Power +1
+Dry Gin;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Dry Gin;(?) Melee attacks do +6 Damage on Elite
+Dry Gin;(?) Melee Evasion +1%
+Dry Gin;(?) Orcs gain +1 Max Bodyheat
+Dry Gin;(?) Orcs gain +1 Max Hydratation
+Dry Gin;(?) Orcs gain +1 Max Metabolism
+Dry Gin;(?) Orcs gain +4 Max Power
+Dry Gin;(?) Orcs gain +5 Max Health
+Dry Gin;(?) Orcs gain +6 Max Health
+Dry Gin;(?) Projectile Attacks do +6 Damage to Elite
+Dry Gin;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Dry Gin;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Dry Gin;(?) Rakshasa gain +1 Max Bodyheat
+Dry Gin;(?) Rakshasa gain +1 Max Metabolism
+Dry Gin;(?) Rakshasa gain +4 Max Power
+Dry Gin;(?) Rakshasa gain +5 Max Health
+Dry Gin;(?) Rakshasa gain +6 Max Health
+Dry Gin;(?) Slashing Mitigation +1
+Dry Gin;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Dry Gin;(?) take -1 damage from elite
+Dry Gin;(?) Taunt From Attack Damage -1%;;of Meekness
+Dry Gin;(?) Taunt From Attack Damage +1%;Taunter's;
+Bourbon;(?) Burst Attacks +10 Damage to Elite
+Bourbon;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
+Bourbon;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Bourbon;(?) Chance to Evade Melee Attacks +1%
+Bourbon;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Bourbon;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
+Bourbon;(?) Chance to ignore Knockbacks +1%, Jump Power +0.3
+Bourbon;(?) Chance to miss with Projectiles +5%, Taunt from attack damage +10%
+Bourbon;(?) Chance to scrap extra Fish Scale +5%, Chance to catch Bonus Fish +10%
+Bourbon;(?) Damage to Aberration +1
+Bourbon;(?) Damage to Arthropods +1
+Bourbon;(?) Damage to Bears +1
+Bourbon;(?) Damage to Canines +1
+Bourbon;(?) Damage to Constructs +1
+Bourbon;(?) Damage to Corporeal Undeads +1
+Bourbon;(?) Damage to Crone-Kin +1
+Bourbon;(?) Damage to Demons +1
+Bourbon;(?) Damage to Dinosaurs +1
+Bourbon;(?) Damage to Elementals +1
+Bourbon;(?) Damage to Elves +1
+Bourbon;(?) Damage to Felines +1
+Bourbon;(?) Damage to Fey +1
+Bourbon;(?) Damage to Fish +1
+Bourbon;(?) Damage to Fungoids +1
+Bourbon;(?) Damage to Giants +1
+Bourbon;(?) Damage to Goblins +1
+Bourbon;(?) Damage to Humans +1
+Bourbon;(?) Damage to Incorporeal Undead +1
+Bourbon;(?) Damage to Non-Ruminants Rngulates +1
+Bourbon;(?) Damage to Orcs +1
+Bourbon;(?) Damage to Rakshasa +1
+Bourbon;(?) Damage to Rodents +1
+Bourbon;(?) Damage to Ruminants +1
+Bourbon;(?) Dance Appreciation +1
+Bourbon;(?) Dig Deep +10
+Bourbon;(?) Direct Acid Damage +1
+Bourbon;(?) Direct Crushing Damage +1
+Bourbon;(?) Direct Crushing mitigation +1
+Bourbon;(?) Direct Darkness Damage +1
+Bourbon;(?) Direct Demonic Damage +1
+Bourbon;(?) Direct Divine Damage +1
+Bourbon;(?) Direct Electricity Damage +1
+Bourbon;(?) Direct Fire Damage +1
+Bourbon;(?) Direct Nature Damage +1
+Bourbon;(?) Direct Piercing mitigation +1
+Bourbon;(?) Direct Poison Damage +1
+Bourbon;(?) Direct Psychic Damage +1
+Bourbon;(?) Direct Slashing Damage +1
+Bourbon;(?) Direct Slashing mitigation +1
+Bourbon;(?) Direct Sonic Damage +1
+Bourbon;(?) Direct Trauma Damage +1
+Bourbon;(?) Dwarves gain +1 Max Bodyheat
+Bourbon;(?) Dwarves gain +1 Max Hydratation
+Bourbon;(?) Dwarves gain +1 Max Metabolism
+Bourbon;(?) Dwarves gain +4 Max Power
+Bourbon;(?) Dwarves gain +5 Max Health
+Bourbon;(?) Dwarves gain +6 Max Health
+Bourbon;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
+Bourbon;(?) Elves gain +1 Max Bodyheat
+Bourbon;(?) Elves gain +1 Max Hydratation
+Bourbon;(?) Elves gain +1 Max Metabolism
+Bourbon;(?) Elves gain +4 Max Power
+Bourbon;(?) Elves gain +5 Max Health
+Bourbon;(?) Elves gain +6 Max Health
+Bourbon;(?) Fairies gain +1 Max Bodyheat
+Bourbon;(?) Fairies gain +1 Max Hydratation
+Bourbon;(?) Fairies gain +1 Max Metabolism
+Bourbon;(?) Fairies gain +4 Max Power
+Bourbon;(?) Fairies gain +5 Max Health
+Bourbon;(?) Fairies gain +6 Max Heatlh
+Bourbon;(?) Fast-Flying Speed +0.1
+Bourbon;(?) Healing of Your Major Healing Abilities +1
+Bourbon;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
+Bourbon;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
+Bourbon;(?) Humans gain +1 Max Bodyheat
+Bourbon;(?) Humans gain +1 Max Hydratation
+Bourbon;(?) Humans gain +1 Max Metabolism
+Bourbon;(?) Humans gain +4 Max Power
+Bourbon;(?) Humans gain +5 Max Health
+Bourbon;(?) Humans gain +6 Max Health
+Bourbon;(?) Jump Power +0.1
+Bourbon;(?) Max Cleanliness +1
+Bourbon;(?) Max Armor +10;;of Toughness
+Bourbon;Max Health +45;;of Healthiness
+Bourbon;(?) Max Power +1
+Bourbon;(?) Max underwater held breath +3, Sprint-Swimming Speed Boost +0.1
+Bourbon;(?) Melee attacks do +6 Damage on Elite
+Bourbon;(?) Melee Evasion +1%
+Bourbon;(?) Orcs gain +1 Max Bodyheat
+Bourbon;(?) Orcs gain +1 Max Hydratation
+Bourbon;(?) Orcs gain +1 Max Metabolism
+Bourbon;(?) Orcs gain +4 Max Power
+Bourbon;(?) Orcs gain +5 Max Health
+Bourbon;(?) Orcs gain +6 Max Health
+Bourbon;(?) Projectile Attacks do +6 Damage to Elite
+Bourbon;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
+Bourbon;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
+Bourbon;(?) Rakshasa gain +1 Max Bodyheat
+Bourbon;(?) Rakshasa gain +1 Max Metabolism
+Bourbon;(?) Rakshasa gain +4 Max Power
+Bourbon;(?) Rakshasa gain +5 Max Health
+Bourbon;(?) Rakshasa gain +6 Max Health
+Bourbon;(?) Slashing Mitigation +1
+Bourbon;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Bourbon;(?) take -1 damage from elite
+Bourbon;(?) Taunt From Attack Damage -1%;;of Meekness
+Bourbon;Taunt From Attack Damage +28%;Taunter's;
