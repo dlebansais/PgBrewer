@@ -152,8 +152,8 @@ Goblin Ale;
 Goblin Ale;
 Goblin Ale;
 Goblin Ale;
-Orcish Bock;(?) Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
-Orcish Bock;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
+Orcish Bock;(?) Armor Patching Ability Power Cost -6%, Lycanthropy Ability Power Cost -7%, Druid Ability Power Cost -7%;;
+Orcish Bock;(?) Bard Ability Power Cost -6%, Battle Chemistry Ability Power Cost -7%, Archery Ability Power Cost -7%;;
 Orcish Bock;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
 Orcish Bock;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
 Orcish Bock;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
@@ -215,18 +215,18 @@ Orcish Bock;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
 Orcish Bock;(?) Taunt From Attack Damage -10.5%
 Orcish Bock;(?) Taunt From Attack Damage +20%
 Orcish Bock;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
-Brown Ale;Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
-Brown Ale;Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
-Brown Ale;Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
-Brown Ale;Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
-Brown Ale;Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Brown Ale;Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
-Brown Ale;Chance to ignore Knockbacks +8%, Jump Power +1.2
-Brown Ale;Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
-Brown Ale;Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
-Brown Ale;Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
-Brown Ale;Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
-Brown Ale;Dig Deep Power Restoration +67
+Brown Ale;Armor Patching Ability Power Cost -6%, Lycanthropy Ability Power Cost -7%, Druid Ability Power Cost -7%;;
+Brown Ale;Bard Ability Power Cost -6%, Battle Chemistry Ability Power Cost -7%, Archery Ability Power Cost -7%;;
+Brown Ale;Breath Recovered Out of Water +4, Max Underwater Held Breath +7, Sprint-Swimming Speed Boost +1.2;Swimmer's;
+Brown Ale;Chance for Your Attacks to Miss +33%, Chance to Evade Burst +80%, Sprint Boost (Out of Combat) +1.2;Partier's;
+Brown Ale;Chance to Chop Extra Perfect Wood +10%, Chance to Chop Extra Wood +24%;Lumberjack's;
+Brown Ale;Chance to Forage Extra Herbs/Seeds +13%, Chance to Forage Extra Mushrooms +21%;Forager's;
+Brown Ale;Chance to Ignore Knockbacks +8%, Jump Power +1.2;Partier's;
+Brown Ale;Chance to Miss with Projectiles +15%, Taunt from Attack Damage +30%;Taunter's;
+Brown Ale;Chance to Scrape Extra Fish Scale +10%, Chance to Catch Bonus Fish +24%;Fisherman's;
+Brown Ale;Crossbow Ability Power Cost -6%, Psychology Ability Power Cost -7%, Mentalism Ability Power Cost -7%;;
+Brown Ale;Dance Appreciation Extra-Effect Chance Boost +12%, Dance Appreciation boost +8;Partier's;
+Brown Ale;Dig Deep Power Restoration +67;;
 Brown Ale;Dwarves gain +20 Max Bodyheat
 Brown Ale;Dwarves gain +20 Max Hydratation
 Brown Ale;Dwarves gain +20 Max Metabolism
@@ -244,9 +244,9 @@ Brown Ale;Fairies gain +20 Max Hydratation
 Brown Ale;Fairies gain +20 Max Metabolism
 Brown Ale;Fairies gain +23 Max Power
 Brown Ale;Fairies gain +42 Max Health
-Brown Ale;Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5
-Brown Ale;First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
-Brown Ale;Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Brown Ale;Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5;Flier's;
+Brown Ale;First Aid Ability Power Cost -6%, Giant Bat Ability Power Cost -7%, Spider Ability Power Cost -7%;;
+Brown Ale;Healing of your Ultimate Protection Abilities +15, Healing of your Minor Healing Abilities +5, Healing of your Major Healing Abilities +10;;of Healing
 Brown Ale;Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
 Brown Ale;Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Brown Ale;Humans gain +20 Max Bodyheat
@@ -254,19 +254,19 @@ Brown Ale;Humans gain +20 Max Hydratation
 Brown Ale;Humans gain +20 Max Metabolism
 Brown Ale;Humans gain +23 Max Power
 Brown Ale;Humans gain +42 Max Health
-Brown Ale;Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
-Brown Ale;Max Armor +48
-Brown Ale;Max Health +33
-Brown Ale;Max Peaceableness +6, Max Community +7, Max Cleanliness +7
-Brown Ale;Max Power +20
-Brown Ale;Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
-Brown Ale;Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Brown Ale;Knife Ability Power Cost -6%, Staff Ability Power Cost -7%, Hammer Ability Power Cost -7%;;
+Brown Ale;Max Armor +48;;of Toughness
+Brown Ale;Max Health +33;;of Healthiness
+Brown Ale;Max Peaceableness +6, Max Community +7, Max Cleanliness +7;;of Placeholder Effects
+Brown Ale;Max Power +20;;of Power
+Brown Ale;Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
+Brown Ale;Necromancy Ability Power Cost -6%, Ice Magic Ability Power Cost -7%, Fire Magic Ability Power Cost -7%;;of Magic
 Brown Ale;Orcs gain +20 Max Bodyheat
 Brown Ale;Orcs gain +20 Max Hydratation
 Brown Ale;Orcs gain +20 Max Metabolism
 Brown Ale;Orcs gain +23 Max Power
 Brown Ale;Orcs gain +42 Max Health
-Brown Ale;Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Brown Ale;Pig Ability Power Cost -6%, Deer Ability Power Cost -7%, Cow Ability Power Cost -7%;;
 Brown Ale;Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
 Brown Ale;Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Brown Ale;Rakshasa gain +20 Max Bodyheat
@@ -274,22 +274,22 @@ Brown Ale;Rakshasa gain +20 Max Hydratation
 Brown Ale;Rakshasa gain +20 Max Metabolism
 Brown Ale;Rakshasa gain +23 Max Power
 Brown Ale;Rakshasa gain +42 Max Health
-Brown Ale;Sprint Speed Boost -1.5, taunt from attack damage +30 %
-Brown Ale;Taunt From Attack Damage -10.5%
-Brown Ale;Taunt From Attack Damage +20%
-Brown Ale;Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
-Hegemony Lager;(?) Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
-Hegemony Lager;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
-Hegemony Lager;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
-Hegemony Lager;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
-Hegemony Lager;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Hegemony Lager;(?) Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
-Hegemony Lager;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
-Hegemony Lager;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
-Hegemony Lager;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
-Hegemony Lager;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
-Hegemony Lager;(?) Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
-Hegemony Lager;(?) Dig Deep Power Restoration +67
+Brown Ale;Sprint Speed Boost -1.5, Taunt From Attack Damage +30%;Taunter's;
+Brown Ale;Taunt From Attack Damage -10.5%;;of Meekness
+Brown Ale;Taunt From Attack Damage +20%;Taunter's;
+Brown Ale;Unarmed Ability Power Cost -6%, Shield Ability Power Cost -7%, Sword Ability Power Cost -7%;;
+Hegemony Lager;(?) Armor Patching Ability Power Cost -6%, Lycanthropy Ability Power Cost -7%, Druid Ability Power Cost -7%;;
+Hegemony Lager;(?) Bard Ability Power Cost -6%, Battle Chemistry Ability Power Cost -7%, Archery Ability Power Cost -7%;;
+Hegemony Lager;(?) Breath Recovered Out of Water +4, Max Underwater Held Breath +7, Sprint-Swimming Speed Boost +1.2;Swimmer's;
+Hegemony Lager;(?) Chance for Your Attacks to Miss +33%, Chance to Evade Burst +80%, Sprint Boost (Out of Combat) +1.2;Partier's;
+Hegemony Lager;(?) Chance to Chop Extra Perfect Wood +10%, Chance to Chop Extra Wood +24%;Lumberjack's;
+Hegemony Lager;(?) Chance to Forage Extra Herbs/Seeds +13%, Chance to Forage Extra Mushrooms +21%;Forager's;
+Hegemony Lager;(?) Chance to Ignore Knockbacks +8%, Jump Power +1.2;Partier's;
+Hegemony Lager;(?) Chance to Miss with Projectiles +15%, Taunt from Attack Damage +30%;Taunter's;
+Hegemony Lager;(?) Chance to Scrape Extra Fish Scale +10%, Chance to Catch Bonus Fish +24%;Fisherman's;
+Hegemony Lager;(?) Crossbow Ability Power Cost -6%, Psychology Ability Power Cost -7%, Mentalism Ability Power Cost -7%;;
+Hegemony Lager;(?) Dance Appreciation Extra-Effect Chance Boost +12%, Dance Appreciation boost +8;Partier's;
+Hegemony Lager;(?) Dig Deep Power Restoration +67;;
 Hegemony Lager;(?) Dwarves gain +20 Max Bodyheat
 Hegemony Lager;(?) Dwarves gain +20 Max Hydratation
 Hegemony Lager;(?) Dwarves gain +20 Max Metabolism
@@ -307,9 +307,9 @@ Hegemony Lager;(?) Fairies gain +20 Max Hydratation
 Hegemony Lager;(?) Fairies gain +20 Max Metabolism
 Hegemony Lager;(?) Fairies gain +23 Max Power
 Hegemony Lager;(?) Fairies gain +42 Max Health
-Hegemony Lager;(?) Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5
-Hegemony Lager;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
-Hegemony Lager;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Hegemony Lager;(?) Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5;Flier's;
+Hegemony Lager;(?) First Aid Ability Power Cost -6%, Giant Bat Ability Power Cost -7%, Spider Ability Power Cost -7%;;
+Hegemony Lager;(?) Healing of your Ultimate Protection Abilities +15, Healing of your Minor Healing Abilities +5, Healing of your Major Healing Abilities +10;;of Healing
 Hegemony Lager;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
 Hegemony Lager;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Hegemony Lager;(?) Humans gain +20 Max Bodyheat
@@ -317,19 +317,19 @@ Hegemony Lager;(?) Humans gain +20 Max Hydratation
 Hegemony Lager;(?) Humans gain +20 Max Metabolism
 Hegemony Lager;(?) Humans gain +23 Max Power
 Hegemony Lager;(?) Humans gain +42 Max Health
-Hegemony Lager;(?) Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
-Hegemony Lager;(?) Max Armor +48
-Hegemony Lager;(?) Max Health +33
-Hegemony Lager;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7
-Hegemony Lager;(?) Max Power +20
-Hegemony Lager;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
-Hegemony Lager;(?) Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Hegemony Lager;(?) Knife Ability Power Cost -6%, Staff Ability Power Cost -7%, Hammer Ability Power Cost -7%;;
+Hegemony Lager;(?) Max Armor +48;;of Toughness
+Hegemony Lager;(?) Max Health +33;;of Healthiness
+Hegemony Lager;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7;;of Placeholder Effects
+Hegemony Lager;(?) Max Power +20;;of Power
+Hegemony Lager;(?) Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
+Hegemony Lager;(?) Necromancy Ability Power Cost -6%, Ice Magic Ability Power Cost -7%, Fire Magic Ability Power Cost -7%;;of Magic
 Hegemony Lager;(?) Orcs gain +20 Max Bodyheat
 Hegemony Lager;(?) Orcs gain +20 Max Hydratation
 Hegemony Lager;(?) Orcs gain +20 Max Metabolism
 Hegemony Lager;(?) Orcs gain +23 Max Power
 Hegemony Lager;(?) Orcs gain +42 Max Health
-Hegemony Lager;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Hegemony Lager;(?) Pig Ability Power Cost -6%, Deer Ability Power Cost -7%, Cow Ability Power Cost -7%;;
 Hegemony Lager;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
 Hegemony Lager;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Hegemony Lager;(?) Rakshasa gain +20 Max Bodyheat
@@ -337,22 +337,22 @@ Hegemony Lager;(?) Rakshasa gain +20 Max Hydratation
 Hegemony Lager;(?) Rakshasa gain +20 Max Metabolism
 Hegemony Lager;(?) Rakshasa gain +23 Max Power
 Hegemony Lager;(?) Rakshasa gain +42 Max Health
-Hegemony Lager;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
-Hegemony Lager;(?) Taunt From Attack Damage -10.5%
+Hegemony Lager;(?) Sprint Speed Boost -1.5, Taunt From Attack Damage +30%;Taunter's;
+Hegemony Lager;(?) Taunt From Attack Damage -10.5%;;of Meekness
 Hegemony Lager;Taunt From Attack Damage +24%;Taunter's;
-Hegemony Lager;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
-Dwarven Stout;(?) Armor Patching abilities power cost -6 %, Lycanthropy abilities power cost -7 %, Druid abilities power cost -7 %
-Dwarven Stout;(?) Bard abilities power cost -6%, Battle Chemistry Abilities power cost -7%, Archery Abilities power cost -7%
-Dwarven Stout;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
-Dwarven Stout;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
-Dwarven Stout;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
-Dwarven Stout;(?) Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
-Dwarven Stout;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
-Dwarven Stout;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
-Dwarven Stout;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
-Dwarven Stout;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
-Dwarven Stout;(?) Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
-Dwarven Stout;(?) Dig Deep Power Restoration +67
+Hegemony Lager;(?) Unarmed Ability Power Cost -6%, Shield Ability Power Cost -7%, Sword Ability Power Cost -7%;;
+Dwarven Stout;(?) Armor Patching Ability Power Cost -6%, Lycanthropy Ability Power Cost -7%, Druid Ability Power Cost -7%;;
+Dwarven Stout;(?) Bard Ability Power Cost -6%, Battle Chemistry Ability Power Cost -7%, Archery Ability Power Cost -7%;;
+Dwarven Stout;(?) Breath Recovered Out of Water +4, Max Underwater Held Breath +7, Sprint-Swimming Speed Boost +1.2;Swimmer's;
+Dwarven Stout;(?) Chance for Your Attacks to Miss +33%, Chance to Evade Burst +80%, Sprint Boost (Out of Combat) +1.2;Partier's;
+Dwarven Stout;(?) Chance to Chop Extra Perfect Wood +10%, Chance to Chop Extra Wood +24%;Lumberjack's;
+Dwarven Stout;(?) Chance to Forage Extra Herbs/Seeds +13%, Chance to Forage Extra Mushrooms +21%;Forager's;
+Dwarven Stout;(?) Chance to Ignore Knockbacks +8%, Jump Power +1.2;Partier's;
+Dwarven Stout;(?) Chance to Miss with Projectiles +15%, Taunt from Attack Damage +30%;Taunter's;
+Dwarven Stout;(?) Chance to Scrape Extra Fish Scale +10%, Chance to Catch Bonus Fish +24%;Fisherman's;
+Dwarven Stout;(?) Crossbow Ability Power Cost -6%, Psychology Ability Power Cost -7%, Mentalism Ability Power Cost -7%;;
+Dwarven Stout;(?) Dance Appreciation Extra-Effect Chance Boost +12%, Dance Appreciation boost +8;Partier's;
+Dwarven Stout;(?) Dig Deep Power Restoration +67;;
 Dwarven Stout;(?) Dwarves gain +20 Max Bodyheat
 Dwarven Stout;Dwarves gain +28 Max Hydratation
 Dwarven Stout;(?) Dwarves gain +20 Max Metabolism
@@ -371,8 +371,8 @@ Dwarven Stout;(?) Fairies gain +20 Max Metabolism
 Dwarven Stout;(?) Fairies gain +23 Max Power
 Dwarven Stout;(?) Fairies gain +42 Max Health
 Dwarven Stout;Fast-Flying Cost (Per Second) -0.7, Fast-Flying Speed +2.1;Flier's;
-Dwarven Stout;(?) First Aid abilities power cost -6%, Giant Bat Abilities power cost -7%, Spider Abilities power cost -7%
-Dwarven Stout;(?) Healing of your Ultimate Protection abilities +15, Healing of your Minor Abilities +5, Healing of your Major abilities +10
+Dwarven Stout;(?) First Aid Ability Power Cost -6%, Giant Bat Ability Power Cost -7%, Spider Ability Power Cost -7%;;
+Dwarven Stout;(?) Healing of your Ultimate Protection Abilities +15, Healing of your Minor Healing Abilities +5, Healing of your Major Healing Abilities +10;;of Healing
 Dwarven Stout;(?) Humans earn +6,7% Combat XP when feeling community-minded, but earn -6,7 % Combat XP when Lonely
 Dwarven Stout;(?) Humans earn +8.6 % Combat XP when feeling community-minded, but earn NO Combat XP when Lonely
 Dwarven Stout;(?) Humans gain +20 Max Bodyheat
@@ -380,19 +380,19 @@ Dwarven Stout;Humans gain +28 Max Hydratation
 Dwarven Stout;(?) Humans gain +20 Max Metabolism
 Dwarven Stout;(?) Humans gain +23 Max Power
 Dwarven Stout;(?) Humans gain +42 Max Health
-Dwarven Stout;(?) Knife Abilities power cost -6%, Staff Abilities power cost -7%, Hammer Abilities power cost -7%
-Dwarven Stout;(?) Max Armor +48
-Dwarven Stout;(?) Max Health +33
-Dwarven Stout;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7
-Dwarven Stout;(?) Max Power +20
-Dwarven Stout;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
-Dwarven Stout;(?) Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
+Dwarven Stout;(?) Knife Ability Power Cost -6%, Staff Ability Power Cost -7%, Hammer Ability Power Cost -7%;;
+Dwarven Stout;(?) Max Armor +48;;of Toughness
+Dwarven Stout;(?) Max Health +33;;of Healthiness
+Dwarven Stout;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7;;of Placeholder Effects
+Dwarven Stout;(?) Max Power +20;;of Power
+Dwarven Stout;(?) Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
+Dwarven Stout;(?) Necromancy Ability Power Cost -6%, Ice Magic Ability Power Cost -7%, Fire Magic Ability Power Cost -7%;;of Magic
 Dwarven Stout;(?) Orcs gain +20 Max Bodyheat
 Dwarven Stout;Orcs gain +28 Max Hydratation
 Dwarven Stout;(?) Orcs gain +20 Max Metabolism
 Dwarven Stout;(?) Orcs gain +23 Max Power
 Dwarven Stout;(?) Orcs gain +42 Max Health
-Dwarven Stout;(?) Pig Abilities power cost -6%, Deer Abilities power cost -7%, Cow Abilities power cost -7%
+Dwarven Stout;(?) Pig Ability Power Cost -6%, Deer Ability Power Cost -7%, Cow Ability Power Cost -7%;;
 Dwarven Stout;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
 Dwarven Stout;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Dwarven Stout;(?) Rakshasa gain +20 Max Bodyheat
@@ -400,10 +400,10 @@ Dwarven Stout;Rakshasa gain +28 Max Hydratation
 Dwarven Stout;(?) Rakshasa gain +20 Max Metabolism
 Dwarven Stout;(?) Rakshasa gain +23 Max Power
 Dwarven Stout;(?) Rakshasa gain +42 Max Health
-Dwarven Stout;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
-Dwarven Stout;(?) Taunt From Attack Damage -10.5%
-Dwarven Stout;(?) Taunt From Attack Damage +20%
-Dwarven Stout;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
+Dwarven Stout;(?) Sprint Speed Boost -1.5, Taunt From Attack Damage +30%;Taunter's;
+Dwarven Stout;(?) Taunt From Attack Damage -10.5%;;of Meekness
+Dwarven Stout;(?) Taunt From Attack Damage +20%;Taunter's;
+Dwarven Stout;(?) Unarmed Ability Power Cost -6%, Shield Ability Power Cost -7%, Sword Ability Power Cost -7%;;
 Potato Vodka;(?) Burst Attacks +10 Damage to Elite
 Potato Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Potato Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
