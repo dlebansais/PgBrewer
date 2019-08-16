@@ -4,6 +4,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Diagnostics;
     using System.IO;
     using System.Runtime.CompilerServices;
     using System.Text;
@@ -634,6 +635,13 @@
 
         public void RecalculateBottomToTop(IFourComponentsAlcohol previous, IFourComponentsAlcohol next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
+            int Multiplier1 = previous.Multiplier1;
+            int Multiplier2 = previous.Multiplier2;
+            int Multiplier3 = previous.Multiplier3;
+            Debug.Assert(Multiplier1 == next.Multiplier1);
+            Debug.Assert(Multiplier2 == next.Multiplier2);
+            Debug.Assert(Multiplier3 == next.Multiplier3);
+
             for (int PreviousLineIndex = 0; PreviousLineIndex < previous.Lines.Count; PreviousLineIndex++)
             {
                 IFourComponentsAlcoholLine Line = previous.Lines[PreviousLineIndex] as IFourComponentsAlcoholLine;
@@ -647,7 +655,7 @@
 
                     if (NextIndex1 >= 0 && NextIndex2 >= 0 && NextIndex3 >= 0 && NextIndex4 >= 0)
                     {
-                        int NextLineIndex = (NextIndex1 * 3 * 4 * 3) + (NextIndex2 * 4 * 3) + (NextIndex3 * 3) + NextIndex4;
+                        int NextLineIndex = (NextIndex1 * Multiplier1) + (NextIndex2 * Multiplier2) + (NextIndex3 * Multiplier3) + NextIndex4;
                         next.Lines[NextLineIndex].CalculatedIndex = BestIndex;
                     }
                 }
@@ -656,6 +664,13 @@
 
         public void RecalculateTopToBottom(IFourComponentsAlcohol next, IFourComponentsAlcohol previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
+            int Multiplier1 = next.Multiplier1;
+            int Multiplier2 = next.Multiplier2;
+            int Multiplier3 = next.Multiplier3;
+            Debug.Assert(Multiplier1 == previous.Multiplier1);
+            Debug.Assert(Multiplier2 == previous.Multiplier2);
+            Debug.Assert(Multiplier3 == previous.Multiplier3);
+
             for (int NextLineIndex = 0; NextLineIndex < next.Lines.Count; NextLineIndex++)
             {
                 IFourComponentsAlcoholLine Line = next.Lines[NextLineIndex] as IFourComponentsAlcoholLine;
@@ -669,7 +684,7 @@
 
                     if (PreviousIndex1 >= 0 && PreviousIndex2 >= 0 && PreviousIndex3 >= 0 && PreviousIndex4 >= 0)
                     {
-                        int PreviousLineIndex = (PreviousIndex1 * 3 * 4 * 3) + (PreviousIndex2 * 4 * 3) + (PreviousIndex3 * 3) + PreviousIndex4;
+                        int PreviousLineIndex = (PreviousIndex1 * Multiplier1) + (PreviousIndex2 * Multiplier2) + (PreviousIndex3 * Multiplier3) + PreviousIndex4;
                         previous.Lines[PreviousLineIndex].CalculatedIndex = BestIndex;
                     }
                 }

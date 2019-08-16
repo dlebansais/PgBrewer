@@ -17,7 +17,8 @@
 
             for (int ComponentIndex1 = 0; ComponentIndex1 < ComponentList1.Count; ComponentIndex1++)
             {
-                Lines.Add(new Alcoholx4Line(this, Indexes[EffectIndex++], ComponentIndex1));
+                EffectIndex = ComponentIndex1;
+                Lines.Add(new Alcoholx4Line(this, Indexes[EffectIndex], ComponentIndex1));
             }
         }
 

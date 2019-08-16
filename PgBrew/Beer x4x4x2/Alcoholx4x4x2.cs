@@ -16,6 +16,9 @@
             ComponentList2 = componentList2;
             ComponentList3 = componentList3;
 
+            Multiplier1 = 4 * 2;
+            Multiplier2 = 2;
+
             List<int> Indexes = DataArchive.GetIndexList(Name, ComponentList1.Count * ComponentList2.Count * ComponentList3.Count);
             int EffectIndex = 0;
 
@@ -23,12 +26,15 @@
                 for (int ComponentIndex2 = 0; ComponentIndex2 < ComponentList2.Count; ComponentIndex2++)
                     for (int ComponentIndex3 = 0; ComponentIndex3 < ComponentList3.Count; ComponentIndex3++)
                     {
-                        Lines.Add(new Alcoholx4x4x2Line(this, Indexes[EffectIndex++], ComponentIndex1, ComponentIndex2, ComponentIndex3));
+                        EffectIndex = (ComponentIndex1 * Multiplier1) + (ComponentIndex2 * Multiplier2) + ComponentIndex3;
+                        Lines.Add(new Alcoholx4x4x2Line(this, Indexes[EffectIndex], ComponentIndex1, ComponentIndex2, ComponentIndex3));
                     }
         }
 
         public List<Component> ComponentList1 { get; }
         public List<Component> ComponentList2 { get; }
         public List<Component> ComponentList3 { get; }
+        public int Multiplier1 { get; }
+        public int Multiplier2 { get; }
     }
 }
