@@ -509,15 +509,10 @@
             bool? Continue = Dlg.ShowDialog(this);
 
             if (Continue.HasValue && Continue.Value)
-            {
-                MessageBoxResult Answer = MessageBox.Show("Include calculated recipes? If you answer 'No', only confirmed recipes will be exported.", "Export", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                bool IsCalculatedIncluded = Answer == MessageBoxResult.Yes;
-
-                OnExport(Dlg.FileName, IsCalculatedIncluded);
-            }
+                OnExport(Dlg.FileName);
         }
 
-        private void OnExport(string FileName, bool isCalculatedIncluded)
+        private void OnExport(string FileName)
         {
             try
             {
@@ -525,7 +520,7 @@
                 {
                     using (StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8))
                     {
-                        OnExport(Writer, isCalculatedIncluded);
+                        OnExport(Writer);
                     }
                 }
             }
@@ -535,26 +530,26 @@
             }
         }
 
-        private void OnExport(StreamWriter writer, bool isCalculatedIncluded)
+        private void OnExport(StreamWriter writer)
         {
             ExportAssociations(writer);
 
-            BasicLager.Export(writer, isCalculatedIncluded);
-            PaleAle.Export(writer, isCalculatedIncluded);
-            Marzen.Export(writer, isCalculatedIncluded);
-            GoblinAle.Export(writer, isCalculatedIncluded);
-            OrcishBock.Export(writer, isCalculatedIncluded);
-            BrownAle.Export(writer, isCalculatedIncluded);
-            HegemonyLager.Export(writer, isCalculatedIncluded);
-            DwarvenStout.Export(writer, isCalculatedIncluded);
-            PotatoVodka.Export(writer, isCalculatedIncluded);
-            Applejack.Export(writer, isCalculatedIncluded);
-            BeetVodka.Export(writer, isCalculatedIncluded);
-            PaleRum.Export(writer, isCalculatedIncluded);
-            Whisky.Export(writer, isCalculatedIncluded);
-            Tequila.Export(writer, isCalculatedIncluded);
-            DryGin.Export(writer, isCalculatedIncluded);
-            Bourbon.Export(writer, isCalculatedIncluded);
+            BasicLager.Export(writer);
+            PaleAle.Export(writer);
+            Marzen.Export(writer);
+            GoblinAle.Export(writer);
+            OrcishBock.Export(writer);
+            BrownAle.Export(writer);
+            HegemonyLager.Export(writer);
+            DwarvenStout.Export(writer);
+            PotatoVodka.Export(writer);
+            Applejack.Export(writer);
+            BeetVodka.Export(writer);
+            PaleRum.Export(writer);
+            Whisky.Export(writer);
+            Tequila.Export(writer);
+            DryGin.Export(writer);
+            Bourbon.Export(writer);
         }
 
         private void ExportAssociations(StreamWriter writer)
@@ -568,16 +563,168 @@
 
                 foreach (ComponentAssociation Association in AssociationList)
                 {
+                    string AssociationName = Association.Component.Name;
+
                     if (Association.AssociationIndex >= 0)
-                        writer.WriteLine($"{Association.Component.Name};{Association.ChoiceList[Association.AssociationIndex]}");
+                        writer.WriteLine($"{AssociationName};{Association.ChoiceList[Association.AssociationIndex]}");
                     else
-                        writer.WriteLine($"{Association.Component.Name};");
+                        writer.WriteLine($"{AssociationName};");
                 }
 
                 writer.WriteLine();
             }
 
             writer.WriteLine();
+        }
+
+        private void OnImport(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog Dlg = new OpenFileDialog();
+            Dlg.Filter = "CSV file (*.csv)|*.csv";
+            bool? Continue = Dlg.ShowDialog(this);
+
+            if (Continue.HasValue && Continue.Value)
+                OnImport(Dlg.FileName);
+        }
+
+        private void OnImport(string FileName)
+        {
+            try
+            {
+                using (FileStream Stream = new FileStream(FileName, FileMode.Open, FileAccess.Read))
+                {
+                    using (StreamReader Reader = new StreamReader(Stream, Encoding.UTF8))
+                    {
+                        int ChangeCount = 0;
+                        if (OnImport(Reader, ref ChangeCount))
+                            if (ChangeCount == 0)
+                                MessageBox.Show("The imported file contains the same data as the software.\r\n\r\nNo change made.", "Import", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            else
+                                MessageBox.Show("File content imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
+                        else
+                            MessageBox.Show("Invalid format, not all of the file content was imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private bool OnImport(StreamReader reader, ref int changeCount)
+        {
+            if (!ImportAssociations(reader, ref changeCount))
+                return false;
+
+            if (!BasicLager.Import(reader, ref changeCount))
+                return false;
+
+            if (!PaleAle.Import(reader, ref changeCount))
+                return false;
+
+            if (!Marzen.Import(reader, ref changeCount))
+                return false;
+
+            if (!GoblinAle.Import(reader, ref changeCount))
+                return false;
+
+            if (!OrcishBock.Import(reader, ref changeCount))
+                return false;
+
+            if (!BrownAle.Import(reader, ref changeCount))
+                return false;
+
+            if (!HegemonyLager.Import(reader, ref changeCount))
+                return false;
+
+            if (!DwarvenStout.Import(reader, ref changeCount))
+                return false;
+
+            if (!PotatoVodka.Import(reader, ref changeCount))
+                return false;
+
+            if (!Applejack.Import(reader, ref changeCount))
+                return false;
+
+            if (!BeetVodka.Import(reader, ref changeCount))
+                return false;
+
+            if (!PaleRum.Import(reader, ref changeCount))
+                return false;
+
+            if (!Whisky.Import(reader, ref changeCount))
+                return false;
+
+            if (!Tequila.Import(reader, ref changeCount))
+                return false;
+
+            if (!DryGin.Import(reader, ref changeCount))
+                return false;
+
+            if (!Bourbon.Import(reader, ref changeCount))
+                return false;
+
+            return true;
+        }
+
+        private bool ImportAssociations(StreamReader reader, ref int changeCount)
+        {
+            if (reader.ReadLine() != "Associations")
+                return false;
+
+            reader.ReadLine();
+
+            foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+            {
+                if (AssociationList.Name != reader.ReadLine())
+                    return false;
+
+                foreach (ComponentAssociation Association in AssociationList)
+                {
+                    string AssociationString = reader.ReadLine();
+                    string AssociationName = Association.Component.Name;
+                    AssociationName += ";";
+
+                    if (!AssociationString.StartsWith(AssociationName))
+                        return false;
+
+                    AssociationString = AssociationString.Substring(AssociationName.Length);
+                    if (AssociationString.Length > 0)
+                    {
+                        int SelectedIndex = -1;
+                        for (int i = 0; i < Association.ChoiceList.Count; i++)
+                        {
+                            Component Choice = Association.ChoiceList[i];
+                            if (Choice.ToString() == AssociationString)
+                            {
+                                SelectedIndex = i;
+                                break;
+                            }
+                        }
+
+                        if (SelectedIndex < 0)
+                            return false;
+
+                        if (Association.AssociationIndex != SelectedIndex)
+                        {
+                            Association.AssociationIndex = SelectedIndex;
+                            changeCount++;
+                        }
+                    }
+                    else if (Association.AssociationIndex >= 0)
+                    {
+                        Association.AssociationIndex = -1;
+                        changeCount++;
+                    }
+                }
+
+                reader.ReadLine();
+            }
+
+            reader.ReadLine();
+
+            return true;
         }
         #endregion
 

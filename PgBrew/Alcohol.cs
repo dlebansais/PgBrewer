@@ -36,7 +36,7 @@
         #endregion
 
         #region Client Interface
-        public void Save()
+        public virtual void Save()
         {
             List<int> Indexes = new List<int>();
 
@@ -46,13 +46,13 @@
             DataArchive.SetIndexList(Name, Indexes);
         }
 
-        public void ClearCalculateIndexes()
+        public virtual void ClearCalculateIndexes()
         {
             foreach (AlcoholLine Line in Lines)
                 Line.ClearCalculateIndex();
         }
 
-        public void RecalculateMismatchCount()
+        public virtual void RecalculateMismatchCount()
         {
             int NewCount = 0;
 
@@ -63,22 +63,72 @@
             MismatchCount = NewCount;
         }
 
-        public void Export(StreamWriter writer, bool isCalculatedIncluded)
+        public virtual void Export(StreamWriter writer)
         {
             writer.WriteLine(Name);
 
             foreach (AlcoholLine Line in Lines)
             {
                 string ExportedComponents = Line.GetExportedComponents();
-                int Index = isCalculatedIncluded ? Line.BestIndex : Line.EffectIndex;
+                int EffectIndex = Line.EffectIndex;
 
-                if (Index >= 0)
-                    writer.WriteLine($"{ExportedComponents};{EffectList[Index].Text}");
+                if (EffectIndex >= 0)
+                    writer.WriteLine($"{ExportedComponents};{EffectList[EffectIndex].Text}");
                 else
                     writer.WriteLine($"{ExportedComponents};");
             }
 
             writer.WriteLine();
+        }
+
+        public virtual bool Import(StreamReader reader, ref int changeCount)
+        {
+            if (Name != reader.ReadLine())
+                return false;
+
+            for (int i = 0; i < Lines.Count; i++)
+            {
+                AlcoholLine Line = Lines[i];
+                string LineString = reader.ReadLine();
+
+                string ExportedComponents = Line.GetExportedComponents();
+                ExportedComponents += ";";
+
+                if (!LineString.StartsWith(ExportedComponents))
+                    return false;
+
+                LineString = LineString.Substring(ExportedComponents.Length);
+                if (LineString.Length > 0)
+                {
+                    int SelectedLineIndex = -1;
+                    for (int j = 0; j < EffectList.Count; j++)
+                    {
+                        if (LineString == EffectList[j].Text)
+                        {
+                            SelectedLineIndex = j;
+                            break;
+                        }
+                    }
+
+                    if (SelectedLineIndex < 0)
+                        return false;
+
+                    if (Line.EffectIndex != SelectedLineIndex)
+                    {
+                        Line.EffectIndex = SelectedLineIndex;
+                        changeCount++;
+                    }
+                }
+                else if (Line.EffectIndex >= 0)
+                {
+                    Line.EffectIndex = -1;
+                    changeCount++;
+                }
+            }
+
+            reader.ReadLine();
+
+            return true;
         }
         #endregion
 
