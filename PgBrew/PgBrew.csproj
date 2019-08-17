@@ -87,6 +87,7 @@
     <Compile Include="Alcohol.cs" />
     <Compile Include="AlcoholLine.cs" />
     <Compile Include="AlcoholLineCollection.cs" />
+    <Compile Include="Converters\PositiveIntToObjectConverter.cs" />
     <Compile Include="FourComponentsAlcoholLine.cs" />
     <Compile Include="FourComponentsAlcohol.cs" />
     <Compile Include="Liquor x3x4x5x4\Alcoholx3x4x5x4.cs" />

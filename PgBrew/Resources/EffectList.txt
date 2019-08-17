@@ -574,7 +574,7 @@ Beet Vodka;(?) Dance Appreciation +1
 Beet Vodka;(?) Dig Deep +10
 Beet Vodka;(?) Direct Acid Damage +1
 Beet Vodka;(?) Direct Crushing Damage +1
-Beet Vodka;(?) Direct Crushing Damage Reduction +1;;
+Beet Vodka;Max Health +2, Direct Demonic Damage Reduction +2, Direct Psychic Damage Reduction +2, Direct Crushing Damage Reduction +2;;
 Beet Vodka;(?) Direct Darkness Damage +1;;
 Beet Vodka;(?) Direct Demonic Damage +1
 Beet Vodka;(?) Direct Divine Damage +1
