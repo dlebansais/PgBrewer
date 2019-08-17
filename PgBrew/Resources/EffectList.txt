@@ -367,7 +367,7 @@ Potato Vodka;(?) Direct Divine Damage +1
 Potato Vodka;(?) Direct Electricity Damage +1
 Potato Vodka;(?) Direct Fire Damage +1
 Potato Vodka;(?) Direct Nature Damage +1
-Potato Vodka;(?) Direct Piercing mitigation +1
+Potato Vodka;Direct Piercing Damage Reduction +1;;
 Potato Vodka;(?) Direct Poison Damage +1
 Potato Vodka;(?) Direct Psychic Damage +1
 Potato Vodka;(?) Direct Slashing Damage +1
@@ -474,7 +474,7 @@ Applejack;(?) Direct Divine Damage +1
 Applejack;(?) Direct Electricity Damage +1
 Applejack;(?) Direct Fire Damage +1
 Applejack;(?) Direct Nature Damage +1
-Applejack;(?) Direct Piercing mitigation +1
+Applejack;Max Health +1, Direct Demonic Damage Reduction +1, Direct Psychic Damage Reduction +1, Direct Piercing Damage Reduction +1;;
 Applejack;(?) Direct Poison Damage +1
 Applejack;(?) Direct Psychic Damage +1
 Applejack;(?) Direct Slashing Damage +1
@@ -581,7 +581,7 @@ Beet Vodka;(?) Direct Divine Damage +1
 Beet Vodka;(?) Direct Electricity Damage +1
 Beet Vodka;(?) Direct Fire Damage +1
 Beet Vodka;(?) Direct Nature Damage +1
-Beet Vodka;(?) Direct Piercing mitigation +1
+Beet Vodka;Max Health +2, Direct Demonic Damage Reduction +2, Direct Psychic Damage Reduction +2, Direct Piercing Damage Reduction +2;;
 Beet Vodka;(?) Direct Poison Damage +1
 Beet Vodka;(?) Direct Psychic Damage +1
 Beet Vodka;(?) Direct Slashing Damage +1
@@ -688,7 +688,7 @@ Pale Rum;(?) Direct Divine Damage +1
 Pale Rum;(?) Direct Electricity Damage +1
 Pale Rum;(?) Direct Fire Damage +1
 Pale Rum;(?) Direct Nature Damage +1
-Pale Rum;(?) Direct Piercing mitigation +1
+Pale Rum;(?) Direct Piercing Damage Reduction +1;;
 Pale Rum;(?) Direct Poison Damage +1
 Pale Rum;(?) Direct Psychic Damage +1
 Pale Rum;(?) Direct Slashing Damage +1
@@ -795,7 +795,7 @@ Whisky;(?) Direct Divine Damage +1
 Whisky;(?) Direct Electricity Damage +1
 Whisky;(?) Direct Fire Damage +1
 Whisky;(?) Direct Nature Damage +1
-Whisky;(?) Direct Piercing mitigation +1
+Whisky;Max Health +6, Direct Demonic Damage Reduction +3, Direct Psychic Damage Reduction +3, Direct Piercing Damage Reduction +4;;
 Whisky;(?) Direct Poison Damage +1
 Whisky;(?) Direct Psychic Damage +1
 Whisky;(?) Direct Slashing Damage +1
@@ -902,7 +902,7 @@ Tequila;(?) Direct Divine Damage +1
 Tequila;(?) Direct Electricity Damage +1
 Tequila;(?) Direct Fire Damage +1
 Tequila;(?) Direct Nature Damage +1
-Tequila;(?) Direct Piercing mitigation +1
+Tequila;(?) Direct Crushing Damage Piercing +1;;
 Tequila;(?) Direct Poison Damage +1
 Tequila;(?) Direct Psychic Damage +1
 Tequila;(?) Direct Slashing Damage +1
@@ -1009,7 +1009,7 @@ Dry Gin;(?) Direct Divine Damage +1
 Dry Gin;(?) Direct Electricity Damage +1
 Dry Gin;(?) Direct Fire Damage +1
 Dry Gin;(?) Direct Nature Damage +1
-Dry Gin;(?) Direct Piercing mitigation +1
+Dry Gin;(?) Direct Piercing Damage Reduction +1;;
 Dry Gin;(?) Direct Poison Damage +1
 Dry Gin;(?) Direct Psychic Damage +1
 Dry Gin;(?) Direct Slashing Damage +1
@@ -1109,14 +1109,14 @@ Bourbon;(?) Dance Appreciation Extra-Effect Chance Boost +9%, Dance Appreciation
 Bourbon;(?) Dig Deep +10
 Bourbon;(?) Direct Acid Damage +1
 Bourbon;(?) Direct Crushing Damage +1
-Bourbon;(?) Direct Crushing Damage Reduction +1;;
+Bourbon;Max Health +10, Direct Demonic Damage Reduction +6, Direct Psychic Damage Reduction +6, Direct Crushing Damage Reduction +6;;
 Bourbon;Direct Darkness Damage +30;;
 Bourbon;(?) Direct Demonic Damage +1
 Bourbon;(?) Direct Divine Damage +1
 Bourbon;(?) Direct Electricity Damage +1
 Bourbon;(?) Direct Fire Damage +1
 Bourbon;(?) Direct Nature Damage +1
-Bourbon;(?) Direct Piercing mitigation +1
+Bourbon;Max Health +10, Direct Demonic Damage Reduction +6, Direct Psychic Damage Reduction +6, Direct Piercing Damage Reduction +6;;
 Bourbon;(?) Direct Poison Damage +1
 Bourbon;(?) Direct Psychic Damage +1
 Bourbon;(?) Direct Slashing Damage +1
