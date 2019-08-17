@@ -360,7 +360,7 @@ Potato Vodka;(?) Dance Appreciation +1
 Potato Vodka;(?) Dig Deep +10
 Potato Vodka;(?) Direct Acid Damage +1
 Potato Vodka;(?) Direct Crushing Damage +1
-Potato Vodka;(?) Direct Crushing mitigation +1
+Potato Vodka;Direct Crushing Damage Reduction +1;;
 Potato Vodka;(?) Direct Darkness Damage +1;;
 Potato Vodka;(?) Direct Demonic Damage +1
 Potato Vodka;(?) Direct Divine Damage +1
@@ -467,7 +467,7 @@ Applejack;(?) Dance Appreciation +1
 Applejack;(?) Dig Deep +10
 Applejack;(?) Direct Acid Damage +1
 Applejack;(?) Direct Crushing Damage +1
-Applejack;(?) Direct Crushing mitigation +1
+Applejack;Max Health +1, Direct Demonic Damage Reduction +1, Direct Psychic Damage Reduction +1, Direct Crushing Damage Reduction +1;;
 Applejack;(?) Direct Darkness Damage +1;;
 Applejack;(?) Direct Demonic Damage +1
 Applejack;(?) Direct Divine Damage +1
@@ -492,7 +492,7 @@ Applejack;(?) Elves gain +1 Max Bodyheat
 Applejack;(?) Elves gain +1 Max Hydratation
 Applejack;(?) Elves gain +1 Max Metabolism
 Applejack;(?) Elves gain +4 Max Power
-Applejack;(?) Elves gain +6 Max Health
+Applejack;Elves gain +10 Max Health;;of Elfinity
 Applejack;Elves gain +14 Max Armor;;of Elfinity
 Applejack;(?) Fairies gain +1 Max Bodyheat
 Applejack;(?) Fairies gain +1 Max Hydratation
@@ -574,7 +574,7 @@ Beet Vodka;(?) Dance Appreciation +1
 Beet Vodka;(?) Dig Deep +10
 Beet Vodka;(?) Direct Acid Damage +1
 Beet Vodka;(?) Direct Crushing Damage +1
-Beet Vodka;(?) Direct Crushing mitigation +1
+Beet Vodka;(?) Direct Crushing Damage Reduction +1;;
 Beet Vodka;(?) Direct Darkness Damage +1;;
 Beet Vodka;(?) Direct Demonic Damage +1
 Beet Vodka;(?) Direct Divine Damage +1
@@ -599,7 +599,7 @@ Beet Vodka;(?) Elves gain +1 Max Bodyheat
 Beet Vodka;(?) Elves gain +1 Max Hydratation
 Beet Vodka;(?) Elves gain +1 Max Metabolism
 Beet Vodka;(?) Elves gain +4 Max Power
-Beet Vodka;(?) Elves gain +6 Max Health
+Beet Vodka;Elves gain +18 Max Health;;of Elfinity
 Beet Vodka;Elves gain +26 Max Armor;;of Elfinity
 Beet Vodka;(?) Fairies gain +1 Max Bodyheat
 Beet Vodka;(?) Fairies gain +1 Max Hydratation
@@ -681,7 +681,7 @@ Pale Rum;(?) Dance Appreciation +1
 Pale Rum;(?) Dig Deep +10
 Pale Rum;(?) Direct Acid Damage +1
 Pale Rum;(?) Direct Crushing Damage +1
-Pale Rum;(?) Direct Crushing mitigation +1
+Pale Rum;(?) Direct Crushing Damage Reduction +1;;
 Pale Rum;(?) Direct Darkness Damage +1;;
 Pale Rum;(?) Direct Demonic Damage +1
 Pale Rum;(?) Direct Divine Damage +1
@@ -788,7 +788,7 @@ Whisky;Dance Appreciation Extra-Effect Chance Boost +9%, Dance Appreciation boos
 Whisky;(?) Dig Deep +10
 Whisky;(?) Direct Acid Damage +1
 Whisky;(?) Direct Crushing Damage +1
-Whisky;(?) Direct Crushing mitigation +1
+Whisky;Max Health +6, Direct Demonic Damage Reduction +3, Direct Psychic Damage Reduction +3, Direct Crushing Damage Reduction +4;;
 Whisky;(?) Direct Darkness Damage +1;;
 Whisky;(?) Direct Demonic Damage +1
 Whisky;(?) Direct Divine Damage +1
@@ -895,7 +895,7 @@ Tequila;(?) Dance Appreciation Extra-Effect Chance Boost +9%, Dance Appreciation
 Tequila;(?) Dig Deep +10
 Tequila;(?) Direct Acid Damage +1
 Tequila;(?) Direct Crushing Damage +1
-Tequila;(?) Direct Crushing mitigation +1
+Tequila;(?) Direct Crushing Damage Reduction +1;;
 Tequila;(?) Direct Darkness Damage +1;;
 Tequila;(?) Direct Demonic Damage +1
 Tequila;(?) Direct Divine Damage +1
@@ -1002,7 +1002,7 @@ Dry Gin;(?) Dance Appreciation Extra-Effect Chance Boost +9%, Dance Appreciation
 Dry Gin;(?) Dig Deep +10
 Dry Gin;(?) Direct Acid Damage +1
 Dry Gin;(?) Direct Crushing Damage +1
-Dry Gin;(?) Direct Crushing mitigation +1
+Dry Gin;(?) Direct Crushing Damage Reduction +1;;
 Dry Gin;(?) Direct Darkness Damage +1;;
 Dry Gin;(?) Direct Demonic Damage +1
 Dry Gin;(?) Direct Divine Damage +1
@@ -1109,7 +1109,7 @@ Bourbon;(?) Dance Appreciation Extra-Effect Chance Boost +9%, Dance Appreciation
 Bourbon;(?) Dig Deep +10
 Bourbon;(?) Direct Acid Damage +1
 Bourbon;(?) Direct Crushing Damage +1
-Bourbon;(?) Direct Crushing mitigation +1
+Bourbon;(?) Direct Crushing Damage Reduction +1;;
 Bourbon;Direct Darkness Damage +30;;
 Bourbon;(?) Direct Demonic Damage +1
 Bourbon;(?) Direct Divine Damage +1
