@@ -378,21 +378,21 @@ Potato Vodka;(?) Dwarves gain +1 Max Bodyheat
 Potato Vodka;(?) Dwarves gain +1 Max Hydratation
 Potato Vodka;(?) Dwarves gain +1 Max Metabolism
 Potato Vodka;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Potato Vodka;(?) Dwarves gain +6 Max Armor
-Potato Vodka;(?) Dwarves gain +5 Max Health
+Potato Vodka;(?) Dwarves gain +6 Max Health
+Potato Vodka;(?) Dwarves gain +5 Max Armor
 Potato Vodka;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Potato Vodka;(?) Elves gain +1 Max Bodyheat
 Potato Vodka;(?) Elves gain +1 Max Hydratation
 Potato Vodka;(?) Elves gain +1 Max Metabolism
 Potato Vodka;(?) Elves gain +4 Max Power
-Potato Vodka;(?) Elves gain +6 Max Armor
-Potato Vodka;(?) Elves gain +5 Max Health
+Potato Vodka;(?) Elves gain +6 Max Health
+Potato Vodka;Elves gain +5 Max Armor;;of Elfinity
 Potato Vodka;(?) Fairies gain +1 Max Bodyheat
 Potato Vodka;(?) Fairies gain +1 Max Hydratation
 Potato Vodka;(?) Fairies gain +1 Max Metabolism;;of Faedom
 Potato Vodka;(?) Fairies gain +4 Max Power
-Potato Vodka;(?) Fairies gain +6 Max Armor;;of Faedom
-Potato Vodka;(?) Fairies gain +5 Max Health
+Potato Vodka;(?) Fairies gain +6 Max Health;;of Faedom
+Potato Vodka;(?) Fairies gain +5 Max Armor
 Potato Vodka;(?) Fast-Flying Speed +0.1
 Potato Vodka;(?) Healing of Your Major Healing Abilities +1
 Potato Vodka;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
@@ -401,8 +401,8 @@ Potato Vodka;(?) Humans gain +1 Max Bodyheat
 Potato Vodka;(?) Humans gain +1 Max Hydratation
 Potato Vodka;(?) Humans gain +1 Max Metabolism
 Potato Vodka;(?) Humans gain +4 Max Power
-Potato Vodka;(?) Humans gain +6 Max Armor
-Potato Vodka;(?) Humans gain +5 Max Health
+Potato Vodka;(?) Humans gain +6 Max Health
+Potato Vodka;(?) Humans gain +5 Max Armor
 Potato Vodka;(?) Jump Power +0.1
 Potato Vodka;(?) Max Cleanliness +1
 Potato Vodka;Max Armor +10;;of Toughness
@@ -415,16 +415,16 @@ Potato Vodka;(?) Orcs gain +1 Max Bodyheat
 Potato Vodka;(?) Orcs gain +1 Max Hydratation
 Potato Vodka;(?) Orcs gain +1 Max Metabolism
 Potato Vodka;(?) Orcs gain +4 Max Power
-Potato Vodka;(?) Orcs gain +6 Max Armor
-Potato Vodka;(?) Orcs gain +5 Max Health
+Potato Vodka;(?) Orcs gain +6 Max Health
+Potato Vodka;(?) Orcs gain +5 Max Armor
 Potato Vodka;(?) Projectile Attacks do +6 Damage to Elite
 Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Potato Vodka;(?) Rakshasa gain +1 Max Bodyheat
 Potato Vodka;(?) Rakshasa gain +1 Max Metabolism
 Potato Vodka;(?) Rakshasa gain +4 Max Power
-Potato Vodka;(?) Rakshasa gain +6 Max Armor
-Potato Vodka;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Potato Vodka;(?) Rakshasa gain +6 Max Health
+Potato Vodka;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Potato Vodka;(?) Slashing Mitigation +1
 Potato Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Potato Vodka;(?) take -1 damage from elite
@@ -485,20 +485,20 @@ Applejack;(?) Dwarves gain +1 Max Bodyheat
 Applejack;(?) Dwarves gain +1 Max Hydratation
 Applejack;(?) Dwarves gain +1 Max Metabolism
 Applejack;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Applejack;(?) Dwarves gain +6 Max Armor
-Applejack;(?) Dwarves gain +5 Max Health
+Applejack;(?) Dwarves gain +6 Max Health
+Applejack;(?) Dwarves gain +5 Max Armor
 Applejack;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Applejack;(?) Elves gain +1 Max Bodyheat
 Applejack;(?) Elves gain +1 Max Hydratation
 Applejack;(?) Elves gain +1 Max Metabolism
 Applejack;(?) Elves gain +4 Max Power
-Applejack;(?) Elves gain +6 Max Armor
-Applejack;(?) Elves gain +5 Max Health
+Applejack;(?) Elves gain +6 Max Health
+Applejack;Elves gain +5 Max Armor;;of Elfinity
 Applejack;(?) Fairies gain +1 Max Bodyheat
 Applejack;(?) Fairies gain +1 Max Hydratation
 Applejack;(?) Fairies gain +1 Max Metabolism;;of Faedom
 Applejack;(?) Fairies gain +4 Max Power
-Applejack;(?) Fairies gain +6 Max Armor;;of Faedom
+Applejack;(?) Fairies gain +6 Max Health;;of Faedom
 Applejack;(?) Fairies gain +6 Max Heatlh
 Applejack;(?) Fast-Flying Speed +0.1
 Applejack;(?) Healing of Your Major Healing Abilities +1
@@ -508,8 +508,8 @@ Applejack;(?) Humans gain +1 Max Bodyheat
 Applejack;(?) Humans gain +1 Max Hydratation
 Applejack;(?) Humans gain +1 Max Metabolism
 Applejack;(?) Humans gain +4 Max Power
-Applejack;(?) Humans gain +6 Max Armor
-Applejack;(?) Humans gain +5 Max Health
+Applejack;(?) Humans gain +6 Max Health
+Applejack;(?) Humans gain +5 Max Armor
 Applejack;(?) Jump Power +0.1
 Applejack;(?) Max Cleanliness +1
 Applejack;(?) Max Armor +10;;of Toughness
@@ -522,16 +522,16 @@ Applejack;(?) Orcs gain +1 Max Bodyheat
 Applejack;(?) Orcs gain +1 Max Hydratation
 Applejack;(?) Orcs gain +1 Max Metabolism
 Applejack;(?) Orcs gain +4 Max Power
-Applejack;(?) Orcs gain +6 Max Armor
-Applejack;(?) Orcs gain +5 Max Health
+Applejack;(?) Orcs gain +6 Max Health
+Applejack;(?) Orcs gain +5 Max Armor
 Applejack;(?) Projectile Attacks do +6 Damage to Elite
 Applejack;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Applejack;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Applejack;(?) Rakshasa gain +1 Max Bodyheat
 Applejack;(?) Rakshasa gain +1 Max Metabolism
 Applejack;(?) Rakshasa gain +4 Max Power
-Applejack;(?) Rakshasa gain +6 Max Armor
-Applejack;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Applejack;(?) Rakshasa gain +6 Max Health
+Applejack;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Applejack;(?) Slashing Mitigation +1
 Applejack;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Applejack;(?) take -1 damage from elite
@@ -592,20 +592,20 @@ Beet Vodka;(?) Dwarves gain +1 Max Bodyheat
 Beet Vodka;(?) Dwarves gain +1 Max Hydratation
 Beet Vodka;(?) Dwarves gain +1 Max Metabolism
 Beet Vodka;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Beet Vodka;(?) Dwarves gain +6 Max Armor
-Beet Vodka;(?) Dwarves gain +5 Max Health
+Beet Vodka;(?) Dwarves gain +6 Max Health
+Beet Vodka;(?) Dwarves gain +5 Max Armor
 Beet Vodka;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Beet Vodka;(?) Elves gain +1 Max Bodyheat
 Beet Vodka;(?) Elves gain +1 Max Hydratation
 Beet Vodka;(?) Elves gain +1 Max Metabolism
 Beet Vodka;(?) Elves gain +4 Max Power
-Beet Vodka;(?) Elves gain +6 Max Armor
-Beet Vodka;(?) Elves gain +5 Max Health
+Beet Vodka;(?) Elves gain +6 Max Health
+Beet Vodka;Elves gain +5 Max Armor;;of Elfinity
 Beet Vodka;(?) Fairies gain +1 Max Bodyheat
 Beet Vodka;(?) Fairies gain +1 Max Hydratation
 Beet Vodka;(?) Fairies gain +1 Max Metabolism;;of Faedom
 Beet Vodka;(?) Fairies gain +4 Max Power
-Beet Vodka;(?) Fairies gain +6 Max Armor;;of Faedom
+Beet Vodka;(?) Fairies gain +6 Max Health;;of Faedom
 Beet Vodka;(?) Fairies gain +6 Max Heatlh
 Beet Vodka;(?) Fast-Flying Speed +0.1
 Beet Vodka;(?) Healing of Your Major Healing Abilities +1
@@ -615,8 +615,8 @@ Beet Vodka;(?) Humans gain +1 Max Bodyheat
 Beet Vodka;(?) Humans gain +1 Max Hydratation
 Beet Vodka;(?) Humans gain +1 Max Metabolism
 Beet Vodka;(?) Humans gain +4 Max Power
-Beet Vodka;(?) Humans gain +6 Max Armor
-Beet Vodka;(?) Humans gain +5 Max Health
+Beet Vodka;(?) Humans gain +6 Max Health
+Beet Vodka;(?) Humans gain +5 Max Armor
 Beet Vodka;(?) Jump Power +0.1
 Beet Vodka;(?) Max Cleanliness +1
 Beet Vodka;Max Armor +24;;of Toughness
@@ -629,16 +629,16 @@ Beet Vodka;(?) Orcs gain +1 Max Bodyheat
 Beet Vodka;(?) Orcs gain +1 Max Hydratation
 Beet Vodka;(?) Orcs gain +1 Max Metabolism
 Beet Vodka;(?) Orcs gain +4 Max Power
-Beet Vodka;(?) Orcs gain +6 Max Armor
-Beet Vodka;(?) Orcs gain +5 Max Health
+Beet Vodka;(?) Orcs gain +6 Max Health
+Beet Vodka;(?) Orcs gain +5 Max Armor
 Beet Vodka;(?) Projectile Attacks do +6 Damage to Elite
 Beet Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Beet Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Beet Vodka;(?) Rakshasa gain +1 Max Bodyheat
 Beet Vodka;(?) Rakshasa gain +1 Max Metabolism
 Beet Vodka;(?) Rakshasa gain +4 Max Power
-Beet Vodka;(?) Rakshasa gain +6 Max Armor
-Beet Vodka;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Beet Vodka;(?) Rakshasa gain +6 Max Health
+Beet Vodka;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Beet Vodka;(?) Slashing Mitigation +1
 Beet Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Beet Vodka;(?) take -1 damage from elite
@@ -699,20 +699,20 @@ Pale Rum;(?) Dwarves gain +1 Max Bodyheat
 Pale Rum;(?) Dwarves gain +1 Max Hydratation
 Pale Rum;(?) Dwarves gain +1 Max Metabolism
 Pale Rum;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Pale Rum;(?) Dwarves gain +6 Max Armor
-Pale Rum;(?) Dwarves gain +5 Max Health
+Pale Rum;(?) Dwarves gain +6 Max Health
+Pale Rum;(?) Dwarves gain +5 Max Armor
 Pale Rum;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Pale Rum;(?) Elves gain +1 Max Bodyheat
 Pale Rum;(?) Elves gain +1 Max Hydratation
 Pale Rum;(?) Elves gain +1 Max Metabolism
 Pale Rum;(?) Elves gain +4 Max Power
-Pale Rum;(?) Elves gain +6 Max Armor
-Pale Rum;(?) Elves gain +5 Max Health
+Pale Rum;(?) Elves gain +6 Max Health
+Pale Rum;Elves gain +5 Max Armor;;of Elfinity
 Pale Rum;(?) Fairies gain +1 Max Bodyheat
 Pale Rum;(?) Fairies gain +1 Max Hydratation
 Pale Rum;(?) Fairies gain +1 Max Metabolism;;of Faedom
 Pale Rum;(?) Fairies gain +4 Max Power
-Pale Rum;(?) Fairies gain +6 Max Armor;;of Faedom
+Pale Rum;(?) Fairies gain +6 Max Health;;of Faedom
 Pale Rum;(?) Fairies gain +6 Max Heatlh
 Pale Rum;(?) Fast-Flying Speed +0.1
 Pale Rum;(?) Healing of Your Major Healing Abilities +1
@@ -722,8 +722,8 @@ Pale Rum;(?) Humans gain +1 Max Bodyheat
 Pale Rum;(?) Humans gain +1 Max Hydratation
 Pale Rum;(?) Humans gain +1 Max Metabolism
 Pale Rum;(?) Humans gain +4 Max Power
-Pale Rum;(?) Humans gain +6 Max Armor
-Pale Rum;(?) Humans gain +5 Max Health
+Pale Rum;(?) Humans gain +6 Max Health
+Pale Rum;(?) Humans gain +5 Max Armor
 Pale Rum;(?) Jump Power +0.1
 Pale Rum;(?) Max Cleanliness +1
 Pale Rum;Max Armor +32;;of Toughness
@@ -736,16 +736,16 @@ Pale Rum;(?) Orcs gain +1 Max Bodyheat
 Pale Rum;(?) Orcs gain +1 Max Hydratation
 Pale Rum;(?) Orcs gain +1 Max Metabolism
 Pale Rum;(?) Orcs gain +4 Max Power
-Pale Rum;(?) Orcs gain +6 Max Armor
-Pale Rum;(?) Orcs gain +5 Max Health
+Pale Rum;(?) Orcs gain +6 Max Health
+Pale Rum;(?) Orcs gain +5 Max Armor
 Pale Rum;(?) Projectile Attacks do +6 Damage to Elite
 Pale Rum;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Pale Rum;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Pale Rum;(?) Rakshasa gain +1 Max Bodyheat
 Pale Rum;(?) Rakshasa gain +1 Max Metabolism
 Pale Rum;(?) Rakshasa gain +4 Max Power
-Pale Rum;(?) Rakshasa gain +6 Max Armor
-Pale Rum;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Pale Rum;(?) Rakshasa gain +6 Max Health
+Pale Rum;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Pale Rum;(?) Slashing Mitigation +1
 Pale Rum;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Pale Rum;(?) take -1 damage from elite
@@ -806,20 +806,20 @@ Whisky;(?) Dwarves gain +1 Max Bodyheat
 Whisky;(?) Dwarves gain +1 Max Hydratation
 Whisky;(?) Dwarves gain +1 Max Metabolism
 Whisky;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Whisky;(?) Dwarves gain +6 Max Armor
-Whisky;(?) Dwarves gain +5 Max Health
+Whisky;(?) Dwarves gain +6 Max Health
+Whisky;(?) Dwarves gain +5 Max Armor
 Whisky;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Whisky;(?) Elves gain +1 Max Bodyheat
 Whisky;(?) Elves gain +1 Max Hydratation
 Whisky;(?) Elves gain +1 Max Metabolism
 Whisky;(?) Elves gain +4 Max Power
-Whisky;(?) Elves gain +6 Max Armor
-Whisky;(?) Elves gain +5 Max Health
+Whisky;(?) Elves gain +6 Max Health
+Whisky;Elves gain +5 Max Armor;;of Elfinity
 Whisky;(?) Fairies gain +1 Max Bodyheat
 Whisky;(?) Fairies gain +1 Max Hydratation
 Whisky;Fairies gain +16 Max Metabolism;;of Faedom
 Whisky;(?) Fairies gain +4 Max Power
-Whisky;(?) Fairies gain +6 Max Armor;;of Faedom
+Whisky;(?) Fairies gain +6 Max Health;;of Faedom
 Whisky;(?) Fairies gain +6 Max Heatlh
 Whisky;(?) Fast-Flying Speed +0.1
 Whisky;(?) Healing of Your Major Healing Abilities +1
@@ -829,8 +829,8 @@ Whisky;(?) Humans gain +1 Max Bodyheat
 Whisky;(?) Humans gain +1 Max Hydratation
 Whisky;(?) Humans gain +1 Max Metabolism
 Whisky;(?) Humans gain +4 Max Power
-Whisky;(?) Humans gain +6 Max Armor
-Whisky;(?) Humans gain +5 Max Health
+Whisky;(?) Humans gain +6 Max Health
+Whisky;(?) Humans gain +5 Max Armor
 Whisky;(?) Jump Power +0.1
 Whisky;(?) Max Cleanliness +1
 Whisky;(?) Max Armor +10;;of Toughness
@@ -843,16 +843,16 @@ Whisky;(?) Orcs gain +1 Max Bodyheat
 Whisky;(?) Orcs gain +1 Max Hydratation
 Whisky;(?) Orcs gain +1 Max Metabolism
 Whisky;(?) Orcs gain +4 Max Power
-Whisky;(?) Orcs gain +6 Max Armor
-Whisky;(?) Orcs gain +5 Max Health
+Whisky;(?) Orcs gain +6 Max Health
+Whisky;(?) Orcs gain +5 Max Armor
 Whisky;(?) Projectile Attacks do +6 Damage to Elite
 Whisky;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Whisky;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Whisky;(?) Rakshasa gain +1 Max Bodyheat
 Whisky;(?) Rakshasa gain +1 Max Metabolism
 Whisky;(?) Rakshasa gain +4 Max Power
-Whisky;(?) Rakshasa gain +6 Max Armor
-Whisky;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Whisky;(?) Rakshasa gain +6 Max Health
+Whisky;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Whisky;(?) Slashing Mitigation +1
 Whisky;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Whisky;(?) take -1 damage from elite
@@ -913,15 +913,15 @@ Tequila;(?) Dwarves gain +1 Max Bodyheat
 Tequila;(?) Dwarves gain +1 Max Hydratation
 Tequila;(?) Dwarves gain +1 Max Metabolism
 Tequila;Dwarves gain +23 Max Power;;of Dwarfhood
-Tequila;(?) Dwarves gain +6 Max Armor
-Tequila;(?) Dwarves gain +5 Max Health
+Tequila;(?) Dwarves gain +6 Max Health
+Tequila;(?) Dwarves gain +5 Max Armor
 Tequila;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Tequila;(?) Elves gain +1 Max Bodyheat
 Tequila;(?) Elves gain +1 Max Hydratation
 Tequila;(?) Elves gain +1 Max Metabolism
 Tequila;(?) Elves gain +4 Max Power
-Tequila;(?) Elves gain +6 Max Armor
-Tequila;(?) Elves gain +5 Max Health
+Tequila;(?) Elves gain +6 Max Health
+Tequila;Elves gain +5 Max Armor;;of Elfinity
 Tequila;(?) Fairies gain +1 Max Bodyheat
 Tequila;(?) Fairies gain +1 Max Hydratation
 Tequila;(?) Fairies gain +1 Max Metabolism;;of Faedom
@@ -936,8 +936,8 @@ Tequila;(?) Humans gain +1 Max Bodyheat
 Tequila;(?) Humans gain +1 Max Hydratation
 Tequila;(?) Humans gain +1 Max Metabolism
 Tequila;(?) Humans gain +4 Max Power
-Tequila;(?) Humans gain +6 Max Armor
-Tequila;(?) Humans gain +5 Max Health
+Tequila;(?) Humans gain +6 Max Health
+Tequila;(?) Humans gain +5 Max Armor
 Tequila;(?) Jump Power +0.1
 Tequila;(?) Max Cleanliness +1
 Tequila;(?) Max Armor +10;;of Toughness
@@ -950,15 +950,15 @@ Tequila;(?) Orcs gain +1 Max Bodyheat
 Tequila;(?) Orcs gain +1 Max Hydratation
 Tequila;(?) Orcs gain +1 Max Metabolism
 Tequila;(?) Orcs gain +4 Max Power
-Tequila;(?) Orcs gain +6 Max Armor
-Tequila;(?) Orcs gain +5 Max Health
+Tequila;(?) Orcs gain +6 Max Health
+Tequila;(?) Orcs gain +5 Max Armor
 Tequila;(?) Projectile Attacks do +6 Damage to Elite
 Tequila;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Tequila;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Tequila;(?) Rakshasa gain +1 Max Bodyheat
 Tequila;(?) Rakshasa gain +1 Max Metabolism
 Tequila;(?) Rakshasa gain +4 Max Power
-Tequila;(?) Rakshasa gain +6 Max Armor
+Tequila;(?) Rakshasa gain +6 Max Health
 Tequila;Rakshasa gain +42 Max Health;;of Rakshasahood
 Tequila;(?) Slashing Mitigation +1
 Tequila;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
@@ -1020,20 +1020,20 @@ Dry Gin;(?) Dwarves gain +1 Max Bodyheat
 Dry Gin;(?) Dwarves gain +1 Max Hydratation
 Dry Gin;(?) Dwarves gain +1 Max Metabolism
 Dry Gin;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Dry Gin;(?) Dwarves gain +6 Max Armor
-Dry Gin;(?) Dwarves gain +5 Max Health
+Dry Gin;(?) Dwarves gain +6 Max Health
+Dry Gin;(?) Dwarves gain +5 Max Armor
 Dry Gin;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Dry Gin;(?) Elves gain +1 Max Bodyheat
 Dry Gin;(?) Elves gain +1 Max Hydratation
 Dry Gin;(?) Elves gain +1 Max Metabolism
 Dry Gin;(?) Elves gain +4 Max Power
-Dry Gin;(?) Elves gain +6 Max Armor
-Dry Gin;(?) Elves gain +5 Max Health
+Dry Gin;(?) Elves gain +6 Max Health
+Dry Gin;Elves gain +5 Max Armor;;of Elfinity
 Dry Gin;(?) Fairies gain +1 Max Bodyheat
 Dry Gin;(?) Fairies gain +1 Max Hydratation
 Dry Gin;(?) Fairies gain +1 Max Metabolism;;of Faedom
 Dry Gin;(?) Fairies gain +4 Max Power
-Dry Gin;(?) Fairies gain +6 Max Armor;;of Faedom
+Dry Gin;(?) Fairies gain +6 Max Health;;of Faedom
 Dry Gin;(?) Fairies gain +6 Max Heatlh
 Dry Gin;(?) Fast-Flying Speed +0.1
 Dry Gin;(?) Healing of Your Major Healing Abilities +1
@@ -1043,8 +1043,8 @@ Dry Gin;(?) Humans gain +1 Max Bodyheat
 Dry Gin;(?) Humans gain +1 Max Hydratation
 Dry Gin;(?) Humans gain +1 Max Metabolism
 Dry Gin;(?) Humans gain +4 Max Power
-Dry Gin;(?) Humans gain +6 Max Armor
-Dry Gin;(?) Humans gain +5 Max Health
+Dry Gin;(?) Humans gain +6 Max Health
+Dry Gin;(?) Humans gain +5 Max Armor
 Dry Gin;(?) Jump Power +0.1
 Dry Gin;(?) Max Cleanliness +1
 Dry Gin;(?) Max Armor +10;;of Toughness
@@ -1057,16 +1057,16 @@ Dry Gin;(?) Orcs gain +1 Max Bodyheat
 Dry Gin;(?) Orcs gain +1 Max Hydratation
 Dry Gin;(?) Orcs gain +1 Max Metabolism
 Dry Gin;(?) Orcs gain +4 Max Power
-Dry Gin;(?) Orcs gain +6 Max Armor
-Dry Gin;(?) Orcs gain +5 Max Health
+Dry Gin;(?) Orcs gain +6 Max Health
+Dry Gin;(?) Orcs gain +5 Max Armor
 Dry Gin;(?) Projectile Attacks do +6 Damage to Elite
 Dry Gin;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Dry Gin;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Dry Gin;(?) Rakshasa gain +1 Max Bodyheat
 Dry Gin;(?) Rakshasa gain +1 Max Metabolism
 Dry Gin;(?) Rakshasa gain +4 Max Power
-Dry Gin;(?) Rakshasa gain +6 Max Armor
-Dry Gin;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Dry Gin;(?) Rakshasa gain +6 Max Health
+Dry Gin;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Dry Gin;(?) Slashing Mitigation +1
 Dry Gin;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Dry Gin;(?) take -1 damage from elite
@@ -1127,20 +1127,20 @@ Bourbon;(?) Dwarves gain +1 Max Bodyheat
 Bourbon;(?) Dwarves gain +1 Max Hydratation
 Bourbon;(?) Dwarves gain +1 Max Metabolism
 Bourbon;(?) Dwarves gain +4 Max Power;;of Dwarfhood
-Bourbon;(?) Dwarves gain +6 Max Armor
-Bourbon;(?) Dwarves gain +5 Max Health
+Bourbon;(?) Dwarves gain +6 Max Health
+Bourbon;(?) Dwarves gain +5 Max Armor
 Bourbon;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Bourbon;(?) Elves gain +1 Max Bodyheat
 Bourbon;(?) Elves gain +1 Max Hydratation
 Bourbon;(?) Elves gain +1 Max Metabolism
 Bourbon;(?) Elves gain +4 Max Power
-Bourbon;(?) Elves gain +6 Max Armor
-Bourbon;(?) Elves gain +5 Max Health
+Bourbon;(?) Elves gain +6 Max Health
+Bourbon;Elves gain +86 Max Armor;;of Elfinity
 Bourbon;(?) Fairies gain +1 Max Bodyheat
 Bourbon;(?) Fairies gain +1 Max Hydratation
 Bourbon;(?) Fairies gain +1 Max Metabolism;;of Faedom
 Bourbon;(?) Fairies gain +4 Max Power
-Bourbon;(?) Fairies gain +6 Max Armor;;of Faedom
+Bourbon;(?) Fairies gain +6 Max Health;;of Faedom
 Bourbon;(?) Fairies gain +6 Max Heatlh
 Bourbon;(?) Fast-Flying Speed +0.1
 Bourbon;(?) Healing of Your Major Healing Abilities +1
@@ -1150,8 +1150,8 @@ Bourbon;(?) Humans gain +1 Max Bodyheat
 Bourbon;(?) Humans gain +1 Max Hydratation
 Bourbon;(?) Humans gain +1 Max Metabolism
 Bourbon;(?) Humans gain +4 Max Power
-Bourbon;(?) Humans gain +6 Max Armor
-Bourbon;(?) Humans gain +5 Max Health
+Bourbon;(?) Humans gain +6 Max Health
+Bourbon;(?) Humans gain +5 Max Armor
 Bourbon;(?) Jump Power +0.1
 Bourbon;(?) Max Cleanliness +1
 Bourbon;(?) Max Armor +10;;of Toughness
@@ -1164,16 +1164,16 @@ Bourbon;(?) Orcs gain +1 Max Bodyheat
 Bourbon;(?) Orcs gain +1 Max Hydratation
 Bourbon;(?) Orcs gain +1 Max Metabolism
 Bourbon;(?) Orcs gain +4 Max Power
-Bourbon;(?) Orcs gain +6 Max Armor
-Bourbon;(?) Orcs gain +5 Max Health
+Bourbon;(?) Orcs gain +6 Max Health
+Bourbon;(?) Orcs gain +5 Max Armor
 Bourbon;(?) Projectile Attacks do +6 Damage to Elite
 Bourbon;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Bourbon;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Bourbon;(?) Rakshasa gain +1 Max Bodyheat
 Bourbon;(?) Rakshasa gain +1 Max Metabolism
 Bourbon;(?) Rakshasa gain +4 Max Power
-Bourbon;(?) Rakshasa gain +6 Max Armor
-Bourbon;(?) Rakshasa gain +5 Max Health;;of Rakshasahood
+Bourbon;(?) Rakshasa gain +6 Max Health
+Bourbon;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Bourbon;(?) Slashing Mitigation +1
 Bourbon;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Bourbon;(?) take -1 damage from elite
