@@ -372,7 +372,7 @@ Potato Vodka;(?) Direct Poison Damage +1
 Potato Vodka;(?) Direct Psychic Damage +1
 Potato Vodka;(?) Direct Slashing Damage +1
 Potato Vodka;(?) Direct Slashing mitigation +1
-Potato Vodka;(?) Direct Sonic Damage +1
+Potato Vodka;Direct Sonic Damage +1;;
 Potato Vodka;(?) Direct Trauma Damage +1
 Potato Vodka;(?) Dwarves gain +1 Max Bodyheat
 Potato Vodka;(?) Dwarves gain +1 Max Hydratation
@@ -479,7 +479,7 @@ Applejack;(?) Direct Poison Damage +1
 Applejack;(?) Direct Psychic Damage +1
 Applejack;(?) Direct Slashing Damage +1
 Applejack;(?) Direct Slashing mitigation +1
-Applejack;(?) Direct Sonic Damage +1
+Applejack;Direct Sonic Damage +4;;
 Applejack;(?) Direct Trauma Damage +1
 Applejack;(?) Dwarves gain +1 Max Bodyheat
 Applejack;(?) Dwarves gain +1 Max Hydratation
@@ -493,7 +493,7 @@ Applejack;(?) Elves gain +1 Max Hydratation
 Applejack;(?) Elves gain +1 Max Metabolism
 Applejack;(?) Elves gain +4 Max Power
 Applejack;(?) Elves gain +6 Max Health
-Applejack;Elves gain +5 Max Armor;;of Elfinity
+Applejack;Elves gain +14 Max Armor;;of Elfinity
 Applejack;(?) Fairies gain +1 Max Bodyheat
 Applejack;(?) Fairies gain +1 Max Hydratation
 Applejack;(?) Fairies gain +1 Max Metabolism;;of Faedom
@@ -586,7 +586,7 @@ Beet Vodka;(?) Direct Poison Damage +1
 Beet Vodka;(?) Direct Psychic Damage +1
 Beet Vodka;(?) Direct Slashing Damage +1
 Beet Vodka;(?) Direct Slashing mitigation +1
-Beet Vodka;(?) Direct Sonic Damage +1
+Beet Vodka;(?) Direct Sonic Damage +1;;
 Beet Vodka;(?) Direct Trauma Damage +1
 Beet Vodka;(?) Dwarves gain +1 Max Bodyheat
 Beet Vodka;(?) Dwarves gain +1 Max Hydratation
@@ -600,7 +600,7 @@ Beet Vodka;(?) Elves gain +1 Max Hydratation
 Beet Vodka;(?) Elves gain +1 Max Metabolism
 Beet Vodka;(?) Elves gain +4 Max Power
 Beet Vodka;(?) Elves gain +6 Max Health
-Beet Vodka;Elves gain +5 Max Armor;;of Elfinity
+Beet Vodka;Elves gain +26 Max Armor;;of Elfinity
 Beet Vodka;(?) Fairies gain +1 Max Bodyheat
 Beet Vodka;(?) Fairies gain +1 Max Hydratation
 Beet Vodka;(?) Fairies gain +1 Max Metabolism;;of Faedom
@@ -693,7 +693,7 @@ Pale Rum;(?) Direct Poison Damage +1
 Pale Rum;(?) Direct Psychic Damage +1
 Pale Rum;(?) Direct Slashing Damage +1
 Pale Rum;(?) Direct Slashing mitigation +1
-Pale Rum;(?) Direct Sonic Damage +1
+Pale Rum;(?) Direct Sonic Damage +1;;
 Pale Rum;(?) Direct Trauma Damage +1
 Pale Rum;(?) Dwarves gain +1 Max Bodyheat
 Pale Rum;(?) Dwarves gain +1 Max Hydratation
@@ -707,7 +707,7 @@ Pale Rum;(?) Elves gain +1 Max Hydratation
 Pale Rum;(?) Elves gain +1 Max Metabolism
 Pale Rum;(?) Elves gain +4 Max Power
 Pale Rum;(?) Elves gain +6 Max Health
-Pale Rum;Elves gain +5 Max Armor;;of Elfinity
+Pale Rum;(?) Elves gain +5 Max Armor;;of Elfinity
 Pale Rum;(?) Fairies gain +1 Max Bodyheat
 Pale Rum;(?) Fairies gain +1 Max Hydratation
 Pale Rum;(?) Fairies gain +1 Max Metabolism;;of Faedom
@@ -800,7 +800,7 @@ Whisky;(?) Direct Poison Damage +1
 Whisky;(?) Direct Psychic Damage +1
 Whisky;(?) Direct Slashing Damage +1
 Whisky;(?) Direct Slashing mitigation +1
-Whisky;(?) Direct Sonic Damage +1
+Whisky;(?) Direct Sonic Damage +1;;
 Whisky;(?) Direct Trauma Damage +1
 Whisky;(?) Dwarves gain +1 Max Bodyheat
 Whisky;(?) Dwarves gain +1 Max Hydratation
@@ -814,7 +814,7 @@ Whisky;(?) Elves gain +1 Max Hydratation
 Whisky;(?) Elves gain +1 Max Metabolism
 Whisky;(?) Elves gain +4 Max Power
 Whisky;(?) Elves gain +6 Max Health
-Whisky;Elves gain +5 Max Armor;;of Elfinity
+Whisky;(?) Elves gain +5 Max Armor;;of Elfinity
 Whisky;(?) Fairies gain +1 Max Bodyheat
 Whisky;(?) Fairies gain +1 Max Hydratation
 Whisky;Fairies gain +16 Max Metabolism;;of Faedom
@@ -907,7 +907,7 @@ Tequila;(?) Direct Poison Damage +1
 Tequila;(?) Direct Psychic Damage +1
 Tequila;(?) Direct Slashing Damage +1
 Tequila;(?) Direct Slashing mitigation +1
-Tequila;(?) Direct Sonic Damage +1
+Tequila;(?) Direct Sonic Damage +1;;
 Tequila;(?) Direct Trauma Damage +1
 Tequila;(?) Dwarves gain +1 Max Bodyheat
 Tequila;(?) Dwarves gain +1 Max Hydratation
@@ -921,7 +921,7 @@ Tequila;(?) Elves gain +1 Max Hydratation
 Tequila;(?) Elves gain +1 Max Metabolism
 Tequila;(?) Elves gain +4 Max Power
 Tequila;(?) Elves gain +6 Max Health
-Tequila;Elves gain +5 Max Armor;;of Elfinity
+Tequila;(?) Elves gain +5 Max Armor;;of Elfinity
 Tequila;(?) Fairies gain +1 Max Bodyheat
 Tequila;(?) Fairies gain +1 Max Hydratation
 Tequila;(?) Fairies gain +1 Max Metabolism;;of Faedom
@@ -1014,7 +1014,7 @@ Dry Gin;(?) Direct Poison Damage +1
 Dry Gin;(?) Direct Psychic Damage +1
 Dry Gin;(?) Direct Slashing Damage +1
 Dry Gin;(?) Direct Slashing mitigation +1
-Dry Gin;(?) Direct Sonic Damage +1
+Dry Gin;(?) Direct Sonic Damage +1;;
 Dry Gin;(?) Direct Trauma Damage +1
 Dry Gin;(?) Dwarves gain +1 Max Bodyheat
 Dry Gin;(?) Dwarves gain +1 Max Hydratation
@@ -1028,7 +1028,7 @@ Dry Gin;(?) Elves gain +1 Max Hydratation
 Dry Gin;(?) Elves gain +1 Max Metabolism
 Dry Gin;(?) Elves gain +4 Max Power
 Dry Gin;(?) Elves gain +6 Max Health
-Dry Gin;Elves gain +5 Max Armor;;of Elfinity
+Dry Gin;(?) Elves gain +5 Max Armor;;of Elfinity
 Dry Gin;(?) Fairies gain +1 Max Bodyheat
 Dry Gin;(?) Fairies gain +1 Max Hydratation
 Dry Gin;(?) Fairies gain +1 Max Metabolism;;of Faedom
@@ -1121,7 +1121,7 @@ Bourbon;(?) Direct Poison Damage +1
 Bourbon;(?) Direct Psychic Damage +1
 Bourbon;(?) Direct Slashing Damage +1
 Bourbon;(?) Direct Slashing mitigation +1
-Bourbon;(?) Direct Sonic Damage +1
+Bourbon;(?) Direct Sonic Damage +1;;
 Bourbon;(?) Direct Trauma Damage +1
 Bourbon;(?) Dwarves gain +1 Max Bodyheat
 Bourbon;(?) Dwarves gain +1 Max Hydratation
