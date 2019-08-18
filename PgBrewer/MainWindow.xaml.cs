@@ -1,4 +1,4 @@
-﻿namespace PgBrew
+﻿namespace PgBrewer
 {
     using Microsoft.Win32;
     using System;

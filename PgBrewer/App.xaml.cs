@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace PgBrew
+namespace PgBrewer
 {
     public partial class App : Application
     {

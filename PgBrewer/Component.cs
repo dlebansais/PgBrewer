@@ -1,4 +1,4 @@
-﻿namespace PgBrew
+﻿namespace PgBrewer
 {
     public class Component
     {

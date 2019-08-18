@@ -1,4 +1,4 @@
-﻿namespace PgBrew
+﻿namespace PgBrewer
 {
     using Microsoft.Win32;
     using System.Collections.Generic;
@@ -15,30 +15,13 @@
             try
             {
                 Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
-                string ResourcePath = $"PgBrew.Resources.EffectList.txt";
-
-                using (Stream ResourceStream = CurrentAssembly.GetManifestResourceStream(ResourcePath))
+                string[] ManifestResourceNames = CurrentAssembly.GetManifestResourceNames();
+                foreach (string ResourceName in ManifestResourceNames)
                 {
-                    using (StreamReader Reader = new StreamReader(ResourceStream, Encoding.UTF8))
+                    if (ResourceName.EndsWith(".Resources.EffectList.txt"))
                     {
-                        for (; ; )
-                        {
-                            string Line = Reader.ReadLine();
-                            if (Line == null)
-                                break;
-
-                            string[] LineSplit = Line.Split(';');
-                            if (LineSplit.Length > 1)
-                            {
-                                string Name = LineSplit[0];
-                                string Text = LineSplit[1];
-                                string Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
-                                string Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
-
-                                if (Name == name)
-                                    Result.Add(new Effect(Text, Prefix, Suffix));
-                            }
-                        }
+                        Result = ReadEffectList(CurrentAssembly, ResourceName, name);
+                        break;
                     }
                 }
             }
@@ -49,11 +32,49 @@
             return Result;
         }
 
+        public static List<Effect> ReadEffectList(Assembly assembly, string resourceName, string name)
+        {
+            List<Effect> Result = new List<Effect>();
+
+            using (Stream ResourceStream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader Reader = new StreamReader(ResourceStream, Encoding.UTF8))
+                {
+                    for (; ; )
+                    {
+                        string Line = Reader.ReadLine();
+                        if (Line == null)
+                            break;
+
+                        string[] LineSplit = Line.Split(';');
+                        if (LineSplit.Length > 1)
+                        {
+                            string Name = LineSplit[0];
+                            string Text = LineSplit[1];
+                            string Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
+                            string Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
+
+                            if (Name == name)
+                                Result.Add(new Effect(Text, Prefix, Suffix));
+                        }
+                    }
+                }
+            }
+
+            return Result;
+        }
+
+        public static RegistryKey OpenSoftwareKey()
+        {
+            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrewer");
+            return Key;
+        }
+
         public static List<int> GetIndexList(string valueName, int minLength)
         {
             List<int> Result = new List<int>();
 
-            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrew");
+            RegistryKey Key = OpenSoftwareKey();
             string ValueAsString = Key.GetValue(valueName) as string;
             Key.Close();
 
@@ -87,7 +108,7 @@
                 ValueAsString += Value.ToString();
             }
 
-            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrew");
+            RegistryKey Key = OpenSoftwareKey();
             Key.SetValue(valueName, ValueAsString);
             Key.Close();
         }

@@ -1,4 +1,4 @@
-﻿namespace PgBrew
+﻿namespace PgBrewer
 {
     using System.Collections.Generic;
     using System.Diagnostics;
