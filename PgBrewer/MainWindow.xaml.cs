@@ -6,6 +6,7 @@
     using System.ComponentModel;
     using System.Diagnostics;
     using System.IO;
+    using System.Reflection;
     using System.Runtime.CompilerServices;
     using System.Text;
     using System.Windows;
@@ -19,6 +20,7 @@
         #region Constants
         private static readonly string AssociationSettingName = "Association";
         private static readonly string GuiSettingName = "GUI";
+        private static readonly string VersionProlog = "Exported from PgBrewing.exe version ";
         #endregion
 
         #region Init
@@ -575,6 +577,8 @@
 
         private void OnExport(StreamWriter writer)
         {
+            ExportVersionNumber(writer);
+
             ExportAssociations(writer);
 
             BasicLager.Export(writer);
@@ -593,6 +597,12 @@
             Tequila.Export(writer);
             DryGin.Export(writer);
             Bourbon.Export(writer);
+        }
+
+        private void ExportVersionNumber(StreamWriter writer)
+        {
+            string Version = GetVersion();
+            writer.WriteLine($"{VersionProlog}{Version}");
         }
 
         private void ExportAssociations(StreamWriter writer)
@@ -644,8 +654,6 @@
                                 MessageBox.Show("The imported file contains the same data as the software.\r\n\r\nNo change made.", "Import", MessageBoxButton.OK, MessageBoxImage.Warning);
                             else
                                 MessageBox.Show("File content imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
-                        else
-                            MessageBox.Show("Invalid format, not all of the file content was imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -656,6 +664,40 @@
         }
 
         private bool OnImport(StreamReader reader, ref int changeCount)
+        {
+            if (!ImportVersionNumber(reader))
+                return false;
+
+            if (OnImportConfirmed(reader, ref changeCount))
+                return true;
+            else
+            {
+                MessageBox.Show("Invalid format, not all of the file content was imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        private bool ImportVersionNumber(StreamReader reader)
+        {
+            string Version = GetVersion();
+
+            string Line = reader.ReadLine();
+            if (!Line.StartsWith(VersionProlog))
+                return false;
+
+            Line = Line.Substring(VersionProlog.Length);
+
+            if (Line != Version)
+            {
+                MessageBoxResult Answer = MessageBox.Show($"This file was exported from version {Line}. The current version is {Version} and is probably not compatible. Continue?", "Import", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (Answer != MessageBoxResult.Yes)
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool OnImportConfirmed(StreamReader reader, ref int changeCount)
         {
             if (!ImportAssociations(reader, ref changeCount))
                 return false;
@@ -768,6 +810,14 @@
             reader.ReadLine();
 
             return true;
+        }
+
+        private string GetVersion()
+        {
+            Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo VersionInfo = FileVersionInfo.GetVersionInfo(CurrentAssembly.Location);
+
+            return VersionInfo.FileVersion;
         }
 
         public void OnGotFocus(ComboBox sender)
