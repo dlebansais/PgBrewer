@@ -18,6 +18,16 @@
             Line.EffectIndex = -1;
         }
 
+        private void OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            (App.Current.MainWindow as MainWindow).OnGotFocus(sender as ComboBox);
+        }
+
+        private void OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            (App.Current.MainWindow as MainWindow).OnLostFocus(sender as ComboBox);
+        }
+
         #region Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 

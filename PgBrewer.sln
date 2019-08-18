@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgBrew", "PgBrew\PgBrew.csproj", "{2817DD04-7F32-4498-B584-133D97273EA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgBrewer", "PgBrewer\PgBrewer.csproj", "{2817DD04-7F32-4498-B584-133D97273EA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

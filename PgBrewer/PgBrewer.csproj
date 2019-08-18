@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2817DD04-7F32-4498-B584-133D97273EA5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PgBrew</RootNamespace>
-    <AssemblyName>PgBrew</AssemblyName>
+    <RootNamespace>PgBrewer</RootNamespace>
+    <AssemblyName>PgBrewer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -162,7 +162,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Redo.png" />
+    <Resource Include="Resources\Undo.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\EffectList.txt" />
   </ItemGroup>

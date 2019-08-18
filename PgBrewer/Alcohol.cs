@@ -19,6 +19,9 @@
         public string Name { get; }
         public List<Effect> EffectList { get; } = new List<Effect>();
         public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
+        public Alcohol Previous { get; private set; }
+        public Alcohol Next { get; private set; }
+        public List<ComponentAssociationCollection> PreviousToNext { get; private set; }
 
         public int MismatchCount
         {
@@ -129,6 +132,14 @@
             reader.ReadLine();
 
             return true;
+        }
+
+        public static void Chain(Alcohol previous, Alcohol next, List<ComponentAssociationCollection> previousToNext)
+        {
+            previous.Next = next;
+            next.Previous = previous;
+
+            previous.PreviousToNext = previousToNext;
         }
         #endregion
 

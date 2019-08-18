@@ -30,6 +30,8 @@
             LoadGUI();
             LoadIcons();
             _IsChanged = false;
+            _CanGoBack = false;
+            _CanGoForward = false;
 
             Loaded += OnLoaded;
         }
@@ -125,6 +127,18 @@
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            Alcohol.Chain(OrcishBock, BrownAle, new List<ComponentAssociationCollection>() { AssociationVeggie2Beer, null, null, AssociationFlavor1Beer });
+            Alcohol.Chain(BrownAle, HegemonyLager, new List<ComponentAssociationCollection>() { null, AssociationFruit2, null, null });
+            Alcohol.Chain(HegemonyLager, DwarvenStout, new List<ComponentAssociationCollection>() { null, null, AssociationMushroom3, AssociationFlavor2Beer });
+
+            Alcohol.Chain(PotatoVodka, Applejack, new List<ComponentAssociationCollection>() { null, AssociationVeggie1, null, null });
+            Alcohol.Chain(Applejack, BeetVodka, new List<ComponentAssociationCollection>() { AssociationFruit1, null, null, null });
+            Alcohol.Chain(BeetVodka, PaleRum, new List<ComponentAssociationCollection>() { null, null, null, null });
+            Alcohol.Chain(PaleRum, Whisky, new List<ComponentAssociationCollection>() { null, null, AssociationParts1, null });
+            Alcohol.Chain(Whisky, Tequila, new List<ComponentAssociationCollection>() { null, null, null, AssociationFlavor1Liquor });
+            Alcohol.Chain(Tequila, DryGin, new List<ComponentAssociationCollection>() { AssociationFruit2, AssociationMushroom3, null, null });
+            Alcohol.Chain(DryGin, Bourbon, new List<ComponentAssociationCollection>() { null, null, AssociationParts2, AssociationFlavor2Liquor });
+
             Recalculate();
         }
         #endregion
@@ -147,6 +161,34 @@
             }
         }
         private bool _IsChanged;
+
+        public bool CanGoBack
+        {
+            get { return _CanGoBack; }
+            private set
+            {
+                if (_CanGoBack != value)
+                {
+                    _CanGoBack = value;
+                    NotifyThisPropertyChanged();
+                }
+            }
+        }
+        private bool _CanGoBack;
+
+        public bool CanGoForward
+        {
+            get { return _CanGoForward; }
+            private set
+            {
+                if (_CanGoForward != value)
+                {
+                    _CanGoForward = value;
+                    NotifyThisPropertyChanged();
+                }
+            }
+        }
+        private bool _CanGoForward;
         #endregion
 
         #region Alcohols
@@ -726,62 +768,128 @@
 
             return true;
         }
+
+        public void OnGotFocus(ComboBox sender)
+        {
+            LastFocusedCombo = sender;
+
+            AlcoholLine Line = sender.DataContext as AlcoholLine;
+            Alcohol Owner = Line.Owner;
+
+            CanGoBack = (Owner.Previous != null);
+            CanGoForward = (Owner.Next != null);
+        }
+
+        public void OnLostFocus(ComboBox sender)
+        {
+            //CanGoBack = false;
+            //CanGoForward = false;
+        }
+
+        private void OnBack(object sender, RoutedEventArgs e)
+        {
+            if (FindControls(out TabControl CtrlPage, out int TabIndex))
+            {
+                Debug.Assert(TabIndex > 0);
+
+                CtrlPage.SelectedIndex = TabIndex - 1;
+            }
+        }
+
+        private void OnForward(object sender, RoutedEventArgs e)
+        {
+            if (FindControls(out TabControl CtrlPage, out int TabIndex))
+            {
+                Debug.Assert(TabIndex + 1 < CtrlPage.Items.Count);
+
+                CtrlPage.SelectedIndex = TabIndex + 1;
+            }
+        }
+
+        private bool FindControls(out TabControl ctrlPage, out int tabIndex)
+        {
+            ctrlPage = null;
+            tabIndex = -1;
+
+            FrameworkElement Child = null;
+            FrameworkElement Ctrl = LastFocusedCombo;
+
+            while (Ctrl != null)
+            {
+                if (Ctrl is TabControl)
+                {
+                    ctrlPage = Ctrl as TabControl;
+
+                    for (int i = 0; i < VisualTreeHelper.GetChildrenCount(Ctrl); i++)
+                        if (VisualTreeHelper.GetChild(Ctrl, i) == Child)
+                        {
+                            tabIndex = i;
+                            break;
+                        }
+
+                    return tabIndex >= 0;
+                }
+
+                Child = Ctrl;
+                Ctrl = VisualTreeHelper.GetParent(Ctrl) as FrameworkElement;
+            }
+
+            return false;
+        }
+
+        private ComboBox LastFocusedCombo;
         #endregion
 
         #region Client Interface
         public void Recalculate()
         {
-            OrcishBock.ClearCalculateIndexes();
-            BrownAle.ClearCalculateIndexes();
-            HegemonyLager.ClearCalculateIndexes();
-            DwarvenStout.ClearCalculateIndexes();
-            PotatoVodka.ClearCalculateIndexes();
-            Applejack.ClearCalculateIndexes();
-            BeetVodka.ClearCalculateIndexes();
-            PaleRum.ClearCalculateIndexes();
-            Whisky.ClearCalculateIndexes();
-            Tequila.ClearCalculateIndexes();
-            DryGin.ClearCalculateIndexes();
-            Bourbon.ClearCalculateIndexes();
+            RecalculateFromBottom(OrcishBock);
+            RecalculateFromBottom(PotatoVodka);
+        }
 
-            RecalculateBottomToTop(OrcishBock, BrownAle, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
-            RecalculateBottomToTop(BrownAle, HegemonyLager, null, AssociationFruit2, null, null);
-            RecalculateBottomToTop(HegemonyLager, DwarvenStout, null, null, AssociationMushroom3, AssociationFlavor2Beer);
-            RecalculateBottomToTop(PotatoVodka, Applejack, null, AssociationVeggie1, null, null);
-            RecalculateBottomToTop(Applejack, BeetVodka, AssociationFruit1, null, null, null);
-            RecalculateBottomToTop(BeetVodka, PaleRum, null, null, null, null);
-            RecalculateBottomToTop(PaleRum, Whisky, null, null, AssociationParts1, null);
-            RecalculateBottomToTop(Whisky, Tequila, null, null, null, AssociationFlavor1Liquor);
-            RecalculateBottomToTop(Tequila, DryGin, AssociationFruit2, AssociationMushroom3, null, null);
-            RecalculateBottomToTop(DryGin, Bourbon, null, null, AssociationParts2, AssociationFlavor2Liquor);
+        public void RecalculateFromBottom(IFourComponentsAlcohol start)
+        {
+            IFourComponentsAlcohol Previous = start;
+            IFourComponentsAlcohol Next;
+            List<ComponentAssociationCollection> AssociationLists;
 
-            RecalculateTopToBottom(Bourbon, DryGin, null, null, AssociationParts2, AssociationFlavor2Liquor);
-            RecalculateTopToBottom(DryGin, Tequila, AssociationFruit2, AssociationMushroom3, null, null);
-            RecalculateTopToBottom(Tequila, Whisky, null, null, null, AssociationFlavor1Liquor);
-            RecalculateTopToBottom(Whisky, PaleRum, null, null, AssociationParts1, null);
-            RecalculateTopToBottom(PaleRum, BeetVodka, null, null, null, null);
-            RecalculateTopToBottom(BeetVodka, Applejack, AssociationFruit1, null, null, null);
-            RecalculateTopToBottom(Applejack, PotatoVodka, null, AssociationVeggie1, null, null);
-            RecalculateTopToBottom(DwarvenStout, HegemonyLager, null, null, AssociationMushroom3, AssociationFlavor2Beer);
-            RecalculateTopToBottom(HegemonyLager, BrownAle, null, AssociationFruit2, null, null);
-            RecalculateTopToBottom(BrownAle, OrcishBock, AssociationVeggie2Beer, null, null, AssociationFlavor1Beer);
+            (Previous as Alcohol).ClearCalculateIndexes();
 
-            OrcishBock.RecalculateMismatchCount();
-            BrownAle.RecalculateMismatchCount();
-            HegemonyLager.RecalculateMismatchCount();
-            DwarvenStout.RecalculateMismatchCount();
-            PotatoVodka.RecalculateMismatchCount();
-            Applejack.RecalculateMismatchCount();
-            BeetVodka.RecalculateMismatchCount();
-            PaleRum.RecalculateMismatchCount();
-            Whisky.RecalculateMismatchCount();
-            Tequila.RecalculateMismatchCount();
-            DryGin.RecalculateMismatchCount();
-            Bourbon.RecalculateMismatchCount();
+            for (;;)
+            {
+                Next = (Previous as Alcohol).Next as IFourComponentsAlcohol;
+                if (Next == null)
+                    break;
+
+                (Next as Alcohol).ClearCalculateIndexes();
+
+                AssociationLists = (Previous as Alcohol).PreviousToNext;
+                RecalculateBottomToTop(Previous, Next, AssociationLists[0], AssociationLists[1], AssociationLists[2], AssociationLists[3]);
+
+                Previous = Next;
+            }
+
+            Next = Previous;
+
+            for (; ; )
+            {
+                (Next as Alcohol).RecalculateMismatchCount();
+
+                Previous = (Next as Alcohol).Previous as IFourComponentsAlcohol;
+                if (Previous == null)
+                    break;
+
+                AssociationLists = (Previous as Alcohol).PreviousToNext;
+                RecalculateTopToBottom(Next, Previous, AssociationLists[0], AssociationLists[1], AssociationLists[2], AssociationLists[3]);
+
+                Next = Previous;
+            }
         }
 
         public void RecalculateBottomToTop(IFourComponentsAlcohol previous, IFourComponentsAlcohol next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
+            Debug.Assert((previous is Alcohol) && (next is Alcohol) && (previous as Alcohol).Next == next && (next as Alcohol).Previous == previous);
+
             int Multiplier1 = previous.Multiplier1;
             int Multiplier2 = previous.Multiplier2;
             int Multiplier3 = previous.Multiplier3;

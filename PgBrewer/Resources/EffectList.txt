@@ -463,7 +463,7 @@ Applejack;(?) Damage to Orcs +1
 Applejack;(?) Damage to Rakshasa +1
 Applejack;(?) Damage to Rodents +1
 Applejack;(?) Damage to Ruminants +1
-Applejack;(?) Dance Appreciation +1
+Applejack;Dance Appreciation Extra-Effect Chance Boost +2%, Dance Appreciation boost +2;Partier's;
 Applejack;(?) Dig Deep +10
 Applejack;(?) Direct Acid Damage +1
 Applejack;(?) Direct Crushing Damage +1
@@ -570,7 +570,7 @@ Beet Vodka;(?) Damage to Orcs +1
 Beet Vodka;(?) Damage to Rakshasa +1
 Beet Vodka;(?) Damage to Rodents +1
 Beet Vodka;(?) Damage to Ruminants +1
-Beet Vodka;(?) Dance Appreciation +1
+Beet Vodka;Dance Appreciation Extra-Effect Chance Boost +4%, Dance Appreciation boost +4;Partier's;
 Beet Vodka;(?) Dig Deep +10
 Beet Vodka;(?) Direct Acid Damage +1
 Beet Vodka;(?) Direct Crushing Damage +1
