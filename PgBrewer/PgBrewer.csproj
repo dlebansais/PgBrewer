@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Tools.cs" />
     <Page Include="Liquor x3x4x5x4\Alcoholx3x4x5x4Control.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

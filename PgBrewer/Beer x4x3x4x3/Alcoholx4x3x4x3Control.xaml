@@ -19,7 +19,7 @@
             <TextBlock Text="{Binding Text}"/>
         </DataTemplate>
         <DataTemplate x:Key="LineTemplate">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
                 <DockPanel>
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>

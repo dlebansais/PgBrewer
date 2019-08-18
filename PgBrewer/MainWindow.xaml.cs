@@ -12,6 +12,7 @@
     using System.Windows.Controls;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
+    using System.Windows.Threading;
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
@@ -778,40 +779,95 @@
 
             CanGoBack = (Owner.Previous != null);
             CanGoForward = (Owner.Next != null);
+
+            System.Diagnostics.Debug.WriteLine("Got Focus " + CanGoBack + " " + CanGoForward);
         }
 
         public void OnLostFocus(ComboBox sender)
         {
             //CanGoBack = false;
             //CanGoForward = false;
+
+            System.Diagnostics.Debug.WriteLine("Lost Focus");
         }
 
         private void OnBack(object sender, RoutedEventArgs e)
         {
-            if (FindControls(out TabControl CtrlPage, out int TabIndex))
-            {
-                Debug.Assert(TabIndex > 0);
-
-                CtrlPage.SelectedIndex = TabIndex - 1;
-            }
+            ChangeLine(-1);
         }
 
         private void OnForward(object sender, RoutedEventArgs e)
         {
-            if (FindControls(out TabControl CtrlPage, out int TabIndex))
-            {
-                Debug.Assert(TabIndex + 1 < CtrlPage.Items.Count);
+            ChangeLine(+1);
+        }
 
-                CtrlPage.SelectedIndex = TabIndex + 1;
+        private void ChangeLine(int offset)
+        {
+            if (LastFocusedCombo != null && FindTabControl(out TabControl CtrlPage))
+            {
+                Debug.Assert(CtrlPage.SelectedIndex + offset >= 0 && CtrlPage.SelectedIndex + offset < CtrlPage.Items.Count);
+
+                AlcoholLine Line = LastFocusedCombo.DataContext as AlcoholLine;
+                Alcohol Owner = Line.Owner;
+
+                int NewLine = -1;
+                if (offset < 0)
+                {
+                    IFourComponentsAlcohol Next = Owner as IFourComponentsAlcohol;
+                    IFourComponentsAlcohol Previous = Owner.Previous as IFourComponentsAlcohol;
+                    List<ComponentAssociationCollection> PreviousToNext = (Previous as Alcohol).PreviousToNext;
+
+                    int NextLineIndex = Owner.Lines.IndexOf(Line);
+                    GetPreviousLineIndex(Next, Previous, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], NextLineIndex, out NewLine);
+                }
+                else
+                {
+                    IFourComponentsAlcohol Previous = Owner as IFourComponentsAlcohol;
+                    IFourComponentsAlcohol Next = Owner.Next as IFourComponentsAlcohol;
+                    List<ComponentAssociationCollection> PreviousToNext = (Previous as Alcohol).PreviousToNext;
+
+                    int PreviousLineIndex = Owner.Lines.IndexOf(Line);
+                    GetNextLineIndex(Previous, Next, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], PreviousLineIndex, out NewLine);
+                }
+
+                if (NewLine >= 0)
+                {
+                    CtrlPage.SelectedIndex = CtrlPage.SelectedIndex + offset;
+                    int TotalLines = Owner.Lines.Count;
+                    Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new LineMoveHandler(OnLineMove), CtrlPage, NewLine, TotalLines);
+                }
             }
         }
 
-        private bool FindControls(out TabControl ctrlPage, out int tabIndex)
+        private delegate void LineMoveHandler(TabControl ctrlPage, int newLineIndex, int TotalLines);
+        private void OnLineMove(TabControl ctrlPage, int newLineIndex, int totalLines)
+        {
+            FrameworkElement Root = ctrlPage.SelectedContent as FrameworkElement;
+            if (Tools.FindFirstControl(Root, out ScrollViewer FirstScrollViewer))
+            {
+                FirstScrollViewer.ScrollToVerticalOffset((double)newLineIndex / (double)totalLines);
+                if (Tools.FindFirstControl(FirstScrollViewer, out ItemsControl FirstItemsControl))
+                {
+                    ItemContainerGenerator Generator = FirstItemsControl.ItemContainerGenerator;
+                    FrameworkElement LineContent = Generator.ContainerFromIndex(newLineIndex) as FrameworkElement;
+                    if (Tools.FindFirstControl(LineContent, out ComboBox FirstComboBox))
+                    {
+                        Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new SetLineFocusHandler(OnSetLineFocus), FirstComboBox);
+                    }
+                }
+            }
+        }
+
+        private delegate void SetLineFocusHandler(ComboBox firstComboBox);
+        private void OnSetLineFocus(ComboBox firstComboBox)
+        {
+            firstComboBox.Focus();
+        }
+
+        private bool FindTabControl(out TabControl ctrlPage)
         {
             ctrlPage = null;
-            tabIndex = -1;
 
-            FrameworkElement Child = null;
             FrameworkElement Ctrl = LastFocusedCombo;
 
             while (Ctrl != null)
@@ -819,18 +875,9 @@
                 if (Ctrl is TabControl)
                 {
                     ctrlPage = Ctrl as TabControl;
-
-                    for (int i = 0; i < VisualTreeHelper.GetChildrenCount(Ctrl); i++)
-                        if (VisualTreeHelper.GetChild(Ctrl, i) == Child)
-                        {
-                            tabIndex = i;
-                            break;
-                        }
-
-                    return tabIndex >= 0;
+                    return true;
                 }
 
-                Child = Ctrl;
                 Ctrl = VisualTreeHelper.GetParent(Ctrl) as FrameworkElement;
             }
 
@@ -898,23 +945,34 @@
             Debug.Assert(Multiplier3 == next.Multiplier3);
 
             for (int PreviousLineIndex = 0; PreviousLineIndex < previous.Lines.Count; PreviousLineIndex++)
-            {
-                IFourComponentsAlcoholLine Line = previous.Lines[PreviousLineIndex] as IFourComponentsAlcoholLine;
-                int BestIndex = Line.BestIndex;
-                if (BestIndex >= 0)
-                {
-                    int NextIndex1 = GetPreviousToNextIndex(associationList1, Line.Index1);
-                    int NextIndex2 = GetPreviousToNextIndex(associationList2, Line.Index2);
-                    int NextIndex3 = GetPreviousToNextIndex(associationList3, Line.Index3);
-                    int NextIndex4 = GetPreviousToNextIndex(associationList4, Line.Index4);
+                if (GetNextLineIndex(previous, next, associationList1, associationList2, associationList3, associationList4, PreviousLineIndex, out int NextLineIndex))
+                    next.Lines[NextLineIndex].CalculatedIndex = previous.Lines[PreviousLineIndex].BestIndex;
+        }
 
-                    if (NextIndex1 >= 0 && NextIndex2 >= 0 && NextIndex3 >= 0 && NextIndex4 >= 0)
-                    {
-                        int NextLineIndex = (NextIndex1 * Multiplier1) + (NextIndex2 * Multiplier2) + (NextIndex3 * Multiplier3) + NextIndex4;
-                        next.Lines[NextLineIndex].CalculatedIndex = BestIndex;
-                    }
+        public bool GetNextLineIndex(IFourComponentsAlcohol previous, IFourComponentsAlcohol next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4, int previousLineIndex, out int nextLineIndex)
+        {
+            IFourComponentsAlcoholLine Line = previous.Lines[previousLineIndex] as IFourComponentsAlcoholLine;
+            int BestIndex = Line.BestIndex;
+            if (BestIndex >= 0)
+            {
+                int NextIndex1 = GetPreviousToNextIndex(associationList1, Line.Index1);
+                int NextIndex2 = GetPreviousToNextIndex(associationList2, Line.Index2);
+                int NextIndex3 = GetPreviousToNextIndex(associationList3, Line.Index3);
+                int NextIndex4 = GetPreviousToNextIndex(associationList4, Line.Index4);
+
+                if (NextIndex1 >= 0 && NextIndex2 >= 0 && NextIndex3 >= 0 && NextIndex4 >= 0)
+                {
+                    int Multiplier1 = previous.Multiplier1;
+                    int Multiplier2 = previous.Multiplier2;
+                    int Multiplier3 = previous.Multiplier3;
+
+                    nextLineIndex = (NextIndex1 * Multiplier1) + (NextIndex2 * Multiplier2) + (NextIndex3 * Multiplier3) + NextIndex4;
+                    return true;
                 }
             }
+
+            nextLineIndex = -1;
+            return false;
         }
 
         public void RecalculateTopToBottom(IFourComponentsAlcohol next, IFourComponentsAlcohol previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
@@ -927,23 +985,34 @@
             Debug.Assert(Multiplier3 == previous.Multiplier3);
 
             for (int NextLineIndex = 0; NextLineIndex < next.Lines.Count; NextLineIndex++)
-            {
-                IFourComponentsAlcoholLine Line = next.Lines[NextLineIndex] as IFourComponentsAlcoholLine;
-                int BestIndex = Line.BestIndex;
-                if (BestIndex >= 0)
-                {
-                    int PreviousIndex1 = GetNextToPreviousIndex(associationList1, Line.Index1);
-                    int PreviousIndex2 = GetNextToPreviousIndex(associationList2, Line.Index2);
-                    int PreviousIndex3 = GetNextToPreviousIndex(associationList3, Line.Index3);
-                    int PreviousIndex4 = GetNextToPreviousIndex(associationList4, Line.Index4);
+                if (GetPreviousLineIndex(next, previous, associationList1, associationList2, associationList3, associationList4, NextLineIndex, out int PreviousLineIndex))
+                    previous.Lines[PreviousLineIndex].CalculatedIndex = next.Lines[NextLineIndex].BestIndex;
+        }
 
-                    if (PreviousIndex1 >= 0 && PreviousIndex2 >= 0 && PreviousIndex3 >= 0 && PreviousIndex4 >= 0)
-                    {
-                        int PreviousLineIndex = (PreviousIndex1 * Multiplier1) + (PreviousIndex2 * Multiplier2) + (PreviousIndex3 * Multiplier3) + PreviousIndex4;
-                        previous.Lines[PreviousLineIndex].CalculatedIndex = BestIndex;
-                    }
+        public bool GetPreviousLineIndex(IFourComponentsAlcohol next, IFourComponentsAlcohol previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4, int nextLineIndex, out int previousLineIndex)
+        {
+            IFourComponentsAlcoholLine Line = next.Lines[nextLineIndex] as IFourComponentsAlcoholLine;
+            int BestIndex = Line.BestIndex;
+            if (BestIndex >= 0)
+            {
+                int PreviousIndex1 = GetNextToPreviousIndex(associationList1, Line.Index1);
+                int PreviousIndex2 = GetNextToPreviousIndex(associationList2, Line.Index2);
+                int PreviousIndex3 = GetNextToPreviousIndex(associationList3, Line.Index3);
+                int PreviousIndex4 = GetNextToPreviousIndex(associationList4, Line.Index4);
+
+                if (PreviousIndex1 >= 0 && PreviousIndex2 >= 0 && PreviousIndex3 >= 0 && PreviousIndex4 >= 0)
+                {
+                    int Multiplier1 = next.Multiplier1;
+                    int Multiplier2 = next.Multiplier2;
+                    int Multiplier3 = next.Multiplier3;
+
+                    previousLineIndex = (PreviousIndex1 * Multiplier1) + (PreviousIndex2 * Multiplier2) + (PreviousIndex3 * Multiplier3) + PreviousIndex4;
+                    return true;
                 }
             }
+
+            previousLineIndex = -1;
+            return true;
         }
 
         private int GetPreviousToNextIndex(ComponentAssociationCollection associationList, int previousIndex)

@@ -185,6 +185,14 @@
                             <local:Alcoholx3x4x5x4Control DataContext="{Binding Bourbon}"/>
                         </TabItem>
                     </TabControl>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
+                        <Button Click="OnBack" IsEnabled="{Binding CanGoBack}" Margin="0,0,5,0">
+                            <Image Source="pack://application:,,,/Resources/Undo.png" Width="16" Height="16"/>
+                        </Button>
+                        <Button Click="OnForward" IsEnabled="{Binding CanGoForward}" Margin="5,0,0,0">
+                            <Image Source="pack://application:,,,/Resources/Redo.png" Width="16" Height="16"/>
+                        </Button>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Style="{StaticResource TabItemLevel1}">
