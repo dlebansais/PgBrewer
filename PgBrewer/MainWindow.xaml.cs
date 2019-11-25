@@ -829,16 +829,12 @@
 
             CanGoBack = (Owner.Previous != null);
             CanGoForward = (Owner.Next != null);
-
-            System.Diagnostics.Debug.WriteLine("Got Focus " + CanGoBack + " " + CanGoForward);
         }
 
         public void OnLostFocus(ComboBox sender)
         {
             //CanGoBack = false;
             //CanGoForward = false;
-
-            System.Diagnostics.Debug.WriteLine("Lost Focus");
         }
 
         private void OnBack(object sender, RoutedEventArgs e)
@@ -1062,7 +1058,7 @@
             }
 
             previousLineIndex = -1;
-            return true;
+            return false;
         }
 
         private int GetPreviousToNextIndex(ComponentAssociationCollection associationList, int previousIndex)

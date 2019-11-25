@@ -323,7 +323,7 @@ Dwarven Stout;(?) Sprint Speed Boost -1.5, Taunt From Attack Damage +30%;Taunter
 Dwarven Stout;(?) Taunt From Attack Damage -10.5%;;of Meekness
 Dwarven Stout;(?) Taunt From Attack Damage +20%;Taunter's;
 Dwarven Stout;(?) Unarmed Ability Power Cost -6%, Shield Ability Power Cost -7%, Sword Ability Power Cost -7%;;
-Potato Vodka;(?) Burst Attacks +10 Damage to Elite
+Potato Vodka;Your burst attacks deal +10 damage to Elite ennemies;;of Elite-Killing
 Potato Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Potato Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
 Potato Vodka;(?) Chance to Evade Melee Attacks +1%
@@ -430,7 +430,7 @@ Potato Vodka;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Potato Vodka;(?) take -1 damage from elite
 Potato Vodka;Taunt From Attack Damage -1%;;of Meekness
 Potato Vodka;Taunt From Attack Damage +1%;Taunter's;
-Applejack;(?) Burst Attacks +10 Damage to Elite
+Applejack;Your burst attacks deal +19 damage to Elite ennemies;;of Elite-Killing
 Applejack;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Applejack;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
 Applejack;(?) Chance to Evade Melee Attacks +1%
