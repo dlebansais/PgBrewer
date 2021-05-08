@@ -3,7 +3,7 @@
     public class Effect
     {
         #region Init
-        public Effect(string text, string prefix, string suffix)
+        public Effect(string text, string? prefix, string? suffix)
         {
             Text = text;
             Prefix = prefix;
@@ -13,8 +13,8 @@
 
         #region Properties
         public string Text { get; }
-        public string Prefix { get; }
-        public string Suffix { get; }
+        public string? Prefix { get; }
+        public string? Suffix { get; }
         #endregion
     }
 }

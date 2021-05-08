@@ -1,10 +1,10 @@
 ﻿namespace PgBrewer
 {
-    using Microsoft.Win32;
     using System.Collections.Generic;
     using System.IO;
     using System.Reflection;
     using System.Text;
+    using Microsoft.Win32;
 
     public class DataArchive
     {
@@ -36,13 +36,13 @@
         {
             List<Effect> Result = new List<Effect>();
 
-            using (Stream ResourceStream = assembly.GetManifestResourceStream(resourceName))
+            using (Stream ResourceStream = assembly.GetManifestResourceStream(resourceName)!)
             {
                 using (StreamReader Reader = new StreamReader(ResourceStream, Encoding.UTF8))
                 {
-                    for (; ; )
+                    for (; ;)
                     {
-                        string Line = Reader.ReadLine();
+                        string Line = Reader.ReadLine()!;
                         if (Line == null)
                             break;
 
@@ -51,8 +51,8 @@
                         {
                             string Name = LineSplit[0];
                             string Text = LineSplit[1];
-                            string Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
-                            string Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
+                            string? Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
+                            string? Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
 
                             if (Name == name)
                                 Result.Add(new Effect(Text, Prefix, Suffix));
@@ -66,7 +66,7 @@
 
         public static RegistryKey OpenSoftwareKey()
         {
-            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrewer");
+            RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrewer")!;
             return Key;
         }
 
@@ -75,7 +75,7 @@
             List<int> Result = new List<int>();
 
             RegistryKey Key = OpenSoftwareKey();
-            string ValueAsString = Key.GetValue(valueName) as string;
+            string ValueAsString = (string)Key.GetValue(valueName)!;
             Key.Close();
 
             if (ValueAsString != null)
@@ -113,9 +113,9 @@
             Key.Close();
         }
 
-        public static RegistryKey OpenKey(RegistryKey hive, params string[] path)
+        public static RegistryKey? OpenKey(RegistryKey hive, params string[] path)
         {
-            RegistryKey Key = null;
+            RegistryKey? Key = null;
             string KeyPath = string.Empty;
 
             for (int i = 0; i < path.Length; i++)

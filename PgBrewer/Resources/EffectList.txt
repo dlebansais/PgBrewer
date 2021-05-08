@@ -1,22 +1,22 @@
 ﻿Basic Lager;Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0;Partier's;
 Basic Lager;Jump Power +0.1;Partier's;
 Basic Lager;Dance Appreciation Boost +1;Partier's;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
-Pale Ale;
+Pale Ale;Pig ability -2% power cost, Deer ability -2% power cost, Cow ability -2% power cost;;
+Pale Ale;Chance for your attack to miss +33%, Chance to evade Burst +20%, Sprint Boost (out of combat) +0;;
+Pale Ale;Max Peacebleness +1, Max Community +1, Max Cleanliness +2;;
+Pale Ale;Armor Patching ability -1% power cost, Lycanthropy ability -1% power cost, Druid ability -2% power cost;;
+Pale Ale;Necromancy ability -1% power cost, Ice Magic ability -1% power cost, Fire Magic ability -2% power cost;;
+Pale Ale;Crossbow ability -1% power cost, Psychology ability -2% power cost, Mentalism ability -2% power cost;;
+Pale Ale;Knife ability -1% power cost, Staff ability -2% power cost, Hammer ability -2% power cost;;
+Pale Ale;Chance to Ignore Knockbacks, Jump power +0.3;;
+Pale Ale;Unarmed ability -1% power cost, Shield ability -1% power cost, Sword ability -2% power cost;;
+Pale Ale;Bard ability -1% power cost, Battle Chemistry ability -1% power cost, Archery ability -2% power cost;;
+Pale Ale;First Aid ability -2% power cost, Giant Bat ability -2% power cost, Spider ability -3% power cost;;
+Pale Ale;Dance Appreciation Extra-Effect Chance Boost +3%, Dance Appreciation Boost +3;;
+Pale Ale;Max Peacebleness +2, Max Community +2, Max Cleanliness +2;;
+Pale Ale;Max Peacebleness +1, Max Community +2, Max Cleanliness +2;;
+Pale Ale;Max Peacebleness +1, Max Community +1, Max Cleanliness +2;;
+Pale Ale;Dance Appreciation Extra-Effect Chance Boost +3%, Dance Appreciation Boost +3;;
 Marzen;Armor Patching Ability Power Cost -2%, Lycanthropy Ability Power Cost -3%, Druid Ability Power Cost -3%;;
 Marzen;Bard Ability Power Cost -2%, Battle Chemistry Ability Power Cost -3%, Archery Ability Power Cost -3%;;
 Marzen;Breath Recovered Out of Water +1, Max Underwater Held Breath +4, Sprint-Swimming Speed Boost +0;Swimmer's;
@@ -511,7 +511,7 @@ Applejack;(?) Humans gain +4 Max Power
 Applejack;(?) Humans gain +6 Max Health
 Applejack;(?) Humans gain +5 Max Armor
 Applejack;(?) Jump Power +0.1
-Applejack;(?) Max Cleanliness +1
+Applejack;(?) Max Peacebleness +1, Max Community +1, Max Cleanliness +2
 Applejack;(?) Max Armor +10;;of Toughness
 Applejack;(?) Max Health +8;;of Healthiness
 Applejack;(?) Max Power +1
@@ -533,7 +533,7 @@ Applejack;(?) Rakshasa gain +4 Max Power
 Applejack;(?) Rakshasa gain +6 Max Health
 Applejack;(?) Rakshasa gain +5 Max Armor;;of Rakshasahood
 Applejack;(?) Slashing Mitigation +1
-Applejack;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
+Applejack;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +13%
 Applejack;(?) take -1 damage from elite
 Applejack;(?) Taunt From Attack Damage -1%;;of Meekness
 Applejack;(?) Taunt From Attack Damage +1%;Taunter's;

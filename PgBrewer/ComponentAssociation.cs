@@ -15,7 +15,7 @@
 
             Debug.Assert(ChoiceList.Count == 0 || ChoiceList.Count >= 2);
 
-            _AssociationIndex = -1;
+            AssociationIndexInternal = -1;
         }
         #endregion
 
@@ -25,39 +25,40 @@
 
         public int AssociationIndex
         {
-            get { return _AssociationIndex; }
+            get => AssociationIndexInternal;
             set
             {
-                if (_AssociationIndex != value)
+                if (AssociationIndexInternal != value)
                 {
-                    _AssociationIndex = value;
+                    AssociationIndexInternal = value;
                     MainWindow.SetChanged();
 
                     NotifyThisPropertyChanged();
                 }
             }
         }
-        private int _AssociationIndex;
+
+        private int AssociationIndexInternal;
         #endregion
 
         #region Implementation of INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void NotifyPropertyChanged(string PropertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void NotifyThisPropertyChanged([CallerMemberName] string PropertyName = "")
+        public void NotifyThisPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 
         #region Debugging
         public override string ToString()
         {
-            return _AssociationIndex >= 0 ? $"{Component} -> {ChoiceList[_AssociationIndex]}" : $"{Component} -> Unknown";
+            return AssociationIndexInternal >= 0 ? $"{Component} -> {ChoiceList[AssociationIndexInternal]}" : $"{Component} -> Unknown";
         }
         #endregion
     }

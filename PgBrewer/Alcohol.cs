@@ -8,10 +8,14 @@
     public class Alcohol : INotifyPropertyChanged
     {
         #region Init
+        public static Alcohol None { get; } = new Alcohol(string.Empty);
+
         public Alcohol(string name)
         {
             Name = name;
             EffectList = DataArchive.ReadEffectList(name);
+            Previous = None;
+            Next = None;
         }
         #endregion
 
@@ -21,21 +25,22 @@
         public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
         public Alcohol Previous { get; private set; }
         public Alcohol Next { get; private set; }
-        public List<ComponentAssociationCollection> PreviousToNext { get; private set; }
+        public List<ComponentAssociationCollection> PreviousToNext { get; private set; } = new List<ComponentAssociationCollection>();
 
         public int MismatchCount
         {
-            get { return _MismatchCount; }
+            get => MismatchCountInternal;
             set
             {
-                if (_MismatchCount != value)
+                if (MismatchCountInternal != value)
                 {
-                    _MismatchCount = value;
+                    MismatchCountInternal = value;
                     NotifyThisPropertyChanged();
                 }
             }
         }
-        private int _MismatchCount;
+
+        private int MismatchCountInternal;
         #endregion
 
         #region Client Interface
@@ -92,7 +97,7 @@
             for (int i = 0; i < Lines.Count; i++)
             {
                 AlcoholLine Line = Lines[i];
-                string LineString = reader.ReadLine();
+                string LineString = reader.ReadLine()!;
 
                 string ExportedComponents = Line.GetExportedComponents();
                 ExportedComponents += ";";
@@ -144,16 +149,16 @@
         #endregion
 
         #region Implementation of INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void NotifyPropertyChanged(string PropertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void NotifyThisPropertyChanged([CallerMemberName] string PropertyName = "")
+        public void NotifyThisPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
 

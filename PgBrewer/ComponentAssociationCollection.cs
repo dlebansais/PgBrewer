@@ -5,6 +5,8 @@
     public class ComponentAssociationCollection : List<ComponentAssociation>
     {
         #region Init
+        public static ComponentAssociationCollection None { get; } = new ComponentAssociationCollection(string.Empty, new List<ComponentAssociation>());
+
         public ComponentAssociationCollection(string name, IEnumerable<ComponentAssociation> collection)
             : base(collection)
         {

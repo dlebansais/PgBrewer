@@ -9,8 +9,8 @@
         public AlcoholLine(Alcohol owner, int effectIndex)
         {
             Owner = owner;
-            _EffectIndex = effectIndex;
-            _CalculatedIndex = -1;
+            EffectIndexInternal = effectIndex;
+            CalculatedIndexInternal = -1;
         }
         #endregion
 
@@ -19,54 +19,56 @@
 
         public int EffectIndex
         {
-            get { return _EffectIndex; }
+            get => EffectIndexInternal;
             set
             {
-                if (_EffectIndex != value)
+                if (EffectIndexInternal != value)
                 {
-                    _EffectIndex = value;
+                    EffectIndexInternal = value;
                     MainWindow.SetChanged();
 
                     NotifyThisPropertyChanged();
 
-                    MainWindow Window = App.Current.MainWindow as MainWindow;
+                    MainWindow Window = (MainWindow)App.Current.MainWindow;
                     Window.Recalculate();
                 }
             }
         }
-        private int _EffectIndex;
 
-        public Effect Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
+        private int EffectIndexInternal;
+
+        public Effect? Effect { get { return EffectIndex >= 0 && EffectIndex < Owner.EffectList.Count ? Owner.EffectList[EffectIndex] : null; } }
 
         public int CalculatedIndex
         {
-            get { return _CalculatedIndex; }
+            get => CalculatedIndexInternal;
             set
             {
-                if (_CalculatedIndex != value)
+                if (CalculatedIndexInternal != value)
                 {
-                    _CalculatedIndex = value;
+                    CalculatedIndexInternal = value;
                     NotifyPropertyChanged(nameof(CalculatedEffect));
                     NotifyPropertyChanged(nameof(IsMatching));
                 }
             }
         }
-        private int _CalculatedIndex;
 
-        public Effect CalculatedEffect
+        private int CalculatedIndexInternal;
+
+        public Effect? CalculatedEffect
         {
             get
             {
                 if (EffectIndex >= 0)
                     return null;
 
-                return _CalculatedIndex >= 0 && _CalculatedIndex < Owner.EffectList.Count ? Owner.EffectList[_CalculatedIndex] : null;
+                return CalculatedIndexInternal >= 0 && CalculatedIndexInternal < Owner.EffectList.Count ? Owner.EffectList[CalculatedIndexInternal] : null;
             }
         }
 
-        public int BestIndex { get { return _EffectIndex >= 0 ? _EffectIndex : _CalculatedIndex >= 0 ? _CalculatedIndex : -1; } }
+        public int BestIndex { get { return EffectIndexInternal >= 0 ? EffectIndexInternal : CalculatedIndexInternal >= 0 ? CalculatedIndexInternal : -1; } }
 
-        public bool IsMatching { get { return _EffectIndex < 0 || _CalculatedIndex < 0 || _EffectIndex == _CalculatedIndex; } }
+        public bool IsMatching { get { return EffectIndexInternal < 0 || CalculatedIndexInternal < 0 || EffectIndexInternal == CalculatedIndexInternal; } }
         #endregion
 
         #region Client Interface
@@ -79,16 +81,16 @@
         #endregion
 
         #region Implementation of INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void NotifyPropertyChanged(string PropertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void NotifyThisPropertyChanged([CallerMemberName] string PropertyName = "")
+        public void NotifyThisPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

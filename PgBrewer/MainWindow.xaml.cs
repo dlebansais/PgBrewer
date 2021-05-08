@@ -1,6 +1,5 @@
 ﻿namespace PgBrewer
 {
-    using Microsoft.Win32;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -14,6 +13,8 @@
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using System.Windows.Threading;
+    using Contracts;
+    using Microsoft.Win32;
 
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
@@ -32,9 +33,9 @@
             LoadAssociations();
             LoadGUI();
             LoadIcons();
-            _IsChanged = false;
-            _CanGoBack = false;
-            _CanGoForward = false;
+            IsChangedInternal = false;
+            CanGoBackInternal = false;
+            CanGoForwardInternal = false;
 
             Loaded += OnLoaded;
         }
@@ -95,7 +96,7 @@
                 if (!Directory.Exists(VersionCacheFolder))
                     return;
 
-                string FinalFolder = null;
+                string? FinalFolder = null;
                 string SharedFolder = Path.Combine(ApplicationFolder, "Shared Icons");
 
                 if (Directory.Exists(SharedFolder))
@@ -130,68 +131,71 @@
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            Alcohol.Chain(OrcishBock, BrownAle, new List<ComponentAssociationCollection>() { AssociationVeggie2Beer, null, null, AssociationFlavor1Beer });
-            Alcohol.Chain(BrownAle, HegemonyLager, new List<ComponentAssociationCollection>() { null, AssociationFruit2, null, null });
-            Alcohol.Chain(HegemonyLager, DwarvenStout, new List<ComponentAssociationCollection>() { null, null, AssociationMushroom3, AssociationFlavor2Beer });
+            Alcohol.Chain(OrcishBock, BrownAle, new List<ComponentAssociationCollection>() { AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationFlavor1Beer });
+            Alcohol.Chain(BrownAle, HegemonyLager, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, AssociationFruit2, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+            Alcohol.Chain(HegemonyLager, DwarvenStout, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationMushroom3, AssociationFlavor2Beer });
 
-            Alcohol.Chain(PotatoVodka, Applejack, new List<ComponentAssociationCollection>() { null, AssociationVeggie1, null, null });
-            Alcohol.Chain(Applejack, BeetVodka, new List<ComponentAssociationCollection>() { AssociationFruit1, null, null, null });
-            Alcohol.Chain(BeetVodka, PaleRum, new List<ComponentAssociationCollection>() { null, null, null, null });
-            Alcohol.Chain(PaleRum, Whisky, new List<ComponentAssociationCollection>() { null, null, AssociationParts1, null });
-            Alcohol.Chain(Whisky, Tequila, new List<ComponentAssociationCollection>() { null, null, null, AssociationFlavor1Liquor });
-            Alcohol.Chain(Tequila, DryGin, new List<ComponentAssociationCollection>() { AssociationFruit2, AssociationMushroom3, null, null });
-            Alcohol.Chain(DryGin, Bourbon, new List<ComponentAssociationCollection>() { null, null, AssociationParts2, AssociationFlavor2Liquor });
+            Alcohol.Chain(PotatoVodka, Applejack, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, AssociationVeggie1, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+            Alcohol.Chain(Applejack, BeetVodka, new List<ComponentAssociationCollection>() { AssociationFruit1, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+            Alcohol.Chain(BeetVodka, PaleRum, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+            Alcohol.Chain(PaleRum, Whisky, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationParts1, ComponentAssociationCollection.None });
+            Alcohol.Chain(Whisky, Tequila, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationFlavor1Liquor });
+            Alcohol.Chain(Tequila, DryGin, new List<ComponentAssociationCollection>() { AssociationFruit2, AssociationMushroom3, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+            Alcohol.Chain(DryGin, Bourbon, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationParts2, AssociationFlavor2Liquor });
 
             Recalculate();
         }
         #endregion
 
         #region Properties
-        public ImageSource IconBeer { get; private set; }
-        public ImageSource IconLiquor { get; private set; }
-        public ImageSource IconSettings { get; private set; }
+        public ImageSource? IconBeer { get; private set; }
+        public ImageSource? IconLiquor { get; private set; }
+        public ImageSource? IconSettings { get; private set; }
 
         public bool IsChanged
         {
-            get { return _IsChanged; }
+            get => IsChangedInternal;
             private set
             {
-                if (_IsChanged != value)
+                if (IsChangedInternal != value)
                 {
-                    _IsChanged = value;
+                    IsChangedInternal = value;
                     NotifyThisPropertyChanged();
                 }
             }
         }
-        private bool _IsChanged;
+
+        private bool IsChangedInternal;
 
         public bool CanGoBack
         {
-            get { return _CanGoBack; }
+            get => CanGoBackInternal;
             private set
             {
-                if (_CanGoBack != value)
+                if (CanGoBackInternal != value)
                 {
-                    _CanGoBack = value;
+                    CanGoBackInternal = value;
                     NotifyThisPropertyChanged();
                 }
             }
         }
-        private bool _CanGoBack;
+
+        private bool CanGoBackInternal;
 
         public bool CanGoForward
         {
-            get { return _CanGoForward; }
+            get => CanGoForwardInternal;
             private set
             {
-                if (_CanGoForward != value)
+                if (CanGoForwardInternal != value)
                 {
-                    _CanGoForward = value;
+                    CanGoForwardInternal = value;
                     NotifyThisPropertyChanged();
                 }
             }
         }
-        private bool _CanGoForward;
+
+        private bool CanGoForwardInternal;
         #endregion
 
         #region Alcohols
@@ -543,7 +547,7 @@
 
         private void OnDelete(object sender, RoutedEventArgs e)
         {
-            ComponentAssociation Association = (sender as Button).DataContext as ComponentAssociation;
+            ComponentAssociation Association = (ComponentAssociation)((Button)sender).DataContext;
             Association.AssociationIndex = -1;
         }
 
@@ -557,11 +561,11 @@
                 OnExport(Dlg.FileName);
         }
 
-        private void OnExport(string FileName)
+        private void OnExport(string fileName)
         {
             try
             {
-                using (FileStream Stream = new FileStream(FileName, FileMode.Create, FileAccess.Write))
+                using (FileStream Stream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
                 {
                     using (StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8))
                     {
@@ -640,11 +644,11 @@
                 OnImport(Dlg.FileName);
         }
 
-        private void OnImport(string FileName)
+        private void OnImport(string fileName)
         {
             try
             {
-                using (FileStream Stream = new FileStream(FileName, FileMode.Open, FileAccess.Read))
+                using (FileStream Stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
                 {
                     using (StreamReader Reader = new StreamReader(Stream, Encoding.UTF8))
                     {
@@ -681,7 +685,7 @@
         {
             string Version = GetVersion();
 
-            string Line = reader.ReadLine();
+            string Line = reader.ReadLine()!;
             if (!Line.StartsWith(VersionProlog))
                 return false;
 
@@ -767,7 +771,7 @@
 
                 foreach (ComponentAssociation Association in AssociationList)
                 {
-                    string AssociationString = reader.ReadLine();
+                    string AssociationString = reader.ReadLine()!;
                     string AssociationName = Association.Component.Name;
                     AssociationName += ";";
 
@@ -815,26 +819,28 @@
         private string GetVersion()
         {
             Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
+#pragma warning disable IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
             FileVersionInfo VersionInfo = FileVersionInfo.GetVersionInfo(CurrentAssembly.Location);
+#pragma warning restore IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
 
-            return VersionInfo.FileVersion;
+            return VersionInfo.FileVersion!;
         }
 
         public void OnGotFocus(ComboBox sender)
         {
             LastFocusedCombo = sender;
 
-            AlcoholLine Line = sender.DataContext as AlcoholLine;
+            AlcoholLine Line = (AlcoholLine)sender.DataContext;
             Alcohol Owner = Line.Owner;
 
-            CanGoBack = (Owner.Previous != null);
-            CanGoForward = (Owner.Next != null);
+            CanGoBack = Owner.Previous != null;
+            CanGoForward = Owner.Next != null;
         }
 
         public void OnLostFocus(ComboBox sender)
         {
-            //CanGoBack = false;
-            //CanGoForward = false;
+            // CanGoBack = false;
+            // CanGoForward = false;
         }
 
         private void OnBack(object sender, RoutedEventArgs e)
@@ -853,24 +859,24 @@
             {
                 Debug.Assert(CtrlPage.SelectedIndex + offset >= 0 && CtrlPage.SelectedIndex + offset < CtrlPage.Items.Count);
 
-                AlcoholLine Line = LastFocusedCombo.DataContext as AlcoholLine;
+                AlcoholLine Line = (AlcoholLine)LastFocusedCombo.DataContext;
                 Alcohol Owner = Line.Owner;
 
                 int NewLine = -1;
                 if (offset < 0)
                 {
-                    IFourComponentsAlcohol Next = Owner as IFourComponentsAlcohol;
-                    IFourComponentsAlcohol Previous = Owner.Previous as IFourComponentsAlcohol;
-                    List<ComponentAssociationCollection> PreviousToNext = (Previous as Alcohol).PreviousToNext;
+                    IFourComponentsAlcohol Next = (IFourComponentsAlcohol)Owner;
+                    IFourComponentsAlcohol Previous = (IFourComponentsAlcohol)Owner.Previous;
+                    List<ComponentAssociationCollection> PreviousToNext = ((Alcohol)Previous).PreviousToNext;
 
                     int NextLineIndex = Owner.Lines.IndexOf(Line);
                     GetPreviousLineIndex(Next, Previous, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], NextLineIndex, out NewLine);
                 }
                 else
                 {
-                    IFourComponentsAlcohol Previous = Owner as IFourComponentsAlcohol;
-                    IFourComponentsAlcohol Next = Owner.Next as IFourComponentsAlcohol;
-                    List<ComponentAssociationCollection> PreviousToNext = (Previous as Alcohol).PreviousToNext;
+                    IFourComponentsAlcohol Previous = (IFourComponentsAlcohol)Owner;
+                    IFourComponentsAlcohol Next = (IFourComponentsAlcohol)Owner.Next;
+                    List<ComponentAssociationCollection> PreviousToNext = ((Alcohol)Previous).PreviousToNext;
 
                     int PreviousLineIndex = Owner.Lines.IndexOf(Line);
                     GetNextLineIndex(Previous, Next, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], PreviousLineIndex, out NewLine);
@@ -885,17 +891,18 @@
             }
         }
 
-        private delegate void LineMoveHandler(TabControl ctrlPage, int newLineIndex, int TotalLines);
+        private delegate void LineMoveHandler(TabControl ctrlPage, int newLineIndex, int totalLines);
+
         private void OnLineMove(TabControl ctrlPage, int newLineIndex, int totalLines)
         {
-            FrameworkElement Root = ctrlPage.SelectedContent as FrameworkElement;
+            FrameworkElement Root = (FrameworkElement)ctrlPage.SelectedContent;
             if (Tools.FindFirstControl(Root, out ScrollViewer FirstScrollViewer))
             {
                 FirstScrollViewer.ScrollToVerticalOffset((double)newLineIndex / (double)totalLines);
                 if (Tools.FindFirstControl(FirstScrollViewer, out ItemsControl FirstItemsControl))
                 {
                     ItemContainerGenerator Generator = FirstItemsControl.ItemContainerGenerator;
-                    FrameworkElement LineContent = Generator.ContainerFromIndex(newLineIndex) as FrameworkElement;
+                    FrameworkElement LineContent = (FrameworkElement)Generator.ContainerFromIndex(newLineIndex);
                     if (Tools.FindFirstControl(LineContent, out ComboBox FirstComboBox))
                     {
                         Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new SetLineFocusHandler(OnSetLineFocus), FirstComboBox);
@@ -912,25 +919,24 @@
 
         private bool FindTabControl(out TabControl ctrlPage)
         {
-            ctrlPage = null;
-
-            FrameworkElement Ctrl = LastFocusedCombo;
+            FrameworkElement? Ctrl = LastFocusedCombo;
 
             while (Ctrl != null)
             {
-                if (Ctrl is TabControl)
+                if (Ctrl is TabControl AsTabControl)
                 {
-                    ctrlPage = Ctrl as TabControl;
+                    ctrlPage = AsTabControl;
                     return true;
                 }
 
                 Ctrl = VisualTreeHelper.GetParent(Ctrl) as FrameworkElement;
             }
 
+            Contract.Unused(out ctrlPage);
             return false;
         }
 
-        private ComboBox LastFocusedCombo;
+        private ComboBox? LastFocusedCombo;
         #endregion
 
         #region Client Interface
@@ -946,17 +952,17 @@
             IFourComponentsAlcohol Next;
             List<ComponentAssociationCollection> AssociationLists;
 
-            (Previous as Alcohol).ClearCalculateIndexes();
+            ((Alcohol)Previous).ClearCalculateIndexes();
 
-            for (;;)
+            for (; ;)
             {
-                Next = (Previous as Alcohol).Next as IFourComponentsAlcohol;
-                if (Next == null)
+                Next = (IFourComponentsAlcohol)((Alcohol)Previous).Next;
+                if (Next == Alcohol.None)
                     break;
 
-                (Next as Alcohol).ClearCalculateIndexes();
+                ((Alcohol)Next).ClearCalculateIndexes();
 
-                AssociationLists = (Previous as Alcohol).PreviousToNext;
+                AssociationLists = ((Alcohol)Previous).PreviousToNext;
                 RecalculateBottomToTop(Previous, Next, AssociationLists[0], AssociationLists[1], AssociationLists[2], AssociationLists[3]);
 
                 Previous = Next;
@@ -964,15 +970,15 @@
 
             Next = Previous;
 
-            for (; ; )
+            for (; ;)
             {
-                (Next as Alcohol).RecalculateMismatchCount();
+                ((Alcohol)Next).RecalculateMismatchCount();
 
-                Previous = (Next as Alcohol).Previous as IFourComponentsAlcohol;
-                if (Previous == null)
+                Previous = (IFourComponentsAlcohol)((Alcohol)Next).Previous;
+                if (Previous == Alcohol.None)
                     break;
 
-                AssociationLists = (Previous as Alcohol).PreviousToNext;
+                AssociationLists = ((Alcohol)Previous).PreviousToNext;
                 RecalculateTopToBottom(Next, Previous, AssociationLists[0], AssociationLists[1], AssociationLists[2], AssociationLists[3]);
 
                 Next = Previous;
@@ -981,7 +987,7 @@
 
         public void RecalculateBottomToTop(IFourComponentsAlcohol previous, IFourComponentsAlcohol next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4)
         {
-            Debug.Assert((previous is Alcohol) && (next is Alcohol) && (previous as Alcohol).Next == next && (next as Alcohol).Previous == previous);
+            Debug.Assert((previous is Alcohol) && (next is Alcohol) && ((Alcohol)previous).Next == next && ((Alcohol)next).Previous == previous);
 
             int Multiplier1 = previous.Multiplier1;
             int Multiplier2 = previous.Multiplier2;
@@ -997,7 +1003,7 @@
 
         public bool GetNextLineIndex(IFourComponentsAlcohol previous, IFourComponentsAlcohol next, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4, int previousLineIndex, out int nextLineIndex)
         {
-            IFourComponentsAlcoholLine Line = previous.Lines[previousLineIndex] as IFourComponentsAlcoholLine;
+            IFourComponentsAlcoholLine Line = (IFourComponentsAlcoholLine)previous.Lines[previousLineIndex];
             int BestIndex = Line.BestIndex;
             if (BestIndex >= 0)
             {
@@ -1037,7 +1043,7 @@
 
         public bool GetPreviousLineIndex(IFourComponentsAlcohol next, IFourComponentsAlcohol previous, ComponentAssociationCollection associationList1, ComponentAssociationCollection associationList2, ComponentAssociationCollection associationList3, ComponentAssociationCollection associationList4, int nextLineIndex, out int previousLineIndex)
         {
-            IFourComponentsAlcoholLine Line = next.Lines[nextLineIndex] as IFourComponentsAlcoholLine;
+            IFourComponentsAlcoholLine Line = (IFourComponentsAlcoholLine)next.Lines[nextLineIndex];
             int BestIndex = Line.BestIndex;
             if (BestIndex >= 0)
             {
@@ -1098,22 +1104,22 @@
 
         public static void SetChanged()
         {
-            MainWindow Window = App.Current.MainWindow as MainWindow;
+            MainWindow Window = (MainWindow)App.Current.MainWindow;
             Window.IsChanged = true;
         }
         #endregion
 
         #region Implementation of INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void NotifyPropertyChanged(string PropertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void NotifyThisPropertyChanged([CallerMemberName] string PropertyName = "")
+        public void NotifyThisPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }
