@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PgBrewer", "PgBrewer\PgBrewer.csproj", "{2817DD04-7F32-4498-B584-133D97273EA5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{348138B6-0EB8-4BDD-B419-5894A173370F} = {348138B6-0EB8-4BDD-B419-5894A173370F}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EEA41FE2-12DB-4BD1-B13D-80C05A39005A}"
 	ProjectSection(SolutionItems) = preProject
