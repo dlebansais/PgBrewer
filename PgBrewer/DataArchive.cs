@@ -42,7 +42,7 @@
                 {
                     for (; ;)
                     {
-                        string Line = Reader.ReadLine()!;
+                        string? Line = Reader.ReadLine()!;
                         if (Line == null)
                             break;
 
@@ -75,10 +75,10 @@
             List<int> Result = new List<int>();
 
             RegistryKey Key = OpenSoftwareKey();
-            string ValueAsString = (string)Key.GetValue(valueName)!;
+            string? ValueAsString = Key.GetValue(valueName) as string;
             Key.Close();
 
-            if (ValueAsString != null)
+            if (ValueAsString != null && ValueAsString.Length > 0)
             {
                 string[] Split = ValueAsString.Split(',');
                 foreach (string Item in Split)

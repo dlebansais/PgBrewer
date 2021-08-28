@@ -16,8 +16,8 @@
     <Product>PgBrewer</Product>
     <Description>Helps managing beers and other liquors one can make in the Project: Gorgon MMORPG</Description>
     <Copyright>Copyright © David Le Bansais 2019</Copyright>
-    <AssemblyVersion>1.0.1.46</AssemblyVersion>
-    <FileVersion>1.0.1.46</FileVersion>
+    <AssemblyVersion>1.0.1.47</AssemblyVersion>
+    <FileVersion>1.0.1.47</FileVersion>
     <RepositoryUrl>https://github.com/dlebansais/PgBrewer</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <RootNamespace>PgBrewer</RootNamespace>
@@ -27,6 +27,13 @@
   <PropertyGroup>
     <NoWarn>SA0001</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\EffectList.txt" />
+    <None Remove="Resources\main.ico" />
+    <None Remove="Resources\Redo.png" />
+    <None Remove="Resources\Undo.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -49,6 +56,13 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EffectList.txt" />
+    <Resource Include="Resources\main.ico" />
+    <Resource Include="Resources\Redo.png" />
+    <Resource Include="Resources\Undo.png" />
   </ItemGroup>
 
   <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" Condition="$(CopyLocalLockFileAssemblies) == true" AfterTargets="ResolveReferences">

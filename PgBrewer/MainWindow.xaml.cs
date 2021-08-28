@@ -956,9 +956,11 @@
 
             for (; ;)
             {
-                Next = (IFourComponentsAlcohol)((Alcohol)Previous).Next;
-                if (Next == Alcohol.None)
+                Alcohol NextAlcohol = ((Alcohol)Previous).Next;
+                if (NextAlcohol == Alcohol.None)
                     break;
+
+                Next = (IFourComponentsAlcohol)NextAlcohol;
 
                 ((Alcohol)Next).ClearCalculateIndexes();
 
@@ -974,9 +976,11 @@
             {
                 ((Alcohol)Next).RecalculateMismatchCount();
 
-                Previous = (IFourComponentsAlcohol)((Alcohol)Next).Previous;
-                if (Previous == Alcohol.None)
+                Alcohol PreviousAlcohol = ((Alcohol)Next).Previous;
+                if (PreviousAlcohol == Alcohol.None)
                     break;
+
+                Previous = (IFourComponentsAlcohol)PreviousAlcohol;
 
                 AssociationLists = ((Alcohol)Previous).PreviousToNext;
                 RecalculateTopToBottom(Next, Previous, AssociationLists[0], AssociationLists[1], AssociationLists[2], AssociationLists[3]);
@@ -1071,7 +1075,7 @@
         {
             int NextIndex;
 
-            if (associationList == null)
+            if (associationList.IsNone)
                 NextIndex = previousIndex;
             else if (associationList[previousIndex].AssociationIndex >= 0)
                 NextIndex = associationList[previousIndex].AssociationIndex;
@@ -1085,7 +1089,7 @@
         {
             int PreviousIndex;
 
-            if (associationList == null)
+            if (associationList.IsNone)
                 PreviousIndex = nextIndex;
             else
             {
