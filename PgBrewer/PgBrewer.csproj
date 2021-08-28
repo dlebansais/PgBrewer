@@ -22,6 +22,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <RootNamespace>PgBrewer</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <ApplicationIcon>Resources\main.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup>
