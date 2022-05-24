@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <PublishSingleFile>true</PublishSingleFile>
-    <TargetFrameworks>net48;net6.0-windows7.0</TargetFrameworks>
+    <TargetFrameworks>net48</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
@@ -61,6 +61,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\EffectList.txt" />
+    <ProjectReference Include="..\WpfLayout.Wpf\WpfLayout.Wpf.csproj" />
     <Resource Include="Resources\main.ico" />
     <Resource Include="Resources\Redo.png" />
     <Resource Include="Resources\Undo.png" />

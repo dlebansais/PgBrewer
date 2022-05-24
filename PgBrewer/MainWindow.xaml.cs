@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -16,6 +17,9 @@ using System.Windows.Threading;
 using Contracts;
 using Microsoft.Win32;
 
+/// <summary>
+/// Main window implementation.
+/// </summary>
 public partial class MainWindow : MainWindowUI
 {
     #region Constants
@@ -31,26 +35,28 @@ public partial class MainWindow : MainWindowUI
         LoadGUI();
         LoadIcons();
         IsChangedInternal = false;
-        CanGoBackInternal = false;
-        CanGoForwardInternal = false;
 
         Loaded += OnLoaded;
     }
 
     private void LoadAssociations()
     {
-        LoadAssociations(AssociationFruit1);
-        LoadAssociations(AssociationFruit2);
-        LoadAssociations(AssociationVeggie1);
-        LoadAssociations(AssociationVeggie2Beer);
-        LoadAssociations(AssociationVeggie2Liquor);
-        LoadAssociations(AssociationMushroom3);
-        LoadAssociations(AssociationParts1);
-        LoadAssociations(AssociationParts2);
-        LoadAssociations(AssociationFlavor1Beer);
-        LoadAssociations(AssociationFlavor1Liquor);
-        LoadAssociations(AssociationFlavor2Beer);
-        LoadAssociations(AssociationFlavor2Liquor);
+        foreach (PgBrewerPage Page in PageList)
+            if (Page is PgBrewerPageSettings AsPageSettings)
+            {
+                LoadAssociations(AsPageSettings.AssociationFruit1);
+                LoadAssociations(AsPageSettings.AssociationFruit2);
+                LoadAssociations(AsPageSettings.AssociationVeggie1);
+                LoadAssociations(AsPageSettings.AssociationVeggie2Beer);
+                LoadAssociations(AsPageSettings.AssociationVeggie2Liquor);
+                LoadAssociations(AsPageSettings.AssociationMushroom3);
+                LoadAssociations(AsPageSettings.AssociationParts1);
+                LoadAssociations(AsPageSettings.AssociationParts2);
+                LoadAssociations(AsPageSettings.AssociationFlavor1Beer);
+                LoadAssociations(AsPageSettings.AssociationFlavor1Liquor);
+                LoadAssociations(AsPageSettings.AssociationFlavor2Beer);
+                LoadAssociations(AsPageSettings.AssociationFlavor2Liquor);
+            }
     }
 
     private void LoadAssociations(ComponentAssociationCollection associationList)
@@ -128,26 +134,57 @@ public partial class MainWindow : MainWindowUI
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        Alcohol.Chain(OrcishBock, BrownAle, new List<ComponentAssociationCollection>() { AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationFlavor1Beer });
-        Alcohol.Chain(BrownAle, HegemonyLager, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, AssociationFruit2, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(HegemonyLager, DwarvenStout, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationMushroom3, AssociationFlavor2Beer });
+        Alcohol.Chain(PageBeers.OrcishBock, PageBeers.BrownAle, new List<ComponentAssociationCollection>() { PageSettings.AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationFlavor1Beer });
+        Alcohol.Chain(PageBeers.BrownAle, PageBeers.HegemonyLager, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, PageSettings.AssociationFruit2, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageBeers.HegemonyLager, PageBeers.DwarvenStout, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationMushroom3, PageSettings.AssociationFlavor2Beer });
 
-        Alcohol.Chain(PotatoVodka, Applejack, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, AssociationVeggie1, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(Applejack, BeetVodka, new List<ComponentAssociationCollection>() { AssociationFruit1, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(BeetVodka, PaleRum, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(PaleRum, Whisky, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationParts1, ComponentAssociationCollection.None });
-        Alcohol.Chain(Whisky, Tequila, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationFlavor1Liquor });
-        Alcohol.Chain(Tequila, DryGin, new List<ComponentAssociationCollection>() { AssociationFruit2, AssociationMushroom3, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(DryGin, Bourbon, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, AssociationParts2, AssociationFlavor2Liquor });
+        Alcohol.Chain(PageLiquors.PotatoVodka, PageLiquors.Applejack, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, PageSettings.AssociationVeggie1, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.Applejack, PageLiquors.BeetVodka, new List<ComponentAssociationCollection>() { PageSettings.AssociationFruit1, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.BeetVodka, PageLiquors.PaleRum, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.PaleRum, PageLiquors.Whisky, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationParts1, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.Whisky, PageLiquors.Tequila, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationFlavor1Liquor });
+        Alcohol.Chain(PageLiquors.Tequila, PageLiquors.DryGin, new List<ComponentAssociationCollection>() { PageSettings.AssociationFruit2, PageSettings.AssociationMushroom3, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.DryGin, PageLiquors.Bourbon, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationParts2, PageSettings.AssociationFlavor2Liquor });
 
         Recalculate();
     }
     #endregion
 
     #region Properties
+    public static BackForward BackForward { get; } = new();
+    public static PgBrewerPageBeers PageBeers { get; } = new PgBrewerPageBeers(BackForward, startSelected: true);
+    public static PgBrewerPageLiquors PageLiquors { get; } = new PgBrewerPageLiquors(BackForward);
+    public static PgBrewerPageSettings PageSettings { get; } = new PgBrewerPageSettings(BackForward);
+
     public ImageSource? IconBeer { get; private set; }
     public ImageSource? IconLiquor { get; private set; }
     public ImageSource? IconSettings { get; private set; }
+    public override ObservableCollection<PgBrewerPage> PageList { get; } = new()
+    {
+        PageBeers,
+        PageLiquors,
+        PageSettings,
+    };
+
+    public override int SelectedPageIndex
+    {
+        get
+        {
+            return SelectedPageIndexInternal;
+        }
+        set
+        {
+            if (SelectedPageIndexInternal != value)
+            {
+                SelectedPageIndexInternal = value;
+
+                for (int i = 0; i < PageList.Count; i++)
+                    PageList[i].SetSelected(i == SelectedPageIndexInternal);
+            }
+        }
+    }
+
+    private int SelectedPageIndexInternal = 0;
 
     public bool IsChanged
     {
@@ -163,299 +200,6 @@ public partial class MainWindow : MainWindowUI
     }
 
     private bool IsChangedInternal;
-
-    public bool CanGoBack
-    {
-        get => CanGoBackInternal;
-        private set
-        {
-            if (CanGoBackInternal != value)
-            {
-                CanGoBackInternal = value;
-                NotifyThisPropertyChanged();
-            }
-        }
-    }
-
-    private bool CanGoBackInternal;
-
-    public bool CanGoForward
-    {
-        get => CanGoForwardInternal;
-        private set
-        {
-            if (CanGoForwardInternal != value)
-            {
-                CanGoForwardInternal = value;
-                NotifyThisPropertyChanged();
-            }
-        }
-    }
-
-    private bool CanGoForwardInternal;
-    #endregion
-
-    #region Alcohols
-    public static Component RedApple { get; } = new Component("Red Apple");
-    public static Component Grapes { get; } = new Component("Grapes");
-    public static Component Orange { get; } = new Component("Orange");
-    public static Component Guava { get; } = new Component("Guava");
-    public static Component Banana { get; } = new Component("Banana");
-    public static Component Lemon { get; } = new Component("Lemon");
-    public static Component Pear { get; } = new Component("Pear");
-    public static Component Peach { get; } = new Component("Peach");
-    public static Component GreenApple { get; } = new Component("Green Apple");
-    public static Component ParasolMushroomFlakes { get; } = new Component("Parasol Mushroom Flakes");
-    public static Component MycenaMushroomFlakes { get; } = new Component("Mycena Mushroom Flakes");
-    public static Component BoletusMushroomFlakes { get; } = new Component("Boletus Mushroom Flakes");
-    public static Component FieldMushroomFlakes { get; } = new Component("Field Mushroom Flakes");
-    public static Component Beet { get; } = new Component("Beet");
-    public static Component Squash { get; } = new Component("Squash");
-    public static Component Broccoli { get; } = new Component("Broccoli");
-    public static Component Carrot { get; } = new Component("Carrot");
-    public static Component BlusherMushroomFlakes { get; } = new Component("Blusher Mushroom Flakes");
-    public static Component MilkCapMushroomPowder { get; } = new Component("Milk Cap Mushroom Powder");
-    public static Component BloodMushroomPowder { get; } = new Component("Blood Mushroom Powder");
-    public static Component CoralMushroomPowder { get; } = new Component("Coral Mushroom Powder");
-    public static Component GroxmaxPowder { get; } = new Component("Groxmax Powder");
-    public static Component PorciniMushroomFlakes { get; } = new Component("Porcini Mushroom Flakes");
-    public static Component BlackFootMorelFlakes { get; } = new Component("Black Foot Morel Flakes");
-    public static Component BoarTusk { get; } = new Component("Boar Tusk");
-    public static Component CatEyeball { get; } = new Component("Cat Eyeball");
-    public static Component SnailSinew { get; } = new Component("Snail Sinew");
-    public static Component RatTail { get; } = new Component("Rat Tail");
-    public static Component BasicFishScale { get; } = new Component("Basic Fish Scale");
-    public static Component WolfTeeth { get; } = new Component("Wolf Teeth");
-    public static Component PantherTail { get; } = new Component("Panther Tail");
-    public static Component DeinonychusClaw { get; } = new Component("Deinonychus Claw");
-    public static Component RabbitsFoot { get; } = new Component("Rabbit's Foot");
-    public static Component BearGallbladder { get; } = new Component("Bear Gallbladder");
-    public static Component CockatriceBeak { get; } = new Component("Cockatrice Beak");
-    public static Component WormTooth { get; } = new Component("Worm Tooth");
-    public static Component Ectoplasm { get; } = new Component("Ectoplasm");
-    public static Component PowderedMammal { get; } = new Component("Powdered Mammal");
-    public static Component BarghestFlesh { get; } = new Component("Barghest Flesh");
-    public static Component Oregano { get; } = new Component("Oregano");
-    public static Component MandrakeRoot { get; } = new Component("Mandrake Root");
-    public static Component Peppercorns { get; } = new Component("Peppercorns");
-    public static Component Grass { get; } = new Component("Grass");
-    public static Component Cinnamon { get; } = new Component("Cinnamon");
-    public static Component MuntokPeppercorns { get; } = new Component("Muntok Peppercorns");
-    public static Component Seaweed { get; } = new Component("Seaweed");
-    public static Component MyconianJelly { get; } = new Component("Myconian Jelly");
-    public static Component Mint { get; } = new Component("Mint");
-    public static Component Honey { get; } = new Component("Honey");
-    public static Component JuniperBerries { get; } = new Component("Juniper Berries");
-    public static Component Almonds { get; } = new Component("Almonds");
-    public static Component LargeStrawberry { get; } = new Component("Large Strawberry");
-    public static Component GreenPepper { get; } = new Component("Green Pepper");
-    public static Component RedPepper { get; } = new Component("Red Pepper");
-    public static Component Molasses { get; } = new Component("Molasses");
-    public static Component Corn { get; } = new Component("Corn");
-
-    private static List<Component> FruitTier1Three = new List<Component>() { RedApple, Grapes, Orange };
-    private static List<Component> FruitTier1Four = new List<Component>() { RedApple, Grapes, Orange, LargeStrawberry };
-    private static List<Component> FruitTier2 = new List<Component>() { Guava, Banana, Lemon };
-    private static List<Component> FruitTier3 = new List<Component>() { Pear, Peach, GreenApple };
-    private static List<Component> VeggieTier1 = new List<Component>() { ParasolMushroomFlakes, MycenaMushroomFlakes, BoletusMushroomFlakes, FieldMushroomFlakes };
-    private static List<Component> VeggieTier2 = new List<Component>() { Beet, Squash, Broccoli, Carrot };
-    private static List<Component> VeggieTier3Beer = new List<Component>() { GreenPepper, RedPepper, Molasses, Corn };
-    private static List<Component> MushroomTier3 = new List<Component>() { FieldMushroomFlakes, BlusherMushroomFlakes, MilkCapMushroomPowder, BloodMushroomPowder };
-    private static List<Component> MushroomTier4 = new List<Component>() { CoralMushroomPowder, GroxmaxPowder, PorciniMushroomFlakes, BlackFootMorelFlakes };
-    private static List<Component> PartsTier1 = new List<Component>() { BoarTusk, CatEyeball, SnailSinew, RatTail, BasicFishScale };
-    private static List<Component> PartsTier2 = new List<Component>() { WolfTeeth, PantherTail, DeinonychusClaw, RabbitsFoot, BearGallbladder };
-    private static List<Component> PartsTier3 = new List<Component>() { CockatriceBeak, WormTooth, Ectoplasm, PowderedMammal, BarghestFlesh };
-    private static List<Component> FlavorTier1Two = new List<Component>() { Oregano, MandrakeRoot };
-    private static List<Component> FlavorTier1Three = new List<Component>() { Oregano, MandrakeRoot, Peppercorns };
-    private static List<Component> FlavorTier1Four = new List<Component>() { Oregano, MandrakeRoot, Peppercorns, Grass };
-    private static List<Component> FlavorTier2Three = new List<Component>() { Cinnamon, MuntokPeppercorns, Seaweed };
-    private static List<Component> FlavorTier2Four = new List<Component>() { Cinnamon, MuntokPeppercorns, Seaweed, MyconianJelly };
-    private static List<Component> FlavorTier3Three = new List<Component>() { Mint, Honey, JuniperBerries };
-    private static List<Component> FlavorTier3Four = new List<Component>() { Mint, Honey, JuniperBerries, Almonds };
-
-    public Alcoholx4 BasicLager { get; private set; } = new Alcoholx4("Basic Lager",
-        FruitTier1Four);
-
-    public Alcoholx4x4 PaleAle { get; private set; } = new Alcoholx4x4("Pale Ale",
-        FruitTier1Four,
-        VeggieTier1);
-
-    public Alcoholx4x4x2 Marzen { get; private set; } = new Alcoholx4x4x2("Marzen",
-        FruitTier1Four,
-        VeggieTier1,
-        FlavorTier1Two);
-
-    public Alcoholx3x3x4x3 GoblinAle { get; private set; } = new Alcoholx3x3x4x3("Goblin Ale",
-        FruitTier1Three,
-        FruitTier2,
-        VeggieTier1,
-        FlavorTier1Three);
-
-    public Alcoholx4x3x4x3 OrcishBock { get; private set; } = new Alcoholx4x3x4x3("Orcish Bock",
-        VeggieTier2,
-        FruitTier2,
-        MushroomTier3,
-        FlavorTier1Three);
-
-    public Alcoholx4x3x4x3 BrownAle { get; private set; } = new Alcoholx4x3x4x3("Brown Ale",
-        VeggieTier3Beer,
-        FruitTier2,
-        MushroomTier3,
-        FlavorTier2Three);
-
-    public Alcoholx4x3x4x3 HegemonyLager { get; private set; } = new Alcoholx4x3x4x3("Hegemony Lager",
-        VeggieTier3Beer,
-        FruitTier3,
-        MushroomTier3,
-        FlavorTier2Three);
-
-    public Alcoholx4x3x4x3 DwarvenStout { get; private set; } = new Alcoholx4x3x4x3("Dwarven Stout",
-        VeggieTier3Beer,
-        FruitTier3,
-        MushroomTier4,
-        FlavorTier3Three);
-
-    public Alcoholx3x4x5x4 PotatoVodka { get; private set; } = new Alcoholx3x4x5x4("Potato Vodka",
-        FruitTier1Three,
-        VeggieTier1,
-        PartsTier1,
-        FlavorTier1Four);
-
-    public Alcoholx3x4x5x4 Applejack { get; private set; } = new Alcoholx3x4x5x4("Applejack",
-        FruitTier1Three,
-        VeggieTier2,
-        PartsTier1,
-        FlavorTier1Four);
-
-    public Alcoholx3x4x5x4 BeetVodka { get; private set; } = new Alcoholx3x4x5x4("Beet Vodka",
-        FruitTier2,
-        VeggieTier1,
-        PartsTier1,
-        FlavorTier1Four);
-
-    public Alcoholx3x4x5x4 PaleRum { get; private set; } = new Alcoholx3x4x5x4("Pale Rum",
-        FruitTier2,
-        MushroomTier3,
-        PartsTier1,
-        FlavorTier1Four);
-
-    public Alcoholx3x4x5x4 Whisky { get; private set; } = new Alcoholx3x4x5x4("Whisky",
-        FruitTier2,
-        MushroomTier3,
-        PartsTier2,
-        FlavorTier1Four);
-
-    public Alcoholx3x4x5x4 Tequila { get; private set; } = new Alcoholx3x4x5x4("Tequila",
-        FruitTier2,
-        MushroomTier3,
-        PartsTier2,
-        FlavorTier2Four);
-
-    public Alcoholx3x4x5x4 DryGin { get; private set; } = new Alcoholx3x4x5x4("Dry Gin",
-        FruitTier3,
-        MushroomTier4,
-        PartsTier2,
-        FlavorTier2Four);
-
-    public Alcoholx3x4x5x4 Bourbon { get; private set; } = new Alcoholx3x4x5x4("Bourbon",
-        FruitTier3,
-        MushroomTier4,
-        PartsTier3,
-        FlavorTier3Four);
-
-    public ComponentAssociationCollection AssociationFruit1 { get; } = new ComponentAssociationCollection("Fruit1", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(RedApple, FruitTier2),
-        new ComponentAssociation(Grapes, FruitTier2),
-        new ComponentAssociation(Orange, FruitTier2),
-    });
-
-    public ComponentAssociationCollection AssociationFruit2 { get; } = new ComponentAssociationCollection("Fruit2", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Guava, FruitTier3),
-        new ComponentAssociation(Banana, FruitTier3),
-        new ComponentAssociation(Lemon, FruitTier3),
-    });
-
-    public ComponentAssociationCollection AssociationVeggie1 { get; } = new ComponentAssociationCollection("Veggie1", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(ParasolMushroomFlakes, VeggieTier2),
-        new ComponentAssociation(MycenaMushroomFlakes, VeggieTier2),
-        new ComponentAssociation(BoletusMushroomFlakes, VeggieTier2),
-        new ComponentAssociation(FieldMushroomFlakes, VeggieTier2),
-    });
-
-    public ComponentAssociationCollection AssociationVeggie2Beer { get; } = new ComponentAssociationCollection("Veggie2Beer", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Beet, VeggieTier3Beer),
-        new ComponentAssociation(Squash, VeggieTier3Beer),
-        new ComponentAssociation(Broccoli, VeggieTier3Beer),
-        new ComponentAssociation(Carrot, VeggieTier3Beer),
-    });
-
-    public ComponentAssociationCollection AssociationVeggie2Liquor { get; } = new ComponentAssociationCollection("Veggie2Liquor", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Beet, MushroomTier3),
-        new ComponentAssociation(Squash, MushroomTier3),
-        new ComponentAssociation(Broccoli, MushroomTier3),
-        new ComponentAssociation(Carrot, MushroomTier3),
-    });
-
-    public ComponentAssociationCollection AssociationMushroom3 { get; } = new ComponentAssociationCollection("Mushroom3", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(FieldMushroomFlakes, MushroomTier4),
-        new ComponentAssociation(BlusherMushroomFlakes, MushroomTier4),
-        new ComponentAssociation(MilkCapMushroomPowder, MushroomTier4),
-        new ComponentAssociation(BloodMushroomPowder, MushroomTier4),
-    });
-
-    public ComponentAssociationCollection AssociationParts1 { get; } = new ComponentAssociationCollection("Parts1", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(BoarTusk, PartsTier2),
-        new ComponentAssociation(CatEyeball, PartsTier2),
-        new ComponentAssociation(SnailSinew, PartsTier2),
-        new ComponentAssociation(RatTail, PartsTier2),
-        new ComponentAssociation(BasicFishScale, PartsTier2),
-    });
-
-    public ComponentAssociationCollection AssociationParts2 { get; } = new ComponentAssociationCollection("Parts2", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(WolfTeeth, PartsTier3),
-        new ComponentAssociation(PantherTail, PartsTier3),
-        new ComponentAssociation(DeinonychusClaw, PartsTier3),
-        new ComponentAssociation(RabbitsFoot, PartsTier3),
-        new ComponentAssociation(BearGallbladder, PartsTier3),
-    });
-
-    public ComponentAssociationCollection AssociationFlavor1Beer { get; } = new ComponentAssociationCollection("Flavor1Beer", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Oregano, FlavorTier2Three),
-        new ComponentAssociation(MandrakeRoot, FlavorTier2Three),
-        new ComponentAssociation(Peppercorns, FlavorTier2Three),
-    });
-
-    public ComponentAssociationCollection AssociationFlavor1Liquor { get; } = new ComponentAssociationCollection("Flavor1Liquor", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Oregano, FlavorTier2Four),
-        new ComponentAssociation(MandrakeRoot, FlavorTier2Four),
-        new ComponentAssociation(Peppercorns, FlavorTier2Four),
-        new ComponentAssociation(Grass, FlavorTier2Four),
-    });
-
-    public ComponentAssociationCollection AssociationFlavor2Beer { get; } = new ComponentAssociationCollection("Flavor2Beer", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Cinnamon, FlavorTier3Three),
-        new ComponentAssociation(MuntokPeppercorns, FlavorTier3Three),
-        new ComponentAssociation(Seaweed, FlavorTier3Three),
-    });
-
-    public ComponentAssociationCollection AssociationFlavor2Liquor { get; } = new ComponentAssociationCollection("Flavor2Liquor", new List<ComponentAssociation>()
-    {
-        new ComponentAssociation(Cinnamon, FlavorTier3Four),
-        new ComponentAssociation(MuntokPeppercorns, FlavorTier3Four),
-        new ComponentAssociation(Seaweed, FlavorTier3Four),
-        new ComponentAssociation(MyconianJelly, FlavorTier3Four),
-    });
 
     public List<ComponentAssociationCollection> AssociationTable { get; } = new List<ComponentAssociationCollection>();
     #endregion
@@ -495,22 +239,22 @@ public partial class MainWindow : MainWindowUI
 
     private void SaveAll()
     {
-        BasicLager.Save();
-        PaleAle.Save();
-        Marzen.Save();
-        GoblinAle.Save();
-        OrcishBock.Save();
-        BrownAle.Save();
-        HegemonyLager.Save();
-        DwarvenStout.Save();
-        PotatoVodka.Save();
-        Applejack.Save();
-        BeetVodka.Save();
-        PaleRum.Save();
-        Whisky.Save();
-        Tequila.Save();
-        DryGin.Save();
-        Bourbon.Save();
+        PageBeers.BasicLager.Save();
+        PageBeers.PaleAle.Save();
+        PageBeers.Marzen.Save();
+        PageBeers.GoblinAle.Save();
+        PageBeers.OrcishBock.Save();
+        PageBeers.BrownAle.Save();
+        PageBeers.HegemonyLager.Save();
+        PageBeers.DwarvenStout.Save();
+        PageLiquors.PotatoVodka.Save();
+        PageLiquors.Applejack.Save();
+        PageLiquors.BeetVodka.Save();
+        PageLiquors.PaleRum.Save();
+        PageLiquors.Whisky.Save();
+        PageLiquors.Tequila.Save();
+        PageLiquors.DryGin.Save();
+        PageLiquors.Bourbon.Save();
 
         SaveAssociations();
         SaveGUI();
@@ -582,22 +326,22 @@ public partial class MainWindow : MainWindowUI
 
         ExportAssociations(writer);
 
-        BasicLager.Export(writer);
-        PaleAle.Export(writer);
-        Marzen.Export(writer);
-        GoblinAle.Export(writer);
-        OrcishBock.Export(writer);
-        BrownAle.Export(writer);
-        HegemonyLager.Export(writer);
-        DwarvenStout.Export(writer);
-        PotatoVodka.Export(writer);
-        Applejack.Export(writer);
-        BeetVodka.Export(writer);
-        PaleRum.Export(writer);
-        Whisky.Export(writer);
-        Tequila.Export(writer);
-        DryGin.Export(writer);
-        Bourbon.Export(writer);
+        PageBeers.BasicLager.Export(writer);
+        PageBeers.PaleAle.Export(writer);
+        PageBeers.Marzen.Export(writer);
+        PageBeers.GoblinAle.Export(writer);
+        PageBeers.OrcishBock.Export(writer);
+        PageBeers.BrownAle.Export(writer);
+        PageBeers.HegemonyLager.Export(writer);
+        PageBeers.DwarvenStout.Export(writer);
+        PageLiquors.PotatoVodka.Export(writer);
+        PageLiquors.Applejack.Export(writer);
+        PageLiquors.BeetVodka.Export(writer);
+        PageLiquors.PaleRum.Export(writer);
+        PageLiquors.Whisky.Export(writer);
+        PageLiquors.Tequila.Export(writer);
+        PageLiquors.DryGin.Export(writer);
+        PageLiquors.Bourbon.Export(writer);
     }
 
     private void ExportVersionNumber(StreamWriter writer)
@@ -703,52 +447,52 @@ public partial class MainWindow : MainWindowUI
         if (!ImportAssociations(reader, ref changeCount))
             return false;
 
-        if (!BasicLager.Import(reader, ref changeCount))
+        if (!PageBeers.BasicLager.Import(reader, ref changeCount))
             return false;
 
-        if (!PaleAle.Import(reader, ref changeCount))
+        if (!PageBeers.PaleAle.Import(reader, ref changeCount))
             return false;
 
-        if (!Marzen.Import(reader, ref changeCount))
+        if (!PageBeers.Marzen.Import(reader, ref changeCount))
             return false;
 
-        if (!GoblinAle.Import(reader, ref changeCount))
+        if (!PageBeers.GoblinAle.Import(reader, ref changeCount))
             return false;
 
-        if (!OrcishBock.Import(reader, ref changeCount))
+        if (!PageBeers.OrcishBock.Import(reader, ref changeCount))
             return false;
 
-        if (!BrownAle.Import(reader, ref changeCount))
+        if (!PageBeers.BrownAle.Import(reader, ref changeCount))
             return false;
 
-        if (!HegemonyLager.Import(reader, ref changeCount))
+        if (!PageBeers.HegemonyLager.Import(reader, ref changeCount))
             return false;
 
-        if (!DwarvenStout.Import(reader, ref changeCount))
+        if (!PageBeers.DwarvenStout.Import(reader, ref changeCount))
             return false;
 
-        if (!PotatoVodka.Import(reader, ref changeCount))
+        if (!PageLiquors.PotatoVodka.Import(reader, ref changeCount))
             return false;
 
-        if (!Applejack.Import(reader, ref changeCount))
+        if (!PageLiquors.Applejack.Import(reader, ref changeCount))
             return false;
 
-        if (!BeetVodka.Import(reader, ref changeCount))
+        if (!PageLiquors.BeetVodka.Import(reader, ref changeCount))
             return false;
 
-        if (!PaleRum.Import(reader, ref changeCount))
+        if (!PageLiquors.PaleRum.Import(reader, ref changeCount))
             return false;
 
-        if (!Whisky.Import(reader, ref changeCount))
+        if (!PageLiquors.Whisky.Import(reader, ref changeCount))
             return false;
 
-        if (!Tequila.Import(reader, ref changeCount))
+        if (!PageLiquors.Tequila.Import(reader, ref changeCount))
             return false;
 
-        if (!DryGin.Import(reader, ref changeCount))
+        if (!PageLiquors.DryGin.Import(reader, ref changeCount))
             return false;
 
-        if (!Bourbon.Import(reader, ref changeCount))
+        if (!PageLiquors.Bourbon.Import(reader, ref changeCount))
             return false;
 
         return true;
@@ -830,8 +574,8 @@ public partial class MainWindow : MainWindowUI
         AlcoholLine Line = (AlcoholLine)sender.DataContext;
         Alcohol Owner = Line.Owner;
 
-        CanGoBack = Owner.Previous != null;
-        CanGoForward = Owner.Next != null;
+        BackForward.CanGoBack = Owner.Previous != null;
+        BackForward.CanGoForward = Owner.Next != null;
     }
 
     public void OnLostFocus(ComboBox sender)
@@ -939,8 +683,8 @@ public partial class MainWindow : MainWindowUI
     #region Client Interface
     public void Recalculate()
     {
-        RecalculateFromBottom(OrcishBock);
-        RecalculateFromBottom(PotatoVodka);
+        RecalculateFromBottom(PageBeers.OrcishBock);
+        RecalculateFromBottom(PageLiquors.PotatoVodka);
     }
 
     public void RecalculateFromBottom(IFourComponentsAlcohol start)

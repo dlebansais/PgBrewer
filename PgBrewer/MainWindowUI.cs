@@ -1,6 +1,7 @@
 ﻿namespace PgBrewer;
 
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -24,6 +25,8 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
     #endregion
 
     #region Properties
+    public abstract ObservableCollection<PgBrewerPage> PageList { get; }
+    public abstract int SelectedPageIndex { get; set; }
     #endregion
 
     #region Events

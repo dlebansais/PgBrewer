@@ -8,242 +8,31 @@
         MinHeight="500"
         Icon="./Resources/main.ico"
         Closing="OnClosing">
-    <Window.Resources>
-        <ControlTemplate TargetType="{x:Type Button}" x:Key="MainButtonTemplate">
-            <Grid>
-                <Border Name="Border" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5" Width="120" Height="40" Margin="0,5,0,5">
-                    <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content" Margin="12,2,12,2" RecognizesAccessKey="True"/>
-                </Border>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="Border" Property="Background" Value="LightBlue"/>
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="Border" Property="Background" Value="Gray"/>
-                    <Setter Property="Foreground" Value="DarkGray" />
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <ControlTemplate TargetType="{x:Type TabItem}" x:Key="TabItemLevel1Template">
-            <Grid>
-                <Border Name="Border" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5" Width="160" Height="140" Margin="0,5,0,5">
-                    <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" RecognizesAccessKey="True"/>
-                </Border>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Panel.ZIndex" Value="100" />
-                    <Setter TargetName="Border" Property="Background" Value="LightBlue" />
-                    <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,1" />
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="Border" Property="Background" Value="DarkBlue" />
-                    <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
-                    <Setter Property="Foreground" Value="DarkGray" />
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <ControlTemplate TargetType="{x:Type TabItem}" x:Key="TabItemLevel2Template">
-            <Grid>
-                <Border Name="Border" Margin="5,4,5,10" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5,5,5,5" Width="120" Height="24">
-                    <ContentPresenter x:Name="ContentSite" VerticalAlignment="Top" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" RecognizesAccessKey="True"/>
-                </Border>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Panel.ZIndex" Value="100" />
-                    <Setter TargetName="Border" Property="Background" Value="LightBlue" />
-                    <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
-                    <Setter TargetName="Border" Property="CornerRadius" Value="5,5,0,0" />
-                    <Setter TargetName="Border" Property="Margin" Value="5,4,5,-1.2" />
-                    <Setter TargetName="Border" Property="Height" Value="35.2" />
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="Border" Property="Background" Value="DarkBlue" />
-                    <Setter TargetName="Border" Property="BorderBrush" Value="Black" />
-                    <Setter TargetName="Border" Property="CornerRadius" Value="5,5,5,5" />
-                    <Setter TargetName="Border" Property="Margin" Value="5,4,5,10" />
-                    <Setter TargetName="Border" Property="Height" Value="24" />
-                    <Setter Property="Foreground" Value="DarkGray" />
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource DeleteCommand}" Executed="OnDelete"/>
+        <CommandBinding Command="{StaticResource SaveCommand}" Executed="OnSave"/>
+        <CommandBinding Command="{StaticResource ExportCommand}" Executed="OnExport"/>
+        <CommandBinding Command="{StaticResource ImportCommand}" Executed="OnImport"/>
+        <CommandBinding Command="{StaticResource BackCommand}" Executed="OnBack"/>
+        <CommandBinding Command="{StaticResource ForwardCommand}" Executed="OnForward"/>
     </Window.CommandBindings>
+    <Window.Resources>
+        <Style x:Key="TabItemRaw" TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <ContentPresenter ContentSource="Header"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TabControl TabStripPlacement="Left" BorderThickness="0" Margin="10,10,10,10">
-            <TabItem Template="{StaticResource TabItemLevel1Template}">
-                <TabItem.Header>
-                    <DockPanel>
-                        <Image DockPanel.Dock="Top" Source="{Binding IconBeer}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
-                        <TextBlock FontSize="24" HorizontalAlignment="Center">Beers</TextBlock>
-                    </DockPanel>
-                </TabItem.Header>
-                <Grid>
-                    <TabControl Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue">
-                        <TabItem Header="Basic Lager" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4Control DataContext="{Binding BasicLager}"/>
-                        </TabItem>
-                        <TabItem Header="Pale Ale" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4x4Control DataContext="{Binding PaleAle}"/>
-                        </TabItem>
-                        <TabItem Header="Marzen" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4x4x2Control DataContext="{Binding Marzen}"/>
-                        </TabItem>
-                        <TabItem Header="Goblin Ale" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x3x4x3Control DataContext="{Binding GoblinAle}"/>
-                        </TabItem>
-                        <TabItem Header="Orcish Bock" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4x3x4x3Control DataContext="{Binding OrcishBock}"/>
-                        </TabItem>
-                        <TabItem Header="Brown Ale" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4x3x4x3Control DataContext="{Binding BrownAle}"/>
-                        </TabItem>
-                        <TabItem Header="Hegemony Lager" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4x3x4x3Control DataContext="{Binding HegemonyLager}"/>
-                        </TabItem>
-                        <TabItem Header="Dwarven Stout" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx4x3x4x3Control DataContext="{Binding DwarvenStout}"/>
-                        </TabItem>
-                    </TabControl>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
-                        <Button Click="OnBack" IsEnabled="{Binding CanGoBack}" Margin="0,0,5,0">
-                            <Image Source="pack://application:,,,/Resources/Undo.png" Width="16" Height="16"/>
-                        </Button>
-                        <Button Click="OnForward" IsEnabled="{Binding CanGoForward}" Margin="5,0,0,0">
-                            <Image Source="pack://application:,,,/Resources/Redo.png" Width="16" Height="16"/>
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem Template="{StaticResource TabItemLevel1Template}">
-                <TabItem.Header>
-                    <DockPanel>
-                        <Image DockPanel.Dock="Top" Source="{Binding IconLiquor}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
-                        <TextBlock FontSize="24" HorizontalAlignment="Center">Liquors</TextBlock>
-                    </DockPanel>
-                </TabItem.Header>
-                <Grid>
-                    <TabControl Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue">
-                        <TabItem Header="Potato Vodka" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding PotatoVodka}"/>
-                        </TabItem>
-                        <TabItem Header="Applejack" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding Applejack}"/>
-                        </TabItem>
-                        <TabItem Header="Beet Vodka" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding BeetVodka}"/>
-                        </TabItem>
-                        <TabItem Header="Pale Rum" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding PaleRum}"/>
-                        </TabItem>
-                        <TabItem Header="Whisky" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding Whisky}"/>
-                        </TabItem>
-                        <TabItem Header="Tequila" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding Tequila}"/>
-                        </TabItem>
-                        <TabItem Header="Dry Gin" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding DryGin}"/>
-                        </TabItem>
-                        <TabItem Header="Bourbon" Template="{StaticResource TabItemLevel2Template}">
-                            <local:Alcoholx3x4x5x4Control DataContext="{Binding Bourbon}"/>
-                        </TabItem>
-                    </TabControl>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
-                        <Button Click="OnBack" IsEnabled="{Binding CanGoBack}" Margin="0,0,5,0">
-                            <Image Source="pack://application:,,,/Resources/Undo.png" Width="16" Height="16"/>
-                        </Button>
-                        <Button Click="OnForward" IsEnabled="{Binding CanGoForward}" Margin="5,0,0,0">
-                            <Image Source="pack://application:,,,/Resources/Redo.png" Width="16" Height="16"/>
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem Template="{StaticResource TabItemLevel1Template}">
-                <TabItem.Header>
-                    <DockPanel>
-                        <Image DockPanel.Dock="Top" Source="{Binding IconSettings}" Width="64" Height="64" Visibility="{Binding IconSettings, Converter={StaticResource convNullToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Margin="0,0,0,10"/>
-                        <TextBlock FontSize="24" HorizontalAlignment="Center">Settings</TextBlock>
-                    </DockPanel>
-                </TabItem.Header>
-                <Border Margin="10,6,0,0" BorderBrush="Black" BorderThickness="1" Background="LightBlue" CornerRadius="5">
-                    <ScrollViewer Margin="10,10,10,10">
-                        <DockPanel Margin="0,0,10,0">
-                            <GroupBox DockPanel.Dock="Top" Grid.Row="0" Grid.Column="0" Header="Miscellaneous" Padding="5,5,5,5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <ItemsControl Grid.Row="0" Grid.Column="0" ItemsSource="{Binding AssociationFruit1}" ItemTemplate="{StaticResource AssociationLine}" Margin="0,0,5,0"/>
-                                    <ItemsControl Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AssociationVeggie1}" ItemTemplate="{StaticResource AssociationLine}" Margin="5,0,5,0"/>
-                                    <ItemsControl Grid.Row="0" Grid.Column="2" ItemsSource="{Binding AssociationVeggie2Liquor}" ItemTemplate="{StaticResource AssociationLine}" Margin="5,0,0,0"/>
-                                </Grid>
-                            </GroupBox>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <GroupBox Grid.Row="0" Grid.Column="0" Header="Veggies for beer" Margin="0,10,5,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationVeggie2Beer}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="1" Grid.Column="0" Header="Flavors #1 for beer" Margin="0,10,5,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationFlavor1Beer}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Header="Fruits" Margin="0,10,0,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationFruit2}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Header="Mushrooms" Margin="0,10,0,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationMushroom3}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="4" Grid.Column="0" Header="Flavors #2 for beer" Margin="0,10,5,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationFlavor2Beer}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="0" Grid.Column="1" Header="Parts #1 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationParts1}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="1" Grid.Column="1" Header="Flavors #1 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationFlavor1Liquor}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="4" Grid.Column="1" Header="Parts #2 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationParts2}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                                <GroupBox Grid.Row="5" Grid.Column="1" Header="Flavors #2 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                    <ItemsControl ItemsSource="{Binding AssociationFlavor2Liquor}" ItemTemplate="{StaticResource AssociationLine}"/>
-                                </GroupBox>
-                            </Grid>
-                        </DockPanel>
-                    </ScrollViewer>
-                </Border>
-            </TabItem>
-        </TabControl>
+        <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedPageIndex}" TabStripPlacement="Left" BorderThickness="0" Margin="10,10,10,10" Visibility="Visible" ItemsSource="{Binding PageList}" ItemTemplate="{StaticResource PageHeaderTemplate}"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="160" Margin="10,0,0,10">
-            <Button Template="{StaticResource MainButtonTemplate}" IsEnabled="{Binding IsChanged}" Click="OnSave" HorizontalAlignment="Center">
-                <TextBlock FontSize="24">Save</TextBlock>
-            </Button>
-            <Button Template="{StaticResource MainButtonTemplate}" Click="OnExport" HorizontalAlignment="Center">
-                <TextBlock FontSize="24">Export...</TextBlock>
-            </Button>
-            <Button Template="{StaticResource MainButtonTemplate}" Click="OnImport" HorizontalAlignment="Center">
-                <TextBlock FontSize="24">Import...</TextBlock>
-            </Button>
+            <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" IsEnabled="{Binding IsChanged}" Command="{StaticResource SaveCommand}" HorizontalAlignment="Center" Content="Save"/>
+            <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" Command="{StaticResource ExportCommand}" HorizontalAlignment="Center" Content="Export..."/>
+            <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" Command="{StaticResource ImportCommand}" HorizontalAlignment="Center" Content="Import..."/>
         </StackPanel>
     </Grid>
 </Window>
