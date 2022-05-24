@@ -37,14 +37,11 @@
             <sys:Boolean>False</sys:Boolean>
             <sys:Boolean>True</sys:Boolean>
         </CompositeCollection>
+        <ControlTemplate x:Key="TabItemRawTemplate" TargetType="{x:Type TabItem}">
+            <ContentPresenter ContentSource="Header"/>
+        </ControlTemplate>
         <Style x:Key="TabItemRaw" TargetType="{x:Type TabItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TabItem}">
-                        <ContentPresenter ContentSource="Header"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="Template" Value="{StaticResource TabItemRawTemplate}"/>
         </Style>
         <DataTemplate x:Key="ChoiceTemplate">
             <TextBlock Text="{Binding Name}"/>
@@ -130,8 +127,8 @@
             <TextBlock Text="{Binding Text}"/>
         </DataTemplate>
         <DataTemplate x:Key="Linex4Template" DataType="{x:Type local:Alcoholx4Line}">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
-                <DockPanel>
+            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
@@ -160,8 +157,8 @@
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x4Template">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
-                <DockPanel>
+            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
@@ -192,8 +189,8 @@
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x4x2Template">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
-                <DockPanel>
+            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
                     <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="100"/>
@@ -226,8 +223,8 @@
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex3x3x4x3Template">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
-                <DockPanel>
+            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="150"/>
@@ -262,8 +259,8 @@
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x3x4x3Template">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
-                <DockPanel>
+            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="160"/>
@@ -298,8 +295,8 @@
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex3x4x5x4Template">
-            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
-                <DockPanel>
+            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="160"/>
                     <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="160"/>
