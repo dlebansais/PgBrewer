@@ -16,7 +16,7 @@ using System.Windows.Threading;
 using Contracts;
 using Microsoft.Win32;
 
-public partial class MainWindow : Window, INotifyPropertyChanged
+public partial class MainWindow : MainWindowUI
 {
     #region Constants
     private static readonly string AssociationSettingName = "Association";
@@ -27,9 +27,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     #region Init
     public MainWindow()
     {
-        InitializeComponent();
-        DataContext = this;
-
         LoadAssociations();
         LoadGUI();
         LoadIcons();
@@ -464,7 +461,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     #endregion
 
     #region Events
-    private void OnClosing(object sender, CancelEventArgs e)
+    public override void OnClosing(object sender, CancelEventArgs e)
     {
         if (IsChanged)
         {
@@ -490,7 +487,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             SaveGUI();
     }
 
-    private void OnSave(object sender, RoutedEventArgs e)
+    public override void OnSave(object sender, RoutedEventArgs e)
     {
         SaveAll();
         IsChanged = false;
@@ -545,13 +542,13 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         DataArchive.SetIndexList(GuiSettingName, Coordinates);
     }
 
-    private void OnDelete(object sender, RoutedEventArgs e)
+    public override void OnDelete(object sender, RoutedEventArgs e)
     {
         ComponentAssociation Association = (ComponentAssociation)((Button)sender).DataContext;
         Association.AssociationIndex = -1;
     }
 
-    private void OnExport(object sender, RoutedEventArgs e)
+    public override void OnExport(object sender, RoutedEventArgs e)
     {
         SaveFileDialog Dlg = new SaveFileDialog();
         Dlg.Filter = "CSV file (*.csv)|*.csv";
@@ -634,7 +631,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         writer.WriteLine();
     }
 
-    private void OnImport(object sender, RoutedEventArgs e)
+    public override void OnImport(object sender, RoutedEventArgs e)
     {
         OpenFileDialog Dlg = new OpenFileDialog();
         Dlg.Filter = "CSV file (*.csv)|*.csv";
@@ -843,12 +840,12 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         // CanGoForward = false;
     }
 
-    private void OnBack(object sender, RoutedEventArgs e)
+    public override void OnBack(object sender, RoutedEventArgs e)
     {
         ChangeLine(-1);
     }
 
-    private void OnForward(object sender, RoutedEventArgs e)
+    public override void OnForward(object sender, RoutedEventArgs e)
     {
         ChangeLine(+1);
     }
@@ -1110,20 +1107,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     {
         MainWindow Window = (MainWindow)App.Current.MainWindow;
         Window.IsChanged = true;
-    }
-    #endregion
-
-    #region Implementation of INotifyPropertyChanged
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    public void NotifyPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    public void NotifyThisPropertyChanged([CallerMemberName] string propertyName = "")
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
     #endregion
 }

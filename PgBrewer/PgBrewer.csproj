@@ -16,8 +16,8 @@
     <Product>PgBrewer</Product>
     <Description>Helps managing beers and other liquors one can make in the Project: Gorgon MMORPG</Description>
     <Copyright>Copyright © David Le Bansais 2019</Copyright>
-    <AssemblyVersion>1.0.2.48</AssemblyVersion>
-    <FileVersion>1.0.2.48</FileVersion>
+    <AssemblyVersion>1.0.2.49</AssemblyVersion>
+    <FileVersion>1.0.2.49</FileVersion>
     <RepositoryUrl>https://github.com/dlebansais/PgBrewer</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <RootNamespace>PgBrewer</RootNamespace>

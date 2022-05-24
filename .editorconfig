@@ -45,6 +45,9 @@ dotnet_diagnostic.SA1504.severity = silent
 # SA1514: Element documentation header should be preceded by blank line
 dotnet_diagnostic.SA1514.severity = silent
 
+# SA1515: Element documentation header should be preceded by blank line
+dotnet_diagnostic.SA1515.severity = silent
+
 # SA1516: Elements should be separated by blank line
 dotnet_diagnostic.SA1516.severity = silent
 
@@ -53,6 +56,9 @@ dotnet_diagnostic.SA1519.severity = silent
 
 # SA1520: Use braces consistently
 dotnet_diagnostic.SA1520.severity = silent
+
+# SA1600: Element return value should be documented
+dotnet_diagnostic.SA1600.severity = silent
 
 # SA1615: Element return value should be documented
 dotnet_diagnostic.SA1615.severity = silent
