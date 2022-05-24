@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class PgBrewerPageSettings : PgBrewerPage
 {
     #region Init
-    public PgBrewerPageSettings(BackForward backForward, bool startSelected = false)
-        : base(backForward, startSelected)
+    public PgBrewerPageSettings(BackForward backForward)
+        : base(backForward)
     {
     }
     #endregion

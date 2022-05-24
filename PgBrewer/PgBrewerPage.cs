@@ -6,10 +6,9 @@ using System.Runtime.CompilerServices;
 public abstract class PgBrewerPage : INotifyPropertyChanged
 {
     #region Init
-    public PgBrewerPage(BackForward backForward, bool startSelected)
+    public PgBrewerPage(BackForward backForward)
     {
         BackForward = backForward;
-        IsSelected = startSelected;
     }
     #endregion
 

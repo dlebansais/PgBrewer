@@ -41,9 +41,17 @@ public class Alcohol : INotifyPropertyChanged
     }
 
     private int MismatchCountInternal;
+
+    public bool IsSelected { get; private set; }
     #endregion
 
     #region Client Interface
+    public void SetSelected(bool isSelected)
+    {
+        IsSelected = isSelected;
+        NotifyPropertyChanged(nameof(IsSelected));
+    }
+
     public virtual void Save()
     {
         List<int> Indexes = new List<int>();

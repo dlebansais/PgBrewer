@@ -37,6 +37,7 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
     public abstract void OnExport(object sender, RoutedEventArgs e);
     public abstract void OnImport(object sender, RoutedEventArgs e);
     public abstract void OnDelete(object sender, RoutedEventArgs e);
+    public abstract void OnDeleteLine(object sender, RoutedEventArgs e);
     #endregion
 
     #region Implementation of INotifyPropertyChanged

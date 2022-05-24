@@ -35,6 +35,7 @@ public partial class MainWindow : MainWindowUI
         LoadGUI();
         LoadIcons();
         IsChangedInternal = false;
+        PageBeers.SetSelected(true);
 
         Loaded += OnLoaded;
     }
@@ -152,7 +153,7 @@ public partial class MainWindow : MainWindowUI
 
     #region Properties
     public static BackForward BackForward { get; } = new();
-    public static PgBrewerPageBeers PageBeers { get; } = new PgBrewerPageBeers(BackForward, startSelected: true);
+    public static PgBrewerPageBeers PageBeers { get; } = new PgBrewerPageBeers(BackForward);
     public static PgBrewerPageLiquors PageLiquors { get; } = new PgBrewerPageLiquors(BackForward);
     public static PgBrewerPageSettings PageSettings { get; } = new PgBrewerPageSettings(BackForward);
 
@@ -284,6 +285,12 @@ public partial class MainWindow : MainWindowUI
         Coordinates.Add((int)ActualHeight);
 
         DataArchive.SetIndexList(GuiSettingName, Coordinates);
+    }
+
+    public override void OnDeleteLine(object sender, RoutedEventArgs e)
+    {
+        AlcoholLine Line = (AlcoholLine)((Button)sender).DataContext;
+        Line.EffectIndex = -1;
     }
 
     public override void OnDelete(object sender, RoutedEventArgs e)

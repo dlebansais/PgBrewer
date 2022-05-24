@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:PgBrewer"
              xmlns:conv="clr-namespace:Converters"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Startup="OnStartup">
     <Application.Resources>
         <conv:BooleanToObjectConverter x:Key="convBooleanToObject"/>
         <conv:NullToObjectConverter x:Key="convNullToObject"/>
         <conv:IdToImageSourceConverter x:Key="convIdToImageSource"/>
+        <conv:PositiveIntToObjectConverter x:Key="convPositiveIntToObject"/>
         <RoutedCommand x:Key="DeleteCommand"/>
         <RoutedCommand x:Key="SaveCommand"/>
         <RoutedCommand x:Key="ExportCommand"/>
         <RoutedCommand x:Key="ImportCommand"/>
         <RoutedCommand x:Key="BackCommand"/>
         <RoutedCommand x:Key="ForwardCommand"/>
+        <RoutedCommand x:Key="DeleteLineCommand"/>
         <CompositeCollection x:Key="CollapsedVisible">
             <Visibility>Collapsed</Visibility>
             <Visibility>Visible</Visibility>
@@ -26,6 +29,23 @@
             <SolidColorBrush>Transparent</SolidColorBrush>
             <SolidColorBrush>LightBlue</SolidColorBrush>
         </CompositeCollection>
+        <CompositeCollection x:Key="VisibleHidden">
+            <Visibility>Visible</Visibility>
+            <Visibility>Hidden</Visibility>
+        </CompositeCollection>
+        <CompositeCollection x:Key="FalseTrue">
+            <sys:Boolean>False</sys:Boolean>
+            <sys:Boolean>True</sys:Boolean>
+        </CompositeCollection>
+        <Style x:Key="TabItemRaw" TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <ContentPresenter ContentSource="Header"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <DataTemplate x:Key="ChoiceTemplate">
             <TextBlock Text="{Binding Name}"/>
         </DataTemplate>
@@ -50,50 +70,6 @@
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter TargetName="BorderTarget" Property="Background" Value="Gray"/>
-                    <Setter Property="Foreground" Value="DarkGray" />
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <ControlTemplate TargetType="{x:Type TabItem}" x:Key="TabItemLevel1Template">
-            <Grid>
-                <Border x:Name="BorderTarget" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5" Width="160" Height="140" Margin="0,5,0,5">
-                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2"/>
-                </Border>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Panel.ZIndex" Value="100" />
-                    <Setter TargetName="BorderTarget" Property="Background" Value="LightBlue" />
-                    <Setter TargetName="BorderTarget" Property="BorderThickness" Value="1,1,1,1" />
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="BorderTarget" Property="Background" Value="DarkBlue" />
-                    <Setter TargetName="BorderTarget" Property="BorderBrush" Value="Black" />
-                    <Setter Property="Foreground" Value="DarkGray" />
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <ControlTemplate TargetType="{x:Type TabItem}" x:Key="TabItemLevel2Template">
-            <Grid>
-                <Border x:Name="BorderTarget" Margin="5,4,5,10" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5,5,5,5" Width="120" Height="24">
-                    <ContentPresenter VerticalAlignment="Top" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2"/>
-                </Border>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Panel.ZIndex" Value="100" />
-                    <Setter TargetName="BorderTarget" Property="Background" Value="LightBlue" />
-                    <Setter TargetName="BorderTarget" Property="BorderThickness" Value="1,1,1,0" />
-                    <Setter TargetName="BorderTarget" Property="CornerRadius" Value="5,5,0,0" />
-                    <Setter TargetName="BorderTarget" Property="Margin" Value="5,4,5,-1.2" />
-                    <Setter TargetName="BorderTarget" Property="Height" Value="35.2" />
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="BorderTarget" Property="Background" Value="DarkBlue" />
-                    <Setter TargetName="BorderTarget" Property="BorderBrush" Value="Black" />
-                    <Setter TargetName="BorderTarget" Property="CornerRadius" Value="5,5,5,5" />
-                    <Setter TargetName="BorderTarget" Property="Margin" Value="5,4,5,10" />
-                    <Setter TargetName="BorderTarget" Property="Height" Value="24" />
                     <Setter Property="Foreground" Value="DarkGray" />
                 </Trigger>
             </ControlTemplate.Triggers>
@@ -125,34 +101,241 @@
                 </Trigger>
             </DataTemplate.Triggers>
         </DataTemplate>
+        <DataTemplate x:Key="TabItemLevel2Template" DataType="{x:Type local:Alcohol}">
+            <Grid>
+                <Border Margin="5,4,5,-1.2" Visibility="{Binding IsSelected, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Background="LightBlue" BorderBrush="Black" BorderThickness="1,1,1,0" CornerRadius="5,5,0,0" Width="120" Height="35.2">
+                    <TextBlock x:Name="TextTargetSelected" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding Name}" Margin="12,2,12,2"/>
+                </Border>
+                <Border x:Name="BorderTarget" Visibility="{Binding IsSelected, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleCollapsed}}" Margin="5,4,5,10" Background="Transparent" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="5,5,5,5" Width="120" Height="24">
+                    <TextBlock x:Name="TextTargetUnselected" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding Name}" Margin="12,2,12,2"/>
+                </Border>
+            </Grid>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="BorderTarget" Property="Background" Value="#FFE5F3FB"/>
+                    <Setter TargetName="BorderTarget" Property="BorderBrush" Value="#FF70C0E7"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="BorderTarget" Property="Background" Value="DarkBlue" />
+                    <Setter TargetName="BorderTarget" Property="BorderBrush" Value="Black" />
+                    <Setter TargetName="BorderTarget" Property="CornerRadius" Value="5,5,5,5" />
+                    <Setter TargetName="BorderTarget" Property="Margin" Value="5,4,5,10" />
+                    <Setter TargetName="BorderTarget" Property="Height" Value="24" />
+                    <Setter TargetName="TextTargetSelected" Property="Foreground" Value="DarkGray" />
+                    <Setter TargetName="TextTargetUnselected" Property="Foreground" Value="DarkGray" />
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate x:Key="EffectTemplate">
+            <TextBlock Text="{Binding Text}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="Linex4Template" DataType="{x:Type local:Alcoholx4Line}">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel>
+                    <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
+                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                    <Grid VerticalAlignment="Center">
+                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
+                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Alcoholx4}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock TextAlignment="Right" Width="98" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+                    <TextBlock Text="{Binding MismatchCount}"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4Template}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Linex4x4Template">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel>
+                    <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
+                    <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
+                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                    <Grid VerticalAlignment="Center">
+                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
+                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Alcoholx4x4}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock TextAlignment="Right" Width="248" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+                    <TextBlock Text="{Binding MismatchCount}"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4Template}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Linex4x4x2Template">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel>
+                    <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
+                    <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
+                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                    <Grid VerticalAlignment="Center">
+                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
+                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Alcoholx4x4x2}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock TextAlignment="Right" Width="348" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+                    <TextBlock Text="{Binding MismatchCount}"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4x2Template}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Linex3x3x4x3Template">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel>
+                    <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="150"/>
+                    <TextBlock x:Name="componentText4" DockPanel.Dock="Left" Text="{Binding Component4}" VerticalAlignment="Center" MinWidth="120"/>
+                    <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
+                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                    <Grid VerticalAlignment="Center">
+                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
+                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText4" Value="White"></Setter>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Alcoholx3x3x4x3}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock TextAlignment="Right" Width="468" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+                    <TextBlock Text="{Binding MismatchCount}"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x3x4x3Template}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Linex4x3x4x3Template">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel>
+                    <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="160"/>
+                    <TextBlock x:Name="componentText4" DockPanel.Dock="Left" Text="{Binding Component4}" VerticalAlignment="Center" MinWidth="120"/>
+                    <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
+                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                    <Grid VerticalAlignment="Center">
+                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
+                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText4" Value="White"></Setter>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Alcoholx4x3x4x3}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock TextAlignment="Right" Width="478" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+                    <TextBlock Text="{Binding MismatchCount}"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x3x4x3Template}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Linex3x4x5x4Template">
+            <Border x:Name="borderLine" Padding="5,2,5,2" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                <DockPanel>
+                    <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
+                    <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="160"/>
+                    <TextBlock x:Name="componentText3" DockPanel.Dock="Left" Text="{Binding Component3}" VerticalAlignment="Center" MinWidth="160"/>
+                    <TextBlock x:Name="componentText4" DockPanel.Dock="Left" Text="{Binding Component4}" VerticalAlignment="Center" MinWidth="120"/>
+                    <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
+                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                    <Grid VerticalAlignment="Center">
+                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
+                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
+                    <Setter Property="Foreground" TargetName="componentText4" Value="White"></Setter>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Alcoholx3x4x5x4}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock TextAlignment="Right" Width="538" Margin="0,0,5,0">Mismatch Count:</TextBlock>
+                    <TextBlock Text="{Binding MismatchCount}"/>
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x4x5x4Template}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type local:PgBrewerPageBeers}">
             <Grid>
-                <TabControl Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue">
-                    <TabItem Header="Basic Lager" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4Control DataContext="{Binding BasicLager}"/>
-                    </TabItem>
-                    <TabItem Header="Pale Ale" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4x4Control DataContext="{Binding PaleAle}"/>
-                    </TabItem>
-                    <TabItem Header="Marzen" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4x4x2Control DataContext="{Binding Marzen}"/>
-                    </TabItem>
-                    <TabItem Header="Goblin Ale" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x3x4x3Control DataContext="{Binding GoblinAle}"/>
-                    </TabItem>
-                    <TabItem Header="Orcish Bock" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4x3x4x3Control DataContext="{Binding OrcishBock}"/>
-                    </TabItem>
-                    <TabItem Header="Brown Ale" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4x3x4x3Control DataContext="{Binding BrownAle}"/>
-                    </TabItem>
-                    <TabItem Header="Hegemony Lager" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4x3x4x3Control DataContext="{Binding HegemonyLager}"/>
-                    </TabItem>
-                    <TabItem Header="Dwarven Stout" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx4x3x4x3Control DataContext="{Binding DwarvenStout}"/>
-                    </TabItem>
-                </TabControl>
+                <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
                     <Button Command="{StaticResource BackCommand}" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
                         <Image Source="./Resources/Undo.png" Width="16" Height="16"/>
@@ -165,32 +348,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:PgBrewerPageLiquors}">
             <Grid>
-                <TabControl Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue">
-                    <TabItem Header="Potato Vodka" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding PotatoVodka}"/>
-                    </TabItem>
-                    <TabItem Header="Applejack" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Applejack}"/>
-                    </TabItem>
-                    <TabItem Header="Beet Vodka" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding BeetVodka}"/>
-                    </TabItem>
-                    <TabItem Header="Pale Rum" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding PaleRum}"/>
-                    </TabItem>
-                    <TabItem Header="Whisky" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Whisky}"/>
-                    </TabItem>
-                    <TabItem Header="Tequila" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Tequila}"/>
-                    </TabItem>
-                    <TabItem Header="Dry Gin" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding DryGin}"/>
-                    </TabItem>
-                    <TabItem Header="Bourbon" Template="{StaticResource TabItemLevel2Template}">
-                        <local:Alcoholx3x4x5x4Control DataContext="{Binding Bourbon}"/>
-                    </TabItem>
-                </TabControl>
+                <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
                     <Button Command="{StaticResource BackCommand}" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
                         <Image Source="./Resources/Undo.png" Width="16" Height="16"/>

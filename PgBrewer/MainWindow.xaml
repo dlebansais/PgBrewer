@@ -15,18 +15,8 @@
         <CommandBinding Command="{StaticResource ImportCommand}" Executed="OnImport"/>
         <CommandBinding Command="{StaticResource BackCommand}" Executed="OnBack"/>
         <CommandBinding Command="{StaticResource ForwardCommand}" Executed="OnForward"/>
+        <CommandBinding Command="{StaticResource DeleteLineCommand}" Executed="OnDeleteLine"/>
     </Window.CommandBindings>
-    <Window.Resources>
-        <Style x:Key="TabItemRaw" TargetType="{x:Type TabItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TabItem}">
-                        <ContentPresenter ContentSource="Header"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid>
         <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedPageIndex}" TabStripPlacement="Left" BorderThickness="0" Margin="10,10,10,10" Visibility="Visible" ItemsSource="{Binding PageList}" ItemTemplate="{StaticResource PageHeaderTemplate}"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="160" Margin="10,0,0,10">
