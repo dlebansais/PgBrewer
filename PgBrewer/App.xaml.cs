@@ -1,8 +1,7 @@
-﻿namespace PgBrewer
-{
-    using System.Windows;
+﻿namespace PgBrewer;
 
-    public partial class App : Application
-    {
-    }
+using System.Windows;
+
+public partial class App : Application
+{
 }

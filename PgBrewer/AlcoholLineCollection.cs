@@ -1,8 +1,7 @@
-﻿namespace PgBrewer
-{
-    using System.Collections.Generic;
+﻿namespace PgBrewer;
 
-    public class AlcoholLineCollection : List<AlcoholLine>
-    {
-    }
+using System.Collections.Generic;
+
+public class AlcoholLineCollection : List<AlcoholLine>
+{
 }

@@ -151,6 +151,7 @@ Brown Ale;Dwarves gain +20 Max Hydratation
 Brown Ale;Dwarves gain +20 Max Metabolism
 Brown Ale;Dwarves gain +23 Max Power
 Brown Ale;Dwarves gain +42 Max Health
+Brown Ale;Dwarves gain +62 Max Armor;;of Dwarfhood
 Brown Ale;Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP when Dirty
 Brown Ale;Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP when Dirty.
 Brown Ale;Elves gain +20 Max Bodyheat
@@ -158,11 +159,13 @@ Brown Ale;Elves gain +20 Max Hydratation;;of Elfinity
 Brown Ale;Elves gain +20 Max Metabolism
 Brown Ale;Elves gain +23 Max Power
 Brown Ale;Elves gain +42 Max Health
+Brown Ale;Elves gain +62 Max Armor;;of Elfinity
 Brown Ale;Fairies gain +20 Max Bodyheat
 Brown Ale;Fairies gain +20 Max Hydratation
 Brown Ale;Fairies gain +20 Max Metabolism
 Brown Ale;Fairies gain +23 Max Power
 Brown Ale;Fairies gain +42 Max Health
+Brown Ale;Fairies gain +62 Max Armor;;of Faedom
 Brown Ale;Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5;Flier's;
 Brown Ale;First Aid Ability Power Cost -6%, Giant Bat Ability Power Cost -7%, Spider Ability Power Cost -7%;;
 Brown Ale;Healing of your Ultimate Protection Abilities +15, Healing of your Minor Healing Abilities +5, Healing of your Major Healing Abilities +10;;of Healing
@@ -173,6 +176,7 @@ Brown Ale;Humans gain +20 Max Hydratation
 Brown Ale;Humans gain +20 Max Metabolism
 Brown Ale;Humans gain +23 Max Power
 Brown Ale;Humans gain +42 Max Health
+Brown Ale;Humans gain +62 Max Armor;;of Humanity
 Brown Ale;Knife Ability Power Cost -6%, Staff Ability Power Cost -7%, Hammer Ability Power Cost -7%;;
 Brown Ale;Max Armor +48;;of Toughness
 Brown Ale;Max Health +33;;of Healthiness
@@ -185,6 +189,7 @@ Brown Ale;Orcs gain +20 Max Hydratation
 Brown Ale;Orcs gain +20 Max Metabolism
 Brown Ale;Orcs gain +23 Max Power
 Brown Ale;Orcs gain +42 Max Health
+Brown Ale;Orcs gain +62 Max Armor;;of Orchood
 Brown Ale;Pig Ability Power Cost -6%, Deer Ability Power Cost -7%, Cow Ability Power Cost -7%;;
 Brown Ale;Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
 Brown Ale;Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
@@ -193,6 +198,7 @@ Brown Ale;Rakshasa gain +20 Max Hydratation
 Brown Ale;Rakshasa gain +20 Max Metabolism
 Brown Ale;Rakshasa gain +23 Max Power
 Brown Ale;Rakshasa gain +42 Max Health
+Brown Ale;Rakshasa gain +62 Max Armor;;of Rakshasahood
 Brown Ale;Sprint Speed Boost -1.5, Taunt From Attack Damage +30%;Taunter's;
 Brown Ale;Taunt From Attack Damage -10.5%;;of Meekness
 Brown Ale;Taunt From Attack Damage +20%;Taunter's;
@@ -214,6 +220,7 @@ Hegemony Lager;(?) Dwarves gain +20 Max Hydratation
 Hegemony Lager;(?) Dwarves gain +20 Max Metabolism
 Hegemony Lager;(?) Dwarves gain +23 Max Power
 Hegemony Lager;(?) Dwarves gain +42 Max Health
+Hegemony Lager;Dwarves gain +74 Max Armor;;of Dwarfhood
 Hegemony Lager;(?) Elves earn +6,7% Combat XP when feeling Clean, but earn -6,7 % Combat XP when Dirty
 Hegemony Lager;(?) Elves earn +8.6 % Combat XP when feeling clean, but earn NO Combat XP when Dirty.
 Hegemony Lager;(?) Elves gain +20 Max Bodyheat
@@ -221,11 +228,13 @@ Hegemony Lager;(?) Elves gain +20 Max Hydratation;;of Elfinity
 Hegemony Lager;(?) Elves gain +20 Max Metabolism
 Hegemony Lager;(?) Elves gain +23 Max Power
 Hegemony Lager;(?) Elves gain +42 Max Health
+Hegemony Lager;Elves gain +74 Max Armor;;of Elfinity
 Hegemony Lager;(?) Fairies gain +20 Max Bodyheat
 Hegemony Lager;(?) Fairies gain +20 Max Hydratation
 Hegemony Lager;(?) Fairies gain +20 Max Metabolism
 Hegemony Lager;(?) Fairies gain +23 Max Power
 Hegemony Lager;(?) Fairies gain +42 Max Health
+Hegemony Lager;Fairies gain +74 Max Armor;;of Faedom
 Hegemony Lager;(?) Fast-Flying Cost (Per Second) -0.5, Fast-Flying Speed +1.5;Flier's;
 Hegemony Lager;(?) First Aid Ability Power Cost -6%, Giant Bat Ability Power Cost -7%, Spider Ability Power Cost -7%;;
 Hegemony Lager;(?) Healing of your Ultimate Protection Abilities +15, Healing of your Minor Healing Abilities +5, Healing of your Major Healing Abilities +10;;of Healing
@@ -236,6 +245,7 @@ Hegemony Lager;(?) Humans gain +20 Max Hydratation
 Hegemony Lager;(?) Humans gain +20 Max Metabolism
 Hegemony Lager;(?) Humans gain +23 Max Power
 Hegemony Lager;(?) Humans gain +42 Max Health
+Hegemony Lager;Humans gain +74 Max Armor;;of Humanity
 Hegemony Lager;(?) Knife Ability Power Cost -6%, Staff Ability Power Cost -7%, Hammer Ability Power Cost -7%;;
 Hegemony Lager;(?) Max Armor +48;;of Toughness
 Hegemony Lager;(?) Max Health +33;;of Healthiness
@@ -248,6 +258,7 @@ Hegemony Lager;(?) Orcs gain +20 Max Hydratation
 Hegemony Lager;(?) Orcs gain +20 Max Metabolism
 Hegemony Lager;(?) Orcs gain +23 Max Power
 Hegemony Lager;(?) Orcs gain +42 Max Health
+Hegemony Lager;Orcs gain +74 Max Armor;;of Orchood
 Hegemony Lager;(?) Pig Ability Power Cost -6%, Deer Ability Power Cost -7%, Cow Ability Power Cost -7%;;
 Hegemony Lager;(?) Rakshasa earn +6,7% Combat XP when feeling peacable, but earn -6,7 % Combat XP when feeling Dead Inside
 Hegemony Lager;(?) Rakshasa earn +8.6 % Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
@@ -256,6 +267,7 @@ Hegemony Lager;(?) Rakshasa gain +20 Max Hydratation
 Hegemony Lager;(?) Rakshasa gain +20 Max Metabolism
 Hegemony Lager;(?) Rakshasa gain +23 Max Power
 Hegemony Lager;(?) Rakshasa gain +42 Max Health
+Hegemony Lager;Rakshasa gain +74 Max Armor;;of Rakshasahood
 Hegemony Lager;(?) Sprint Speed Boost -1.5, Taunt From Attack Damage +30%;Taunter's;
 Hegemony Lager;(?) Taunt From Attack Damage -10.5%;;of Meekness
 Hegemony Lager;Taunt From Attack Damage +24%;Taunter's;
@@ -751,6 +763,7 @@ Pale Rum;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Pale Rum;(?) take -1 damage from elite
 Pale Rum;(?) Taunt From Attack Damage -1%;;of Meekness
 Pale Rum;(?) Taunt From Attack Damage +1%;Taunter's;
+Pale Rum;(?) Melee Accuracy Boost +4.5, Chance to Evade Melee +4.5%;;
 Whisky;(?) Burst Attacks +10 Damage to Elite
 Whisky;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Whisky;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
@@ -858,6 +871,7 @@ Whisky;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Whisky;(?) take -1 damage from elite
 Whisky;(?) Taunt From Attack Damage -1%;;of Meekness
 Whisky;(?) Taunt From Attack Damage +1%;Taunter's;
+Whisky;Melee Accuracy Boost +4.5, Chance to Evade Melee +4.5%;;
 Tequila;(?) Burst Attacks +10 Damage to Elite
 Tequila;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Tequila;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
@@ -913,21 +927,21 @@ Tequila;(?) Dwarves gain +1 Max Bodyheat
 Tequila;(?) Dwarves gain +1 Max Hydratation
 Tequila;(?) Dwarves gain +1 Max Metabolism
 Tequila;Dwarves gain +23 Max Power;;of Dwarfhood
-Tequila;(?) Dwarves gain +6 Max Health
-Tequila;(?) Dwarves gain +5 Max Armor
+Tequila;Dwarves gain +42 Max Health;;of Dwarfhood
+Tequila;Dwarves gain +62 Max Armor;;of Dwarfhood
 Tequila;(?) Elves earn +1% Combat XP when feeling clean, but earn NO Combat XP when Dirty
 Tequila;(?) Elves gain +1 Max Bodyheat
 Tequila;(?) Elves gain +1 Max Hydratation
 Tequila;(?) Elves gain +1 Max Metabolism
-Tequila;(?) Elves gain +4 Max Power
-Tequila;(?) Elves gain +6 Max Health
-Tequila;(?) Elves gain +5 Max Armor;;of Elfinity
+Tequila;Elves gain +23 Max Power;;of Elfinity
+Tequila;Elves gain +42 Max Health;;of Elfinity
+Tequila;Elves gain +62 Max Armor;;of Elfinity
 Tequila;(?) Fairies gain +1 Max Bodyheat
 Tequila;(?) Fairies gain +1 Max Hydratation
 Tequila;(?) Fairies gain +1 Max Metabolism;;of Faedom
-Tequila;(?) Fairies gain +4 Max Power
+Tequila;Fairies gain +23 Max Power;;of Faedom
+Tequila;Fairies gain +42 Max Heatlh;;of Faedom
 Tequila;Fairies gain +62 Max Armor;;of Faedom
-Tequila;(?) Fairies gain +6 Max Heatlh
 Tequila;(?) Fast-Flying Speed +0.1
 Tequila;(?) Healing of Your Major Healing Abilities +1
 Tequila;(?) Humans earn +1% Combat XP when feeling community-minded, but earn -1% Combat XP when Lonely
@@ -935,9 +949,9 @@ Tequila;(?) Humans earn +1% Combat XP when feeling community-minded, but earn NO
 Tequila;(?) Humans gain +1 Max Bodyheat
 Tequila;(?) Humans gain +1 Max Hydratation
 Tequila;(?) Humans gain +1 Max Metabolism
-Tequila;(?) Humans gain +4 Max Power
-Tequila;(?) Humans gain +6 Max Health
-Tequila;(?) Humans gain +5 Max Armor
+Tequila;Humans gain +23 Max Power;;of Humanity
+Tequila;Humans gain +42 Max Health;;of Humanity
+Tequila;Humans gain +62 Max Armor;;of Humanity
 Tequila;(?) Jump Power +0.1
 Tequila;(?) Max Cleanliness +1
 Tequila;(?) Max Armor +10;;of Toughness
@@ -949,22 +963,24 @@ Tequila;(?) Melee Evasion +1%
 Tequila;(?) Orcs gain +1 Max Bodyheat
 Tequila;(?) Orcs gain +1 Max Hydratation
 Tequila;(?) Orcs gain +1 Max Metabolism
-Tequila;(?) Orcs gain +4 Max Power
-Tequila;(?) Orcs gain +6 Max Health
-Tequila;(?) Orcs gain +5 Max Armor
+Tequila;Orcs gain +23 Max Power;;of Orchood
+Tequila;Orcs gain +42 Max Health;;of Orchood
+Tequila;Orcs gain +62 Max Armor;;of Orchood
 Tequila;(?) Projectile Attacks do +6 Damage to Elite
 Tequila;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Tequila;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Tequila;(?) Rakshasa gain +1 Max Bodyheat
 Tequila;(?) Rakshasa gain +1 Max Metabolism
 Tequila;(?) Rakshasa gain +4 Max Power
-Tequila;(?) Rakshasa gain +6 Max Health
+Tequila;Rakshasa gain +23 Max Health;;of Rakshasahood
 Tequila;Rakshasa gain +42 Max Health;;of Rakshasahood
+Tequila;Rakshasa gain +62 Max Armor;;of Rakshasahood
 Tequila;(?) Slashing Mitigation +1
 Tequila;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Tequila;(?) take -1 damage from elite
 Tequila;(?) Taunt From Attack Damage -1%;;of Meekness
 Tequila;(?) Taunt From Attack Damage +1%;Taunter's;
+Tequila;Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
 Dry Gin;(?) Burst Attacks +10 Damage to Elite
 Dry Gin;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Dry Gin;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
@@ -1072,6 +1088,9 @@ Dry Gin;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Dry Gin;(?) take -1 damage from elite
 Dry Gin;(?) Taunt From Attack Damage -1%;;of Meekness
 Dry Gin;(?) Taunt From Attack Damage +1%;Taunter's;
+Dry Gin;(?) Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
+Dry Gin;Max Health +9, Direct Nature Damage Reduction +5, Direct Cold Damage Reduction +5, Direct Slashing Damage Reduction +5;;
+Dry Gin;Max Health +9, Direct Acid Damage Reduction +5, Direct Fire Damage Reduction +5, Direct Slashing Damage Reduction +5;;
 Bourbon;(?) Burst Attacks +10 Damage to Elite
 Bourbon;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
 Bourbon;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
@@ -1179,3 +1198,7 @@ Bourbon;(?) Sprint Speed Boost -1.5, Taunt from Attack Damage +10%
 Bourbon;(?) take -1 damage from elite
 Bourbon;(?) Taunt From Attack Damage -1%;;of Meekness
 Bourbon;Taunt From Attack Damage +28%;Taunter's;
+Bourbon;(?) Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
+Bourbon;Direct Piercing Damage +30
+Bourbon;Max Health +10, Direct Divine Damage Reduction +6, Direct Psychic Damage Reduction +6, Direct Piercing Damage Reduction +6;;
+Bourbon;Max Health +10, Direct Sonic Damage Reduction +6, Direct Trauma Damage Reduction +6, Direct Crushing Damage Reduction +6;;

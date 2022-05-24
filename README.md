@@ -35,7 +35,7 @@ If you notice an effect that has the wrong name, the wrong type or wrong values,
 
 # Screenshots
 
-Note: icons are copyright © 2017, Elder Game, LLC. They will show up only if you download them with the [PgJsonParse](https://github.com/dlebansais/PgJsonParse) program.
+Note: icons are copyright © 2022, Elder Game, LLC. They will show up only if you download them with the [PgJsonParse](https://github.com/dlebansais/PgJsonParse) program.
 
 ![Main Screen](/Screenshots/MainScreen.png?raw=true "The app main screen")
 

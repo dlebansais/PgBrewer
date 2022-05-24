@@ -1,10 +1,9 @@
-﻿namespace PgBrewer
+﻿namespace PgBrewer;
+
+public partial class Alcoholx4x4x2Control : AlcoholControl
 {
-    public partial class Alcoholx4x4x2Control : AlcoholControl
+    public Alcoholx4x4x2Control()
     {
-        public Alcoholx4x4x2Control()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
