@@ -259,7 +259,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
+                    <ListBox SelectedIndex="{Binding SelectedLine}" SelectionChanged="OnSelectionChanged" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
@@ -270,7 +270,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x4x5x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
+                    <ListBox SelectedIndex="{Binding SelectedLine}" SelectionChanged="OnSelectionChanged" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x4x5x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
@@ -281,7 +281,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
+                    <ListBox SelectedIndex="{Binding SelectedLine}" SelectionChanged="OnSelectionChanged" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
@@ -292,7 +292,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
+                    <ListBox SelectedIndex="{Binding SelectedLine}" SelectionChanged="OnSelectionChanged" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
@@ -303,7 +303,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
+                    <ListBox SelectedIndex="{Binding SelectedLine}" SelectionChanged="OnSelectionChanged" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
@@ -314,7 +314,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4x2Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
+                    <ListBox SelectedIndex="{Binding SelectedLine}" SelectionChanged="OnSelectionChanged" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4x2Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>

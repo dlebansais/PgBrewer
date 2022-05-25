@@ -3,7 +3,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-public class BackForward
+public class BackForward : INotifyPropertyChanged
 {
     #region Properties
     public bool CanGoBack

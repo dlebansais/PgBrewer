@@ -2,7 +2,7 @@
 
 using System.Collections.ObjectModel;
 
-public class PgBrewerPageLiquors : PgBrewerPage
+public class PgBrewerPageLiquors : PgBrewerPage, IAlcoholPage
 {
     #region Init
     public PgBrewerPageLiquors(BackForward backForward)
@@ -68,6 +68,9 @@ public class PgBrewerPageLiquors : PgBrewerPage
             Bourbon,
         };
 
+        foreach (Alcohol Item in AlcoholList)
+            Item.LineSelected += OnLineSelected;
+
         PotatoVodka.SetSelected(true);
     }
     #endregion
@@ -96,14 +99,26 @@ public class PgBrewerPageLiquors : PgBrewerPage
         {
             if (SelectedAlcoholIndexInternal != value)
             {
+                AlcoholList[SelectedAlcoholIndexInternal].SelectedLine = -1;
+
                 SelectedAlcoholIndexInternal = value;
 
                 for (int i = 0; i < AlcoholList.Count; i++)
                     AlcoholList[i].SetSelected(i == SelectedAlcoholIndexInternal);
+
+                NotifyThisPropertyChanged();
             }
         }
     }
 
     private int SelectedAlcoholIndexInternal = 0;
+    #endregion
+
+    #region Events
+    protected void OnLineSelected(Alcohol alcohol, AlcoholLine? alcoholLine)
+    {
+        BackForward.CanGoBack = alcoholLine is not null && alcohol.Previous != Alcohol.None;
+        BackForward.CanGoForward = alcoholLine is not null && alcohol.Next != Alcohol.None;
+    }
     #endregion
 }

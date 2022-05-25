@@ -2,7 +2,6 @@
 
 using System.Windows;
 using System.Windows.Media;
-using Contracts;
 
 public class Tools
 {
@@ -19,7 +18,7 @@ public class Tools
                 else if (FindFirstControl(Child, out firstControl))
                     return true;
 
-        Contract.Unused(out firstControl);
+        firstControl = null!;
         return false;
     }
 }

@@ -387,23 +387,6 @@ public partial class MainWindow
         return VersionInfo.FileVersion!;
     }
 
-    public void OnGotFocus(ComboBox sender)
-    {
-        LastFocusedCombo = sender;
-
-        AlcoholLine Line = (AlcoholLine)sender.DataContext;
-        Alcohol Owner = Line.Owner;
-
-        BackForward.CanGoBack = Owner.Previous != null;
-        BackForward.CanGoForward = Owner.Next != null;
-    }
-
-    public void OnLostFocus(ComboBox sender)
-    {
-        // CanGoBack = false;
-        // CanGoForward = false;
-    }
-
     public override void OnBack(object sender, ExecutedRoutedEventArgs e)
     {
         ChangeLine(-1);
@@ -416,86 +399,74 @@ public partial class MainWindow
 
     private void ChangeLine(int offset)
     {
-        if (LastFocusedCombo != null && FindTabControl(out TabControl CtrlPage))
+        PgBrewerPage SelectedPage = PageList[SelectedPageIndex];
+        if (SelectedPage is IAlcoholPage AsAlcoholPage)
         {
-            Debug.Assert(CtrlPage.SelectedIndex + offset >= 0 && CtrlPage.SelectedIndex + offset < CtrlPage.Items.Count);
+            int SelectedAlcoholIndex = AsAlcoholPage.SelectedAlcoholIndex;
+            IList<Alcohol> AlcoholList = AsAlcoholPage.AlcoholList;
 
-            AlcoholLine Line = (AlcoholLine)LastFocusedCombo.DataContext;
-            Alcohol Owner = Line.Owner;
-
-            int NewLine = -1;
-            if (offset < 0)
+            if (SelectedAlcoholIndex >= 0 && SelectedAlcoholIndex < AlcoholList.Count)
             {
-                IFourComponentsAlcohol Next = (IFourComponentsAlcohol)Owner;
-                IFourComponentsAlcohol Previous = (IFourComponentsAlcohol)Owner.Previous;
-                List<ComponentAssociationCollection> PreviousToNext = ((Alcohol)Previous).PreviousToNext;
+                Alcohol SelectedAlcohol = AlcoholList[SelectedAlcoholIndex];
+                int SelectedLine = SelectedAlcohol.SelectedLine;
+                IList<AlcoholLine> LineList = SelectedAlcohol.Lines;
 
-                int NextLineIndex = Owner.Lines.IndexOf(Line);
-                GetPreviousLineIndex(Next, Previous, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], NextLineIndex, out NewLine);
-            }
-            else
-            {
-                IFourComponentsAlcohol Previous = (IFourComponentsAlcohol)Owner;
-                IFourComponentsAlcohol Next = (IFourComponentsAlcohol)Owner.Next;
-                List<ComponentAssociationCollection> PreviousToNext = ((Alcohol)Previous).PreviousToNext;
-
-                int PreviousLineIndex = Owner.Lines.IndexOf(Line);
-                GetNextLineIndex(Previous, Next, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], PreviousLineIndex, out NewLine);
-            }
-
-            if (NewLine >= 0)
-            {
-                CtrlPage.SelectedIndex = CtrlPage.SelectedIndex + offset;
-                int TotalLines = Owner.Lines.Count;
-                Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new LineMoveHandler(OnLineMove), CtrlPage, NewLine, TotalLines);
-            }
-        }
-    }
-
-    private delegate void LineMoveHandler(TabControl ctrlPage, int newLineIndex, int totalLines);
-
-    private void OnLineMove(TabControl ctrlPage, int newLineIndex, int totalLines)
-    {
-        FrameworkElement Root = (FrameworkElement)ctrlPage.SelectedContent;
-        if (Tools.FindFirstControl(Root, out ScrollViewer FirstScrollViewer))
-        {
-            FirstScrollViewer.ScrollToVerticalOffset((double)newLineIndex / (double)totalLines);
-            if (Tools.FindFirstControl(FirstScrollViewer, out ItemsControl FirstItemsControl))
-            {
-                ItemContainerGenerator Generator = FirstItemsControl.ItemContainerGenerator;
-                FrameworkElement LineContent = (FrameworkElement)Generator.ContainerFromIndex(newLineIndex);
-                if (Tools.FindFirstControl(LineContent, out ComboBox FirstComboBox))
+                if (SelectedLine >= 0 && SelectedLine < LineList.Count)
                 {
-                    Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new SetLineFocusHandler(OnSetLineFocus), FirstComboBox);
+                    AlcoholLine Line = LineList[SelectedLine];
+                    Alcohol Owner = SelectedAlcohol;
+
+                    int NewLine = -1;
+                    if (offset < 0)
+                    {
+                        IFourComponentsAlcohol Next = (IFourComponentsAlcohol)Owner;
+                        IFourComponentsAlcohol Previous = (IFourComponentsAlcohol)Owner.Previous;
+                        List<ComponentAssociationCollection> PreviousToNext = ((Alcohol)Previous).PreviousToNext;
+
+                        int NextLineIndex = Owner.Lines.IndexOf(Line);
+                        GetPreviousLineIndex(Next, Previous, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], NextLineIndex, out NewLine);
+                    }
+                    else
+                    {
+                        IFourComponentsAlcohol Previous = (IFourComponentsAlcohol)Owner;
+                        IFourComponentsAlcohol Next = (IFourComponentsAlcohol)Owner.Next;
+                        List<ComponentAssociationCollection> PreviousToNext = ((Alcohol)Previous).PreviousToNext;
+
+                        int PreviousLineIndex = Owner.Lines.IndexOf(Line);
+                        GetNextLineIndex(Previous, Next, PreviousToNext[0], PreviousToNext[1], PreviousToNext[2], PreviousToNext[3], PreviousLineIndex, out NewLine);
+                    }
+
+                    if (NewLine >= 0)
+                    {
+                        AsAlcoholPage.SelectedAlcoholIndex = SelectedAlcoholIndex + offset;
+                        int TotalLines = Owner.Lines.Count;
+                        Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new LineMoveHandler(OnLineMove), NewLine, TotalLines);
+                    }
                 }
             }
         }
     }
 
-    private delegate void SetLineFocusHandler(ComboBox firstComboBox);
-    private void OnSetLineFocus(ComboBox firstComboBox)
-    {
-        firstComboBox.Focus();
-    }
+    private delegate void LineMoveHandler(int newLineIndex, int totalLines);
 
-    private bool FindTabControl(out TabControl ctrlPage)
+    private void OnLineMove(int newLineIndex, int totalLines)
     {
-        FrameworkElement? Ctrl = LastFocusedCombo;
+        Debug.Assert(SelectedPageIndex >= 0 && SelectedPageIndex < PageList.Count);
 
-        while (Ctrl != null)
+        PgBrewerPage SelectedPage = PageList[SelectedPageIndex];
+        if (SelectedPage is IAlcoholPage AsAlcoholPage)
         {
-            if (Ctrl is TabControl AsTabControl)
+            int SelectedAlcoholIndex = AsAlcoholPage.SelectedAlcoholIndex;
+            IList<Alcohol> AlcoholList = AsAlcoholPage.AlcoholList;
+
+            if (SelectedAlcoholIndex >= 0 && SelectedAlcoholIndex < AlcoholList.Count)
             {
-                ctrlPage = AsTabControl;
-                return true;
+                Alcohol SelectedAlcohol = AlcoholList[SelectedAlcoholIndex];
+                IList<AlcoholLine> LineList = SelectedAlcohol.Lines;
+
+                if (newLineIndex >= 0 && newLineIndex < LineList.Count)
+                    SelectedAlcohol.SelectedLine = newLineIndex;
             }
-
-            Ctrl = VisualTreeHelper.GetParent(Ctrl) as FrameworkElement;
         }
-
-        ctrlPage = null!;
-        return false;
     }
-
-    private ComboBox? LastFocusedCombo;
 }

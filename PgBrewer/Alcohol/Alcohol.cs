@@ -42,6 +42,38 @@ public class Alcohol : INotifyPropertyChanged
 
     private int MismatchCountInternal;
 
+    public int SelectedLine
+    {
+        get { return SelectedLineInternal; }
+        set
+        {
+            if (SelectedLineInternal != value)
+            {
+                SelectedLineInternal = value;
+                NotifyThisPropertyChanged();
+
+                NotifyLineSelected(SelectedLineInternal);
+            }
+        }
+    }
+
+    private int SelectedLineInternal = -1;
+
+    public delegate void LineSelectedHandler(Alcohol alcohol, AlcoholLine? alcoholLine);
+    public event LineSelectedHandler? LineSelected;
+
+    protected void NotifyLineSelected(int lineIndex)
+    {
+        AlcoholLine? AlcoholLine;
+
+        if (lineIndex >= 0 && lineIndex < Lines.Count)
+            AlcoholLine = Lines[lineIndex];
+        else
+            AlcoholLine = null;
+
+        LineSelected?.Invoke(this, AlcoholLine);
+    }
+
     public bool IsSelected { get; private set; }
     #endregion
 
