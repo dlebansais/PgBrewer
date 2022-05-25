@@ -43,6 +43,9 @@
         <Style x:Key="TabItemRaw" TargetType="{x:Type TabItem}">
             <Setter Property="Template" Value="{StaticResource TabItemRawTemplate}"/>
         </Style>
+        <Style x:Key="ListBoxItemStretchSelectable" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
         <DataTemplate x:Key="ChoiceTemplate">
             <TextBlock Text="{Binding Name}"/>
         </DataTemplate>
@@ -127,23 +130,17 @@
             <TextBlock Text="{Binding Text}"/>
         </DataTemplate>
         <DataTemplate x:Key="Linex4Template" DataType="{x:Type local:Alcoholx4Line}">
-            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+            <Border x:Name="borderLine" BorderThickness="0">
                 <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                        <ComboBox x:Name="comboEffectList" IsReadOnly="True" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0" IsHitTestVisible="False"/>
                     </Grid>
                 </DockPanel>
             </Border>
-            <DataTemplate.Triggers>
-                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
-                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
-                </Trigger>
-            </DataTemplate.Triggers>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4}">
             <DockPanel>
@@ -152,30 +149,23 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4Template}"/>
+                    <ListBox ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" BorderThickness="0" Background="LightBlue" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4Template}"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x4Template">
-            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+            <Border x:Name="borderLine" BorderThickness="0">
                 <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                        <ComboBox x:Name="comboEffectList" IsReadOnly="True" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0" IsHitTestVisible="False"/>
                     </Grid>
                 </DockPanel>
             </Border>
-            <DataTemplate.Triggers>
-                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
-                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
-                </Trigger>
-            </DataTemplate.Triggers>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4x4}">
             <DockPanel>
@@ -184,12 +174,12 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4Template}"/>
+                    <ListBox ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" BorderThickness="0" Background="LightBlue" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4Template}"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x4x2Template">
-            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+            <Border x:Name="borderLine" BorderThickness="0">
                 <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="150"/>
@@ -197,19 +187,11 @@
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                        <ComboBox x:Name="comboEffectList" IsReadOnly="True" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0" IsHitTestVisible="False"/>
                     </Grid>
                 </DockPanel>
             </Border>
-            <DataTemplate.Triggers>
-                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
-                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
-                </Trigger>
-            </DataTemplate.Triggers>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4x4x2}">
             <DockPanel>
@@ -218,12 +200,12 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4x2Template}"/>
+                    <ListBox ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" BorderThickness="0" Background="LightBlue" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x4x2Template}"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex3x3x4x3Template">
-            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+            <Border x:Name="borderLine" BorderThickness="0">
                 <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
@@ -232,20 +214,11 @@
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                        <ComboBox x:Name="comboEffectList" IsReadOnly="True" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0" IsHitTestVisible="False"/>
                     </Grid>
                 </DockPanel>
             </Border>
-            <DataTemplate.Triggers>
-                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
-                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText4" Value="White"></Setter>
-                </Trigger>
-            </DataTemplate.Triggers>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx3x3x4x3}">
             <DockPanel>
@@ -254,12 +227,12 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x3x4x3Template}"/>
+                    <ListBox ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" BorderThickness="0" Background="LightBlue" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x3x4x3Template}"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x3x4x3Template">
-            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+            <Border x:Name="borderLine" BorderThickness="0">
                 <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="100"/>
@@ -268,20 +241,11 @@
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                        <ComboBox x:Name="comboEffectList" IsReadOnly="True" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0" IsHitTestVisible="False"/>
                     </Grid>
                 </DockPanel>
             </Border>
-            <DataTemplate.Triggers>
-                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
-                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText4" Value="White"></Setter>
-                </Trigger>
-            </DataTemplate.Triggers>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4x3x4x3}">
             <DockPanel>
@@ -290,12 +254,12 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x3x4x3Template}"/>
+                    <ListBox ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" BorderThickness="0" Background="LightBlue" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex4x3x4x3Template}"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="Linex3x4x5x4Template">
-            <Border x:Name="borderLine" BorderBrush="{x:Null}" BorderThickness="0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+            <Border x:Name="borderLine" BorderThickness="0">
                 <DockPanel Margin="5,2,5,2">
                     <TextBlock x:Name="componentText1" DockPanel.Dock="Left" Text="{Binding Component1}" VerticalAlignment="Center" MinWidth="100"/>
                     <TextBlock x:Name="componentText2" DockPanel.Dock="Left" Text="{Binding Component2}" VerticalAlignment="Center" MinWidth="160"/>
@@ -304,20 +268,11 @@
                     <TextBlock DockPanel.Dock="Left" Text="?" FontWeight="Bold" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="20"/>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox x:Name="comboEffectList" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" GotFocus="OnGotFocus" LostFocus="OnLostFocus" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0"/>
+                        <ComboBox x:Name="comboEffectList" IsReadOnly="True" SelectedIndex="{Binding EffectIndex}" ItemsSource="{Binding Owner.EffectList}" ItemTemplate="{StaticResource EffectTemplate}" VerticalAlignment="Center"/>
+                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,20,0" IsHitTestVisible="False"/>
                     </Grid>
                 </DockPanel>
             </Border>
-            <DataTemplate.Triggers>
-                <Trigger Property="IsFocused" SourceName="comboEffectList" Value="True">
-                    <Setter Property="Background" TargetName="borderLine" Value="Blue"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText1" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText2" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText3" Value="White"></Setter>
-                    <Setter Property="Foreground" TargetName="componentText4" Value="White"></Setter>
-                </Trigger>
-            </DataTemplate.Triggers>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx3x4x5x4}">
             <DockPanel>
@@ -326,7 +281,7 @@
                     <TextBlock Text="{Binding MismatchCount}"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x4x5x4Template}"/>
+                    <ListBox ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" BorderThickness="0" Background="LightBlue" ItemsSource="{Binding Lines}" ItemTemplate="{StaticResource Linex3x4x5x4Template}"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>

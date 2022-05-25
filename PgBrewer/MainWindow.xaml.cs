@@ -289,7 +289,7 @@ public partial class MainWindow : MainWindowUI
 
     public override void OnDeleteLine(object sender, RoutedEventArgs e)
     {
-        AlcoholLine Line = (AlcoholLine)((Button)sender).DataContext;
+        AlcoholLine Line = (AlcoholLine)((Button)e.OriginalSource).DataContext;
         Line.EffectIndex = -1;
     }
 
