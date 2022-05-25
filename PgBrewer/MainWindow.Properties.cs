@@ -14,9 +14,6 @@ public partial class MainWindow
     public static PgBrewerPageLiquors PageLiquors { get; } = new PgBrewerPageLiquors(BackForward);
     public static PgBrewerPageSettings PageSettings { get; } = new PgBrewerPageSettings(BackForward);
 
-    public ImageSource? IconBeer { get; private set; }
-    public ImageSource? IconLiquor { get; private set; }
-    public ImageSource? IconSettings { get; private set; }
     public override ObservableCollection<PgBrewerPage> PageList { get; } = new()
     {
         PageBeers,
