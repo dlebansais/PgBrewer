@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:PgBrewer"
              Startup="OnStartup">
     <Application.Resources>
-        <localconv:BooleanToObjectConverter x:Key="convBooleanToObject"/>
+        <conv:BooleanToObjectConverter x:Key="convBooleanToObject"/>
         <CompositeCollection x:Key="CollapsedVisible">
             <Visibility>Collapsed</Visibility>
             <Visibility>Visible</Visibility>
@@ -62,20 +62,8 @@
         <ItemsPanelTemplate x:Key="HorizontalVirtualizingStackPanelTemplate">
             <VirtualizingStackPanel Orientation="Horizontal"/>
         </ItemsPanelTemplate>
-        <localconv:NullToObjectConverter x:Key="convNullToObject"/>
         <localconv:IdToImageSourceConverter x:Key="convIdToImageSource"/>
         <localconv:PositiveIntToObjectConverter x:Key="convPositiveIntToObject"/>
-        <RoutedCommand x:Key="DeleteCommand"/>
-        <RoutedCommand x:Key="SaveCommand"/>
-        <RoutedCommand x:Key="ExportCommand"/>
-        <RoutedCommand x:Key="ImportCommand"/>
-        <RoutedCommand x:Key="BackCommand"/>
-        <RoutedCommand x:Key="ForwardCommand"/>
-        <RoutedCommand x:Key="DeleteLineCommand"/>
-        <CompositeCollection x:Key="TransparentBlue">
-            <SolidColorBrush>Transparent</SolidColorBrush>
-            <SolidColorBrush>LightBlue</SolidColorBrush>
-        </CompositeCollection>
         <CompositeCollection x:Key="VisibleHidden">
             <Visibility>Visible</Visibility>
             <Visibility>Hidden</Visibility>
@@ -86,18 +74,14 @@
         </CompositeCollection>
         <BitmapImage x:Key="imgUndo" UriSource="/PgBrewer;component/Resources/Undo.png"/>
         <BitmapImage x:Key="imgRedo" UriSource="/PgBrewer;component/Resources/Redo.png"/>
-        <DataTemplate x:Key="ChoiceTemplate">
-            <TextBlock Text="{Binding Name}"/>
-        </DataTemplate>
-        <DataTemplate x:Key="AssociationLine">
-            <DockPanel>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component.Name}" TextAlignment="Right" VerticalAlignment="Center" MinWidth="160"/>
-                <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">:</TextBlock>
-                <Button DockPanel.Dock="Right" Command="{StaticResource DeleteCommand}" Content="X" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
-                <ComboBox ItemsSource="{Binding ChoiceList}" SelectedIndex="{Binding AssociationIndex}" IsReadOnly="True" ItemTemplate="{StaticResource ChoiceTemplate}" VerticalAlignment="Center" Margin="5,0,0,0"/>
-            </DockPanel>
-        </DataTemplate>
-        <ControlTemplate TargetType="{x:Type Button}" x:Key="MainButtonTemplate">
+        <RoutedCommand x:Key="DeleteCommand"/>
+        <RoutedCommand x:Key="SaveCommand"/>
+        <RoutedCommand x:Key="ExportCommand"/>
+        <RoutedCommand x:Key="ImportCommand"/>
+        <RoutedCommand x:Key="BackCommand"/>
+        <RoutedCommand x:Key="ForwardCommand"/>
+        <RoutedCommand x:Key="DeleteLineCommand"/>
+        <ControlTemplate x:Key="MainButtonTemplate" TargetType="{x:Type Button}">
             <Grid>
                 <Border x:Name="BorderTarget" Background="Transparent" BorderBrush="#FFACACAC" BorderThickness="1,1,1,1" CornerRadius="5" Width="120" Height="40" Margin="0,5,0,5">
                     <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content" Margin="12,2,12,2"/>
@@ -114,6 +98,17 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <DataTemplate x:Key="ChoiceTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="AssociationLine">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component.Name}" TextAlignment="Right" VerticalAlignment="Center" MinWidth="160"/>
+                <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">:</TextBlock>
+                <Button DockPanel.Dock="Right" Command="{StaticResource DeleteCommand}" Content="X" VerticalAlignment="Center" MinWidth="16" Margin="2,1,2,1"/>
+                <ComboBox ItemsSource="{Binding ChoiceList}" SelectedIndex="{Binding AssociationIndex}" IsReadOnly="True" ItemTemplate="{StaticResource ChoiceTemplate}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            </DockPanel>
+        </DataTemplate>
         <DataTemplate x:Key="PageHeaderTemplate" DataType="{x:Type local:PgBrewerPage}">
             <Grid>
                 <Border Visibility="{Binding IsSelected, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource CollapsedVisible}}" Background="LightBlue" BorderBrush="#FFACACAC" BorderThickness="1,1,1,1" CornerRadius="5" Width="160" Height="140" Margin="0,5,0,5">
