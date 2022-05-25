@@ -1,13 +1,13 @@
 ﻿<Window x:Class="PgBrewer.MainWindowUI"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:PgBrewer"
-        Title="Project: Gorgon - Brewing"
+        WindowStartupLocation="CenterOwner"
         ResizeMode="CanResize"
         MinWidth="1000"
         MinHeight="500"
         Icon="./Resources/main.ico"
-        Closing="OnClosing">
+        Closing="OnClosing"
+        Title="Project: Gorgon - Brewing">
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource DeleteCommand}" Executed="OnDelete"/>
         <CommandBinding Command="{StaticResource SaveCommand}" Executed="OnSave"/>
@@ -18,11 +18,11 @@
         <CommandBinding Command="{StaticResource DeleteLineCommand}" Executed="OnDeleteLine"/>
     </Window.CommandBindings>
     <Grid>
-        <TabControl ItemContainerStyle="{StaticResource TabItemNoStyle}" SelectedIndex="{Binding SelectedPageIndex}" TabStripPlacement="Left" BorderThickness="0" Margin="10,10,10,10" Visibility="Visible" ItemsSource="{Binding PageList}" ItemTemplate="{StaticResource PageHeaderTemplate}"/>
+        <TabControl ItemsSource="{Binding PageList}" SelectedIndex="{Binding SelectedPageIndex}" ItemTemplate="{StaticResource PageHeaderTemplate}" ItemContainerStyle="{StaticResource TabItemNoStyle}" BorderThickness="0" TabStripPlacement="Left" Margin="10"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="160" Margin="10,0,0,10">
-            <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" IsEnabled="{Binding IsChanged}" Command="{StaticResource SaveCommand}" HorizontalAlignment="Center" Content="Save"/>
-            <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" Command="{StaticResource ExportCommand}" HorizontalAlignment="Center" Content="Export..."/>
-            <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" Command="{StaticResource ImportCommand}" HorizontalAlignment="Center" Content="Import..."/>
+            <Button Command="{StaticResource SaveCommand}" Content="Save" Template="{StaticResource MainButtonTemplate}" FontSize="24" IsEnabled="{Binding IsChanged}" HorizontalAlignment="Center"/>
+            <Button Command="{StaticResource ExportCommand}" Content="Export..." Template="{StaticResource MainButtonTemplate}" FontSize="24" HorizontalAlignment="Center"/>
+            <Button Command="{StaticResource ImportCommand}" Content="Import..." Template="{StaticResource MainButtonTemplate}" FontSize="24" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Window>
