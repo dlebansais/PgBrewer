@@ -48,7 +48,7 @@ public partial class MainWindow
     public override void OnSave(object sender, ExecutedRoutedEventArgs e)
     {
         SaveAll();
-        IsChanged = false;
+        SetIsChanged(false);
     }
 
     private void SaveAll()

@@ -27,6 +27,7 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
     #region Properties
     public abstract ObservableCollection<PgBrewerPage> PageList { get; }
     public abstract int SelectedPageIndex { get; set; }
+    public abstract bool IsChanged { get; }
     #endregion
 
     #region Events

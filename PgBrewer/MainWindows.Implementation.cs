@@ -177,6 +177,6 @@ public partial class MainWindow
     public static void SetChanged()
     {
         MainWindow Window = (MainWindow)App.Current.MainWindow;
-        Window.IsChanged = true;
+        Window.SetIsChanged(true);
     }
 }

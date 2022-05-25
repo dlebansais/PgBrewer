@@ -44,20 +44,21 @@ public partial class MainWindow
 
     private int SelectedPageIndexInternal = 0;
 
-    public bool IsChanged
+    public override bool IsChanged
     {
         get => IsChangedInternal;
-        private set
-        {
-            if (IsChangedInternal != value)
-            {
-                IsChangedInternal = value;
-                NotifyThisPropertyChanged();
-            }
-        }
     }
 
     private bool IsChangedInternal;
+
+    private void SetIsChanged(bool value)
+    {
+        if (IsChangedInternal != value)
+        {
+            IsChangedInternal = value;
+            NotifyPropertyChanged(nameof(IsChanged));
+        }
+    }
 
     public List<ComponentAssociationCollection> AssociationTable { get; } = new List<ComponentAssociationCollection>();
 }
