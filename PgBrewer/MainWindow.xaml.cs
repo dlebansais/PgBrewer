@@ -1,5 +1,7 @@
 ﻿namespace PgBrewer;
 
+using WpfLayout;
+
 /// <summary>
 /// Main window implementation.
 /// </summary>
@@ -7,6 +9,8 @@ public partial class MainWindow : MainWindowUI
 {
     public MainWindow()
     {
+        TaskDispatcher = TaskDispatcher.Create(this);
+
         LoadAssociations();
         LoadGUI();
         LoadIcons();
@@ -15,4 +19,6 @@ public partial class MainWindow : MainWindowUI
 
         Loaded += OnLoaded;
     }
+
+    private TaskDispatcher TaskDispatcher;
 }

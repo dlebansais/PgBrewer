@@ -10,8 +10,6 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Threading;
 using Microsoft.Win32;
 
 /// <summary>
@@ -440,14 +438,13 @@ public partial class MainWindow
                     {
                         AsAlcoholPage.SelectedAlcoholIndex = SelectedAlcoholIndex + offset;
                         int TotalLines = Owner.Lines.Count;
-                        Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new LineMoveHandler(OnLineMove), NewLine, TotalLines);
+
+                        TaskDispatcher.Dispatch(() => OnLineMove(NewLine, TotalLines));
                     }
                 }
             }
         }
     }
-
-    private delegate void LineMoveHandler(int newLineIndex, int totalLines);
 
     private void OnLineMove(int newLineIndex, int totalLines)
     {
