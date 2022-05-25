@@ -60,50 +60,6 @@ public partial class MainWindow
             SizeToContent = SizeToContent.Manual;
     }
 
-    private void LoadIcons()
-    {
-        try
-        {
-            string UserRootFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string ApplicationFolder = Path.Combine(UserRootFolder, "PgJsonParse");
-            string VersionCacheFolder = Path.Combine(ApplicationFolder, "Versions");
-
-            if (!Directory.Exists(VersionCacheFolder))
-                return;
-
-            string? FinalFolder = null;
-            string SharedFolder = Path.Combine(ApplicationFolder, "Shared Icons");
-
-            if (Directory.Exists(SharedFolder))
-                FinalFolder = SharedFolder;
-            else
-            {
-                string[] VersionFolders = Directory.GetDirectories(VersionCacheFolder);
-                int LastVersion = -1;
-
-                foreach (string Folder in VersionFolders)
-                {
-                    if (int.TryParse(Path.GetFileName(Folder), out int FolderVersion))
-                        if (LastVersion < FolderVersion)
-                            LastVersion = FolderVersion;
-                }
-
-                if (LastVersion > 0)
-                    FinalFolder = Path.Combine(VersionCacheFolder, LastVersion.ToString());
-            }
-
-            if (FinalFolder != null)
-            {
-                IconBeer = new BitmapImage(new Uri(Path.Combine(FinalFolder, "icon_5744.png")));
-                IconLiquor = new BitmapImage(new Uri(Path.Combine(FinalFolder, "icon_5746.png")));
-                IconSettings = new BitmapImage(new Uri(Path.Combine(FinalFolder, "icon_5476.png")));
-            }
-        }
-        catch
-        {
-        }
-    }
-
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         Alcohol.Chain(PageBeers.OrcishBock, PageBeers.BrownAle, new List<ComponentAssociationCollection>() { PageSettings.AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationFlavor1Beer });

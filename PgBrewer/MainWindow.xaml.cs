@@ -13,7 +13,6 @@ public partial class MainWindow : MainWindowUI
 
         LoadAssociations();
         LoadGUI();
-        LoadIcons();
         IsChangedInternal = false;
         PageBeers.SetSelected(true);
 
