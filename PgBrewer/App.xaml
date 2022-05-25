@@ -33,10 +33,16 @@
             <Visibility>Visible</Visibility>
             <Visibility>Hidden</Visibility>
         </CompositeCollection>
+        <CompositeCollection x:Key="DisabledNormal">
+            <sys:Double>0.3</sys:Double>
+            <sys:Double>1</sys:Double>
+        </CompositeCollection>
         <CompositeCollection x:Key="FalseTrue">
             <sys:Boolean>False</sys:Boolean>
             <sys:Boolean>True</sys:Boolean>
         </CompositeCollection>
+        <BitmapImage x:Key="imgUndo" UriSource="/PgBrewer;component/Resources/Undo.png"/>
+        <BitmapImage x:Key="imgRedo" UriSource="/PgBrewer;component/Resources/Redo.png"/>
         <ControlTemplate x:Key="TabItemNoStyleTemplate" TargetType="{x:Type TabItem}">
             <ContentPresenter ContentSource="Header"/>
         </ControlTemplate>
@@ -289,11 +295,17 @@
             <Grid>
                 <TabControl ItemContainerStyle="{StaticResource TabItemNoStyle}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
-                    <Button Command="{StaticResource BackCommand}" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
-                        <Image Source="./Resources/Undo.png" Width="16" Height="16"/>
+                    <Button Command="{StaticResource BackCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUndo}" Width="16" Height="16" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Margin="2"/>
                     </Button>
-                    <Button Command="{StaticResource ForwardCommand}" IsEnabled="{Binding BackForward.CanGoForward}" Margin="5,0,0,0">
-                        <Image Source="./Resources/Redo.png" Width="16" Height="16"/>
+                    <Button Command="{StaticResource ForwardCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding BackForward.CanGoForward}" Margin="5,0,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgRedo}" Width="16" Height="16" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Margin="2"/>
                     </Button>
                 </StackPanel>
             </Grid>
@@ -302,11 +314,17 @@
             <Grid>
                 <TabControl ItemContainerStyle="{StaticResource TabItemNoStyle}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
-                    <Button Command="{StaticResource BackCommand}" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
-                        <Image Source="./Resources/Undo.png" Width="16" Height="16"/>
+                    <Button Command="{StaticResource BackCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUndo}" Width="16" Height="16" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Margin="2"/>
                     </Button>
-                    <Button Command="{StaticResource ForwardCommand}" IsEnabled="{Binding BackForward.CanGoForward}" Margin="5,0,0,0">
-                        <Image Source="./Resources/Redo.png" Width="16" Height="16"/>
+                    <Button Command="{StaticResource ForwardCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding BackForward.CanGoForward}" Margin="5,0,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgRedo}" Width="16" Height="16" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Margin="2"/>
                     </Button>
                 </StackPanel>
             </Grid>
@@ -315,8 +333,8 @@
             <Border Margin="10,6,0,0" BorderBrush="Black" BorderThickness="1" Background="LightBlue" CornerRadius="5">
                 <ScrollViewer Margin="10,10,10,10">
                     <DockPanel Margin="0,0,10,0">
-                        <GroupBox DockPanel.Dock="Top" Grid.Row="0" Grid.Column="0" Header="Miscellaneous" Padding="5,5,5,5">
-                            <Grid>
+                        <GroupBox DockPanel.Dock="Top" Header="Miscellaneous">
+                            <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -343,32 +361,32 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <GroupBox Grid.Row="0" Grid.Column="0" Header="Veggies for beer" Margin="0,10,5,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationVeggie2Beer}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="0" Grid.Column="0" Header="Veggies for beer" Margin="0,10,5,0">
+                                <ItemsControl ItemsSource="{Binding AssociationVeggie2Beer}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="1" Grid.Column="0" Header="Flavors #1 for beer" Margin="0,10,5,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationFlavor1Beer}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="0" Grid.Column="1" Header="Parts #1 for liquor" Margin="5,10,0,0">
+                                <ItemsControl ItemsSource="{Binding AssociationParts1}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Header="Fruits" Margin="0,10,0,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationFruit2}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="1" Grid.Column="0" Header="Flavors #1 for beer" Margin="0,10,5,0">
+                                <ItemsControl ItemsSource="{Binding AssociationFlavor1Beer}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Header="Mushrooms" Margin="0,10,0,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationMushroom3}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="1" Grid.Column="1" Header="Flavors #1 for liquor" Margin="5,10,0,0">
+                                <ItemsControl ItemsSource="{Binding AssociationFlavor1Liquor}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="4" Grid.Column="0" Header="Flavors #2 for beer" Margin="0,10,5,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationFlavor2Beer}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="2" Grid.Column="0" Header="Mushrooms" Margin="0,10,5,0">
+                                <ItemsControl ItemsSource="{Binding AssociationMushroom3}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="0" Grid.Column="1" Header="Parts #1 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationParts1}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="2" Grid.Column="1" Header="Fruits" Margin="5,10,0,0">
+                                <ItemsControl ItemsSource="{Binding AssociationFruit2}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="1" Grid.Column="1" Header="Flavors #1 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationFlavor1Liquor}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="3" Grid.Column="0" Header="Flavors #2 for beer" Margin="0,10,5,0">
+                                <ItemsControl ItemsSource="{Binding AssociationFlavor2Beer}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="4" Grid.Column="1" Header="Parts #2 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationParts2}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="3" Grid.Column="1" Header="Parts #2 for liquor" Margin="5,10,0,0">
+                                <ItemsControl ItemsSource="{Binding AssociationParts2}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Row="5" Grid.Column="1" Header="Flavors #2 for liquor" Margin="5,10,0,0" Padding="5,5,5,5">
-                                <ItemsControl ItemsSource="{Binding AssociationFlavor2Liquor}" ItemTemplate="{StaticResource AssociationLine}"/>
+                            <GroupBox Grid.Row="4" Grid.Column="1" Header="Flavors #2 for liquor" Margin="5,10,0,0">
+                                <ItemsControl ItemsSource="{Binding AssociationFlavor2Liquor}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
                         </Grid>
                     </DockPanel>
