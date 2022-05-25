@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Win32;
@@ -44,7 +45,7 @@ public partial class MainWindow
             SaveGUI();
     }
 
-    public override void OnSave(object sender, RoutedEventArgs e)
+    public override void OnSave(object sender, ExecutedRoutedEventArgs e)
     {
         SaveAll();
         IsChanged = false;
@@ -99,19 +100,19 @@ public partial class MainWindow
         DataArchive.SetIndexList(GuiSettingName, Coordinates);
     }
 
-    public override void OnDeleteLine(object sender, RoutedEventArgs e)
+    public override void OnDeleteLine(object sender, ExecutedRoutedEventArgs e)
     {
         AlcoholLine Line = (AlcoholLine)((Button)e.OriginalSource).DataContext;
         Line.EffectIndex = -1;
     }
 
-    public override void OnDelete(object sender, RoutedEventArgs e)
+    public override void OnDelete(object sender, ExecutedRoutedEventArgs e)
     {
         ComponentAssociation Association = (ComponentAssociation)((Button)e.OriginalSource).DataContext;
         Association.AssociationIndex = -1;
     }
 
-    public override void OnExport(object sender, RoutedEventArgs e)
+    public override void OnExport(object sender, ExecutedRoutedEventArgs e)
     {
         SaveFileDialog Dlg = new SaveFileDialog();
         Dlg.Filter = "CSV file (*.csv)|*.csv";
@@ -194,7 +195,7 @@ public partial class MainWindow
         writer.WriteLine();
     }
 
-    public override void OnImport(object sender, RoutedEventArgs e)
+    public override void OnImport(object sender, ExecutedRoutedEventArgs e)
     {
         OpenFileDialog Dlg = new OpenFileDialog();
         Dlg.Filter = "CSV file (*.csv)|*.csv";
@@ -403,12 +404,12 @@ public partial class MainWindow
         // CanGoForward = false;
     }
 
-    public override void OnBack(object sender, RoutedEventArgs e)
+    public override void OnBack(object sender, ExecutedRoutedEventArgs e)
     {
         ChangeLine(-1);
     }
 
-    public override void OnForward(object sender, RoutedEventArgs e)
+    public override void OnForward(object sender, ExecutedRoutedEventArgs e)
     {
         ChangeLine(+1);
     }

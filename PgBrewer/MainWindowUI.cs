@@ -31,13 +31,13 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
 
     #region Events
     public abstract void OnClosing(object sender, CancelEventArgs e);
-    public abstract void OnBack(object sender, RoutedEventArgs e);
-    public abstract void OnForward(object sender, RoutedEventArgs e);
-    public abstract void OnSave(object sender, RoutedEventArgs e);
-    public abstract void OnExport(object sender, RoutedEventArgs e);
-    public abstract void OnImport(object sender, RoutedEventArgs e);
-    public abstract void OnDelete(object sender, RoutedEventArgs e);
-    public abstract void OnDeleteLine(object sender, RoutedEventArgs e);
+    public abstract void OnBack(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnForward(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnSave(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnExport(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnImport(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnDelete(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnDeleteLine(object sender, ExecutedRoutedEventArgs e);
     #endregion
 
     #region Implementation of INotifyPropertyChanged
