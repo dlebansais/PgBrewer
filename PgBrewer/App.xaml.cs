@@ -1,9 +1,8 @@
 ﻿namespace PgBrewer;
 
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Threading;
+using WpfLayout;
 
 /// <summary>
 /// Application implementation.
@@ -15,6 +14,18 @@ public partial class App : Application
     {
         MainWindow MainWindow = new MainWindow();
         MainWindow.Show();
+    }
+    #endregion
+
+    #region Events
+    private void OnListBoxItemMouseMove(object sender, MouseEventArgs args)
+    {
+        DragDropTools.OnListBoxItemMouseMove(sender, args);
+    }
+
+    private void OnListBoxItemDrop(object sender, DragEventArgs args)
+    {
+        DragDropTools.OnListBoxItemDrop(sender, args);
     }
     #endregion
 }

@@ -7,6 +7,60 @@
              Startup="OnStartup">
     <Application.Resources>
         <conv:BooleanToObjectConverter x:Key="convBooleanToObject"/>
+        <CompositeCollection x:Key="CollapsedVisible">
+            <Visibility>Collapsed</Visibility>
+            <Visibility>Visible</Visibility>
+        </CompositeCollection>
+        <CompositeCollection x:Key="VisibleCollapsed">
+            <Visibility>Visible</Visibility>
+            <Visibility>Collapsed</Visibility>
+        </CompositeCollection>
+        <CompositeCollection x:Key="DisabledNormal">
+            <sys:Double>0.3</sys:Double>
+            <sys:Double>1</sys:Double>
+        </CompositeCollection>
+        <Style x:Key="ListBoxItemStretchDragDrop" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="AllowDrop" Value="True" />
+            <EventSetter Event="MouseMove" Handler="OnListBoxItemMouseMove"/>
+            <EventSetter Event="Drop" Handler="OnListBoxItemDrop" />
+        </Style>
+        <Style x:Key="ListBoxItemStretchSelectable" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="ListBoxItemStretch" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
+        <Style x:Key="ComboBoxItemStretch" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="ListViewItemStretchSelectable" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="ListViewItemStretch" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
+        <Style x:Key="ListViewHeaderStretch" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <ControlTemplate x:Key="TabItemNoStyleTemplate" TargetType="{x:Type TabItem}">
+            <ContentPresenter ContentSource="Header"/>
+        </ControlTemplate>
+        <Style x:Key="TabItemNoStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="Template" Value="{StaticResource TabItemNoStyleTemplate}"/>
+        </Style>
+        <ItemsPanelTemplate x:Key="HorizontalWrapPanelTemplate">
+            <WrapPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="VerticalWrapPanelTemplate">
+            <WrapPanel Orientation="Vertical"/>
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="HorizontalVirtualizingStackPanelTemplate">
+            <VirtualizingStackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
         <conv:NullToObjectConverter x:Key="convNullToObject"/>
         <conv:IdToImageSourceConverter x:Key="convIdToImageSource"/>
         <conv:PositiveIntToObjectConverter x:Key="convPositiveIntToObject"/>
@@ -17,14 +71,6 @@
         <RoutedCommand x:Key="BackCommand"/>
         <RoutedCommand x:Key="ForwardCommand"/>
         <RoutedCommand x:Key="DeleteLineCommand"/>
-        <CompositeCollection x:Key="CollapsedVisible">
-            <Visibility>Collapsed</Visibility>
-            <Visibility>Visible</Visibility>
-        </CompositeCollection>
-        <CompositeCollection x:Key="VisibleCollapsed">
-            <Visibility>Visible</Visibility>
-            <Visibility>Collapsed</Visibility>
-        </CompositeCollection>
         <CompositeCollection x:Key="TransparentBlue">
             <SolidColorBrush>Transparent</SolidColorBrush>
             <SolidColorBrush>LightBlue</SolidColorBrush>
@@ -33,25 +79,12 @@
             <Visibility>Visible</Visibility>
             <Visibility>Hidden</Visibility>
         </CompositeCollection>
-        <CompositeCollection x:Key="DisabledNormal">
-            <sys:Double>0.3</sys:Double>
-            <sys:Double>1</sys:Double>
-        </CompositeCollection>
         <CompositeCollection x:Key="FalseTrue">
             <sys:Boolean>False</sys:Boolean>
             <sys:Boolean>True</sys:Boolean>
         </CompositeCollection>
         <BitmapImage x:Key="imgUndo" UriSource="/PgBrewer;component/Resources/Undo.png"/>
         <BitmapImage x:Key="imgRedo" UriSource="/PgBrewer;component/Resources/Redo.png"/>
-        <ControlTemplate x:Key="TabItemNoStyleTemplate" TargetType="{x:Type TabItem}">
-            <ContentPresenter ContentSource="Header"/>
-        </ControlTemplate>
-        <Style x:Key="TabItemNoStyle" TargetType="{x:Type TabItem}">
-            <Setter Property="Template" Value="{StaticResource TabItemNoStyleTemplate}"/>
-        </Style>
-        <Style x:Key="ListBoxItemStretchSelectable" TargetType="{x:Type ListBoxItem}">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        </Style>
         <DataTemplate x:Key="ChoiceTemplate">
             <TextBlock Text="{Binding Name}"/>
         </DataTemplate>
