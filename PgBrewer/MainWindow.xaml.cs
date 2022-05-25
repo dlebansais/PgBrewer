@@ -295,7 +295,7 @@ public partial class MainWindow : MainWindowUI
 
     public override void OnDelete(object sender, RoutedEventArgs e)
     {
-        ComponentAssociation Association = (ComponentAssociation)((Button)sender).DataContext;
+        ComponentAssociation Association = (ComponentAssociation)((Button)e.OriginalSource).DataContext;
         Association.AssociationIndex = -1;
     }
 

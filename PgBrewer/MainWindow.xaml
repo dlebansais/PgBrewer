@@ -18,7 +18,7 @@
         <CommandBinding Command="{StaticResource DeleteLineCommand}" Executed="OnDeleteLine"/>
     </Window.CommandBindings>
     <Grid>
-        <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedPageIndex}" TabStripPlacement="Left" BorderThickness="0" Margin="10,10,10,10" Visibility="Visible" ItemsSource="{Binding PageList}" ItemTemplate="{StaticResource PageHeaderTemplate}"/>
+        <TabControl ItemContainerStyle="{StaticResource TabItemNoStyle}" SelectedIndex="{Binding SelectedPageIndex}" TabStripPlacement="Left" BorderThickness="0" Margin="10,10,10,10" Visibility="Visible" ItemsSource="{Binding PageList}" ItemTemplate="{StaticResource PageHeaderTemplate}"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="160" Margin="10,0,0,10">
             <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" IsEnabled="{Binding IsChanged}" Command="{StaticResource SaveCommand}" HorizontalAlignment="Center" Content="Save"/>
             <Button FontSize="24" Template="{StaticResource MainButtonTemplate}" Command="{StaticResource ExportCommand}" HorizontalAlignment="Center" Content="Export..."/>

@@ -37,11 +37,11 @@
             <sys:Boolean>False</sys:Boolean>
             <sys:Boolean>True</sys:Boolean>
         </CompositeCollection>
-        <ControlTemplate x:Key="TabItemRawTemplate" TargetType="{x:Type TabItem}">
+        <ControlTemplate x:Key="TabItemNoStyleTemplate" TargetType="{x:Type TabItem}">
             <ContentPresenter ContentSource="Header"/>
         </ControlTemplate>
-        <Style x:Key="TabItemRaw" TargetType="{x:Type TabItem}">
-            <Setter Property="Template" Value="{StaticResource TabItemRawTemplate}"/>
+        <Style x:Key="TabItemNoStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="Template" Value="{StaticResource TabItemNoStyleTemplate}"/>
         </Style>
         <Style x:Key="ListBoxItemStretchSelectable" TargetType="{x:Type ListBoxItem}">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -287,7 +287,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:PgBrewerPageBeers}">
             <Grid>
-                <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
+                <TabControl ItemContainerStyle="{StaticResource TabItemNoStyle}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
                     <Button Command="{StaticResource BackCommand}" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
                         <Image Source="./Resources/Undo.png" Width="16" Height="16"/>
@@ -300,7 +300,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:PgBrewerPageLiquors}">
             <Grid>
-                <TabControl ItemContainerStyle="{StaticResource TabItemRaw}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
+                <TabControl ItemContainerStyle="{StaticResource TabItemNoStyle}" SelectedIndex="{Binding SelectedAlcoholIndex}" ItemsSource="{Binding AlcoholList}" Margin="10,0,0,0" BorderBrush="Black" Background="LightBlue" ItemTemplate="{StaticResource TabItemLevel2Template}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
                     <Button Command="{StaticResource BackCommand}" IsEnabled="{Binding BackForward.CanGoBack}" Margin="0,0,5,0">
                         <Image Source="./Resources/Undo.png" Width="16" Height="16"/>
