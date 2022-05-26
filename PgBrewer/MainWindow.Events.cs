@@ -38,9 +38,6 @@ public partial class MainWindow
                     break;
             }
         }
-
-        if (!e.Cancel)
-            SaveGUI();
     }
 
     public override void OnSave(object sender, ExecutedRoutedEventArgs e)
@@ -69,7 +66,6 @@ public partial class MainWindow
         PageLiquors.Bourbon.Save();
 
         SaveAssociations();
-        SaveGUI();
     }
 
     private void SaveAssociations()
@@ -82,20 +78,6 @@ public partial class MainWindow
 
             DataArchive.SetIndexList($"{AssociationSettingName}{AssociationList.Name}", IndexList);
         }
-    }
-
-    private void SaveGUI()
-    {
-        if (WindowState != WindowState.Normal)
-            return;
-
-        List<int> Coordinates = new List<int>();
-        Coordinates.Add((int)Left);
-        Coordinates.Add((int)Top);
-        Coordinates.Add((int)ActualWidth);
-        Coordinates.Add((int)ActualHeight);
-
-        DataArchive.SetIndexList(GuiSettingName, Coordinates);
     }
 
     public override void OnDeleteLine(object sender, ExecutedRoutedEventArgs e)

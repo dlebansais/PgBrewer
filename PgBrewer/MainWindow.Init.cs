@@ -40,26 +40,6 @@ public partial class MainWindow
         AssociationTable.Add(associationList);
     }
 
-    private void LoadGUI()
-    {
-        List<int> Coordinates = DataArchive.GetIndexList(GuiSettingName, 4);
-
-        if (Coordinates[0] >= 0)
-            Left = Coordinates[0];
-
-        if (Coordinates[1] >= 0)
-            Top = Coordinates[1];
-
-        if (Coordinates[2] >= 0)
-            Width = Coordinates[2];
-
-        if (Coordinates[3] >= 0)
-            Height = Coordinates[3];
-
-        if (Coordinates[2] >= 0 && Coordinates[3] >= 0)
-            SizeToContent = SizeToContent.Manual;
-    }
-
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         Alcohol.Chain(PageBeers.OrcishBock, PageBeers.BrownAle, new List<ComponentAssociationCollection>() { PageSettings.AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationFlavor1Beer });

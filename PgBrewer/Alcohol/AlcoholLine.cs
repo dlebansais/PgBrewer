@@ -29,8 +29,8 @@ public abstract class AlcoholLine : INotifyPropertyChanged
 
                 NotifyThisPropertyChanged();
 
-                MainWindow Window = (MainWindow)App.Current.MainWindow;
-                Window.Recalculate();
+                if (App.Current is not null && App.Current.MainWindow is MainWindow Window)
+                    Window.Recalculate();
             }
         }
     }

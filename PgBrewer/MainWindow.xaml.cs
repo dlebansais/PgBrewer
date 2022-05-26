@@ -12,7 +12,6 @@ public partial class MainWindow : MainWindowUI
         TaskDispatcher = TaskDispatcher.Create(this);
 
         LoadAssociations();
-        LoadGUI();
         IsChangedInternal = false;
         PageBeers.SetSelected(true);
 
