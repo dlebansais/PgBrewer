@@ -45,34 +45,10 @@ public class DataArchive
         return Result;
     }
 
-    public static RegistryKey OpenSoftwareKey()
-    {
-        RegistryKey Key = OpenKey(Registry.CurrentUser, "Software", "Project Gorgon Tools", "PgBrewer")!;
-        return Key;
-    }
-
     public static async Task<List<int>> GetIndexList(string valueName, int minLength)
     {
         Settings Settings = await LocalStorage.GetItemAsync<Settings>(valueName);
-
         List<int> Result = Settings.IndexList;
-        Result.Clear();
-
-        RegistryKey Key = OpenSoftwareKey();
-        string? ValueAsString = Key.GetValue(valueName) as string;
-        Key.Close();
-
-        if (ValueAsString != null && ValueAsString.Length > 0)
-        {
-            string[] Split = ValueAsString.Split(',');
-            foreach (string Item in Split)
-            {
-                if (int.TryParse(Item, out int Value))
-                    Result.Add(Value);
-                else
-                    Result.Add(-1);
-            }
-        }
 
         for (int i = Result.Count; i < minLength; i++)
             Result.Add(-1);
@@ -82,46 +58,9 @@ public class DataArchive
 
     public static async Task SetIndexList(string valueName, List<int> valueList)
     {
-        string ValueAsString = string.Empty;
-
-        foreach (int Value in valueList)
-        {
-            if (ValueAsString.Length > 0)
-                ValueAsString += ",";
-
-            ValueAsString += Value.ToString();
-        }
-
         Settings Settings = new();
         Settings.IndexList = valueList;
 
         await LocalStorage.SetItemAsync<Settings>(valueName, Settings);
-
-        RegistryKey Key = OpenSoftwareKey();
-        Key.SetValue(valueName, ValueAsString);
-        Key.Close();
-    }
-
-    public static RegistryKey? OpenKey(RegistryKey hive, params string[] path)
-    {
-        RegistryKey? Key = null;
-        string KeyPath = string.Empty;
-
-        for (int i = 0; i < path.Length; i++)
-        {
-            string Name = path[i];
-
-            if (KeyPath.Length > 0)
-                KeyPath += '\\';
-
-            KeyPath += Name;
-
-            if (Key != null)
-                Key.Close();
-
-            Key = hive.CreateSubKey(KeyPath);
-        }
-
-        return Key;
     }
 }
