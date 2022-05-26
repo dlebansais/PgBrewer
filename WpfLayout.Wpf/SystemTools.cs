@@ -1,6 +1,7 @@
 ﻿namespace WpfLayout;
 
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 
 public static class SystemTools
@@ -33,6 +34,27 @@ public static class SystemTools
 #pragma warning restore IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
 
         return VersionInfo.FileVersion;
+    }
+
+    public static byte[] GetResourceFile(string name)
+    {
+        Assembly CurrentAssembly = Assembly.GetCallingAssembly();
+        string[] ManifestResourceNames = CurrentAssembly.GetManifestResourceNames();
+
+        foreach (string ResourceName in ManifestResourceNames)
+        {
+            if (ResourceName.EndsWith($".Resources.{name}"))
+            {
+                using Stream? ResourceStream = CurrentAssembly.GetManifestResourceStream(ResourceName);
+                if (ResourceStream is not null)
+                {
+                    using BinaryReader Reader = new BinaryReader(ResourceStream);
+                    return Reader.ReadBytes((int)ResourceStream.Length);
+                }
+            }
+        }
+
+        throw new InvalidDataException();
     }
     #endregion
 }

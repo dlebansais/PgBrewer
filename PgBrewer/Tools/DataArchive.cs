@@ -5,59 +5,39 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using Microsoft.Win32;
+using WpfLayout;
 
 public class DataArchive
 {
     public static List<Effect> ReadEffectList(string name)
     {
-        List<Effect> Result = new List<Effect>();
-
-        try
-        {
-            Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
-            string[] ManifestResourceNames = CurrentAssembly.GetManifestResourceNames();
-            foreach (string ResourceName in ManifestResourceNames)
-            {
-                if (ResourceName.EndsWith(".Resources.EffectList.txt"))
-                {
-                    Result = ReadEffectList(CurrentAssembly, ResourceName, name);
-                    break;
-                }
-            }
-        }
-        catch
-        {
-        }
-
-        return Result;
+        byte[] EffectListBytes = SystemTools.GetResourceFile("EffectList.txt");
+        using MemoryStream EffectListStream = new MemoryStream(EffectListBytes);
+        return ReadEffectList(EffectListStream, name);
     }
 
-    public static List<Effect> ReadEffectList(Assembly assembly, string resourceName, string name)
+    public static List<Effect> ReadEffectList(Stream resourceStream, string name)
     {
         List<Effect> Result = new List<Effect>();
 
-        using (Stream ResourceStream = assembly.GetManifestResourceStream(resourceName)!)
+        using StreamReader Reader = new StreamReader(resourceStream, Encoding.UTF8);
+
+        for (; ;)
         {
-            using (StreamReader Reader = new StreamReader(ResourceStream, Encoding.UTF8))
+            string? Line = Reader.ReadLine()!;
+            if (Line == null)
+                break;
+
+            string[] LineSplit = Line.Split(';');
+            if (LineSplit.Length > 1)
             {
-                for (; ;)
-                {
-                    string? Line = Reader.ReadLine()!;
-                    if (Line == null)
-                        break;
+                string Name = LineSplit[0];
+                string Text = LineSplit[1];
+                string? Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
+                string? Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
 
-                    string[] LineSplit = Line.Split(';');
-                    if (LineSplit.Length > 1)
-                    {
-                        string Name = LineSplit[0];
-                        string Text = LineSplit[1];
-                        string? Prefix = LineSplit.Length > 3 ? LineSplit[2] : null;
-                        string? Suffix = LineSplit.Length > 3 ? LineSplit[3] : null;
-
-                        if (Name == name)
-                            Result.Add(new Effect(Text, Prefix, Suffix));
-                    }
-                }
+                if (Name == name)
+                    Result.Add(new Effect(Text, Prefix, Suffix));
             }
         }
 
