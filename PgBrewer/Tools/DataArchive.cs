@@ -2,22 +2,30 @@
 
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Win32;
 using WpfLayout;
 
-public class DataArchive
+/// <summary>
+/// Reads and write settings.
+/// </summary>
+public partial class DataArchive
 {
+    private static readonly DataArchive Default = new();
+
     public static List<Effect> ReadEffectList(string name)
+    {
+        return Default.ReadEffectListInternal(name);
+    }
+
+    private List<Effect> ReadEffectListInternal(string name)
     {
         byte[] EffectListBytes = SystemTools.GetResourceFile("EffectList.txt");
         using MemoryStream EffectListStream = new MemoryStream(EffectListBytes);
-        return ReadEffectList(EffectListStream, name);
+        return ReadEffectListInternal(EffectListStream, name);
     }
 
-    public static List<Effect> ReadEffectList(Stream resourceStream, string name)
+    private List<Effect> ReadEffectListInternal(Stream resourceStream, string name)
     {
         List<Effect> Result = new List<Effect>();
 
@@ -47,6 +55,11 @@ public class DataArchive
 
     public static async Task<List<int>> GetIndexList(string valueName, int minLength)
     {
+        return await Default.GetIndexListInternal(valueName, minLength);
+    }
+
+    private async Task<List<int>> GetIndexListInternal(string valueName, int minLength)
+    {
         Settings Settings = await LocalStorage.GetItemAsync<Settings>(valueName);
         List<int> Result = Settings.IndexList;
 
@@ -57,6 +70,11 @@ public class DataArchive
     }
 
     public static async Task SetIndexList(string valueName, List<int> valueList)
+    {
+        await Default.SetIndexListInternal(valueName, valueList);
+    }
+
+    private async Task SetIndexListInternal(string valueName, List<int> valueList)
     {
         Settings Settings = new();
         Settings.IndexList = valueList;
