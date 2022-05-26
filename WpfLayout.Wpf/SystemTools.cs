@@ -3,6 +3,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 public static class SystemTools
 {
@@ -36,9 +37,9 @@ public static class SystemTools
         return VersionInfo.FileVersion;
     }
 
-    public static byte[] GetResourceFile(string name)
+    public static async Task<byte[]> GetResourceFile(string name)
     {
-        Assembly CurrentAssembly = Assembly.GetCallingAssembly();
+        Assembly CurrentAssembly = Assembly.GetEntryAssembly();
         string[] ManifestResourceNames = CurrentAssembly.GetManifestResourceNames();
 
         foreach (string ResourceName in ManifestResourceNames)
@@ -49,6 +50,7 @@ public static class SystemTools
                 if (ResourceStream is not null)
                 {
                     using BinaryReader Reader = new BinaryReader(ResourceStream);
+                    await Task.CompletedTask;
                     return Reader.ReadBytes((int)ResourceStream.Length);
                 }
             }

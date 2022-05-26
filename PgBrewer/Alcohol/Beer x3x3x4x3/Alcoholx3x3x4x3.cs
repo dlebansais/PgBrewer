@@ -34,6 +34,7 @@ public class Alcoholx3x3x4x3 : Alcohol, IFourComponentsAlcohol
 
     private async Task Init()
     {
+        await ReadEffectList();
         List<int> Indexes = await DataArchive.GetIndexList(Name, ComponentList1.Count * ComponentList2.Count * ComponentList3.Count * ComponentList4.Count);
 
         for (int ComponentIndex1 = 0; ComponentIndex1 < ComponentList1.Count; ComponentIndex1++)

@@ -13,14 +13,14 @@ public partial class DataArchive
 {
     private static readonly DataArchive Default = new();
 
-    public static List<Effect> ReadEffectList(string name)
+    public static async Task<List<Effect>> ReadEffectList(string name)
     {
-        return Default.ReadEffectListInternal(name);
+        return await Default.ReadEffectListInternal(name);
     }
 
-    private List<Effect> ReadEffectListInternal(string name)
+    private async Task<List<Effect>> ReadEffectListInternal(string name)
     {
-        byte[] EffectListBytes = SystemTools.GetResourceFile("EffectList.txt");
+        byte[] EffectListBytes = await SystemTools.GetResourceFile("EffectList.txt");
         using MemoryStream EffectListStream = new MemoryStream(EffectListBytes);
         return ReadEffectListInternal(EffectListStream, name);
     }

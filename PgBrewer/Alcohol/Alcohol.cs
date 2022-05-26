@@ -14,15 +14,19 @@ public class Alcohol : INotifyPropertyChanged
     public Alcohol(string name)
     {
         Name = name;
-        EffectList = DataArchive.ReadEffectList(name);
         Previous = None;
         Next = None;
+    }
+
+    protected async Task ReadEffectList()
+    {
+        EffectList = await DataArchive.ReadEffectList(Name);
     }
     #endregion
 
     #region Properties
     public string Name { get; }
-    public List<Effect> EffectList { get; } = new List<Effect>();
+    public List<Effect> EffectList { get; private set; } = null!;
     public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
     public Alcohol Previous { get; private set; }
     public Alcohol Next { get; private set; }
