@@ -5,6 +5,5 @@
 /// </summary>
 public partial class MainWindow
 {
-    private static readonly string AssociationSettingName = "Association";
     private static readonly string VersionProlog = "Exported from PgBrewing.exe version ";
 }

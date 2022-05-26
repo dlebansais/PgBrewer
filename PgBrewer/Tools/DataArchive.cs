@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Win32;
 using WpfLayout;
 
@@ -50,9 +51,12 @@ public class DataArchive
         return Key;
     }
 
-    public static List<int> GetIndexList(string valueName, int minLength)
+    public static async Task<List<int>> GetIndexList(string valueName, int minLength)
     {
-        List<int> Result = new List<int>();
+        Settings Settings = await LocalStorage.GetItemAsync<Settings>(valueName);
+
+        List<int> Result = Settings.IndexList;
+        Result.Clear();
 
         RegistryKey Key = OpenSoftwareKey();
         string? ValueAsString = Key.GetValue(valueName) as string;
@@ -76,7 +80,7 @@ public class DataArchive
         return Result;
     }
 
-    public static void SetIndexList(string valueName, List<int> valueList)
+    public static async Task SetIndexList(string valueName, List<int> valueList)
     {
         string ValueAsString = string.Empty;
 
@@ -87,6 +91,11 @@ public class DataArchive
 
             ValueAsString += Value.ToString();
         }
+
+        Settings Settings = new();
+        Settings.IndexList = valueList;
+
+        await LocalStorage.SetItemAsync<Settings>(valueName, Settings);
 
         RegistryKey Key = OpenSoftwareKey();
         Key.SetValue(valueName, ValueAsString);

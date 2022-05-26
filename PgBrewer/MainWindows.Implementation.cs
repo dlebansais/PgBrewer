@@ -10,8 +10,8 @@ public partial class MainWindow
 {
     public void Recalculate()
     {
-        RecalculateFromBottom(PageBeers.OrcishBock);
-        RecalculateFromBottom(PageLiquors.PotatoVodka);
+        RecalculateFromBottom(Globals.PageBeers.OrcishBock);
+        RecalculateFromBottom(Globals.PageLiquors.PotatoVodka);
     }
 
     public void RecalculateFromBottom(IFourComponentsAlcohol start)

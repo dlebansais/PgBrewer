@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,7 +19,7 @@ using WpfLayout;
 /// </summary>
 public partial class MainWindow
 {
-    public override void OnClosing(object sender, CancelEventArgs e)
+    public override async void OnClosing(object sender, CancelEventArgs e)
     {
         if (IsChanged)
         {
@@ -27,7 +28,7 @@ public partial class MainWindow
             switch (Answer)
             {
                 case MessageBoxResult.Yes:
-                    SaveAll();
+                    await Globals.SaveAll();
                     break;
 
                 case MessageBoxResult.No:
@@ -41,44 +42,10 @@ public partial class MainWindow
         }
     }
 
-    public override void OnSave(object sender, ExecutedRoutedEventArgs e)
+    public override async void OnSave(object sender, ExecutedRoutedEventArgs e)
     {
-        SaveAll();
+        await Globals.SaveAll();
         SetIsChanged(false);
-    }
-
-    private void SaveAll()
-    {
-        PageBeers.BasicLager.Save();
-        PageBeers.PaleAle.Save();
-        PageBeers.Marzen.Save();
-        PageBeers.GoblinAle.Save();
-        PageBeers.OrcishBock.Save();
-        PageBeers.BrownAle.Save();
-        PageBeers.HegemonyLager.Save();
-        PageBeers.DwarvenStout.Save();
-        PageLiquors.PotatoVodka.Save();
-        PageLiquors.Applejack.Save();
-        PageLiquors.BeetVodka.Save();
-        PageLiquors.PaleRum.Save();
-        PageLiquors.Whisky.Save();
-        PageLiquors.Tequila.Save();
-        PageLiquors.DryGin.Save();
-        PageLiquors.Bourbon.Save();
-
-        SaveAssociations();
-    }
-
-    private void SaveAssociations()
-    {
-        foreach (ComponentAssociationCollection AssociationList in AssociationTable)
-        {
-            List<int> IndexList = new List<int>();
-            for (int i = 0; i < AssociationList.Count; i++)
-                IndexList.Add(AssociationList[i].AssociationIndex);
-
-            DataArchive.SetIndexList($"{AssociationSettingName}{AssociationList.Name}", IndexList);
-        }
     }
 
     public override void OnDeleteLine(object sender, ExecutedRoutedEventArgs e)
@@ -125,55 +92,13 @@ public partial class MainWindow
     {
         ExportVersionNumber(writer);
 
-        ExportAssociations(writer);
-
-        PageBeers.BasicLager.Export(writer);
-        PageBeers.PaleAle.Export(writer);
-        PageBeers.Marzen.Export(writer);
-        PageBeers.GoblinAle.Export(writer);
-        PageBeers.OrcishBock.Export(writer);
-        PageBeers.BrownAle.Export(writer);
-        PageBeers.HegemonyLager.Export(writer);
-        PageBeers.DwarvenStout.Export(writer);
-        PageLiquors.PotatoVodka.Export(writer);
-        PageLiquors.Applejack.Export(writer);
-        PageLiquors.BeetVodka.Export(writer);
-        PageLiquors.PaleRum.Export(writer);
-        PageLiquors.Whisky.Export(writer);
-        PageLiquors.Tequila.Export(writer);
-        PageLiquors.DryGin.Export(writer);
-        PageLiquors.Bourbon.Export(writer);
+        Globals.ExportAssociations(writer);
     }
 
     private void ExportVersionNumber(StreamWriter writer)
     {
         if (SystemTools.GetVersion() is string Version)
             writer.WriteLine($"{VersionProlog}{Version}");
-    }
-
-    private void ExportAssociations(StreamWriter writer)
-    {
-        writer.WriteLine("Associations");
-        writer.WriteLine();
-
-        foreach (ComponentAssociationCollection AssociationList in AssociationTable)
-        {
-            writer.WriteLine(AssociationList.Name);
-
-            foreach (ComponentAssociation Association in AssociationList)
-            {
-                string AssociationName = Association.Component.Name;
-
-                if (Association.AssociationIndex >= 0)
-                    writer.WriteLine($"{AssociationName};{Association.ChoiceList[Association.AssociationIndex]}");
-                else
-                    writer.WriteLine($"{AssociationName};");
-            }
-
-            writer.WriteLine();
-        }
-
-        writer.WriteLine();
     }
 
     public override void OnImport(object sender, ExecutedRoutedEventArgs e)
@@ -244,117 +169,7 @@ public partial class MainWindow
 
     private bool OnImportConfirmed(StreamReader reader, ref int changeCount)
     {
-        if (!ImportAssociations(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.BasicLager.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.PaleAle.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.Marzen.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.GoblinAle.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.OrcishBock.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.BrownAle.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.HegemonyLager.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageBeers.DwarvenStout.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.PotatoVodka.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.Applejack.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.BeetVodka.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.PaleRum.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.Whisky.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.Tequila.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.DryGin.Import(reader, ref changeCount))
-            return false;
-
-        if (!PageLiquors.Bourbon.Import(reader, ref changeCount))
-            return false;
-
-        return true;
-    }
-
-    private bool ImportAssociations(StreamReader reader, ref int changeCount)
-    {
-        if (reader.ReadLine() != "Associations")
-            return false;
-
-        reader.ReadLine();
-
-        foreach (ComponentAssociationCollection AssociationList in AssociationTable)
-        {
-            if (AssociationList.Name != reader.ReadLine())
-                return false;
-
-            foreach (ComponentAssociation Association in AssociationList)
-            {
-                string AssociationString = reader.ReadLine()!;
-                string AssociationName = Association.Component.Name;
-                AssociationName += ";";
-
-                if (!AssociationString.StartsWith(AssociationName))
-                    return false;
-
-                AssociationString = AssociationString.Substring(AssociationName.Length);
-                if (AssociationString.Length > 0)
-                {
-                    int SelectedIndex = -1;
-                    for (int i = 0; i < Association.ChoiceList.Count; i++)
-                    {
-                        Component Choice = Association.ChoiceList[i];
-                        if (Choice.ToString() == AssociationString)
-                        {
-                            SelectedIndex = i;
-                            break;
-                        }
-                    }
-
-                    if (SelectedIndex < 0)
-                        return false;
-
-                    if (Association.AssociationIndex != SelectedIndex)
-                    {
-                        Association.AssociationIndex = SelectedIndex;
-                        changeCount++;
-                    }
-                }
-                else if (Association.AssociationIndex >= 0)
-                {
-                    Association.AssociationIndex = -1;
-                    changeCount++;
-                }
-            }
-
-            reader.ReadLine();
-        }
-
-        reader.ReadLine();
-
-        return true;
+        return Globals.ImportAssociations(reader, ref changeCount);
     }
 
     public override void OnBack(object sender, ExecutedRoutedEventArgs e)

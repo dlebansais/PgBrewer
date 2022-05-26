@@ -9,16 +9,11 @@ using System.Windows.Media;
 /// </summary>
 public partial class MainWindow
 {
-    public static BackForward BackForward { get; } = new();
-    public static PgBrewerPageBeers PageBeers { get; } = new PgBrewerPageBeers(BackForward);
-    public static PgBrewerPageLiquors PageLiquors { get; } = new PgBrewerPageLiquors(BackForward);
-    public static PgBrewerPageSettings PageSettings { get; } = new PgBrewerPageSettings(BackForward);
-
     public override ObservableCollection<PgBrewerPage> PageList { get; } = new()
     {
-        PageBeers,
-        PageLiquors,
-        PageSettings,
+        Globals.PageBeers,
+        Globals.PageLiquors,
+        Globals.PageSettings,
     };
 
     public override int SelectedPageIndex
@@ -56,6 +51,4 @@ public partial class MainWindow
             NotifyPropertyChanged(nameof(IsChanged));
         }
     }
-
-    public List<ComponentAssociationCollection> AssociationTable { get; } = new List<ComponentAssociationCollection>();
 }

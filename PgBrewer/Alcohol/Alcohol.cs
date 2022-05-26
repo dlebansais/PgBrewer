@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 public class Alcohol : INotifyPropertyChanged
 {
@@ -84,14 +85,14 @@ public class Alcohol : INotifyPropertyChanged
         NotifyPropertyChanged(nameof(IsSelected));
     }
 
-    public virtual void Save()
+    public virtual async Task Save()
     {
         List<int> Indexes = new List<int>();
 
         for (int i = 0; i < Lines.Count; i++)
             Indexes.Add(Lines[i].EffectIndex);
 
-        DataArchive.SetIndexList(Name, Indexes);
+        await DataArchive.SetIndexList(Name, Indexes);
     }
 
     public virtual void ClearCalculateIndexes()
