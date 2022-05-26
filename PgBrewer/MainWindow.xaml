@@ -1,6 +1,7 @@
 ﻿<Window x:Class="PgBrewer.MainWindowUI"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpflayout="clr-namespace:WpfLayout;assembly=WpfLayout.Wpf"
         WindowStartupLocation="CenterOwner"
         ResizeMode="CanResize"
         MinWidth="1350"
@@ -21,8 +22,8 @@
         <TabControl ItemsSource="{Binding PageList}" SelectedIndex="{Binding SelectedPageIndex}" ItemTemplate="{StaticResource PageHeaderTemplate}" ItemContainerStyle="{StaticResource TabItemNoStyle}" BorderThickness="0" TabStripPlacement="Left" Margin="10"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="160" Margin="10,0,0,10">
             <Button Command="{StaticResource SaveCommand}" Content="Save" Template="{StaticResource MainButtonTemplate}" FontSize="24" IsEnabled="{Binding IsChanged}" HorizontalAlignment="Center"/>
-            <Button Command="{StaticResource ExportCommand}" Content="Export..." Template="{StaticResource MainButtonTemplate}" FontSize="24" HorizontalAlignment="Center"/>
-            <Button Command="{StaticResource ImportCommand}" Content="Import..." Template="{StaticResource MainButtonTemplate}" FontSize="24" HorizontalAlignment="Center"/>
+            <Button Command="{StaticResource ExportCommand}" Content="Export..." Template="{StaticResource MainButtonTemplate}" wpflayout:FileDialogButton.Mode="Save" wpflayout:FileDialogButton.Filter="CSV file (*.csv)|*.csv" FontSize="24" HorizontalAlignment="Center"/>
+            <Button Command="{StaticResource ImportCommand}" Content="Import..." Template="{StaticResource MainButtonTemplate}" wpflayout:FileDialogButton.Mode="Open" wpflayout:FileDialogButton.Filter="CSV file (*.csv)|*.csv" FontSize="24" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Window>

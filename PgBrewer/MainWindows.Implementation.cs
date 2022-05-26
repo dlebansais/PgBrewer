@@ -176,7 +176,7 @@ public partial class MainWindow
 
     public static void SetChanged()
     {
-        MainWindow Window = (MainWindow)App.Current.MainWindow;
-        Window.SetIsChanged(true);
+        if (App.Current is not null && App.Current.MainWindow is MainWindow Window)
+            Window.SetIsChanged(true);
     }
 }

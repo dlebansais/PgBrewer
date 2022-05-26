@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.Win32;
+using WpfLayout;
 
 /// <summary>
 /// Main window implementation.
@@ -94,12 +95,12 @@ public partial class MainWindow
 
     public override void OnExport(object sender, ExecutedRoutedEventArgs e)
     {
-        SaveFileDialog Dlg = new SaveFileDialog();
-        Dlg.Filter = "CSV file (*.csv)|*.csv";
-        bool? Continue = Dlg.ShowDialog(this);
+        FileDialogResult Result = (FileDialogResult)e.Parameter;
 
-        if (Continue.HasValue && Continue.Value)
-            OnExport(Dlg.FileName);
+        if (Result.FilePath.Length == 0)
+            Result.FilePath = "Brewing.csv";
+
+        OnExport(Result.FilePath);
     }
 
     private void OnExport(string fileName)
@@ -146,8 +147,8 @@ public partial class MainWindow
 
     private void ExportVersionNumber(StreamWriter writer)
     {
-        string Version = GetVersion();
-        writer.WriteLine($"{VersionProlog}{Version}");
+        if (SystemTools.GetVersion() is string Version)
+            writer.WriteLine($"{VersionProlog}{Version}");
     }
 
     private void ExportAssociations(StreamWriter writer)
@@ -177,12 +178,8 @@ public partial class MainWindow
 
     public override void OnImport(object sender, ExecutedRoutedEventArgs e)
     {
-        OpenFileDialog Dlg = new OpenFileDialog();
-        Dlg.Filter = "CSV file (*.csv)|*.csv";
-        bool? Continue = Dlg.ShowDialog(this);
-
-        if (Continue.HasValue && Continue.Value)
-            OnImport(Dlg.FileName);
+        FileDialogResult Result = (FileDialogResult)e.Parameter;
+        OnImport(Result.FilePath);
     }
 
     private void OnImport(string fileName)
@@ -224,9 +221,12 @@ public partial class MainWindow
 
     private bool ImportVersionNumber(StreamReader reader)
     {
-        string Version = GetVersion();
+        if (SystemTools.GetVersion() is not string Version)
+            return false;
 
-        string Line = reader.ReadLine()!;
+        if (reader.ReadLine() is not string Line)
+            return false;
+
         if (!Line.StartsWith(VersionProlog))
             return false;
 
@@ -355,16 +355,6 @@ public partial class MainWindow
         reader.ReadLine();
 
         return true;
-    }
-
-    private string GetVersion()
-    {
-        Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
-#pragma warning disable IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
-        FileVersionInfo VersionInfo = FileVersionInfo.GetVersionInfo(CurrentAssembly.Location);
-#pragma warning restore IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
-
-        return VersionInfo.FileVersion!;
     }
 
     public override void OnBack(object sender, ExecutedRoutedEventArgs e)
