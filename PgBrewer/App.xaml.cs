@@ -29,14 +29,11 @@ public partial class App : Application
         DragDropTools.OnListBoxItemDrop(sender, args);
     }
 
-    private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    public void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (sender is ListBox AsListBox && e.OriginalSource == sender && AsListBox.SelectedItem is not null)
-        {
-            ItemContainerGenerator ItemContainerGenerator = AsListBox.ItemContainerGenerator;
-            if (ItemContainerGenerator.ContainerFromItem(AsListBox.SelectedItem) is FrameworkElement AsFrameworkElement)
+        if (sender is ListBox AsListBox && e.OriginalSource == sender && AsListBox.SelectedItem is object SelectedItem)
+            if (SelectorTools.ItemToContainer(AsListBox, SelectedItem) is FrameworkElement AsFrameworkElement)
                 AsFrameworkElement.Focus();
-        }
     }
     #endregion
 }

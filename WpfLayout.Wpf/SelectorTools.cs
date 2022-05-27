@@ -125,4 +125,10 @@ public static class SelectorTools
     }
 
     public static IInputElement? FocusedElement { get { return Keyboard.FocusedElement; } }
+
+    public static FrameworkElement? ItemToContainer(ItemsControl itemsControl, object item)
+    {
+        ItemContainerGenerator ItemContainerGenerator = itemsControl.ItemContainerGenerator;
+        return ItemContainerGenerator.ContainerFromItem(item) as FrameworkElement;
+    }
 }
