@@ -30,7 +30,8 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
     #endregion
 
     #region Events
-    public abstract void OnClosing(object sender, CancelEventArgs e);
+    public abstract void OnMainWindowLoaded(object sender, RoutedEventArgs e);
+    public abstract void OnMainWindowClosing(object sender, CancelEventArgs e);
     public abstract void OnDelete(object sender, ExecutedRoutedEventArgs e);
     public abstract void OnSave(object sender, ExecutedRoutedEventArgs e);
     public abstract void OnExport(object sender, ExecutedRoutedEventArgs e);

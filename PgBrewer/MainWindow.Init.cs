@@ -8,26 +8,23 @@ using System.Windows;
 /// </summary>
 public partial class MainWindow
 {
-    private async void OnLoaded(object sender, RoutedEventArgs e)
+    public override async void OnMainWindowLoaded(object sender, RoutedEventArgs e)
     {
-        await Globals.Initialize();
+        await InitializePages();
 
-        PageList.Add(Globals.PageBeers);
-        PageList.Add(Globals.PageLiquors);
-        PageList.Add(Globals.PageSettings);
-        Globals.PageBeers.SetSelected(true);
+        PageBeers.SetSelected(true);
 
-        Alcohol.Chain(Globals.PageBeers.OrcishBock, Globals.PageBeers.BrownAle, new List<ComponentAssociationCollection>() { Globals.PageSettings.AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationFlavor1Beer });
-        Alcohol.Chain(Globals.PageBeers.BrownAle, Globals.PageBeers.HegemonyLager, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, Globals.PageSettings.AssociationFruit2, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(Globals.PageBeers.HegemonyLager, Globals.PageBeers.DwarvenStout, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationMushroom3, Globals.PageSettings.AssociationFlavor2Beer });
+        Alcohol.Chain(PageBeers.OrcishBock, PageBeers.BrownAle, new List<ComponentAssociationCollection>() { PageSettings.AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationFlavor1Beer });
+        Alcohol.Chain(PageBeers.BrownAle, PageBeers.HegemonyLager, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, PageSettings.AssociationFruit2, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageBeers.HegemonyLager, PageBeers.DwarvenStout, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationMushroom3, PageSettings.AssociationFlavor2Beer });
 
-        Alcohol.Chain(Globals.PageLiquors.PotatoVodka, Globals.PageLiquors.Applejack, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, Globals.PageSettings.AssociationVeggie1, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(Globals.PageLiquors.Applejack, Globals.PageLiquors.BeetVodka, new List<ComponentAssociationCollection>() { Globals.PageSettings.AssociationFruit1, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(Globals.PageLiquors.BeetVodka, Globals.PageLiquors.PaleRum, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(Globals.PageLiquors.PaleRum, Globals.PageLiquors.Whisky, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationParts1, ComponentAssociationCollection.None });
-        Alcohol.Chain(Globals.PageLiquors.Whisky, Globals.PageLiquors.Tequila, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationFlavor1Liquor });
-        Alcohol.Chain(Globals.PageLiquors.Tequila, Globals.PageLiquors.DryGin, new List<ComponentAssociationCollection>() { Globals.PageSettings.AssociationFruit2, Globals.PageSettings.AssociationMushroom3, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
-        Alcohol.Chain(Globals.PageLiquors.DryGin, Globals.PageLiquors.Bourbon, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationParts2, Globals.PageSettings.AssociationFlavor2Liquor });
+        Alcohol.Chain(PageLiquors.PotatoVodka, PageLiquors.Applejack, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, PageSettings.AssociationVeggie1, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.Applejack, PageLiquors.BeetVodka, new List<ComponentAssociationCollection>() { PageSettings.AssociationFruit1, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.BeetVodka, PageLiquors.PaleRum, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.PaleRum, PageLiquors.Whisky, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationParts1, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.Whisky, PageLiquors.Tequila, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationFlavor1Liquor });
+        Alcohol.Chain(PageLiquors.Tequila, PageLiquors.DryGin, new List<ComponentAssociationCollection>() { PageSettings.AssociationFruit2, PageSettings.AssociationMushroom3, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
+        Alcohol.Chain(PageLiquors.DryGin, PageLiquors.Bourbon, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, PageSettings.AssociationParts2, PageSettings.AssociationFlavor2Liquor });
 
         Recalculate();
 

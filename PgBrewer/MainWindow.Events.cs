@@ -19,7 +19,7 @@ using WpfLayout;
 /// </summary>
 public partial class MainWindow
 {
-    public override async void OnClosing(object sender, CancelEventArgs e)
+    public override async void OnMainWindowClosing(object sender, CancelEventArgs e)
     {
         if (IsChanged)
         {
@@ -28,7 +28,7 @@ public partial class MainWindow
             switch (Answer)
             {
                 case MessageBoxResult.Yes:
-                    await Globals.SaveAll();
+                    await SaveAll();
                     break;
 
                 case MessageBoxResult.No:
@@ -44,7 +44,7 @@ public partial class MainWindow
 
     public override async void OnSave(object sender, ExecutedRoutedEventArgs e)
     {
-        await Globals.SaveAll();
+        await SaveAll();
         SetIsChanged(false);
     }
 
@@ -92,7 +92,7 @@ public partial class MainWindow
     {
         ExportVersionNumber(writer);
 
-        Globals.ExportAssociations(writer);
+        ExportAssociations(writer);
     }
 
     private void ExportVersionNumber(StreamWriter writer)
@@ -169,7 +169,7 @@ public partial class MainWindow
 
     private bool OnImportConfirmed(StreamReader reader, ref int changeCount)
     {
-        return Globals.ImportAssociations(reader, ref changeCount);
+        return ImportAssociations(reader, ref changeCount);
     }
 
     public override void OnBack(object sender, ExecutedRoutedEventArgs e)

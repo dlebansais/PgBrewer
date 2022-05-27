@@ -4,25 +4,32 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-public static class Globals
+/// <summary>
+/// Main window implementation.
+/// </summary>
+public partial class MainWindow
 {
-    public static BackForward BackForward { get; } = new();
-    public static PgBrewerPageBeers PageBeers { get; private set; } = null!;
-    public static PgBrewerPageLiquors PageLiquors { get; private set; } = null!;
-    public static PgBrewerPageSettings PageSettings { get; private set; } = null!;
+    public BackForward BackForward { get; } = new();
+    public PgBrewerPageBeers PageBeers { get; private set; } = null!;
+    public PgBrewerPageLiquors PageLiquors { get; private set; } = null!;
+    public PgBrewerPageSettings PageSettings { get; private set; } = null!;
 
     private static readonly string AssociationSettingName = "Association";
 
-    public static async Task Initialize()
+    public async Task InitializePages()
     {
         PageBeers = await PgBrewerPageBeers.Create(BackForward);
         PageLiquors = await PgBrewerPageLiquors.Create(BackForward);
         PageSettings = new PgBrewerPageSettings(BackForward);
 
         await LoadAssociations();
+
+        PageList.Add(PageBeers);
+        PageList.Add(PageLiquors);
+        PageList.Add(PageSettings);
     }
 
-    private static async Task LoadAssociations()
+    private async Task LoadAssociations()
     {
         await LoadAssociations(PageSettings.AssociationFruit1);
         await LoadAssociations(PageSettings.AssociationFruit2);
@@ -38,7 +45,7 @@ public static class Globals
         await LoadAssociations(PageSettings.AssociationFlavor2Liquor);
     }
 
-    private static async Task LoadAssociations(ComponentAssociationCollection associationList)
+    private async Task LoadAssociations(ComponentAssociationCollection associationList)
     {
         List<int> AssociationIndexes = await DataArchive.GetIndexList($"{AssociationSettingName}{associationList.Name}", associationList.Count);
         for (int i = 0; i < associationList.Count; i++)
@@ -47,7 +54,7 @@ public static class Globals
         AssociationTable.Add(associationList);
     }
 
-    public static async Task SaveAll()
+    public async Task SaveAll()
     {
         await PageBeers.SaveAll();
         await PageLiquors.SaveAll();
@@ -55,7 +62,7 @@ public static class Globals
         await SaveAssociations();
     }
 
-    private static async Task SaveAssociations()
+    private async Task SaveAssociations()
     {
         foreach (ComponentAssociationCollection AssociationList in AssociationTable)
         {
@@ -67,7 +74,7 @@ public static class Globals
         }
     }
 
-    public static void ExportAssociations(StreamWriter writer)
+    public void ExportAssociations(StreamWriter writer)
     {
         writer.WriteLine("Associations");
         writer.WriteLine();
@@ -95,7 +102,7 @@ public static class Globals
         PageLiquors.ExportAll(writer);
     }
 
-    public static bool ImportAssociations(StreamReader reader, ref int changeCount)
+    public bool ImportAssociations(StreamReader reader, ref int changeCount)
     {
         if (reader.ReadLine() != "Associations")
             return false;
@@ -160,5 +167,5 @@ public static class Globals
         return true;
     }
 
-    public static List<ComponentAssociationCollection> AssociationTable { get; } = new();
+    public List<ComponentAssociationCollection> AssociationTable { get; } = new();
 }
