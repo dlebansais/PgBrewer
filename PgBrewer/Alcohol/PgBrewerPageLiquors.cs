@@ -70,6 +70,8 @@ public class PgBrewerPageLiquors : PgBrewerPage, IAlcoholPage
             Component.PartsTier3,
             Component.FlavorTier3Four);
 
+        PotatoVodka.SetSelected(true);
+
         AlcoholList.Add(PotatoVodka);
         AlcoholList.Add(Applejack);
         AlcoholList.Add(BeetVodka);
@@ -81,8 +83,6 @@ public class PgBrewerPageLiquors : PgBrewerPage, IAlcoholPage
 
         foreach (Alcohol Item in AlcoholList)
             Item.LineSelected += OnLineSelected;
-
-        PotatoVodka.SetSelected(true);
     }
     #endregion
 

@@ -64,6 +64,8 @@ public class PgBrewerPageBeers : PgBrewerPage, IAlcoholPage
             Component.MushroomTier4,
             Component.FlavorTier3Three);
 
+        BasicLager.SetSelected(true);
+
         AlcoholList.Add(BasicLager);
         AlcoholList.Add(PaleAle);
         AlcoholList.Add(Marzen);
@@ -75,8 +77,6 @@ public class PgBrewerPageBeers : PgBrewerPage, IAlcoholPage
 
         foreach (Alcohol Item in AlcoholList)
             Item.LineSelected += OnLineSelected;
-
-        BasicLager.SetSelected(true);
     }
     #endregion
 
