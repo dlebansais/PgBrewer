@@ -15,17 +15,12 @@ public partial class DataArchive
 
     public static async Task<List<Effect>> ReadEffectList(string name)
     {
-        return await Default.ReadEffectListInternal(name);
-    }
-
-    private async Task<List<Effect>> ReadEffectListInternal(string name)
-    {
         byte[] EffectListBytes = await SystemTools.GetResourceFile("EffectList.txt");
         using MemoryStream EffectListStream = new MemoryStream(EffectListBytes);
-        return ReadEffectListInternal(EffectListStream, name);
+        return ReadEffectList(EffectListStream, name);
     }
 
-    private List<Effect> ReadEffectListInternal(Stream resourceStream, string name)
+    private static List<Effect> ReadEffectList(Stream resourceStream, string name)
     {
         List<Effect> Result = new List<Effect>();
 
@@ -55,13 +50,11 @@ public partial class DataArchive
 
     public static async Task<List<int>> GetIndexList(string valueName, int minLength)
     {
-        return await Default.GetIndexListInternal(valueName, minLength);
-    }
-
-    private async Task<List<int>> GetIndexListInternal(string valueName, int minLength)
-    {
-        Settings Settings = await LocalStorage.GetItemAsync<Settings>(valueName);
-        List<int> Result = Settings.IndexList;
+        List<int> Result;
+        if (await MainWindowUI.GetItemAsync<Settings>(valueName) is Settings Settings)
+            Result = Settings.IndexList;
+        else
+            Result = new();
 
         for (int i = Result.Count; i < minLength; i++)
             Result.Add(-1);
@@ -71,14 +64,9 @@ public partial class DataArchive
 
     public static async Task SetIndexList(string valueName, List<int> valueList)
     {
-        await Default.SetIndexListInternal(valueName, valueList);
-    }
-
-    private async Task SetIndexListInternal(string valueName, List<int> valueList)
-    {
         Settings Settings = new();
         Settings.IndexList = valueList;
 
-        await LocalStorage.SetItemAsync<Settings>(valueName, Settings);
+        await MainWindowUI.SetItemAsync<Settings>(valueName, Settings);
     }
 }

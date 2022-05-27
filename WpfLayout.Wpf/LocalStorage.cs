@@ -8,7 +8,7 @@ using Microsoft.Win32;
 
 public static class LocalStorage
 {
-    public async static Task<T> GetItemAsync<T>(string name)
+    public static async Task<T?> GetItemAsync<T>(string name)
         where T : class, new()
     {
         T? Result = null;
@@ -37,7 +37,7 @@ public static class LocalStorage
         {
         }
 
-        return Result ?? new T();
+        return Result;
     }
 
     public static async Task SetItemAsync<T>(string name, T value)

@@ -3,7 +3,9 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -39,6 +41,19 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
     public abstract void OnBack(object sender, ExecutedRoutedEventArgs e);
     public abstract void OnForward(object sender, ExecutedRoutedEventArgs e);
     public abstract void OnDeleteLine(object sender, ExecutedRoutedEventArgs e);
+    #endregion
+
+    #region Storage
+    public static async Task<T?> GetItemAsync<T>(string name)
+        where T : class, new()
+    {
+        return await LocalStorage.GetItemAsync<T>(name);
+    }
+
+    public static async Task SetItemAsync<T>(string name, T value)
+    {
+        await LocalStorage.SetItemAsync<T>(name, value);
+    }
     #endregion
 
     #region Implementation of INotifyPropertyChanged
