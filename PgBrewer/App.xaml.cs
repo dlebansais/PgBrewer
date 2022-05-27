@@ -11,10 +11,8 @@ using WpfLayout;
 public partial class App : Application
 {
     #region Init
-    private async void OnStartup(object sender, StartupEventArgs e)
+    private void OnStartup(object sender, StartupEventArgs e)
     {
-        await Globals.Initialize();
-
         MainWindow MainWindow = new MainWindow();
         MainWindow.Show();
     }

@@ -9,12 +9,7 @@ using System.Windows.Media;
 /// </summary>
 public partial class MainWindow
 {
-    public override ObservableCollection<PgBrewerPage> PageList { get; } = new()
-    {
-        Globals.PageBeers,
-        Globals.PageLiquors,
-        Globals.PageSettings,
-    };
+    public override ObservableCollection<PgBrewerPage> PageList { get; } = new();
 
     public override int SelectedPageIndex
     {
@@ -45,6 +40,9 @@ public partial class MainWindow
 
     private void SetIsChanged(bool value)
     {
+        if (!IsPageListInitialized)
+            return;
+
         if (IsChangedInternal != value)
         {
             IsChangedInternal = value;

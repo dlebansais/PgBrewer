@@ -1,19 +1,22 @@
 ﻿namespace PgBrewer;
 
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media.Imaging;
 
 /// <summary>
 /// Main window implementation.
 /// </summary>
 public partial class MainWindow
 {
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private async void OnLoaded(object sender, RoutedEventArgs e)
     {
+        await Globals.Initialize();
+
+        PageList.Add(Globals.PageBeers);
+        PageList.Add(Globals.PageLiquors);
+        PageList.Add(Globals.PageSettings);
+        Globals.PageBeers.SetSelected(true);
+
         Alcohol.Chain(Globals.PageBeers.OrcishBock, Globals.PageBeers.BrownAle, new List<ComponentAssociationCollection>() { Globals.PageSettings.AssociationVeggie2Beer, ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationFlavor1Beer });
         Alcohol.Chain(Globals.PageBeers.BrownAle, Globals.PageBeers.HegemonyLager, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, Globals.PageSettings.AssociationFruit2, ComponentAssociationCollection.None, ComponentAssociationCollection.None });
         Alcohol.Chain(Globals.PageBeers.HegemonyLager, Globals.PageBeers.DwarvenStout, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationMushroom3, Globals.PageSettings.AssociationFlavor2Beer });
@@ -27,5 +30,9 @@ public partial class MainWindow
         Alcohol.Chain(Globals.PageLiquors.DryGin, Globals.PageLiquors.Bourbon, new List<ComponentAssociationCollection>() { ComponentAssociationCollection.None, ComponentAssociationCollection.None, Globals.PageSettings.AssociationParts2, Globals.PageSettings.AssociationFlavor2Liquor });
 
         Recalculate();
+
+        IsPageListInitialized = true;
     }
+
+    private bool IsPageListInitialized;
 }
