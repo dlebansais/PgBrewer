@@ -21,12 +21,17 @@ public class Alcohol : INotifyPropertyChanged
     protected async Task ReadEffectList()
     {
         EffectList = await DataArchive.ReadEffectList(Name);
+
+        EffectTextList = new List<string>();
+        foreach (Effect Effect in EffectList)
+            EffectTextList.Add(Effect.Text);
     }
     #endregion
 
     #region Properties
     public string Name { get; }
     public List<Effect> EffectList { get; private set; } = null!;
+    public List<string> EffectTextList { get; private set; } = null!;
     public AlcoholLineCollection Lines { get; } = new AlcoholLineCollection();
     public Alcohol Previous { get; private set; }
     public Alcohol Next { get; private set; }
