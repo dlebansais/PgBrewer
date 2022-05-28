@@ -74,6 +74,8 @@
         </CompositeCollection>
         <BitmapImage x:Key="imgUndo" UriSource="/PgBrewer;component/Resources/Undo.png"/>
         <BitmapImage x:Key="imgRedo" UriSource="/PgBrewer;component/Resources/Redo.png"/>
+        <BitmapImage x:Key="imgUp" UriSource="/PgBrewer;component/Resources/Up.png"/>
+        <BitmapImage x:Key="imgDown" UriSource="/PgBrewer;component/Resources/Down.png"/>
         <RoutedCommand x:Key="DeleteCommand"/>
         <RoutedCommand x:Key="SaveCommand"/>
         <RoutedCommand x:Key="ExportCommand"/>
@@ -81,6 +83,8 @@
         <RoutedCommand x:Key="BackCommand"/>
         <RoutedCommand x:Key="ForwardCommand"/>
         <RoutedCommand x:Key="DeleteLineCommand"/>
+        <RoutedCommand x:Key="UpCommand"/>
+        <RoutedCommand x:Key="DownCommand"/>
         <ControlTemplate x:Key="MainButtonTemplate" TargetType="{x:Type Button}">
             <Border BorderBrush="#FFACACAC" BorderThickness="1" CornerRadius="5" x:Name="BorderTarget" Width="120" Height="40" Margin="0,5,0,5">
                 <ContentPresenter ContentSource="Content" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,2,12,2"/>
@@ -167,7 +171,7 @@
                 <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
                     <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Grid VerticalAlignment="Center" Width="1240">
+                    <Grid VerticalAlignment="Center" Width="1190">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
@@ -181,7 +185,7 @@
                     <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
                     <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="190"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Grid VerticalAlignment="Center" Width="1050">
+                    <Grid VerticalAlignment="Center" Width="1000">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
@@ -196,7 +200,7 @@
                     <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="190"/>
                     <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="130"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Grid VerticalAlignment="Center" Width="920">
+                    <Grid VerticalAlignment="Center" Width="870">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
@@ -212,7 +216,7 @@
                     <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="190"/>
                     <TextBlock Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="130"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Grid VerticalAlignment="Center" Width="850">
+                    <Grid VerticalAlignment="Center" Width="800">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
@@ -228,7 +232,7 @@
                     <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="220"/>
                     <TextBlock Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="150"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Grid VerticalAlignment="Center" Width="780">
+                    <Grid VerticalAlignment="Center" Width="730">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
@@ -244,7 +248,7 @@
                     <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="160"/>
                     <TextBlock Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="190"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Grid VerticalAlignment="Center" Width="700">
+                    <Grid VerticalAlignment="Center" Width="650">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
@@ -254,67 +258,175 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx3x3x4x3}">
             <DockPanel>
+                <Grid DockPanel.Dock="Right" Margin="4,2,2,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Command="{StaticResource UpCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoUp}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUp}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                    <Button Grid.Row="1" Command="{StaticResource DownCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoDown}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgDown}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="558" Margin="0,0,5,0">Mismatch Count:</TextBlock>
                     <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex3x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
+                    <ListBox ItemsSource="{Binding SectionLines}" SelectedIndex="{Binding SelectedSectionLine}" ItemTemplate="{StaticResource Linex3x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx3x4x5x4}">
             <DockPanel>
+                <Grid DockPanel.Dock="Right" Margin="4,2,2,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Command="{StaticResource UpCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoUp}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUp}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                    <Button Grid.Row="1" Command="{StaticResource DownCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoDown}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgDown}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="708" Margin="0,0,5,0">Mismatch Count:</TextBlock>
                     <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex3x4x5x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
+                    <ListBox ItemsSource="{Binding SectionLines}" SelectedIndex="{Binding SelectedSectionLine}" ItemTemplate="{StaticResource Linex3x4x5x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4}">
             <DockPanel>
+                <Grid DockPanel.Dock="Right" Margin="4,2,2,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Command="{StaticResource UpCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoUp}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUp}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                    <Button Grid.Row="1" Command="{StaticResource DownCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoDown}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgDown}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="168" Margin="0,0,5,0">Mismatch Count:</TextBlock>
                     <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
+                    <ListBox ItemsSource="{Binding SectionLines}" SelectedIndex="{Binding SelectedSectionLine}" ItemTemplate="{StaticResource Linex4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4x3x4x3}">
             <DockPanel>
+                <Grid DockPanel.Dock="Right" Margin="4,2,2,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Command="{StaticResource UpCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoUp}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUp}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                    <Button Grid.Row="1" Command="{StaticResource DownCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoDown}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgDown}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="628" Margin="0,0,5,0">Mismatch Count:</TextBlock>
                     <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
+                    <ListBox ItemsSource="{Binding SectionLines}" SelectedIndex="{Binding SelectedSectionLine}" ItemTemplate="{StaticResource Linex4x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4x4}">
             <DockPanel>
+                <Grid DockPanel.Dock="Right" Margin="4,2,2,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Command="{StaticResource UpCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoUp}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUp}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                    <Button Grid.Row="1" Command="{StaticResource DownCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoDown}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgDown}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="358" Margin="0,0,5,0">Mismatch Count:</TextBlock>
                     <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
+                    <ListBox ItemsSource="{Binding SectionLines}" SelectedIndex="{Binding SelectedSectionLine}" ItemTemplate="{StaticResource Linex4x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx4x4x2}">
             <DockPanel>
+                <Grid DockPanel.Dock="Right" Margin="4,2,2,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Command="{StaticResource UpCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoUp}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgUp}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                    <Button Grid.Row="1" Command="{StaticResource DownCommand}" Background="Transparent" BorderThickness="0" IsEnabled="{Binding CanGoDown}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+                        </Button.Style>
+                        <Image Source="{StaticResource imgDown}" Opacity="{Binding IsEnabled, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource DisabledNormal}, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="2"/>
+                    </Button>
+                </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="488" Margin="0,0,5,0">Mismatch Count:</TextBlock>
                     <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4x4x2Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
+                    <ListBox ItemsSource="{Binding SectionLines}" SelectedIndex="{Binding SelectedSectionLine}" ItemTemplate="{StaticResource Linex4x4x2Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
                 </ScrollViewer>
             </DockPanel>
         </DataTemplate>

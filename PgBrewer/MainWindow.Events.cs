@@ -241,4 +241,20 @@ public partial class MainWindow
             }
         }
     }
+
+    public override void OnUp(object sender, ExecutedRoutedEventArgs e)
+    {
+        MoveSection(e.OriginalSource, true);
+    }
+
+    public override void OnDown(object sender, ExecutedRoutedEventArgs e)
+    {
+        MoveSection(e.OriginalSource, false);
+    }
+
+    private void MoveSection(object source, bool isUp)
+    {
+        if (source is FrameworkElement AsFrameworkElement && AsFrameworkElement.DataContext is Alcohol AsAlcohol)
+            AsAlcohol.MoveSection(isUp);
+    }
 }

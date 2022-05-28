@@ -32,6 +32,8 @@ public class Alcoholx4 : Alcohol
             int EffectIndex = ComponentIndex1;
             Lines.Add(new Alcoholx4Line(this, Indexes[EffectIndex], ComponentIndex1));
         }
+
+        FillSectionLines();
     }
 
     public List<Component> ComponentList1 { get; }

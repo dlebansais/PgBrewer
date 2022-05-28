@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 public class Alcohol : INotifyPropertyChanged
 {
@@ -61,6 +62,9 @@ public class Alcohol : INotifyPropertyChanged
             {
                 SelectedLineInternal = value;
                 NotifyThisPropertyChanged();
+
+                if (SelectedLineInternal < SectionOffset || SelectedLineInternal >= SectionOffset + SectionLength)
+                    BringIntoView();
 
                 NotifyLineSelected(SelectedLineInternal);
             }
@@ -218,4 +222,78 @@ public class Alcohol : INotifyPropertyChanged
         return Name;
     }
     #endregion
+
+    public bool CanGoUp
+    {
+        get { return SectionOffset > 0; }
+    }
+
+    public bool CanGoDown
+    {
+        get { return SectionOffset + SectionLength < Lines.Count; }
+    }
+
+    public WpfObservableRangeCollection<AlcoholLine> SectionLines { get; } = new();
+
+    public int SelectedSectionLine
+    {
+        get
+        {
+            return SelectedLine >= SectionOffset && SelectedLine < SectionOffset + SectionLength ? SelectedLine - SectionOffset : -1;
+        }
+        set
+        {
+            if (value >= 0 && value < SectionLength)
+                SelectedLine = SectionOffset + value;
+        }
+    }
+
+    public void MoveSection(bool isUp)
+    {
+        MoveSection(SectionOffset + (isUp ? -SectionLength : SectionLength));
+    }
+
+    private void BringIntoView()
+    {
+        MoveSection(SelectedLine - (SectionLength / 2));
+    }
+
+    private void MoveSection(int newOffset)
+    {
+        if (newOffset + SectionLength > Lines.Count)
+            newOffset = Lines.Count - SectionLength;
+        if (newOffset < 0)
+            newOffset = 0;
+
+        if (SectionOffset != newOffset)
+        {
+            SectionOffset = newOffset;
+
+            FillSectionLines();
+            NotifySectionChanged();
+        }
+    }
+
+    protected void FillSectionLines()
+    {
+        int Count = Lines.Count - SectionOffset;
+        if (Count > SectionLength)
+            Count = SectionLength;
+
+        List<AlcoholLine> VisibleLines = new();
+        for (int i = 0; i < Count; i++)
+            VisibleLines.Add(Lines[SectionOffset + i]);
+
+        SectionLines.ReplaceRange(VisibleLines);
+    }
+
+    private void NotifySectionChanged()
+    {
+        NotifyPropertyChanged(nameof(CanGoUp));
+        NotifyPropertyChanged(nameof(CanGoDown));
+        NotifyPropertyChanged(nameof(SelectedSectionLine));
+    }
+
+    private const int SectionLength = 15;
+    private int SectionOffset;
 }

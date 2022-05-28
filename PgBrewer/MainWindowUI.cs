@@ -41,6 +41,8 @@ public abstract partial class MainWindowUI : Window, INotifyPropertyChanged
     public abstract void OnBack(object sender, ExecutedRoutedEventArgs e);
     public abstract void OnForward(object sender, ExecutedRoutedEventArgs e);
     public abstract void OnDeleteLine(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnUp(object sender, ExecutedRoutedEventArgs e);
+    public abstract void OnDown(object sender, ExecutedRoutedEventArgs e);
     #endregion
 
     #region Storage

@@ -41,6 +41,8 @@ public class Alcoholx4x4x2 : Alcohol
                     int EffectIndex = (ComponentIndex1 * Multiplier1) + (ComponentIndex2 * Multiplier2) + ComponentIndex3;
                     Lines.Add(new Alcoholx4x4x2Line(this, Indexes[EffectIndex], ComponentIndex1, ComponentIndex2, ComponentIndex3));
                 }
+
+        FillSectionLines();
     }
 
     public List<Component> ComponentList1 { get; }

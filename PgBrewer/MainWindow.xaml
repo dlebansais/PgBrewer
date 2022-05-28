@@ -5,6 +5,8 @@
         WindowStartupLocation="CenterOwner"
         ResizeMode="CanResize"
         Width="1690"
+        MinWidth="1690"
+        Height="700"
         MinHeight="700"
         Icon="./Resources/main.ico"
         Loaded="OnMainWindowLoaded"
@@ -18,6 +20,8 @@
         <CommandBinding Command="{StaticResource BackCommand}" Executed="OnBack"/>
         <CommandBinding Command="{StaticResource ForwardCommand}" Executed="OnForward"/>
         <CommandBinding Command="{StaticResource DeleteLineCommand}" Executed="OnDeleteLine"/>
+        <CommandBinding Command="{StaticResource UpCommand}" Executed="OnUp"/>
+        <CommandBinding Command="{StaticResource DownCommand}" Executed="OnDown"/>
     </Window.CommandBindings>
     <Grid>
         <TabControl ItemsSource="{Binding PageList}" SelectedIndex="{Binding SelectedPageIndex}" ItemTemplate="{StaticResource PageHeaderTemplate}" ItemContainerStyle="{StaticResource TabItemNoStyle}" BorderThickness="0" TabStripPlacement="Left" Margin="10"/>

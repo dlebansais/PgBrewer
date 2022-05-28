@@ -34,6 +34,8 @@
     <None Remove="Resources\main.ico" />
     <None Remove="Resources\Redo.png" />
     <None Remove="Resources\Undo.png" />
+    <None Remove="Resources\Up.png" />
+    <None Remove="Resources\Down.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +67,8 @@
     <Resource Include="Resources\main.ico" />
     <Resource Include="Resources\Redo.png" />
     <Resource Include="Resources\Undo.png" />
+    <Resource Include="Resources\Up.png" />
+    <Resource Include="Resources\Down.png" />
   </ItemGroup>
 
   <Target Name="_ResolveCopyLocalNuGetPackagePdbsAndXml" Condition="$(CopyLocalLockFileAssemblies) == true" AfterTargets="ResolveReferences">
