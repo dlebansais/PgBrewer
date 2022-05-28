@@ -67,31 +67,21 @@ public partial class MainWindow
         if (Result.FilePath.Length == 0)
             Result.FilePath = "Brewing.csv";
 
-        OnExport(Result.FilePath);
-    }
+        using MemoryStream Stream = new MemoryStream();
+        using StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8);
+        OnExport(Writer);
+        Writer.Flush();
 
-    private void OnExport(string fileName)
-    {
-        try
-        {
-            using (FileStream Stream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
-            {
-                using (StreamWriter Writer = new StreamWriter(Stream, Encoding.UTF8))
-                {
-                    OnExport(Writer);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            MessageBox.Show(e.Message);
-        }
+        Stream.Seek(0, SeekOrigin.Begin);
+        using StreamReader Reader = new StreamReader(Stream, Encoding.UTF8, false, (int)Stream.Length, true);
+        string Content = Reader.ReadToEnd();
+
+        Result.Content = Content;
     }
 
     private void OnExport(StreamWriter writer)
     {
         ExportVersionNumber(writer);
-
         ExportAssociations(writer);
     }
 
@@ -104,25 +94,23 @@ public partial class MainWindow
     public override void OnImport(object sender, ExecutedRoutedEventArgs e)
     {
         FileDialogResult Result = (FileDialogResult)e.Parameter;
-        OnImport(Result.FilePath);
+        OnImport(Result.Content);
     }
 
-    private void OnImport(string fileName)
+    private void OnImport(string content)
     {
         try
         {
-            using (FileStream Stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
-            {
-                using (StreamReader Reader = new StreamReader(Stream, Encoding.UTF8))
-                {
-                    int ChangeCount = 0;
-                    if (OnImport(Reader, ref ChangeCount))
-                        if (ChangeCount == 0)
-                            MessageBox.Show("The imported file contains the same data as the software.\r\n\r\nNo change made.", "Import", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        else
-                            MessageBox.Show("File content imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
+            byte[] ContentBytes = Encoding.UTF8.GetBytes(content);
+            using MemoryStream Stream = new MemoryStream(ContentBytes);
+            using StreamReader Reader = new StreamReader(Stream, Encoding.UTF8);
+
+            int ChangeCount = 0;
+            if (OnImport(Reader, ref ChangeCount))
+                if (ChangeCount == 0)
+                    MessageBox.Show("The imported file contains the same data as the software.\r\n\r\nNo change made.", "Import", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else
+                    MessageBox.Show("File content imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception e)
         {

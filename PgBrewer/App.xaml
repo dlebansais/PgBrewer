@@ -101,7 +101,7 @@
         </DataTemplate>
         <DataTemplate x:Key="AssociationLine">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Component.Name}" FontSize="16" TextAlignment="Right" VerticalAlignment="Center" MinWidth="160"/>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Component.Name}" FontSize="16" TextAlignment="Right" VerticalAlignment="Center" Width="210"/>
                 <TextBlock DockPanel.Dock="Left" FontSize="16" VerticalAlignment="Center">:</TextBlock>
                 <Button DockPanel.Dock="Right" Command="{StaticResource DeleteCommand}" Content="X" FontSize="16" MinWidth="16" VerticalAlignment="Center" Margin="2,1,2,1"/>
                 <ComboBox ItemsSource="{Binding ChoiceList}" SelectedIndex="{Binding AssociationIndex}" ItemTemplate="{StaticResource ChoiceTemplate}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" Margin="5,0,0,0"/>
@@ -256,7 +256,7 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="558" Margin="0,0,5,0">Mismatch Count:</TextBlock>
-                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="60"/>
+                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex3x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
@@ -267,7 +267,7 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="708" Margin="0,0,5,0">Mismatch Count:</TextBlock>
-                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="60"/>
+                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex3x4x5x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
@@ -278,7 +278,7 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="168" Margin="0,0,5,0">Mismatch Count:</TextBlock>
-                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="60"/>
+                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
@@ -289,7 +289,7 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="628" Margin="0,0,5,0">Mismatch Count:</TextBlock>
-                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="60"/>
+                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4x3x4x3Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
@@ -300,7 +300,7 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="358" Margin="0,0,5,0">Mismatch Count:</TextBlock>
-                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="60"/>
+                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4x4Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
@@ -311,7 +311,7 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock FontSize="16" TextAlignment="Right" Width="488" Margin="0,0,5,0">Mismatch Count:</TextBlock>
-                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="60"/>
+                    <TextBlock Text="{Binding MismatchCount}" FontSize="16" Width="40"/>
                 </StackPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox ItemsSource="{Binding Lines}" SelectedIndex="{Binding SelectedLine}" ItemTemplate="{StaticResource Linex4x4x2Template}" Background="LightBlue" BorderThickness="0" ItemContainerStyle="{StaticResource ListBoxItemStretchSelectable}" HorizontalContentAlignment="Stretch" SelectionChanged="OnSelectionChanged"/>
@@ -360,7 +360,7 @@
             <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Margin="10,6,0,0">
                 <ScrollViewer Margin="10">
                     <DockPanel Margin="0,0,10,0">
-                        <GroupBox DockPanel.Dock="Top" Header="Miscellaneous" FontSize="16">
+                        <GroupBox DockPanel.Dock="Top" Background="LightBlue" Header="Miscellaneous" FontSize="16">
                             <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -385,31 +385,31 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <GroupBox Grid.Column="0" Grid.Row="0" Header="Veggies for beer" FontSize="16" Margin="0,10,5,0">
+                            <GroupBox Grid.Column="0" Grid.Row="0" Background="LightBlue" Header="Veggies for beer" FontSize="16" Margin="0,10,5,0">
                                 <ItemsControl ItemsSource="{Binding AssociationVeggie2Beer}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="1" Grid.Row="0" Header="Parts #1 for liquor" FontSize="16" Margin="5,10,0,0">
+                            <GroupBox Grid.Column="1" Grid.Row="0" Background="LightBlue" Header="Parts #1 for liquor" FontSize="16" Margin="5,10,0,0">
                                 <ItemsControl ItemsSource="{Binding AssociationParts1}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="0" Grid.Row="1" Header="Flavors #1 for beer" FontSize="16" Margin="0,10,5,0">
+                            <GroupBox Grid.Column="0" Grid.Row="1" Background="LightBlue" Header="Flavors #1 for beer" FontSize="16" Margin="0,10,5,0">
                                 <ItemsControl ItemsSource="{Binding AssociationFlavor1Beer}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="1" Grid.Row="1" Header="Flavors #1 for liquor" FontSize="16" Margin="5,10,0,0">
+                            <GroupBox Grid.Column="1" Grid.Row="1" Background="LightBlue" Header="Flavors #1 for liquor" FontSize="16" Margin="5,10,0,0">
                                 <ItemsControl ItemsSource="{Binding AssociationFlavor1Liquor}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="0" Grid.Row="2" Header="Mushrooms" FontSize="16" Margin="0,10,5,0">
+                            <GroupBox Grid.Column="0" Grid.Row="2" Background="LightBlue" Header="Mushrooms" FontSize="16" Margin="0,10,5,0">
                                 <ItemsControl ItemsSource="{Binding AssociationMushroom3}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="1" Grid.Row="2" Header="Fruits" FontSize="16" Margin="5,10,0,0">
+                            <GroupBox Grid.Column="1" Grid.Row="2" Background="LightBlue" Header="Fruits" FontSize="16" Margin="5,10,0,0">
                                 <ItemsControl ItemsSource="{Binding AssociationFruit2}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="0" Grid.Row="3" Header="Flavors #2 for beer" FontSize="16" Margin="0,10,5,0">
+                            <GroupBox Grid.Column="0" Grid.Row="3" Background="LightBlue" Header="Flavors #2 for beer" FontSize="16" Margin="0,10,5,0">
                                 <ItemsControl ItemsSource="{Binding AssociationFlavor2Beer}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="1" Grid.Row="3" Header="Parts #2 for liquor" FontSize="16" Margin="5,10,0,0">
+                            <GroupBox Grid.Column="1" Grid.Row="3" Background="LightBlue" Header="Parts #2 for liquor" FontSize="16" Margin="5,10,0,0">
                                 <ItemsControl ItemsSource="{Binding AssociationParts2}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
-                            <GroupBox Grid.Column="1" Grid.Row="4" Header="Flavors #2 for liquor" FontSize="16" Margin="5,10,0,0">
+                            <GroupBox Grid.Column="1" Grid.Row="4" Background="LightBlue" Header="Flavors #2 for liquor" FontSize="16" Margin="5,10,0,0">
                                 <ItemsControl ItemsSource="{Binding AssociationFlavor2Liquor}" ItemTemplate="{StaticResource AssociationLine}" Margin="5"/>
                             </GroupBox>
                         </Grid>

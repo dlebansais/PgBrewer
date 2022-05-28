@@ -29,7 +29,7 @@ public static class SystemTools
     #region Client Interface
     public static string? GetVersion()
     {
-        Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
+        Assembly CurrentAssembly = Assembly.GetEntryAssembly();
 #pragma warning disable IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
         FileVersionInfo VersionInfo = FileVersionInfo.GetVersionInfo(CurrentAssembly.Location);
 #pragma warning restore IL3000 // Avoid using accessing Assembly file path when publishing as a single-file
