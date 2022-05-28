@@ -198,7 +198,7 @@
                     <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
                     <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
                     <Grid VerticalAlignment="Center">
-                        <ComboBox ItemsSource="{Binding Owner.EffectList}" SelectedIndex="{Binding EffectIndex}" ItemTemplate="{StaticResource EffectTemplate}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" x:Name="comboEffectList" VerticalAlignment="Center"/>
+                        <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemTemplate="{StaticResource EffectTemplate}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" x:Name="comboEffectList" VerticalAlignment="Center"/>
                         <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
                 </DockPanel>
