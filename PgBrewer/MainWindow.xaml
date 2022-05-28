@@ -4,7 +4,7 @@
         xmlns:wpflayout="clr-namespace:WpfLayout;assembly=WpfLayout.Wpf"
         WindowStartupLocation="CenterOwner"
         ResizeMode="CanResize"
-        MinWidth="1680"
+        Width="1690"
         MinHeight="700"
         Icon="./Resources/main.ico"
         Loaded="OnMainWindowLoaded"

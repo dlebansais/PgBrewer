@@ -103,7 +103,7 @@
             <DockPanel>
                 <TextBlock DockPanel.Dock="Left" Text="{Binding Component.Name}" FontSize="16" TextAlignment="Right" VerticalAlignment="Center" Width="210"/>
                 <TextBlock DockPanel.Dock="Left" FontSize="16" VerticalAlignment="Center">:</TextBlock>
-                <Button DockPanel.Dock="Right" Command="{StaticResource DeleteCommand}" Content="X" FontSize="16" MinWidth="16" VerticalAlignment="Center" Margin="2,1,2,1"/>
+                <Button DockPanel.Dock="Right" Command="{StaticResource DeleteCommand}" Content="X" FontSize="16" Width="20" VerticalAlignment="Center" Margin="2,1,2,1"/>
                 <ComboBox ItemsSource="{Binding ChoiceList}" SelectedIndex="{Binding AssociationIndex}" ItemTemplate="{StaticResource ChoiceTemplate}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" Margin="5,0,0,0"/>
             </DockPanel>
         </DataTemplate>
@@ -164,92 +164,92 @@
         </DataTemplate>
         <DataTemplate x:Key="Linex4Template" DataType="{x:Type local:Alcoholx4Line}">
             <Border x:Name="borderLine">
-                <DockPanel Margin="5,2,5,2">
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
-                    <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
-                    <Grid VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                    <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
+                    <Grid VerticalAlignment="Center" Width="1240">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
+                        <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
-                </DockPanel>
+                    <Button Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" Width="20" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="10,1,2,1"/>
+                </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x4Template">
             <Border x:Name="borderLine">
-                <DockPanel Margin="5,2,5,2">
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="190"/>
-                    <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
-                    <Grid VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                    <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
+                    <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="190"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
+                    <Grid VerticalAlignment="Center" Width="1050">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
+                        <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
-                </DockPanel>
+                    <Button Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" Width="20" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="10,1,2,1"/>
+                </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x4x2Template">
             <Border x:Name="borderLine">
-                <DockPanel Margin="5,2,5,2">
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="190"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="130"/>
-                    <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
-                    <Grid VerticalAlignment="Center">
-                        <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemTemplate="{StaticResource EffectTemplate}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" x:Name="comboEffectList" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
+                <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                    <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="130"/>
+                    <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="190"/>
+                    <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="130"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
+                    <Grid VerticalAlignment="Center" Width="920">
+                        <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
-                </DockPanel>
+                    <Button Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" Width="20" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="10,1,2,1"/>
+                </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="Linex3x3x4x3Template">
             <Border x:Name="borderLine">
-                <DockPanel Margin="5,2,5,2">
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="100"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="100"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="190"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="130"/>
-                    <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
-                    <Grid VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                    <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="100"/>
+                    <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="100"/>
+                    <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="190"/>
+                    <TextBlock Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="130"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
+                    <Grid VerticalAlignment="Center" Width="850">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
+                        <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
-                </DockPanel>
+                    <Button Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" Width="20" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="10,1,2,1"/>
+                </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="Linex4x3x4x3Template">
             <Border x:Name="borderLine">
-                <DockPanel Margin="5,2,5,2">
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="120"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="100"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="220"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="150"/>
-                    <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
-                    <Grid VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                    <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="120"/>
+                    <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="100"/>
+                    <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="220"/>
+                    <TextBlock Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="150"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
+                    <Grid VerticalAlignment="Center" Width="780">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
+                        <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
-                </DockPanel>
+                    <Button Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" Width="20" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="10,1,2,1"/>
+                </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="Linex3x4x5x4Template">
             <Border x:Name="borderLine">
-                <DockPanel Margin="5,2,5,2">
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="120"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="200"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="160"/>
-                    <TextBlock DockPanel.Dock="Left" Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="190"/>
-                    <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
-                    <Button DockPanel.Dock="Right" Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" MinWidth="16" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="2,1,2,1"/>
-                    <Grid VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                    <TextBlock Text="{Binding Component1}" FontSize="16" x:Name="componentText1" VerticalAlignment="Center" Width="120"/>
+                    <TextBlock Text="{Binding Component2}" FontSize="16" x:Name="componentText2" VerticalAlignment="Center" Width="200"/>
+                    <TextBlock Text="{Binding Component3}" FontSize="16" x:Name="componentText3" VerticalAlignment="Center" Width="160"/>
+                    <TextBlock Text="{Binding Component4}" FontSize="16" x:Name="componentText4" VerticalAlignment="Center" Width="190"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="Red" Visibility="{Binding IsMatching, Converter={StaticResource convBooleanToObject}, ConverterParameter={StaticResource VisibleHidden}}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30">?</TextBlock>
+                    <Grid VerticalAlignment="Center" Width="700">
                         <ComboBox ItemsSource="{Binding Owner.EffectTextList}" SelectedIndex="{Binding EffectIndex}" ItemContainerStyle="{StaticResource ComboBoxItemStretch}" IsReadOnly="True" HorizontalContentAlignment="Stretch" FontSize="16" x:Name="comboEffectList" VerticalAlignment="Center"/>
-                        <ContentControl Content="{Binding CalculatedEffect}" ContentTemplate="{StaticResource EffectTemplate}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
+                        <TextBlock Text="{Binding CalculatedEffect.Text}" FontSize="16" Foreground="Gray" VerticalAlignment="Center" IsHitTestVisible="False" Margin="6,0,20,0"/>
                     </Grid>
-                </DockPanel>
+                    <Button Command="{StaticResource DeleteLineCommand}" Content="X" FontSize="16" Width="20" IsEnabled="{Binding EffectIndex, Converter={StaticResource convPositiveIntToObject}, ConverterParameter={StaticResource FalseTrue}}" VerticalAlignment="Center" Margin="10,1,2,1"/>
+                </StackPanel>
             </Border>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Alcoholx3x3x4x3}">
