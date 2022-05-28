@@ -10,6 +10,11 @@ public partial class MainWindow
 {
     public void Recalculate()
     {
+        TaskDispatcher.DispatchIgnoreRetry(RecalculateNow);
+    }
+
+    public void RecalculateNow()
+    {
         RecalculateFromBottom(PageBeers.OrcishBock);
         RecalculateFromBottom(PageLiquors.PotatoVodka);
     }
