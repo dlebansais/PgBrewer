@@ -98,14 +98,14 @@ public class Alcohol : INotifyPropertyChanged
         NotifyPropertyChanged(nameof(IsSelected));
     }
 
-    public virtual async Task Save()
+    public virtual void Save(Settings settings)
     {
         List<int> Indexes = new List<int>();
 
         for (int i = 0; i < Lines.Count; i++)
             Indexes.Add(Lines[i].EffectIndex);
 
-        await DataArchive.SetIndexList(Name, Indexes);
+        DataArchive.SetIndexList(settings, Name, Indexes);
     }
 
     public virtual void ClearCalculateIndexes()

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public class PgBrewerPageLiquors : PgBrewerPage, IAlcoholPage
 {
     #region Init
-    public static async Task<PgBrewerPageLiquors> Create(BackForward backForward)
+    public static async Task<PgBrewerPageLiquors> Create(Settings settings, BackForward backForward)
     {
         PgBrewerPageLiquors Instance = new(backForward);
-        await Instance.Init();
+        await Instance.Init(settings);
 
         return Instance;
     }
@@ -20,51 +20,59 @@ public class PgBrewerPageLiquors : PgBrewerPage, IAlcoholPage
     {
     }
 
-    private async Task Init()
+    private async Task Init(Settings settings)
     {
-        PotatoVodka = await Alcoholx3x4x5x4.Create("Potato Vodka",
+        PotatoVodka = await Alcoholx3x4x5x4.Create(settings,
+            "Potato Vodka",
             Component.FruitTier1Three,
             Component.VeggieTier1,
             Component.PartsTier1,
             Component.FlavorTier1Four);
 
-        Applejack = await Alcoholx3x4x5x4.Create("Applejack",
+        Applejack = await Alcoholx3x4x5x4.Create(settings,
+            "Applejack",
             Component.FruitTier1Three,
             Component.VeggieTier2,
             Component.PartsTier1,
             Component.FlavorTier1Four);
 
-        BeetVodka = await Alcoholx3x4x5x4.Create("Beet Vodka",
+        BeetVodka = await Alcoholx3x4x5x4.Create(settings,
+            "Beet Vodka",
             Component.FruitTier2,
             Component.VeggieTier1,
             Component.PartsTier1,
             Component.FlavorTier1Four);
 
-        PaleRum = await Alcoholx3x4x5x4.Create("Pale Rum",
+        PaleRum = await Alcoholx3x4x5x4.Create(settings,
+            "Pale Rum",
             Component.FruitTier2,
             Component.MushroomTier3,
             Component.PartsTier1,
             Component.FlavorTier1Four);
 
-        Whisky = await Alcoholx3x4x5x4.Create("Whisky",
+        Whisky = await Alcoholx3x4x5x4.Create(settings,
+            "Whisky",
             Component.FruitTier2,
             Component.MushroomTier3,
             Component.PartsTier2,
             Component.FlavorTier1Four);
 
-        Tequila = await Alcoholx3x4x5x4.Create("Tequila",
+        Tequila = await Alcoholx3x4x5x4.Create(settings,
+            "Tequila",
             Component.FruitTier2,
             Component.MushroomTier3,
             Component.PartsTier2,
             Component.FlavorTier2Four);
 
-        DryGin = await Alcoholx3x4x5x4.Create("Dry Gin",
+        DryGin = await Alcoholx3x4x5x4.Create(settings,
+            "Dry Gin",
             Component.FruitTier3,
             Component.MushroomTier4,
             Component.PartsTier2,
             Component.FlavorTier2Four);
 
-        Bourbon = await Alcoholx3x4x5x4.Create("Bourbon",
+        Bourbon = await Alcoholx3x4x5x4.Create(settings,
+            "Bourbon",
             Component.FruitTier3,
             Component.MushroomTier4,
             Component.PartsTier3,
@@ -134,16 +142,16 @@ public class PgBrewerPageLiquors : PgBrewerPage, IAlcoholPage
     #endregion
 
     #region Client Interface
-    public async Task SaveAll()
+    public void SaveAll(Settings settings)
     {
-        await PotatoVodka.Save();
-        await Applejack.Save();
-        await BeetVodka.Save();
-        await PaleRum.Save();
-        await Whisky.Save();
-        await Tequila.Save();
-        await DryGin.Save();
-        await Bourbon.Save();
+        PotatoVodka.Save(settings);
+        Applejack.Save(settings);
+        BeetVodka.Save(settings);
+        PaleRum.Save(settings);
+        Whisky.Save(settings);
+        Tequila.Save(settings);
+        DryGin.Save(settings);
+        Bourbon.Save(settings);
     }
 
     public void ExportAll(StreamWriter writer)

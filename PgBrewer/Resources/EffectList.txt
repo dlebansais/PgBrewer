@@ -74,14 +74,14 @@ Goblin Ale;Unarmed Ability Power Cost -4%, Shield Ability Power Cost -4%, Sword 
 Orcish Bock;(?) Armor Patching Ability Power Cost -6%, Lycanthropy Ability Power Cost -7%, Druid Ability Power Cost -7%;;
 Orcish Bock;(?) Bard Ability Power Cost -6%, Battle Chemistry Ability Power Cost -7%, Archery Ability Power Cost -7%;;
 Orcish Bock;(?) Breath recovered out of water +4, Max underwater held breath +7, Sprint-Swimming Speed Boost +1.2
-Orcish Bock;(?) Chance for your attacks to miss +33 %, chance to evade burst +80 %, sprint boost (out of combat) +1.2
-Orcish Bock;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Orcish Bock;(?) Chance for your attacks to miss +33%, chance to evade burst +80%, sprint boost (out of combat) +1.2
+Orcish Bock;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Orcish Bock;(?) Chance to forage extra seeds +13%, Chance to forage extra mushrooms +21%
 Orcish Bock;(?) Chance to ignore Knockbacks +8%, Jump Power +1.2
-Orcish Bock;(?) Chance to miss with Projectiles +15 %, Taunt from attack damage +30 %
+Orcish Bock;(?) Chance to miss with Projectiles +15%, Taunt from attack damage +30%
 Orcish Bock;(?) Chance to scrap extra Fish Scale +10%, Chance to catch Bonus Fish +24%
-Orcish Bock;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7 %, Mentalism Abilities Power Cost -7 %
-Orcish Bock;(?) Dance Appreciation extra-effect chance boost +12 %, Dance Appreciation boost +8
+Orcish Bock;(?) Crossbow Abilities Power Cost -6%, Psychology Abilities Power Cost -7%, Mentalism Abilities Power Cost -7%
+Orcish Bock;(?) Dance Appreciation extra-effect chance boost +12%, Dance Appreciation boost +8
 Orcish Bock;(?) Dig Deep Power Restoration +67
 Orcish Bock;(?) Dwarves gain +20 Max Bodyheat
 Orcish Bock;(?) Dwarves gain +20 Max Hydratation
@@ -115,7 +115,7 @@ Orcish Bock;(?) Max Armor +48
 Orcish Bock;(?) Max Health +33
 Orcish Bock;(?) Max Peaceableness +6, Max Community +7, Max Cleanliness +7
 Orcish Bock;(?) Max Power +20
-Orcish Bock;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5 %
+Orcish Bock;(?) Melee Accuracy boost +5.5, Chance to evade melee +5.5%
 Orcish Bock;(?) Necromancy power cost -6%, Ice Magic Abilities power cost -7%, Fire Magic Abilities power cost -7%
 Orcish Bock;(?) Orcs gain +20 Max Bodyheat
 Orcish Bock;(?) Orcs gain +20 Max Hydratation
@@ -130,7 +130,7 @@ Orcish Bock;(?) Rakshasa gain +20 Max Hydratation
 Orcish Bock;(?) Rakshasa gain +20 Max Metabolism
 Orcish Bock;(?) Rakshasa gain +23 Max Power
 Orcish Bock;(?) Rakshasa gain +42 Max Health
-Orcish Bock;(?) Sprint Speed Boost -1.5, taunt from attack damage +30 %
+Orcish Bock;(?) Sprint Speed Boost -1.5, taunt from attack damage +30%
 Orcish Bock;(?) Taunt From Attack Damage -10.5%
 Orcish Bock;(?) Taunt From Attack Damage +20%
 Orcish Bock;(?) Unarmed abilities power cost -6%, Shield Abilities power cost -7%, Sword Abilities power cost -7%
@@ -337,7 +337,7 @@ Dwarven Stout;(?) Taunt From Attack Damage +20%;Taunter's;
 Dwarven Stout;(?) Unarmed Ability Power Cost -6%, Shield Ability Power Cost -7%, Sword Ability Power Cost -7%;;
 Potato Vodka;Your burst attacks deal +10 damage to Elite ennemies;;of Elite-Killing
 Potato Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Potato Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Potato Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Potato Vodka;(?) Chance to Evade Melee Attacks +1%
 Potato Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Potato Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -444,7 +444,7 @@ Potato Vodka;Taunt From Attack Damage -1%;;of Meekness
 Potato Vodka;Taunt From Attack Damage +1%;Taunter's;
 Applejack;Your burst attacks deal +19 damage to Elite ennemies;;of Elite-Killing
 Applejack;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Applejack;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Applejack;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Applejack;(?) Chance to Evade Melee Attacks +1%
 Applejack;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Applejack;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -551,7 +551,7 @@ Applejack;(?) Taunt From Attack Damage -1%;;of Meekness
 Applejack;(?) Taunt From Attack Damage +1%;Taunter's;
 Beet Vodka;(?) Burst Attacks +10 Damage to Elite
 Beet Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Beet Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Beet Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Beet Vodka;(?) Chance to Evade Melee Attacks +1%
 Beet Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Beet Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -658,7 +658,7 @@ Beet Vodka;(?) Taunt From Attack Damage -1%;;of Meekness
 Beet Vodka;(?) Taunt From Attack Damage +1%;Taunter's;
 Pale Rum;(?) Burst Attacks +10 Damage to Elite
 Pale Rum;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Pale Rum;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Pale Rum;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Pale Rum;(?) Chance to Evade Melee Attacks +1%
 Pale Rum;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Pale Rum;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -766,7 +766,7 @@ Pale Rum;(?) Taunt From Attack Damage +1%;Taunter's;
 Pale Rum;(?) Melee Accuracy Boost +4.5, Chance to Evade Melee +4.5%;;
 Whisky;(?) Burst Attacks +10 Damage to Elite
 Whisky;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Whisky;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Whisky;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Whisky;(?) Chance to Evade Melee Attacks +1%
 Whisky;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Whisky;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -874,7 +874,7 @@ Whisky;(?) Taunt From Attack Damage +1%;Taunter's;
 Whisky;Melee Accuracy Boost +4.5, Chance to Evade Melee +4.5%;;
 Tequila;(?) Burst Attacks +10 Damage to Elite
 Tequila;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Tequila;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Tequila;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Tequila;(?) Chance to Evade Melee Attacks +1%
 Tequila;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Tequila;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -983,7 +983,7 @@ Tequila;(?) Taunt From Attack Damage +1%;Taunter's;
 Tequila;Melee Accuracy Boost +5.5, Chance to Evade Melee +5.5%;;
 Dry Gin;(?) Burst Attacks +10 Damage to Elite
 Dry Gin;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Dry Gin;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Dry Gin;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Dry Gin;(?) Chance to Evade Melee Attacks +1%
 Dry Gin;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Dry Gin;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -1093,7 +1093,7 @@ Dry Gin;Max Health +9, Direct Nature Damage Reduction +5, Direct Cold Damage Red
 Dry Gin;Max Health +9, Direct Acid Damage Reduction +5, Direct Fire Damage Reduction +5, Direct Slashing Damage Reduction +5;;
 Bourbon;(?) Burst Attacks +10 Damage to Elite
 Bourbon;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Bourbon;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24 %
+Bourbon;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
 Bourbon;(?) Chance to Evade Melee Attacks +1%
 Bourbon;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Bourbon;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%

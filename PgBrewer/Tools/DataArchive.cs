@@ -48,11 +48,21 @@ public partial class DataArchive
         return Result;
     }
 
-    public static async Task<List<int>> GetIndexList(string valueName, int minLength)
+    public static readonly string SettingsName = "BrewingSettings";
+
+    public static async Task<Settings> ReadSettings()
+    {
+        if (await MainWindowUI.GetItemAsync<Settings>(SettingsName) is Settings Settings)
+            return Settings;
+        else
+            return new Settings();
+    }
+
+    public static List<int> GetIndexList(Settings settings, string valueName, int minLength)
     {
         List<int> Result;
-        if (await MainWindowUI.GetItemAsync<Settings>(valueName) is Settings Settings)
-            Result = Settings.IndexList;
+        if (settings.IndexTable.ContainsKey(valueName))
+            Result = settings.IndexTable[valueName];
         else
             Result = new();
 
@@ -62,11 +72,16 @@ public partial class DataArchive
         return Result;
     }
 
-    public static async Task SetIndexList(string valueName, List<int> valueList)
+    public static void SetIndexList(Settings settings, string valueName, List<int> valueList)
     {
-        Settings Settings = new();
-        Settings.IndexList = valueList;
+        if (settings.IndexTable.ContainsKey(valueName))
+            settings.IndexTable[valueName] = valueList;
+        else
+            settings.IndexTable.Add(valueName, valueList);
+    }
 
-        await MainWindowUI.SetItemAsync<Settings>(valueName, Settings);
+    public static async Task WriteSettings(Settings settings)
+    {
+        await MainWindowUI.SetItemAsync<Settings>(SettingsName, settings);
     }
 }

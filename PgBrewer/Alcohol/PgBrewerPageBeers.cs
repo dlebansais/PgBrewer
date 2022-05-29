@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public class PgBrewerPageBeers : PgBrewerPage, IAlcoholPage
 {
     #region Init
-    public static async Task<PgBrewerPageBeers> Create(BackForward backForward)
+    public static async Task<PgBrewerPageBeers> Create(Settings settings, BackForward backForward)
     {
         PgBrewerPageBeers Instance = new(backForward);
-        await Instance.Init();
+        await Instance.Init(settings);
 
         return Instance;
     }
@@ -20,45 +20,53 @@ public class PgBrewerPageBeers : PgBrewerPage, IAlcoholPage
     {
     }
 
-    private async Task Init()
+    private async Task Init(Settings settings)
     {
-        BasicLager = await Alcoholx4.Create("Basic Lager",
+        BasicLager = await Alcoholx4.Create(settings,
+            "Basic Lager",
             Component.FruitTier1Four);
 
-        PaleAle = await Alcoholx4x4.Create("Pale Ale",
+        PaleAle = await Alcoholx4x4.Create(settings,
+            "Pale Ale",
             Component.FruitTier1Four,
             Component.VeggieTier1);
 
-        Marzen = await Alcoholx4x4x2.Create("Marzen",
+        Marzen = await Alcoholx4x4x2.Create(settings,
+            "Marzen",
             Component.FruitTier1Four,
             Component.VeggieTier1,
             Component.FlavorTier1Two);
 
-        GoblinAle = await Alcoholx3x3x4x3.Create("Goblin Ale",
+        GoblinAle = await Alcoholx3x3x4x3.Create(settings,
+            "Goblin Ale",
             Component.FruitTier1Three,
             Component.FruitTier2,
             Component.VeggieTier1,
             Component.FlavorTier1Three);
 
-        OrcishBock = await Alcoholx4x3x4x3.Create("Orcish Bock",
+        OrcishBock = await Alcoholx4x3x4x3.Create(settings,
+            "Orcish Bock",
             Component.VeggieTier2,
             Component.FruitTier2,
             Component.MushroomTier3,
             Component.FlavorTier1Three);
 
-        BrownAle = await Alcoholx4x3x4x3.Create("Brown Ale",
+        BrownAle = await Alcoholx4x3x4x3.Create(settings,
+            "Brown Ale",
             Component.VeggieTier3Beer,
             Component.FruitTier2,
             Component.MushroomTier3,
             Component.FlavorTier2Three);
 
-        HegemonyLager = await Alcoholx4x3x4x3.Create("Hegemony Lager",
+        HegemonyLager = await Alcoholx4x3x4x3.Create(settings,
+            "Hegemony Lager",
             Component.VeggieTier3Beer,
             Component.FruitTier3,
             Component.MushroomTier3,
             Component.FlavorTier2Three);
 
-        DwarvenStout = await Alcoholx4x3x4x3.Create("Dwarven Stout",
+        DwarvenStout = await Alcoholx4x3x4x3.Create(settings,
+            "Dwarven Stout",
             Component.VeggieTier3Beer,
             Component.FruitTier3,
             Component.MushroomTier4,
@@ -128,16 +136,16 @@ public class PgBrewerPageBeers : PgBrewerPage, IAlcoholPage
     #endregion
 
     #region Client Interface
-    public async Task SaveAll()
+    public void SaveAll(Settings settings)
     {
-        await BasicLager.Save();
-        await PaleAle.Save();
-        await Marzen.Save();
-        await GoblinAle.Save();
-        await OrcishBock.Save();
-        await BrownAle.Save();
-        await HegemonyLager.Save();
-        await DwarvenStout.Save();
+        BasicLager.Save(settings);
+        PaleAle.Save(settings);
+        Marzen.Save(settings);
+        GoblinAle.Save(settings);
+        OrcishBock.Save(settings);
+        BrownAle.Save(settings);
+        HegemonyLager.Save(settings);
+        DwarvenStout.Save(settings);
     }
 
     public void ExportAll(StreamWriter writer)

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 public class Alcoholx4 : Alcohol
 {
-    public static async Task<Alcoholx4> Create(string name, List<Component> componentList1)
+    public static async Task<Alcoholx4> Create(Settings settings, string name, List<Component> componentList1)
     {
         Debug.Assert(componentList1.Count == 4);
 
         Alcoholx4 Instance = new(name, componentList1);
-        await Instance.Init();
+        await Instance.Init(settings);
 
         return Instance;
     }
@@ -22,10 +22,10 @@ public class Alcoholx4 : Alcohol
         ComponentList1 = componentList1;
     }
 
-    private async Task Init()
+    private async Task Init(Settings settings)
     {
         await ReadEffectList();
-        List<int> Indexes = await DataArchive.GetIndexList(Name, ComponentList1.Count);
+        List<int> Indexes = DataArchive.GetIndexList(settings, Name, ComponentList1.Count);
 
         for (int ComponentIndex1 = 0; ComponentIndex1 < ComponentList1.Count; ComponentIndex1++)
         {

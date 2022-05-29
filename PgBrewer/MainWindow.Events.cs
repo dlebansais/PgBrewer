@@ -82,7 +82,12 @@ public partial class MainWindow
     private void OnExport(StreamWriter writer)
     {
         ExportVersionNumber(writer);
-        ExportAssociations(writer);
+        PageSettings.ExportAssociations(writer);
+
+        writer.WriteLine();
+
+        PageBeers.ExportAll(writer);
+        PageLiquors.ExportAll(writer);
     }
 
     private void ExportVersionNumber(StreamWriter writer)
@@ -157,7 +162,16 @@ public partial class MainWindow
 
     private bool OnImportConfirmed(StreamReader reader, ref int changeCount)
     {
-        return ImportAssociations(reader, ref changeCount);
+        if (!PageSettings.ImportAssociations(reader, ref changeCount))
+            return false;
+
+        if (!PageBeers.ImportAll(reader, ref changeCount))
+            return false;
+
+        if (!PageLiquors.ImportAll(reader, ref changeCount))
+            return false;
+
+        return true;
     }
 
     public override void OnBack(object sender, ExecutedRoutedEventArgs e)

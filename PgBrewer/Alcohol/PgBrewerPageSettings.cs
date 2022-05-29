@@ -1,13 +1,16 @@
 ﻿namespace PgBrewer;
 
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 
 public class PgBrewerPageSettings : PgBrewerPage
 {
     #region Init
-    public PgBrewerPageSettings(BackForward backForward)
+    public PgBrewerPageSettings(Settings settings, BackForward backForward)
         : base(backForward)
     {
+        LoadAssociations(settings);
     }
     #endregion
 
@@ -108,5 +111,129 @@ public class PgBrewerPageSettings : PgBrewerPage
         new ComponentAssociation(Component.Seaweed, Component.FlavorTier3Four),
         new ComponentAssociation(Component.MyconianJelly, Component.FlavorTier3Four),
     });
+    #endregion
+
+    #region Implementation
+    public void LoadAssociations(Settings settings)
+    {
+        LoadAssociations(settings, AssociationFruit1);
+        LoadAssociations(settings, AssociationFruit2);
+        LoadAssociations(settings, AssociationVeggie1);
+        LoadAssociations(settings, AssociationVeggie2Beer);
+        LoadAssociations(settings, AssociationVeggie2Liquor);
+        LoadAssociations(settings, AssociationMushroom3);
+        LoadAssociations(settings, AssociationParts1);
+        LoadAssociations(settings, AssociationParts2);
+        LoadAssociations(settings, AssociationFlavor1Beer);
+        LoadAssociations(settings, AssociationFlavor1Liquor);
+        LoadAssociations(settings, AssociationFlavor2Beer);
+        LoadAssociations(settings, AssociationFlavor2Liquor);
+    }
+
+    private void LoadAssociations(Settings settings, ComponentAssociationCollection associationList)
+    {
+        List<int> AssociationIndexes = DataArchive.GetIndexList(settings, $"{AssociationSettingName}{associationList.Name}", associationList.Count);
+        for (int i = 0; i < associationList.Count; i++)
+            associationList[i].AssociationIndex = AssociationIndexes[i];
+
+        AssociationTable.Add(associationList);
+    }
+
+    public void SaveAssociations(Settings settings)
+    {
+        foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+        {
+            List<int> IndexList = new List<int>();
+            for (int i = 0; i < AssociationList.Count; i++)
+                IndexList.Add(AssociationList[i].AssociationIndex);
+
+            DataArchive.SetIndexList(settings, $"{AssociationSettingName}{AssociationList.Name}", IndexList);
+        }
+    }
+
+    public void ExportAssociations(StreamWriter writer)
+    {
+        writer.WriteLine("Associations");
+        writer.WriteLine();
+
+        foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+        {
+            writer.WriteLine(AssociationList.Name);
+
+            foreach (ComponentAssociation Association in AssociationList)
+            {
+                string AssociationName = Association.Component.Name;
+
+                if (Association.AssociationIndex >= 0)
+                    writer.WriteLine($"{AssociationName};{Association.ChoiceList[Association.AssociationIndex]}");
+                else
+                    writer.WriteLine($"{AssociationName};");
+            }
+
+            writer.WriteLine();
+        }
+    }
+
+    public bool ImportAssociations(StreamReader reader, ref int changeCount)
+    {
+        if (reader.ReadLine() != "Associations")
+            return false;
+
+        reader.ReadLine();
+
+        foreach (ComponentAssociationCollection AssociationList in AssociationTable)
+        {
+            if (AssociationList.Name != reader.ReadLine())
+                return false;
+
+            foreach (ComponentAssociation Association in AssociationList)
+            {
+                string AssociationString = reader.ReadLine()!;
+                string AssociationName = Association.Component.Name;
+                AssociationName += ";";
+
+                if (!AssociationString.StartsWith(AssociationName))
+                    return false;
+
+                AssociationString = AssociationString.Substring(AssociationName.Length);
+                if (AssociationString.Length > 0)
+                {
+                    int SelectedIndex = -1;
+                    for (int i = 0; i < Association.ChoiceList.Count; i++)
+                    {
+                        Component Choice = Association.ChoiceList[i];
+                        if (Choice.ToString() == AssociationString)
+                        {
+                            SelectedIndex = i;
+                            break;
+                        }
+                    }
+
+                    if (SelectedIndex < 0)
+                        return false;
+
+                    if (Association.AssociationIndex != SelectedIndex)
+                    {
+                        Association.AssociationIndex = SelectedIndex;
+                        changeCount++;
+                    }
+                }
+                else if (Association.AssociationIndex >= 0)
+                {
+                    Association.AssociationIndex = -1;
+                    changeCount++;
+                }
+            }
+
+            reader.ReadLine();
+        }
+
+        reader.ReadLine();
+
+        return true;
+    }
+
+    private static readonly string AssociationSettingName = "Association-";
+    private List<ComponentAssociationCollection> AssociationTable { get; } = new();
     #endregion
 }

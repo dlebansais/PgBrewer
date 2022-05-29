@@ -4,5 +4,5 @@ using System.Collections.Generic;
 
 public class Settings
 {
-    public List<int> IndexList { get; set; } = new();
+    public Dictionary<string, List<int>> IndexTable { get; set; } = new();
 }
