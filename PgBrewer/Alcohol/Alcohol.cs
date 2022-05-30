@@ -65,6 +65,8 @@ public class Alcohol : INotifyPropertyChanged
 
                 if (SelectedLineInternal < SectionOffset || SelectedLineInternal >= SectionOffset + SectionLength)
                     BringIntoView();
+                else
+                    NotifySectionChanged();
 
                 NotifyLineSelected(SelectedLineInternal);
             }

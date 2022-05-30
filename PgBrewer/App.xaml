@@ -95,7 +95,7 @@
                     <Setter TargetName="BorderTarget" Property="BorderBrush" Value="#FF70C0E7"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="BorderTarget" Property="Background" Value="Gray"/>
+                    <Setter TargetName="BorderTarget" Property="Background" Value="LightGray"/>
                     <Setter Property="Foreground" Value="DarkGray"/>
                 </Trigger>
             </ControlTemplate.Triggers>
@@ -151,15 +151,6 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter TargetName="BorderTarget" Property="Background" Value="#FFE5F3FB"/>
                     <Setter TargetName="BorderTarget" Property="BorderBrush" Value="#FF70C0E7"/>
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="BorderTarget" Property="Background" Value="DarkBlue"/>
-                    <Setter TargetName="BorderTarget" Property="BorderBrush" Value="Black"/>
-                    <Setter TargetName="BorderTarget" Property="CornerRadius" Value="5,5,5,5"/>
-                    <Setter TargetName="BorderTarget" Property="Margin" Value="5,4,5,10"/>
-                    <Setter TargetName="BorderTarget" Property="Height" Value="24"/>
-                    <Setter TargetName="TextTargetSelected" Property="Foreground" Value="DarkGray"/>
-                    <Setter TargetName="TextTargetUnselected" Property="Foreground" Value="DarkGray"/>
                 </Trigger>
             </DataTemplate.Triggers>
         </DataTemplate>

@@ -1,7 +1,6 @@
 ﻿namespace PgBrewer;
 
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using WpfLayout;
 
@@ -18,7 +17,7 @@ public partial class App : Application
     }
     #endregion
 
-    #region Events
+    #region Drag & Drop
     private void OnListBoxItemMouseMove(object sender, MouseEventArgs args)
     {
         DragDropTools.OnListBoxItemMouseMove(sender, args);
@@ -27,13 +26,6 @@ public partial class App : Application
     private void OnListBoxItemDrop(object sender, DragEventArgs args)
     {
         DragDropTools.OnListBoxItemDrop(sender, args);
-    }
-
-    public void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (sender is ListBox AsListBox && e.OriginalSource == sender && AsListBox.SelectedItem is object SelectedItem)
-            if (SelectorTools.ItemToContainer(AsListBox, SelectedItem) is FrameworkElement AsFrameworkElement)
-                AsFrameworkElement.Focus();
     }
     #endregion
 }
