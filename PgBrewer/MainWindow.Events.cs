@@ -23,7 +23,7 @@ public partial class MainWindow
     {
         if (IsChanged)
         {
-            MessageBoxResult Answer = MessageBox.Show("Save changes before exit?", "Closing", MessageBoxButton.YesNoCancel);
+            MessageBoxResult Answer = await DialogBox.Show("Save changes before exit?", "Closing", MessageBoxButton.YesNoCancel);
 
             switch (Answer)
             {
@@ -96,13 +96,13 @@ public partial class MainWindow
             writer.WriteLine($"{VersionProlog}{Version}");
     }
 
-    public override void OnImport(object sender, ExecutedRoutedEventArgs e)
+    public override async void OnImport(object sender, ExecutedRoutedEventArgs e)
     {
         FileDialogResult Result = (FileDialogResult)e.Parameter;
-        OnImport(Result.Content);
+        await OnImport(Result.Content);
     }
 
-    private void OnImport(string content)
+    private async Task OnImport(string content)
     {
         try
         {
@@ -111,33 +111,37 @@ public partial class MainWindow
             using StreamReader Reader = new StreamReader(Stream, Encoding.UTF8);
 
             int ChangeCount = 0;
-            if (OnImport(Reader, ref ChangeCount))
+            Tuple<bool, int> ImportResult = await OnImport(Reader, ChangeCount);
+            bool Success = ImportResult.Item1;
+            ChangeCount = ImportResult.Item2;
+
+            if (Success)
                 if (ChangeCount == 0)
-                    MessageBox.Show("The imported file contains the same data as the software.\r\n\r\nNo change made.", "Import", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    await DialogBox.Show("The imported file contains the same data as the software.\r\n\r\nNo change made.", "Import", MessageBoxButton.OK, MessageBoxImage.Warning);
                 else
-                    MessageBox.Show("File content imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
+                    await DialogBox.Show("File content imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         catch (Exception e)
         {
-            MessageBox.Show(e.Message);
+            await DialogBox.Show(e.Message);
         }
     }
 
-    private bool OnImport(StreamReader reader, ref int changeCount)
+    private async Task<Tuple<bool, int>> OnImport(StreamReader reader, int changeCount)
     {
-        if (!ImportVersionNumber(reader))
-            return false;
+        if (!await ImportVersionNumber(reader))
+            return new Tuple<bool, int>(false, changeCount);
 
-        if (OnImportConfirmed(reader, ref changeCount))
-            return true;
-        else
+        if (!OnImportConfirmed(reader, ref changeCount))
         {
-            MessageBox.Show("Invalid format, not all of the file content was imported.", "Import", MessageBoxButton.OK, MessageBoxImage.Error);
-            return false;
+            await DialogBox.Show("Invalid format or corrupted file. Could not import the entire content.", "Import", MessageBoxButton.OK, MessageBoxImage.Error);
+            return new Tuple<bool, int>(false, changeCount);
         }
+
+        return new Tuple<bool, int>(true, changeCount);
     }
 
-    private bool ImportVersionNumber(StreamReader reader)
+    private async Task<bool> ImportVersionNumber(StreamReader reader)
     {
         if (SystemTools.GetVersion() is not string Version)
             return false;
@@ -152,7 +156,7 @@ public partial class MainWindow
 
         if (Line != Version)
         {
-            MessageBoxResult Answer = MessageBox.Show($"This file was exported from version {Line}. The current version is {Version} and is probably not compatible. Continue?", "Import", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult Answer = await DialogBox.Show($"This file was exported from version {Line}. The current version is {Version} and is probably not compatible. Continue?", "Import", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (Answer != MessageBoxResult.Yes)
                 return false;
         }
