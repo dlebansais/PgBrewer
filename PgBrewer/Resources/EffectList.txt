@@ -433,6 +433,7 @@ Potato Vodka;(?) Projectile Attacks do +6 Damage to Elite
 Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn -1% Combat XP when feeling Dead Inside
 Potato Vodka;(?) Rakshasa earn +1% Combat XP when feeling peacable, but earn NO Combat XP when feeling Dead Inside
 Potato Vodka;(?) Rakshasa gain +1 Max Bodyheat
+Potato Vodka;(?) Rakshasa gain +1 Max Hydratation
 Potato Vodka;(?) Rakshasa gain +1 Max Metabolism
 Potato Vodka;(?) Rakshasa gain +4 Max Power
 Potato Vodka;(?) Rakshasa gain +6 Max Health
