@@ -337,7 +337,7 @@ Dwarven Stout;(?) Taunt From Attack Damage +20%;Taunter's;
 Dwarven Stout;(?) Unarmed Ability Power Cost -6%, Shield Ability Power Cost -7%, Sword Ability Power Cost -7%;;
 Potato Vodka;Your burst attacks deal +10 damage to Elite ennemies;;of Elite-Killing
 Potato Vodka;(?) Chance for Your Attacks to Miss +33%, Sprint Boost (Out of Combat) +0.1
-Potato Vodka;(?) Chance to chop extra Perfect Wood +10%, Chance to chop extra wood +24%
+Potato Vodka;(?) Chance to chop extra Perfect Wood +5%, Chance to chop extra wood +10%
 Potato Vodka;(?) Chance to Evade Melee Attacks +1%
 Potato Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
 Potato Vodka;(?) Chance to forage extra seeds +5%, Chance to forage extra mushrooms +10%
@@ -377,8 +377,10 @@ Potato Vodka;(?) Direct Darkness Damage +1;;
 Potato Vodka;(?) Direct Demonic Damage +1
 Potato Vodka;(?) Direct Divine Damage +1
 Potato Vodka;(?) Direct Electricity Damage +1
+Potato Vodka;(?) Direct Cold Damage +1
 Potato Vodka;(?) Direct Fire Damage +1
 Potato Vodka;(?) Direct Nature Damage +1
+Potato Vodka;(?) Direct Piercing Damage +1
 Potato Vodka;Direct Piercing Damage Reduction +1;;
 Potato Vodka;(?) Direct Poison Damage +1
 Potato Vodka;(?) Direct Psychic Damage +1
