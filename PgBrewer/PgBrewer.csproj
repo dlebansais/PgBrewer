@@ -16,8 +16,8 @@
     <Product>PgBrewer</Product>
     <Description>Helps managing beers and other liquors one can make in the Project: Gorgon MMORPG</Description>
     <Copyright>Copyright © David Le Bansais 2019</Copyright>
-    <AssemblyVersion>1.0.2.51</AssemblyVersion>
-    <FileVersion>1.0.2.51</FileVersion>
+    <AssemblyVersion>1.0.2.53</AssemblyVersion>
+    <FileVersion>1.0.2.52</FileVersion>
     <RepositoryUrl>https://github.com/dlebansais/PgBrewer</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <RootNamespace>PgBrewer</RootNamespace>
@@ -43,6 +43,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Fody" Version="6.6.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
