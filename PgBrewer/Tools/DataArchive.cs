@@ -48,11 +48,9 @@ public partial class DataArchive
         return Result;
     }
 
-    public static readonly string SettingsName = "BrewingSettings";
-
     public static async Task<Settings> ReadSettings()
     {
-        if (await MainWindowUI.GetItemAsync<Settings>(SettingsName) is Settings Settings)
+        if (await MainWindowUI.GetItemAsync<Settings>(string.Empty) is Settings Settings)
             return Settings;
         else
             return new Settings();
@@ -82,6 +80,6 @@ public partial class DataArchive
 
     public static async Task WriteSettings(Settings settings)
     {
-        await MainWindowUI.SetItemAsync<Settings>(SettingsName, settings);
+        await MainWindowUI.SetItemAsync<Settings>(string.Empty, settings);
     }
 }
